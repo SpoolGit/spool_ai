@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   vasilis.ilias@usecopay.com
+  </p>
+  <p id="header" name="prospect_email">
+   ben@plied.co.uk
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-01-23T16:00:00Z
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <li>
+      <p>
+       "I noticed you recently co-founded Plied - what inspired you to start a GTM consulting company?"
+      </p>
+     </li>
+     <li>
+      <p>
+       "I see you're expanding your GTM operations in London - what's been the most exciting part of building the business there?"
+      </p>
+     </li>
+     <li>
+      <p>
+       "Having been a founder member at Procore through their IPO, what key lessons are you bringing to your new venture at Plied?"
+      </p>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <ol>
+     <p>
+      <li>
+       Cash flow unpredictability due to working with multiple B2B SaaS/tech clients who may have varying payment terms and cycles
+      </li>
+     </p>
+     <p>
+      <li>
+       Managing payment timelines and reconciliation across different client projects and consulting engagements
+      </li>
+     </p>
+     <p>
+      <li>
+       Need for efficient payment tracking systems when dealing with multiple stakeholders (founders, investors, executives)
+      </li>
+     </p>
+     <p>
+      <li>
+       Risk of late payments affecting their own operational stability as a small consulting firm
+      </li>
+     </p>
+     <p>
+      <li>
+       Administrative burden of managing payments and invoices while focusing on their core GTM consulting services
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <p>
+     Based on the context, there is only 1 LinkedIn post available:
+    </p>
+    <p>
+     5d ago: Plied co-founders Brandon and Ben announced the launch of their GTM operations consulting company for founders, investors and executives.
+    </p>
+    <p>
+     (Note: No other posts with timestamps were provided in the context to identify 3 latest posts)
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <p>
+     <strong>
+      5 days ago:
+     </strong>
+     Company announcement - Plied launched by founders Brandon and Ben as a new business offering hands-on GTM (go-to-market) operations services for founders, investors, and executives. Based in London, GB with website
+     <a href="http://www.plied.co.uk">
+      www.plied.co.uk
+     </a>
+     .
+    </p>
+    <h6>
+     Insights:
+    </h6>
+    <p>
+     This appears to be the company's initial launch announcement.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <p>
+     Based on the prospect being a GTM operations consulting firm for B2B SaaS/tech companies in London, here's a customized value proposition:
+    </p>
+    <ul>
+     <li>
+      As a UK-based fintech solution, we can help your B2B SaaS clients optimize their construction industry go-to-market strategy through our innovative payment platform
+     </li>
+     <li>
+      Our technology platform can be a valuable case study for your GTM consulting, demonstrating successful digital transformation in traditional industries like construction
+     </li>
+     <li>
+      Being a small but innovative London-based company ourselves, we understand the unique challenges of UK tech startups and can provide insights for your founder clients targeting the construction sector
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <li>
+      £3m M&amp;E business (UK-based) - Similar geography and small business size
+     </li>
+     <li>
+      £2m painting business (UK-based) - Similar geography and small business size
+     </li>
+     <li>
+      £6m surfacing business (UK-based) - Similar geography and small business size
+     </li>
+     <li>
+      Morgan Sindall (UK-based) - Similar geography
+     </li>
+     <li>
+      Laing O'Rourke (UK-based) - Similar geography
+     </li>
+     <li>
+      Balfour Beatty (UK-based) - Similar geography
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the prospect being a GTM consulting firm and the seller offering construction payment/cashflow solutions, here are the 5 most relevant qualification questions:
+    </h3>
+    <ol>
+     <li>
+      "Do you currently work with or advise any construction industry clients, particularly in the B2B space?"
+      <ul>
+       <li>
+        This helps understand if they have relevant industry connections and expertise
+       </li>
+      </ul>
+     </li>
+     <li>
+      "In your GTM consulting work, do you help connect technology solutions providers with potential enterprise customers in specific industries?"
+      <ul>
+       <li>
+        This explores if they could be a potential partner/referral source
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What's your typical engagement model with B2B SaaS companies looking to enter new markets?"
+      <ul>
+       <li>
+        This helps understand how they might position construction fintech solutions
+       </li>
+      </ul>
+     </li>
+     <li>
+      "Do you have any experience working with financial technology or payment solutions companies?"
+      <ul>
+       <li>
+        This determines their familiarity with similar solutions
+       </li>
+      </ul>
+     </li>
+     <li>
+      "Are you currently advising any investors or founders who are interested in construction technology or supply chain finance solutions?"
+      <ul>
+       <li>
+        This explores potential indirect business opportunities through their network
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     These questions aim to:
+    </p>
+    <ul>
+     <li>
+      Determine if they could be a strategic partner rather than a direct customer
+     </li>
+     <li>
+      Explore their network and influence in relevant industries
+     </li>
+     <li>
+      Understand their potential role in connecting the solution to construction companies
+     </li>
+     <li>
+      Assess their expertise in related areas (fintech, payments, supply chain)
+     </li>
+     <li>
+      Identify possible referral opportunities through their client base
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <ol>
+     <li>
+      Real-time financial tracking dashboard
+     </li>
+     <li>
+      Dynamic discounting payment options
+     </li>
+     <li>
+      Early payment acceleration service
+     </li>
+     <li>
+      Zero-debt cashflow acceleration
+     </li>
+     <li>
+      24/7 payment and invoice data portal
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <p>
+     Based on the context and taking the role of a seller, here's how I would handle these objections:
+    </p>
+    <h4>
+     1. "We don't have cash flow/liquidity issues to need early payment solutions"
+    </h4>
+    <ul>
+     <li>
+      It's not just about solving current cash flow problems - it's about taking control of your business finances and getting paid on your terms
+     </li>
+     <li>
+      You can use it strategically only when needed, there's no obligation to use it all the time
+     </li>
+     <li>
+      It serves as a safety net for unexpected situations or growth opportunities
+     </li>
+     <li>
+      It's a free portal that gives you 24/7 access to payment and invoice data, improving your financial visibility
+     </li>
+    </ul>
+    <h4>
+     2. "We already have existing financing arrangements (like factoring) in place"
+    </h4>
+    <ul>
+     <li>
+      From the context, factoring is "expensive and hard to stop using once you start" while this solution has more flexibility
+     </li>
+     <li>
+      This is a direct arrangement with your clients - no debt or external funding involved
+     </li>
+     <li>
+      You can use it alongside existing arrangements, giving you more options
+     </li>
+     <li>
+      It creates a win-win situation as it incentivizes clients to pay early rather than being chased for payments
+     </li>
+     <li>
+      It's typically more cost-effective than traditional factoring solutions
+     </li>
+    </ul>
+    <p>
+     The key is to position it as a flexible financial tool that gives them more control and options, rather than just a solution for cash flow problems.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <p>
+     The provided context does not contain any technical stack information. The context appears to be website content about Copay, a construction industry payment solution, but does not list any technology stack details.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
