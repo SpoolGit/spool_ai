@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   vasilis.ilias@usecopay.com
+  </p>
+  <p id="header" name="prospect_email">
+   george.a@ashbrookroofing.co.uk
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-01-24T10:00:00Z
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <p>
+      <li>
+       "I noticed you recently showcased at the Chelsea Flower Show 2024 - how was that prestigious experience?"
+      </li>
+     </p>
+     <p>
+      <li>
+       "Congratulations on completing 24 months with the Reach coaching programme - what's been the biggest growth area for your business?"
+      </li>
+     </p>
+     <p>
+      <li>
+       "I see you've recently added Dakea roof windows to your product line - how has the customer response been to this new offering?"
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Based on the business context, here are the likely top 5 pain points for Ashbrook Roofing Supplies Ltd:
+    </h3>
+    <ol>
+     <li>
+      Payment delays from customers (contractors and builders) affecting cash flow and working capital
+     </li>
+     <li>
+      Need to maintain large inventory of expensive roofing materials while waiting for customer payments
+     </li>
+     <li>
+      Supply chain payment challenges when having to pay manufacturers/suppliers quickly while waiting for customer payments
+     </li>
+     <li>
+      Managing payment terms across multiple customer accounts and two physical locations
+     </li>
+     <li>
+      Cash flow constraints limiting ability to take advantage of bulk purchase discounts or expand inventory range
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <h3>
+     Based on the context, here are the 3 latest LinkedIn posts from Ashbrook Roofing Supplies Ltd:
+    </h3>
+    <ol>
+     <p>
+      (1mo) Showcased a reroof project by A&amp;S Roofing Services in Bonsall featuring new timbers, Velux windows, and dry ridge system.
+     </p>
+     <p>
+      (1mo) Announced new partnership with Dakea UK to supply their high-quality roof windows with up to 20-year guarantee.
+     </p>
+     <p>
+      (5mo) Hosted SSQ Natural Slate for a slate and cladding showcase with Gary Firth presenting to customers.
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h3>
+     Here are the unique news for Ashbrook Roofing Supplies Ltd, sorted by date:
+    </h3>
+    <ol>
+     <li>
+      (1 month ago) - Showcased a reroof project by A&amp;S Roofing Services in Bonsall
+     </li>
+     <li>
+      (1 month ago) - Announced new partnership with Dakea UK roof windows
+     </li>
+     <li>
+      (5 months ago) - Hosted SSQ Natural Slate showcase event
+     </li>
+     <li>
+      (6 months ago) - George Ashbrook completed Reach 1-2-1 coaching programme
+     </li>
+     <li>
+      (7 months ago) - Special offer on Sika Everbuild Lead Mate
+     </li>
+     <li>
+      (8 months ago) - Multiple updates:
+      <ul>
+       <li>
+        Supplied materials for Chelsea Flower Show 2024
+       </li>
+       <li>
+        Introduced Azpects Ltd EasyJoint compound
+       </li>
+       <li>
+        Launched Premium Gold Quality Roofing Battens
+       </li>
+       <li>
+        Area Sales Manager site visit to A&amp;S Roofing Services
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <h4>
+     Insights:
+    </h4>
+    <ul>
+     <li>
+      Company is actively expanding product partnerships (Dakea UK)
+     </li>
+     <li>
+      Focus on product diversification (roofing, paving, windows)
+     </li>
+     <li>
+      Regular engagement in industry events and showcases
+     </li>
+     <li>
+      Maintains competitive pricing strategies through special offers
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <p>
+     Based on the prospect's profile as a building materials/roofing supplies company, here's a customized value proposition:
+    </p>
+    <ul>
+     <li>
+      Improve your cash position by receiving early payments from major construction clients like Barratt Homes, Morgan Sindall, and other main contractors operating across UK
+     </li>
+     <li>
+      Free portal access to track payments 24/7 across both your Matlock locations, helping streamline financial operations for your 16-person team
+     </li>
+     <li>
+      As a trusted building materials supplier, strengthen relationships with contractors by offering flexible payment terms while maintaining healthy cash flow through our early payment program
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <p>
+      <li>
+       £3m M&amp;E business (Similar size/industry - construction subcontractor in UK)
+      </li>
+      <li>
+       £2m painting business (Similar size/industry - construction subcontractor in UK)
+      </li>
+      <li>
+       £6m surfacing business (Similar size/industry - construction subcontractor in UK)
+      </li>
+      <li>
+       Morgan Sindall (Same geography - UK construction)
+      </li>
+      <li>
+       Laing O'Rourke (Same geography - UK construction)
+      </li>
+      <li>
+       Balfour Beatty (Same geography - UK construction)
+      </li>
+      <li>
+       Vistry (Same geography - UK construction)
+      </li>
+      <li>
+       Barratt Homes (Same geography - UK construction)
+      </li>
+      <li>
+       Wates (Same geography - UK construction)
+      </li>
+      <li>
+       Kier (Same geography - UK construction)
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the prospect's profile and the seller's business of construction payment and cashflow management services, here are the 5 most relevant qualification questions:
+    </h3>
+    <ol>
+     <li>
+      "What is your current payment cycle with your main contractors/customers, and how long do you typically wait to receive payments for completed work?"
+      <ul>
+       <li>
+        This helps understand their payment challenges and timing
+       </li>
+      </ul>
+     </li>
+     <li>
+      "How do you currently manage your cashflow, especially during periods between completing work and receiving payment?"
+      <ul>
+       <li>
+        Reveals their existing financial management methods and potential pain points
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What volume of business/contracts do you typically handle annually with main contractors?"
+      <ul>
+       <li>
+        Helps assess the potential transaction volume and if they're a good fit for the service
+       </li>
+      </ul>
+     </li>
+     <li>
+      "Have you experienced any challenges with delayed payments affecting your ability to take on new projects or manage operations?"
+      <ul>
+       <li>
+        Uncovers specific pain points and urgency of need
+       </li>
+      </ul>
+     </li>
+     <li>
+      "Are you currently using any external financing solutions (like factoring) to manage cashflow, and if so, what has been your experience?"
+      <ul>
+       <li>
+        Identifies existing solutions they're using and potential areas where Copay could provide better value
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     These questions help qualify the prospect by:
+    </p>
+    <ul>
+     <li>
+      Understanding their payment/cashflow challenges
+     </li>
+     <li>
+      Assessing their business volume
+     </li>
+     <li>
+      Identifying current solutions and pain points
+     </li>
+     <li>
+      Determining if they're a good fit for Copay's early payment solutions
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <ol>
+     <li>
+      Construction subcontractor cash flow solutions
+     </li>
+     <li>
+      Supply chain payment management system
+     </li>
+     <li>
+      Early payment acceleration service
+     </li>
+     <li>
+      Multi-contractor payment management
+     </li>
+     <li>
+      Integration with COINS platform
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and putting myself in the seller's shoes, here are the most relevant counter-arguments for each objection:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        For "We already have financing/factoring arrangements in place":
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Unlike traditional factoring, our solution doesn't require external funding or debt
+       </li>
+       <li>
+        The context mentions it's "cheaper than factoring" and "hard to stop using once you start" with traditional factors
+       </li>
+       <li>
+        This is a direct early payment from your clients, not a third-party loan
+       </li>
+       <li>
+        You can use it flexibly alongside existing arrangements, only when it makes financial sense
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        For "Our current payment terms work fine":
+       </strong>
+      </p>
+      <ul>
+       <li>
+        This is about having more control and flexibility over when you get paid, even if current terms are acceptable
+       </li>
+       <li>
+        It's a no-obligation tool - use it only when you need extra cash flow
+       </li>
+       <li>
+        You get real-time visibility of all your invoices through our 24/7 portal
+       </li>
+       <li>
+        It creates a win-win situation where both you and the contractor benefit (contractor saves money, you get paid faster)
+       </li>
+       <li>
+        There's no cost to set up, and you only pay when you choose to use it
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     The key is to position this as a flexible, complementary tool that gives them more control over their cash flow, rather than replacing their existing arrangements.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <p>
+     Note: The provided context appears to be website content about Copay's payment/financial services but does not contain any technical stack information. The question mentions there should be a techstack provided with "``````" but it appears empty.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
