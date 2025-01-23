@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   evangelos.vasdekis@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   lokesh.sharma@testrigor.com
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-01-24T20:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <li>
+      <p>
+       I noticed TestRigor recently secured a new seed funding round in March 2024 - what exciting plans do you have for this investment?
+      </p>
+     </li>
+     <li>
+      <p>
+       I see you're helping companies achieve 100% test automation coverage within 12 months - what's been your most impressive customer success story?
+      </p>
+     </li>
+     <li>
+      <p>
+       With your focus on generative AI for test automation, how has your team grown to support this innovative direction?
+      </p>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Based on the context, here are the top 5 relevant pain points for TestRigor that the HR software/recruiting platform seller can help with:
+    </h3>
+    <ol>
+     <li>
+      Rapid growth management - need for efficient hiring and onboarding systems to support expansion following funding rounds and partnerships
+     </li>
+     <li>
+      Remote workforce management - requiring robust time tracking and employee management tools for their distributed team
+     </li>
+     <li>
+      Diversity hiring tracking and reporting - need for better systems to monitor and maintain their 40% female representation and other DEI metrics
+     </li>
+     <li>
+      Talent sourcing challenges - need for effective recruiting tools to find specialized AI and software development talent
+     </li>
+     <li>
+      HR information systems scalability - need for comprehensive HR infrastructure to support growth from 22 to 142 employees and continued expansion
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <ol>
+     <p>
+      (12h ago) SYSPRO testing exploration with TestRigor for ERP software optimization, focusing on manufacturing to financials efficiency.
+     </p>
+     <p>
+      (15h ago) Released a 2025 guide on testing SQL injections to protect applications from data breaches and unauthorized access.
+     </p>
+     <p>
+      (1d ago) Discussion on QA's role in release management and its impact on enhancing software quality and ensuring reliable releases.
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h3>
+     Here are the unique TestRigor news sorted by date:
+    </h3>
+    <h4>
+     January 2025:
+    </h4>
+    <ul>
+     <li>
+      TestRigor is recognized as the #1 generative AI-based codeless test automation tool
+     </li>
+     <li>
+      TestRigor's AI-based automated testing tool integrated with Sage Intacct for financial management software testing
+     </li>
+    </ul>
+    <h4>
+     Recent days (January 2025):
+    </h4>
+    <ul>
+     <li>
+      Posted about SYSPRO testing and ERP software optimization
+     </li>
+     <li>
+      Added Salesforce built-in reusable rules (from release notes)
+     </li>
+     <li>
+      New feature: Adding/removing labels in bulk
+     </li>
+    </ul>
+    <h4>
+     March 2024:
+    </h4>
+    <ul>
+     <li>
+      Raised a Seed round (March 15)
+     </li>
+    </ul>
+    <h4>
+     July 2023:
+    </h4>
+    <ul>
+     <li>
+      Partnered with LambdaTest to create an integrated testing platform supporting 3000+ browser/device combinations
+     </li>
+    </ul>
+    <h4>
+     August 2021:
+    </h4>
+    <ul>
+     <li>
+      Secured $4.1M in seed funding
+     </li>
+    </ul>
+    <h4>
+     Company Insights:
+    </h4>
+    <ul>
+     <li>
+      Employs 22 people with 40% female representation
+     </li>
+     <li>
+      Has approximately 100 customers, including Netflix
+     </li>
+     <li>
+      Focuses on AI-powered test automation and codeless testing solutions
+     </li>
+     <li>
+      Emphasizes remote work culture and diverse hiring practices
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <h3>
+     Based on the prospect's profile and recent news, here is a customized value proposition for TestRigor:
+    </h3>
+    <ul>
+     <li>
+      Streamline your growing team's hiring process with AI-powered candidate sourcing and screening - critical for a fast-scaling AI software company that has raised recent funding and is actively expanding their 142-person team
+     </li>
+     <li>
+      Enhance your tech recruitment capabilities with automated skills assessment and technical screening tools specifically designed for software development roles - essential for maintaining TestRigor's high technical bar
+     </li>
+     <li>
+      Leverage our San Francisco Bay Area expertise and network to attract top local talent, with access to over 400M candidate profiles and AI-matching to find developers and QA engineers that align with your AI-focused culture
+     </li>
+    </ul>
+    <p>
+     The value proposition focuses on:
+    </p>
+    <ol>
+     <li>
+      The prospect's growth stage and hiring needs as a funded startup
+     </li>
+     <li>
+      Their specific vertical (software/AI development) requiring technical hiring
+     </li>
+     <li>
+      Their location in San Francisco and need to compete for local tech talent
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <li>
+      Valiant Finance (Australia) - Software/Fintech company with 124 employees, similar company size to TestRigor (142 employees)
+     </li>
+     <li>
+      ClickMechanic (UK) - Tech platform company that doubled in size, similar to TestRigor's software/tech focus
+     </li>
+     <li>
+      Tuff Growth (US) - Digital/tech company focused on growth marketing, similar tech industry focus
+     </li>
+     <li>
+      Moodle (Australia) - Software/tech company with global development team, similar to TestRigor's software development focus
+     </li>
+     <li>
+      Bevi (US) - Tech startup in San Francisco area, similar geography to TestRigor's SF headquarters
+     </li>
+     <li>
+      Innowell (Australia) - Digital platform/tech company, similar industry focus on software development
+     </li>
+     <li>
+      GCC Services (Dubai) - Global tech services provider, similar to TestRigor's enterprise software focus
+     </li>
+     <li>
+      Frosch Travel (US) - Global company with 1,800 employees and 40 offices, while larger shows similar enterprise software needs
+     </li>
+     <li>
+      Zinger Property (US) - Tech-enabled service company, similar focus on blending technology with traditional services
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the prospect's profile and the seller's HR software business, here are the 5 most relevant qualification questions to ask:
+    </h3>
+    <ol>
+     <li>
+      "How do you currently manage your hiring and recruitment process for your 142 employees, particularly for technical roles like software developers?"
+      <ul>
+       <li>
+        This helps understand their current HR processes and pain points
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What are your hiring plans for the next 6-12 months given your growth in the AI/automation space?"
+      <ul>
+       <li>
+        Helps gauge potential hiring volume and urgency of need
+       </li>
+      </ul>
+     </li>
+     <li>
+      "How do you currently handle employee data management and HR processes across your San Francisco headquarters and remote workforce?"
+      <ul>
+       <li>
+        Uncovers needs around employee information systems and multi-location management
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What challenges do you face with your current HR tech stack in terms of integration with other business systems?"
+      <ul>
+       <li>
+        Given they work with various enterprise systems, this explores integration needs
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What metrics or KPIs are most important for your HR and recruiting teams to track and report on?"
+      <ul>
+       <li>
+        Helps understand their reporting needs and what success looks like
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     These questions focus on understanding their:
+    </p>
+    <ul>
+     <li>
+      Current HR processes and pain points
+     </li>
+     <li>
+      Growth/hiring plans
+     </li>
+     <li>
+      Employee management needs
+     </li>
+     <li>
+      System integration requirements
+     </li>
+     <li>
+      HR analytics priorities
+     </li>
+    </ul>
+    <p>
+     The questions are tailored to TestRigor's profile as a growing tech company while qualifying their fit for the seller's HR software platform.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Based on the prospect's profile as an AI-based test automation software company, here are the top 5 most relevant product/service features from Workable that would be valuable:
+    </h3>
+    <ol>
+     <p>
+      1. AI-powered candidate screening and matching capabilities
+     </p>
+     <p>
+      2. Automated recruitment workflows and task management
+     </p>
+     <p>
+      3. Customizable assessment tests and evaluation tools
+     </p>
+     <p>
+      4. Collaborative hiring platform with structured interview tools
+     </p>
+     <p>
+      5. Advanced analytics and reporting features for hiring metrics
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and the objections, here's how I would handle them:
+    </h3>
+    <h4>
+     For Price/ROI Objection:
+    </h4>
+    <ol>
+     <li>
+      Emphasize scalability - Workable can grow with them as they expand beyond 142 employees, making it a future-proof investment
+     </li>
+     <li>
+      Highlight time savings through automation - Features like automated candidate screening, self-scheduling interviews, and automated onboarding workflows reduce manual work
+     </li>
+     <li>
+      Point out the all-in-one platform value - They get recruiting, onboarding and HR management in one solution vs paying for multiple systems
+     </li>
+    </ol>
+    <h4>
+     For Integration/Technical Compatibility Objection:
+    </h4>
+    <ol>
+     <li>
+      Reference the 270+ integration partners - Workable connects seamlessly with major tech tools including payroll, calendars, and communication platforms
+     </li>
+     <li>
+      Highlight API access - Their tech team can build custom integrations if needed
+     </li>
+     <li>
+      Mention the developer resources and support available - Including API documentation and dedicated implementation assistance
+     </li>
+    </ol>
+    <p>
+     The key is focusing on concrete value points that address their specific situation as a software company while keeping responses brief and targeted to their main concerns.
+    </p>
+    <p>
+     Would you like me to expand on any of these points?
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
