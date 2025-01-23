@@ -88,6 +88,23 @@
 	   2025-01-16T15:30:00+02:00
 	  </p>
 	<!-- Sections -->
+	<div class="section collapsible" id="Summary">
+    	<h2>Summary <span class="expand-indicator">+</span></h2>
+    	<div class="content" name="summary">
+			<div class="feedback-container">
+				<label for="feedback-Summary">Feedback: </label>
+				<select id="feedback-Summary" class="feedback-dropdown" onchange="updateFeedback('Summary', this.value)">
+					<option value="">Not selected</option>
+					<option value="Misleading content">Misleading content</option>
+					<option value="Not valuable">Not valuable</option>
+					<option value="Slightly valuable">Slightly valuable</option>
+					<option value="Great content">Great content</option>
+					<option value="You have nailed it">You have nailed it</option>
+				</select>
+			</div>
+    	</div>
+	</div>
+
 	<div class="section collapsible" id="Icebreakers">
     	<h2>Icebreakers <span class="expand-indicator">+</span></h2>
     	<div class="content" name="icebreakers">
