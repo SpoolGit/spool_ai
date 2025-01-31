@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   vasilis.ilias@usecopay.com
+  </p>
+  <p id="header" name="prospect_email">
+   lewis@allspec.group
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-02-03T13:00:00Z
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summary of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      Company: AllSpec Construction Inc.
+     </li>
+     <li>
+      Location: Philadelphia area
+     </li>
+     <li>
+      Services: Drywall, carpentry, asphalt paving, road repairs
+     </li>
+     <li>
+      Team size: 19 employees
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ol>
+     <li>
+      Payment delays affecting cash flow
+     </li>
+     <li>
+      Administrative burden managing multiple payments
+     </li>
+     <li>
+      Working capital constraints
+     </li>
+     <li>
+      Cash flow gaps between payments
+     </li>
+     <li>
+      Difficulty maintaining steady cash flow
+     </li>
+    </ol>
+    <h4>
+     Sales Approach:
+    </h4>
+    <h5>
+     1. Value Proposition:
+    </h5>
+    <ul>
+     <li>
+      Hassle-free cashflow access
+     </li>
+     <li>
+      24/7 portal access
+     </li>
+     <li>
+      Solution tailored for small teams
+     </li>
+    </ul>
+    <h5>
+     2. Qualification Questions Focus On:
+    </h5>
+    <ul>
+     <li>
+      Current contractor relationships
+     </li>
+     <li>
+      Payment terms
+     </li>
+     <li>
+      Project sizes
+     </li>
+     <li>
+      Existing financing solutions
+     </li>
+     <li>
+      Service-specific challenges
+     </li>
+    </ul>
+    <h5>
+     3. Recommended Products:
+    </h5>
+    <ul>
+     <li>
+      Construction subcontractor cash flow solutions
+     </li>
+     <li>
+      Multi-contractor payment management
+     </li>
+     <li>
+      Early payment acceleration service
+     </li>
+    </ul>
+    <h4>
+     Conversation Starters:
+    </h4>
+    <ol>
+     <li>
+      Growth in Philadelphia area
+     </li>
+     <li>
+      Service expansion discussion
+     </li>
+     <li>
+      Team management with increased demand
+     </li>
+    </ol>
+    <h4>
+     Relevant Experience:
+    </h4>
+    <ul>
+     <li>
+      Multiple construction subcontractors (£2m-£6m range)
+     </li>
+     <li>
+      Major construction companies (Morgan Sindall, Balfour Beatty, etc.)
+     </li>
+    </ul>
+    <h4>
+     Objection Handling:
+    </h4>
+    <ul>
+     <li>
+      Focus on no-debt solution
+     </li>
+     <li>
+      Emphasize flexibility and control
+     </li>
+     <li>
+      Highlight transparent pricing
+     </li>
+     <li>
+      Stress direct client relationships
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <p>
+      <li>
+       "I noticed AllSpec has been growing in the Philadelphia area - what's been driving your recent success in drywall and carpentry projects?"
+      </li>
+     </p>
+     <p>
+      <li>
+       "I saw you've expanded into both construction and asphalt paving - what inspired adding those additional services?"
+      </li>
+     </p>
+     <p>
+      <li>
+       "How has your team of 19 employees been managing the increased construction demand in Greater Philadelphia?"
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Based on the construction industry context and company profile, here are the likely top 5 pain points:
+    </h3>
+    <ol>
+     <li>
+      Payment delays from main contractors affecting cash flow and ability to pay workers/suppliers
+     </li>
+     <li>
+      Administrative burden of managing multiple payment applications and invoices across different projects
+     </li>
+     <li>
+      Working capital constraints limiting ability to take on new projects or purchase materials
+     </li>
+     <li>
+      Cash flow gaps between paying suppliers/workers and receiving payment for completed work
+     </li>
+     <li>
+      Difficulty maintaining steady cash flow as a mid-sized contractor while managing multiple construction projects simultaneously
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <p>
+     I apologize, but I don't see any LinkedIn posts with timestamps in the provided context. The context appears to only contain company profile information about Allspec Construction Inc. and similar companies in the Philadelphia area. Without actual LinkedIn posts and their timestamps, I cannot provide summaries of the 3 latest posts as requested.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <p>
+     No news found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <p>
+     Based on the prospect's profile as a mid-sized construction company offering drywall, carpentry, and road repair services, here's the customized value proposition:
+    </p>
+    <ul>
+     <li>
+      Unlock hassle-free cashflow access specifically designed for construction subcontractors in the Philadelphia area, with no debt or external funding required
+     </li>
+     <li>
+      Free 24/7 portal access to track payments and invoices in real-time, helping manage multiple construction projects across drywall, carpentry, and road repair services
+     </li>
+     <li>
+      Perfect solution for small teams (under 20 employees) to reduce administrative burden while accelerating payments from main contractors, ensuring steady cash flow for payroll and operations
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <li>
+      £3m M&amp;E (Mechanical &amp; Electrical) business - Similar industry (construction subcontractor)
+     </li>
+     <li>
+      £2m painting business - Similar industry (construction subcontractor)
+     </li>
+     <li>
+      £6m surfacing business - Similar industry (construction subcontractor)
+     </li>
+     <li>
+      Morgan Sindall - Similar industry (construction)
+     </li>
+     <li>
+      Balfour Beatty - Similar industry (construction)
+     </li>
+     <li>
+      Kier - Similar industry (construction)
+     </li>
+     <li>
+      Galliford Try - Similar industry (construction)
+     </li>
+     <li>
+      Willmott Dixon - Similar industry (construction)
+     </li>
+     <li>
+      Costain - Similar industry (construction)
+     </li>
+     <li>
+      Keller Group - Similar industry (construction)
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the context and the company profile, here are the 5 most relevant qualification questions to ask Allspec Construction Inc.:
+    </h3>
+    <ol>
+     <li>
+      "Which main contractors do you typically work with on your projects, and what are your current payment terms with them?"
+      <ul>
+       <li>
+        This helps understand their existing contractor relationships and payment situations
+       </li>
+      </ul>
+     </li>
+     <li>
+      "How do you currently manage your cashflow between project payments, and what challenges do you face?"
+      <ul>
+       <li>
+        This reveals pain points around their current cash flow management
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What is your typical project size and payment cycle length from invoice to payment?"
+      <ul>
+       <li>
+        This helps understand the scale of their payment needs and timing
+       </li>
+      </ul>
+     </li>
+     <li>
+      "Do you currently use any external financing solutions (like factoring or loans) to manage cashflow between projects?"
+      <ul>
+       <li>
+        This identifies if they're already using alternative financing and their familiarity with early payment solutions
+       </li>
+      </ul>
+     </li>
+     <li>
+      "With your various services (drywall, carpentry, asphalt paving, road repairs), do you experience different payment terms or challenges across these different types of work?"
+      <ul>
+       <li>
+        This helps understand if they have varying cashflow needs across their different service lines
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     These questions are specifically tailored to:
+    </p>
+    <ul>
+     <li>
+      Understand their current payment situation
+     </li>
+     <li>
+      Identify pain points around cashflow
+     </li>
+     <li>
+      Assess if they're a good fit for the early payment solution
+     </li>
+     <li>
+      Understand their current financing methods
+     </li>
+     <li>
+      Gauge the potential value of the service to their business
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <ol>
+     <li>
+      Construction subcontractor cash flow solutions
+     </li>
+     <li>
+      Multi-contractor payment management
+     </li>
+     <li>
+      Early payment acceleration service
+     </li>
+     <li>
+      Project linking capabilities
+     </li>
+     <li>
+      Financial infrastructure for construction payments
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and taking the role of a seller, here are concise responses to overcome these objections:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        "We already have financing/factoring arrangements in place"
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Unlike traditional factoring, our solution doesn't involve external funding or debt
+       </li>
+       <li>
+        You can use our service flexibly, only when you need it, without being locked in
+       </li>
+       <li>
+        As mentioned by one MD in the context: "factoring companies are expensive and hard to stop using once you start. Copay is a smart idea that limits the need for external financing"
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        "We don't want to pay fees or additional costs for early payments"
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Our dynamic discounting creates a win-win situation with your clients
+       </li>
+       <li>
+        You maintain control by choosing when to accelerate payments based on your needs
+       </li>
+       <li>
+        The service is integrated with your existing systems, providing free 24/7 access to payment and invoice data
+       </li>
+       <li>
+        The cost is transparent and only applies when you choose to use the service, with no ongoing fees
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     The solution offers more flexibility and control compared to traditional financing options, while maintaining direct relationships with your clients.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <p>
+     The provided context does not contain any technical stack information. The context appears to be website content about Copay, a construction industry payment solution, but does not list any technology stack details.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
