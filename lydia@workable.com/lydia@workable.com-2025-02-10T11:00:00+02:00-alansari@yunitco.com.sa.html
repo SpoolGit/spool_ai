@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   lydia@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   alansari@yunitco.com.sa
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-02-10T11:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summarized version of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      Largest plant in MENA region
+     </li>
+     <li>
+      Second-largest manufacturer globally (since 1979)
+     </li>
+     <li>
+      Located in Saudi Arabia
+     </li>
+     <li>
+      55 employees across oil recycling, transport, and environmental services
+     </li>
+     <li>
+      96,000 square meter facility operating 24/7
+     </li>
+    </ul>
+    <h4>
+     Recent News and Updates:
+    </h4>
+    <ul>
+     <li>
+      Hiring for HR Supervisor position (1 month ago)
+     </li>
+     <li>
+      Participating in Automechanika Frankfurt (September 10-14)
+     </li>
+     <li>
+      Participating in Lubricant Expo (September 17-19)
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ul>
+     <li>
+      Manual HR processes management
+     </li>
+     <li>
+      Attendance tracking for shift workers
+     </li>
+     <li>
+      Recruitment for specialized technical roles
+     </li>
+     <li>
+      Employee data management
+     </li>
+     <li>
+      Complex payroll processing with local regulations
+     </li>
+    </ul>
+    <h4>
+     Sales Approach:
+    </h4>
+    <h5>
+     Products to Focus On:
+    </h5>
+    <ul>
+     <li>
+      Compliance Management Tools
+     </li>
+     <li>
+      Multi-Language Capabilities
+     </li>
+     <li>
+      Documentation Management
+     </li>
+     <li>
+      Employee Management System
+     </li>
+     <li>
+      Mobile App Access
+     </li>
+    </ul>
+    <h5>
+     Qualification Questions Should Cover:
+    </h5>
+    <ul>
+     <li>
+      Current HR processes
+     </li>
+     <li>
+      Departmental hiring needs
+     </li>
+     <li>
+      Growth plans
+     </li>
+     <li>
+      Time tracking/payroll management
+     </li>
+     <li>
+      Compliance requirements
+     </li>
+    </ul>
+    <h5>
+     Conversation Starters:
+    </h5>
+    <ol>
+     <li>
+      Reference to Automechanika Frankfurt participation
+     </li>
+     <li>
+      Mention HR Supervisor position
+     </li>
+     <li>
+      Acknowledge their market position and growth
+     </li>
+    </ol>
+    <h4>
+     Tech Stack:
+    </h4>
+    <ul>
+     <li>
+      Microsoft Office 365
+     </li>
+    </ul>
+    <h4>
+     Value Proposition:
+    </h4>
+    <p>
+     Focus on bilingual capabilities, compliance with Saudi regulations, and integrated HR management for their specific industry needs.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <p>
+      "I noticed you'll be at Automechanika Frankfurt this September - are you excited to showcase your latest innovations there?"
+     </p>
+     <p>
+      "I saw you're currently hiring for a HR Supervisor position - how is your team's growth going?"
+     </p>
+     <p>
+      "Congratulations on being the largest plant in MENA and second-largest manufacturer globally - what's been the key to your expansion since starting in 1979?"
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <ol>
+     <p>
+      Manual HR processes and paperwork management for 55 employees across different departments (oil recycling, transport, environmental services)
+     </p>
+     <p>
+      Tracking attendance and work hours for shift-based workers in their 96,000 square meter facility operating 24/7
+     </p>
+     <p>
+      Managing recruitment needs for specialized technical roles in the oil and gas industry while ensuring compliance with Saudi labor laws
+     </p>
+     <p>
+      Difficulty in maintaining accurate employee data and documentation for a growing workforce in a highly regulated industry
+     </p>
+     <p>
+      Complex payroll processing considering various job roles, shift differentials, and local labor regulations in Saudi Arabia
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <h3>
+     Here are the 3 latest LinkedIn posts from Yunigreen with summaries:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       (1mo ago) Hiring announcement for Human Resources Supervisor position in Yanbu Al Sinaiyah.
+      </p>
+     </li>
+     <li>
+      <p>
+       (5mo ago) Announcement of participation in Automechanika Frankfurt exhibition from September 10-14, showcasing automotive industry products and services.
+      </p>
+     </li>
+     <li>
+      <p>
+       (5mo ago) Announcement of participation in Lubricant Expo from September 17-19, featuring their latest lubrication technology solutions and products.
+      </p>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h3>
+     Here are the unique news for Yunigreen Oil and Gas, from most recent to oldest:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        (1 month ago)
+       </strong>
+       - Job posting for Human Resources Supervisor position in Yanbu Al Sinaiyah, Al Madinah, Saudi Arabia
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        (5 months ago)
+       </strong>
+       - Announcement of participation in Automechanika Frankfurt exhibition in Germany (September 10-14)
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        (5 months ago)
+       </strong>
+       - Announcement of participation in Lubricant Expo (September 17-19)
+      </p>
+     </li>
+    </ol>
+    <p>
+     <strong>
+      Insight:
+     </strong>
+     The company is notable for being the largest plant in the Middle East and North Africa and the second-largest manufacturer in their field globally.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <p>
+     Based on the prospect's profile as an oil recycling and environmental services company in Saudi Arabia, here's a customized value proposition:
+    </p>
+    <ul>
+     <li>
+      Streamline your HR operations across multiple facilities with our integrated HR platform that supports Arabic and English, perfect for managing your 55-person workforce across Yanbu and Badr City locations
+     </li>
+     <li>
+      Attract top talent in the competitive Middle Eastern oil &amp; gas sector with AI-powered job descriptions and automated candidate sourcing that reaches over 400M profiles globally
+     </li>
+     <li>
+      Maintain compliance with KSA labor regulations while efficiently managing employee data, time off tracking, and onboarding for your growing environmental services operation
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <h3>
+     No relevant experience
+    </h3>
+    <p>
+     (None of the customers in the provided context are from the oil and gas industry, Middle East region, or have similar company characteristics to the prospect. The examples shown are mostly from technology, food service, property management, and healthcare sectors, primarily operating in North America, Europe and Australia.)
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the prospect's profile and Workable's HR software offering, here are the 5 most relevant qualification questions to ask:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       "How do you currently manage your recruitment and employee onboarding processes for your 55 employees? What challenges are you facing?"
+      </p>
+      <p>
+       - This helps understand their current HR pain points and processes
+      </p>
+     </li>
+     <li>
+      <p>
+       "With operations across oil recycling, logistics, and environmental services, how do you handle different departmental hiring needs and compliance requirements?"
+      </p>
+      <p>
+       - This explores their need for a structured hiring process across diverse business units
+      </p>
+     </li>
+     <li>
+      <p>
+       "As one of the largest plants in your category with plans for growth, what are your hiring plans for the next 12-24 months?"
+      </p>
+      <p>
+       - This helps gauge potential hiring volume and scalability needs
+      </p>
+     </li>
+     <li>
+      <p>
+       "How do you currently manage employee data, time tracking, and payroll across your facility? Are these processes integrated?"
+      </p>
+      <p>
+       - This addresses their potential need for integrated HR management
+      </p>
+     </li>
+     <li>
+      <p>
+       "What HR compliance and reporting requirements do you need to meet as a Saudi Arabian company in the oil and gas industry? How are you managing these currently?"
+      </p>
+      <p>
+       - This explores their regulatory compliance needs and current solutions
+      </p>
+     </li>
+    </ol>
+    <p>
+     These questions help qualify the prospect by:
+    </p>
+    <ul>
+     <li>
+      Understanding their current HR processes and pain points
+     </li>
+     <li>
+      Assessing their hiring volume and complexity
+     </li>
+     <li>
+      Evaluating their need for integrated HR management
+     </li>
+     <li>
+      Exploring compliance requirements specific to their industry and region
+     </li>
+     <li>
+      Determining if Workable's all-in-one HR platform would be a good fit for their needs
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Based on the prospect's profile as an oil recycling and environmental services company, here are the top 5 most relevant product/service features from Workable that could be offered:
+    </h3>
+    <ol>
+     <li>
+      <h4>
+       Compliance Management Tools
+      </h4>
+      <ul>
+       <li>
+        Built-in GDPR, EEO, OFCCP compliance features
+       </li>
+       <li>
+        Automated data retention and privacy controls
+       </li>
+       <li>
+        Audit trails for all candidate/employee data
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Multi-Language Capabilities
+      </h4>
+      <ul>
+       <li>
+        Job postings in 6 languages
+       </li>
+       <li>
+        Localized candidate experiences
+       </li>
+       <li>
+        International job board partnerships
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Environmental/Safety Documentation Management
+      </h4>
+      <ul>
+       <li>
+        Centralized document storage
+       </li>
+       <li>
+        E-signature capabilities
+       </li>
+       <li>
+        Custom document templates
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Employee Management System
+      </h4>
+      <ul>
+       <li>
+        Time off tracking
+       </li>
+       <li>
+        Work schedules management
+       </li>
+       <li>
+        Employee data/profile management
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Mobile App Access
+      </h4>
+      <ul>
+       <li>
+        On-the-go access for field workers
+       </li>
+       <li>
+        Time off requests/approvals
+       </li>
+       <li>
+        Document access and signing
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context provided and putting myself in the seller's shoes, here are the key arguments to overcome these objections:
+    </h3>
+    <h4>
+     For Cost/Price concerns:
+    </h4>
+    <ol>
+     <li>
+      <strong>
+       ROI focus:
+      </strong>
+      Highlight how other industrial companies like Alexander Dennis saved over $300k in agency fees in their first year using the platform
+     </li>
+     <li>
+      <strong>
+       Efficiency gains:
+      </strong>
+      Emphasize the 50% reduction in time-to-hire achieved by other customers, which translates to significant cost savings
+     </li>
+     <li>
+      <strong>
+       Scalable pricing:
+      </strong>
+      Stress that they can "buy what you need" and the platform can grow with them, making it cost-effective for their size
+     </li>
+    </ol>
+    <h4>
+     For Implementation/Integration complexity:
+    </h4>
+    <ol>
+     <li>
+      <strong>
+       Built-in automation:
+      </strong>
+      Emphasize automated workflows, approvals, and actions that simplify processes rather than complicate them
+     </li>
+     <li>
+      <strong>
+       Easy integration:
+      </strong>
+      Highlight native integrations with common tools (calendar, email, video conferencing) and API access for custom needs
+     </li>
+     <li>
+      <strong>
+       Support structure:
+      </strong>
+      Point out the comprehensive help center, resource library, and implementation support to ensure smooth adoption
+     </li>
+     <li>
+      <strong>
+       Mobile-friendly:
+      </strong>
+      Stress that the platform is accessible via mobile apps, making it easy for operational staff to use on the go
+     </li>
+    </ol>
+    <p>
+     The key is to focus on proven results from similar companies and emphasize how the platform simplifies rather than complicates existing processes.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <h3>
+     Microsoft Office 365
+    </h3>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
