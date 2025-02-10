@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   lydia@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   tegan@arvo.co.za
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-02-11T11:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summary of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      Arvo is a Cape Town-based remote-first recruitment company
+     </li>
+     <li>
+      Led by Rudolph du Toit
+     </li>
+     <li>
+      Small team of 7 employees
+     </li>
+     <li>
+      Focuses on executive and managerial recruitment in finance, marketing, and engineering
+     </li>
+     <li>
+      Emphasizes cultural fit in their recruitment process
+     </li>
+    </ul>
+    <h4>
+     Recent News/Social Media:
+    </h4>
+    <ul>
+     <li>
+      Limited social media activity in past 3-8 months
+     </li>
+     <li>
+      Simple motivational posts and promotional content
+     </li>
+     <li>
+      Focus on leadership and team building content
+     </li>
+     <li>
+      Primary market is Cape Town
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ol>
+     <li>
+      Manual candidate tracking across executive positions
+     </li>
+     <li>
+      Inefficient data management
+     </li>
+     <li>
+      Limited scalability due to manual processes
+     </li>
+     <li>
+      Difficulty in team activity tracking
+     </li>
+     <li>
+      Challenges in maintaining organized records
+     </li>
+    </ol>
+    <h4>
+     Sales Approach:
+    </h4>
+    <h5>
+     1. Qualification Questions:
+    </h5>
+    <ul>
+     <li>
+      Focus on current recruitment process
+     </li>
+     <li>
+      Tools/systems in use
+     </li>
+     <li>
+      Culture fit assessment methods
+     </li>
+     <li>
+      Sourcing challenges
+     </li>
+     <li>
+      Interview process management
+     </li>
+    </ul>
+    <h5>
+     2. Value Proposition:
+    </h5>
+    <ul>
+     <li>
+      AI-powered job description generator
+     </li>
+     <li>
+      Access to 400M+ candidate profiles
+     </li>
+     <li>
+      Streamlined interview tools for small teams
+     </li>
+     <li>
+      Focus on executive recruitment features
+     </li>
+    </ul>
+    <h5>
+     3. Product Recommendations:
+    </h5>
+    <ul>
+     <li>
+      AI-Powered Candidate Sourcing
+     </li>
+     <li>
+      Advanced Evaluation Tools
+     </li>
+     <li>
+      Collaborative Hiring Features
+     </li>
+     <li>
+      Branded Career Pages
+     </li>
+     <li>
+      Analytics &amp; Compliance Tools
+     </li>
+    </ul>
+    <h4>
+     Conversation Starters:
+    </h4>
+    <ol>
+     <li>
+      Team building and retention strategies
+     </li>
+     <li>
+      Growth in Cape Town market
+     </li>
+     <li>
+      Manager development approaches
+     </li>
+    </ol>
+    <h4>
+     Tech Stack:
+    </h4>
+    <ul>
+     <li>
+      Microsoft Office 365
+     </li>
+     <li>
+      Outlook
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <p>
+      <li>
+       I noticed you're focused on building strong teams - what's been your most successful retention strategy so far?
+      </li>
+     </p>
+     <p>
+      <li>
+       I saw you're looking for top talent in Cape Town - how has your team grown over the past year?
+      </li>
+     </p>
+     <p>
+      <li>
+       With only 28% of hybrid managers receiving proper training according to your recent post, how are you approaching manager development in your organization?
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Here are the top 5 pain points for Arvo that Workable could help with:
+    </h3>
+    <ol>
+     <li>
+      Manual tracking and management of multiple candidates across different executive positions, lacking a centralized applicant tracking system
+     </li>
+     <li>
+      Inefficient data management for maintaining detailed candidate profiles, work histories, and cultural fit assessments
+     </li>
+     <li>
+      Limited ability to scale recruitment operations due to manual HR processes and lack of automation
+     </li>
+     <li>
+      Difficulty in managing and tracking time/activities of their small team (7 employees) across multiple recruitment projects
+     </li>
+     <li>
+      Challenges in maintaining organized records and documentation for both candidates and internal employees without a proper HR information system
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <h3>
+     Based on the context, here are the 3 latest LinkedIn posts from Arvo:
+    </h3>
+    <ol>
+     <li>
+      (3mo ago) Simple motivational post saying "Do it."
+     </li>
+     <li>
+      (4mo ago) Brief promotional post stating "We know a guy."
+     </li>
+     <li>
+      (4mo ago) Promotional post about money-back guarantee for recruitment services with hashtags #arvo #recruitment #leaders
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h3>
+     Here are the unique news about Arvo, sorted by date (most recent to oldest):
+    </h3>
+    <h4>
+     July 2024:
+    </h4>
+    <p>
+     ARVO, a Cape Town-based remote-first company led by Rudolph du Toit, operates in recruitment, focusing on headhunting for managerial and executive positions in finance, marketing, and engineering sectors. They emphasize cultural fit and management styles in their recruitment process.
+    </p>
+    <h4>
+     Social Media Activity (Timeline from 3-8 months ago):
+    </h4>
+    <ul>
+     <li>
+      Simple post "Do it"
+     </li>
+     <li>
+      Marketing posts about recruitment services and money-back guarantee
+     </li>
+     <li>
+      Leadership content sharing and team building posts
+     </li>
+     <li>
+      Job postings for senior positions in Cape Town
+     </li>
+     <li>
+      Posts about workplace retention and LinkedIn marketing
+     </li>
+    </ul>
+    <h4>
+     Insights:
+    </h4>
+    <ul>
+     <li>
+      The company appears to be actively involved in executive recruitment
+     </li>
+     <li>
+      Their social media presence focuses on leadership, recruitment, and team building
+     </li>
+     <li>
+      They maintain a consistent marketing presence through social media
+     </li>
+     <li>
+      Their geographic focus seems to be primarily in Cape Town
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <p>
+     Based on the prospect's profile and context, here is a customized value proposition for Arvo, a small executive recruitment firm in Cape Town:
+    </p>
+    <ul>
+     <li>
+      Our AI-powered job description generator helps create compelling executive role descriptions in seconds, ensuring cultural fit alignment - critical for your focus on culture-based recruitment
+     </li>
+     <li>
+      Access to 400M+ searchable candidate profiles with AI matching specifically for senior finance and management roles, expanding your reach beyond Cape Town
+     </li>
+     <li>
+      Streamlined interview coordination and evaluation tools designed for small recruitment teams, helping your 7-person team efficiently manage multiple executive searches
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <li>
+      <p>
+       <strong>
+        Access Services (Staffing/Recruiting)
+       </strong>
+       - Made 200 hires in 9 months and reduced hiring costs by implementing standardized recruitment processes and automating manual tasks.
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        OneInAMil (Recruiting Agency)
+       </strong>
+       - Located in South Africa, small recruiting firm that successfully placed candidates by taking a culture-driven approach to talent matching.
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        Valiant Finance (Financial Services)
+       </strong>
+       - Doubled in size within a year by implementing structured hiring processes and enhancing their employer brand through better candidate experience.
+      </p>
+     </li>
+    </ol>
+    <p>
+     The most relevant matches are based on:
+    </p>
+    <ul>
+     <li>
+      Access Services and OneInAMil operating in the same staffing/recruiting vertical as Arvo
+     </li>
+     <li>
+      OneInAMil being located in South Africa like Arvo
+     </li>
+     <li>
+      All being small to mid-sized companies focused on professional services
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the prospect's profile and Workable's HR software offering, here are the 5 most relevant qualification questions to ask:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       "How do you currently manage your recruitment process for executive and management positions? I notice you specialize in these high-level placements."
+      </p>
+      <p>
+       - This helps understand their current recruitment workflow and pain points
+      </p>
+     </li>
+     <li>
+      <p>
+       "What tools or systems are you using to track and manage candidate information across your team of 7 employees?"
+      </p>
+      <p>
+       - This reveals if they have an existing ATS/HR system and potential integration needs
+      </p>
+     </li>
+     <li>
+      <p>
+       "How do you currently collaborate with your clients to ensure culture fit when placing executives? What tools do you use for this assessment?"
+      </p>
+      <p>
+       - This addresses their emphasis on culture fit and can highlight Workable's evaluation tools
+      </p>
+     </li>
+     <li>
+      <p>
+       "What challenges do you face in sourcing passive candidates for executive positions in the financial services sector?"
+      </p>
+      <p>
+       - This can highlight Workable's AI-powered sourcing capabilities and 400M+ candidate database
+      </p>
+     </li>
+     <li>
+      <p>
+       "How do you currently manage the interview process and feedback collection between your team and clients?"
+      </p>
+      <p>
+       - This can demonstrate value of Workable's collaboration tools, interview kits, and evaluation features
+      </p>
+     </li>
+    </ol>
+    <p>
+     These questions help qualify the prospect's needs while highlighting relevant Workable features that could solve their specific recruitment challenges in executive search.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Based on the prospect's profile as a small executive recruiting firm, here are the top 5 most relevant product/service features to offer:
+    </h3>
+    <ol>
+     <li>
+      <h4>
+       AI-Powered Candidate Sourcing &amp; Matching
+      </h4>
+      <ul>
+       <li>
+        Access to 400M+ searchable candidate profiles
+       </li>
+       <li>
+        AI recommendations of qualified executive candidates
+       </li>
+       <li>
+        Intelligent social targeting for passive candidates
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Advanced Candidate Evaluation Tools
+      </h4>
+      <ul>
+       <li>
+        Standardized interview kits and scorecards
+       </li>
+       <li>
+        Science-backed assessments for executive screening
+       </li>
+       <li>
+        Structured feedback collection system
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Collaborative Hiring Features
+      </h4>
+      <ul>
+       <li>
+        Team feedback and evaluation tools
+       </li>
+       <li>
+        Interview coordination and scheduling
+       </li>
+       <li>
+        Centralized candidate communications
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Branded Career Pages &amp; Job Distribution
+      </h4>
+      <ul>
+       <li>
+        Customizable careers page builder
+       </li>
+       <li>
+        Multi-language job posting capabilities
+       </li>
+       <li>
+        Integration with 200+ job boards
+       </li>
+      </ul>
+     </li>
+     <li>
+      <h4>
+       Analytics &amp; Compliance Tools
+      </h4>
+      <ul>
+       <li>
+        Recruitment metrics and reporting
+       </li>
+       <li>
+        GDPR/Data protection compliance
+       </li>
+       <li>
+        DEI tracking and reporting capabilities
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and putting myself in the seller's shoes, here are the key arguments to overcome these objections:
+    </h3>
+    <h4>
+     For Cost/Budget concerns:
+    </h4>
+    <ol>
+     <li>
+      Highlight the ROI through time savings and automation - The software automates repetitive tasks, emails, and scheduling, allowing the small team to focus on higher-value activities
+     </li>
+     <li>
+      Offer flexible pricing options including a 15-day free trial with no credit card required to test the full platform
+     </li>
+     <li>
+      Emphasize how the platform can scale with their growth, so they only pay for what they need now
+     </li>
+    </ol>
+    <h4>
+     For "Current process works fine":
+    </h4>
+    <ol>
+     <li>
+      Point out efficiency gains through features like:
+      <ul>
+       <li>
+        One-click job posting to 200+ sites
+       </li>
+       <li>
+        Self-scheduling tools that eliminate back-and-forth emails
+       </li>
+       <li>
+        Automated candidate communications
+       </li>
+      </ul>
+     </li>
+     <li>
+      Highlight how even small teams can benefit from structured hiring processes and evaluation tools to make better hiring decisions
+     </li>
+     <li>
+      Demonstrate how the platform can help them build a talent pool for future needs by resurfacing past candidates and managing referrals
+     </li>
+    </ol>
+    <p>
+     The key is to focus on immediate practical benefits that address their specific pain points as a small staffing firm, rather than overwhelming them with all features. Emphasize how the software can help them do more with their limited resources.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     Based on the context provided, these techstack items are relevant:
+    </p>
+    <ul>
+     <li>
+      Microsoft Office 365
+     </li>
+     <li>
+      Outlook
+     </li>
+    </ul>
+    <p>
+     These are relevant because the context shows Workable has integrations with Office 365 and Outlook for calendar syncing and email functionality in their recruiting/HR platform.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
