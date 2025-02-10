@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   vaios@theupsetpartners.com
+  </p>
+  <p id="header" name="prospect_email">
+   ramzi@venturecopilot.co
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-02-11T15:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summarized version of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      Company: VentureCopilot
+     </li>
+     <li>
+      Focus: Business consulting and outsourcing services
+     </li>
+     <li>
+      Tech Stack: Hubspot
+     </li>
+     <li>
+      No recent funding events found
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ol>
+     <li>
+      Need for AI-powered talent matching tools
+     </li>
+     <li>
+      Challenges with market expansion
+     </li>
+     <li>
+      Difficulty in systematic client acquisition
+     </li>
+     <li>
+      Need for optimized sales processes
+     </li>
+     <li>
+      Lack of data-driven insights
+     </li>
+    </ol>
+    <h4>
+     Sales Approach:
+    </h4>
+    <h5>
+     1. Value Proposition:
+    </h5>
+    <ul>
+     <li>
+      4S framework with 100+ successful B2B implementations
+     </li>
+     <li>
+      AI-powered tools combined with hands-on expertise
+     </li>
+     <li>
+      End-to-end sales infrastructure support
+     </li>
+    </ul>
+    <h5>
+     2. Recommended Products:
+    </h5>
+    <ul>
+     <li>
+      Hands-on operational support
+     </li>
+     <li>
+      Sales infrastructure setup
+     </li>
+     <li>
+      Pipeline management
+     </li>
+     <li>
+      Dedicated account management
+     </li>
+     <li>
+      Sales enablement
+     </li>
+    </ul>
+    <h5>
+     3. Qualification Questions Focus On:
+    </h5>
+    <ul>
+     <li>
+      Current operational processes
+     </li>
+     <li>
+      Customer acquisition methods
+     </li>
+     <li>
+      Tools and systems in use
+     </li>
+     <li>
+      Expansion plans
+     </li>
+     <li>
+      Sales process and conversion rates
+     </li>
+    </ul>
+    <h4>
+     Conversation Starters:
+    </h4>
+    <ol>
+     <li>
+      Discuss outsourcing tasks and time management
+     </li>
+     <li>
+      Explore growth initiatives
+     </li>
+     <li>
+      Inquire about market expansion plans
+     </li>
+    </ol>
+    <h4>
+     Relevant Experience:
+    </h4>
+    <ul>
+     <li>
+      Qureos: 5 new customers/week at $5K ACV
+     </li>
+     <li>
+      Palowise: 3 new opportunities/week at $30K ACV
+     </li>
+     <li>
+      Indeex: 4 new opportunities across European markets
+     </li>
+    </ul>
+    <h4>
+     Objection Handling:
+    </h4>
+    <ul>
+     <li>
+      Focus on proven track record
+     </li>
+     <li>
+      Emphasize cost efficiency
+     </li>
+     <li>
+      Share specific success stories
+     </li>
+     <li>
+      Highlight hands-on execution approach
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <li>
+      "I noticed VentureCopilot helps businesses with outsourcing - what tasks are currently taking up most of your valuable time?"
+     </li>
+     <li>
+      "I see you're focused on helping entrepreneurs scale their operations - what growth initiatives are you most excited about right now?"
+     </li>
+     <li>
+      "As you're building your network of global talent, what new markets or regions are you planning to expand into?"
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Based on the prospect's business description, here are the 5 most relevant pain points that the seller's B2B go-to-market and sales consulting services could help with:
+    </h3>
+    <ol>
+     <p>
+      Need for AI-powered tools to better match talent with businesses and improve their talent sourcing process
+     </p>
+     <p>
+      Challenge in expanding into new markets and scaling their talent matching platform
+     </p>
+     <p>
+      Difficulty in acquiring new business clients (entrepreneurs and small businesses) systematically
+     </p>
+     <p>
+      Need for optimized sales processes to convert more potential business clients
+     </p>
+     <p>
+      Lack of data-driven insights to improve matching accuracy and client satisfaction rates
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <p>
+     I apologize, but I don't see any LinkedIn posts with timestamps in the provided context. The context appears to be general company information about VentureCopilot and a list of job categories. Without actual LinkedIn posts and their timestamps, I cannot provide summaries of the 3 latest posts.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <p>
+     No news found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <h3>
+     Based on VentureCopilot's focus on business consulting and outsourcing services, here's a customized value proposition highlighting The Upset Partners' relevant strengths:
+    </h3>
+    <ul>
+     <li>
+      Our proven 4S framework helps consulting firms like yours systematically expand into new markets and win high-value customers, with over 100+ successful B2B implementations across industries
+     </li>
+     <li>
+      We blend AI-powered tools with hands-on expertise to help outsourcing companies build repeatable sales engines and optimize their go-to-market strategy while finding product-market fit
+     </li>
+     <li>
+      Our team of B2B sales experts provides end-to-end support in building sales infrastructure, crafting personalized outreach, and closing deals - enabling staffing firms to scale predictably without relying solely on referrals
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <p>
+      <li>
+       <a href="https://www.qureos.com/">
+        Qureos
+       </a>
+       - Similar talent/staffing services company that received help in redefining their customer profile and value proposition, resulting in 5 new paying customers per week at $5K ACV.
+      </li>
+     </p>
+     <p>
+      <li>
+       <a href="https://www.palowise.ai/">
+        Palowise
+       </a>
+       - While in different industry, achieved similar business development results with 3 new opportunities per week at $30K ACV and $300K pipeline in first month.
+      </li>
+     </p>
+     <p>
+      <li>
+       <a href="https://www.indeex.ai/">
+        Indeex
+       </a>
+       - While in different industry, demonstrates similar international expansion needs, achieving 4 new opportunities across 4 European markets and $120K pipeline.
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the prospect's profile and the seller's B2B go-to-market consulting services, here are the 5 most relevant qualification questions to ask:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       "What is your current process for managing and delegating tasks to your virtual assistants/copilots, and what challenges are you facing in scaling these operations?"
+      </p>
+      <p>
+       - This helps understand their current operational pain points that the seller's GTM expertise could help optimize
+      </p>
+     </li>
+     <li>
+      <p>
+       "How are you currently acquiring new customers/clients for your virtual assistance services, and what are your growth targets for the next 6-12 months?"
+      </p>
+      <p>
+       - This reveals their go-to-market needs and if they need help building a systematic customer acquisition process
+      </p>
+     </li>
+     <li>
+      <p>
+       "What tools and systems are you currently using to track and measure the success of your sales and marketing efforts?"
+      </p>
+      <p>
+       - This uncovers if they need help implementing proper sales infrastructure and AI tools
+      </p>
+     </li>
+     <li>
+      <p>
+       "Are you looking to expand into any new markets or customer segments, and what challenges do you anticipate in doing so?"
+      </p>
+      <p>
+       - This identifies if they need help with market expansion strategy and execution
+      </p>
+     </li>
+     <li>
+      <p>
+       "What is your current sales process for converting prospects into paying clients, and how satisfied are you with your conversion rates?"
+      </p>
+      <p>
+       - This determines if they need assistance optimizing their sales funnel and closing deals
+      </p>
+     </li>
+    </ol>
+    <p>
+     These questions help qualify if VentureCopilot could benefit from the seller's expertise in building systematic go-to-market strategies, implementing sales infrastructure, and scaling customer acquisition using AI tools and expert guidance.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <ol>
+     <li>
+      Hands-on operational support
+     </li>
+     <li>
+      Sales infrastructure setup
+     </li>
+     <li>
+      Pipeline management
+     </li>
+     <li>
+      Dedicated account management
+     </li>
+     <li>
+      Sales enablement
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and adding my expertise as a sales researcher, here's how I would handle these objections:
+    </h3>
+    <h4>
+     1. Budget/Cost concerns during uncertain times:
+    </h4>
+    <ul>
+     <li>
+      Focus on the proven track record: "We've helped 100+ world-class businesses achieve sustainable growth"
+     </li>
+     <li>
+      Emphasize cost efficiency: "Our framework blends AI-powered tools with expert support to deliver results in the most time &amp; cost efficient way"
+     </li>
+     <li>
+      Position it as an investment in predictable growth: "We transform businesses into predictable growth engines, which is especially crucial during uncertain times"
+     </li>
+    </ul>
+    <h4>
+     2. Lack of immediate ROI proof:
+    </h4>
+    <ul>
+     <li>
+      Share specific customer success stories (like the testimonials mentioned in the context)
+     </li>
+     <li>
+      Highlight the hands-on execution approach: "We're not passive advisors - we work alongside your team providing end-to-end GTM execution"
+     </li>
+     <li>
+      Emphasize the systematic, proven framework: "Our 4S framework delivers faster market entry, more qualified leads, and a scalable process for winning customers"
+     </li>
+     <li>
+      Point to the scalability aspect: "We provide a repeatable and scalable sales engine that continues to deliver results"
+     </li>
+    </ul>
+    <p>
+     The key is to position the service as a strategic investment in sustainable growth rather than a cost, while backing claims with concrete evidence and testimonials from successful implementations.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <h3>
+     Hubspot
+    </h3>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
