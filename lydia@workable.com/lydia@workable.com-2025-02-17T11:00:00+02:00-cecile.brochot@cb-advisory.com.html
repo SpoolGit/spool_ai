@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   lydia@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   cecile.brochot@cb-advisory.com
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-02-17T11:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summary of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      Small boutique recruitment/executive search firm
+     </li>
+     <li>
+      Operating across EMEA (Paris, Frankfurt, London)
+     </li>
+     <li>
+      Team of 5 employees handling high-level executive searches
+     </li>
+     <li>
+      Uses AI and technology in recruitment processes
+     </li>
+     <li>
+      Focus on 2025 recruitment needs
+     </li>
+    </ul>
+    <h4>
+     Recent News and Updates:
+    </h4>
+    <ul>
+     <li>
+      Launched multilingual recruitment survey
+     </li>
+     <li>
+      Emphasis on AI integration in recruitment
+     </li>
+     <li>
+      Focus on soft skills for leadership roles
+     </li>
+     <li>
+      Strong commitment to diversity and ESG
+     </li>
+     <li>
+      Regular stakeholder communications
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ul>
+     <li>
+      Manual, time-consuming recruitment processes
+     </li>
+     <li>
+      Difficulty managing candidate data across locations
+     </li>
+     <li>
+      Lack of standardized hiring workflows
+     </li>
+     <li>
+      Coordination challenges with small team
+     </li>
+     <li>
+      Need for better integration of human insights and tech data
+     </li>
+    </ul>
+    <h4>
+     Sales Approach:
+    </h4>
+    <ol>
+     <li>
+      <p>
+       Value Proposition:
+      </p>
+      <ul>
+       <li>
+        AI-powered platform combining human expertise with technology
+       </li>
+       <li>
+        Automated tools maintaining human touch
+       </li>
+       <li>
+        Access to 400M+ profiles
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       Relevant Experience:
+      </p>
+      <ul>
+       <li>
+        Similar EMEA companies (Deposit Solutions, Cytora, GCC Services)
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       Product Features:
+      </p>
+      <ul>
+       <li>
+        AI-powered sourcing
+       </li>
+       <li>
+        Collaborative hiring tools
+       </li>
+       <li>
+        Multi-language support
+       </li>
+       <li>
+        Automated workflows
+       </li>
+       <li>
+        Advanced analytics
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       Objection Handling:
+      </p>
+      <ul>
+       <li>
+        Focus on ROI and cost savings
+       </li>
+       <li>
+        Emphasize free trial
+       </li>
+       <li>
+        Highlight efficiency gains
+       </li>
+       <li>
+        Share success metrics
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <h4>
+     Conversation Starters:
+    </h4>
+    <ul>
+     <li>
+      Discuss 2025 recruitment priorities
+     </li>
+     <li>
+      Explore AI integration in their processes
+     </li>
+     <li>
+      Ask about EMEA market expansion plans
+     </li>
+    </ul>
+    <h4>
+     Tech Stack:
+    </h4>
+    <ul>
+     <li>
+      AI, Gmail, Google Apps, Google translate API/widget, Mobile Friendly
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <p>
+      <li>
+       I noticed you're planning ahead for 2025 recruitment needs - what are your biggest hiring priorities for the coming year?
+      </li>
+     </p>
+     <p>
+      <li>
+       I see you're focusing on integrating AI in your talent acquisition - how is technology currently impacting your recruitment process?
+      </li>
+     </p>
+     <p>
+      <li>
+       With your EMEA-wide expansion across Paris, Frankfurt, and London, which market are you most excited about growing in?
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <ol>
+     <p>
+      <li>
+       Manual and time-consuming recruitment processes, especially when managing candidates across multiple EMEA locations (Paris, Frankfurt, London)
+      </li>
+     </p>
+     <p>
+      <li>
+       Difficulty tracking and managing candidate data and communications across their international executive search operations
+      </li>
+     </p>
+     <p>
+      <li>
+       Lack of standardized hiring workflows for their boutique recruitment processes across different regions and languages
+      </li>
+     </p>
+     <p>
+      <li>
+       Challenge in efficiently coordinating recruitment activities among their small team of 5 employees who handle high-level executive searches
+      </li>
+     </p>
+     <p>
+      <li>
+       Need for better tools to integrate and analyze both human insights and technological data for their strategic recruitment approach
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <h3>
+     Here are the 3 latest posts with summaries:
+    </h3>
+    <p>
+     18h ago: CB-Advisory launched surveys in multiple languages to understand hiring challenges for 2025 recruitment needs.
+    </p>
+    <p>
+     2d ago: CB-Advisory highlighted how they combine AI and human analysis in recruitment while emphasizing the importance of balancing technology and human leadership.
+    </p>
+    <p>
+     6d ago: CB-Advisory emphasized the growing importance of soft skills like empathy and adaptability for leadership roles in 2025.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h3>
+     Here are the latest news from CB-Advisory, ordered from most recent:
+    </h3>
+    <ol>
+     <li>
+      (18h ago) Launched a multilingual recruitment survey for 2025 needs to understand hiring challenges and improve services.
+     </li>
+     <li>
+      (2d ago) Technology and AI transformation in recruitment post, highlighting CB-Advisory's approach combining human analysis and technology.
+     </li>
+     <li>
+      (6d ago) Discussion about soft skills in leadership for 2025, focusing on empathy, adaptability, and emotional intelligence.
+     </li>
+     <li>
+      (1w ago) Post about diversity in leadership teams and commitment to inclusive teams.
+     </li>
+     <li>
+      (1w ago) Article about leadership priorities in 2025, focusing on uncertainty and innovation.
+     </li>
+     <li>
+      (2w ago) Company introduction highlighting executive search services across EMEA.
+     </li>
+     <li>
+      (3w ago) New Year message for 2025 about opportunities and partnerships.
+     </li>
+     <li>
+      (1mo ago) Christmas message to partners and clients.
+     </li>
+     <li>
+      (8mo ago) Post about ESG integration in management committees.
+     </li>
+     <li>
+      (8mo ago) Article about climate change and environmental concerns.
+     </li>
+    </ol>
+    <h4>
+     Insights:
+    </h4>
+    <ul>
+     <li>
+      Strong focus on future trends (2025) and leadership development
+     </li>
+     <li>
+      Emphasis on technology integration and AI in recruitment
+     </li>
+     <li>
+      Commitment to diversity, ESG, and environmental concerns
+     </li>
+     <li>
+      Active communication with stakeholders through regular updates and messages
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <h3>
+     Based on the prospect's profile and recent activities, here is a customized value proposition for CB-Advisory:
+    </h3>
+    <ul>
+     <li>
+      Streamline your international recruitment operations across EMEA with our AI-powered platform that combines human expertise with technology - perfectly aligned with your focus on human-centered recruitment across Paris, Frankfurt and London offices
+     </li>
+     <li>
+      Enhance your boutique recruitment firm's efficiency with automated candidate screening and evaluation tools that maintain the human touch while scaling your executive search capabilities for your growing client base
+     </li>
+     <li>
+      Leverage our AI-powered sourcing technology to expand your talent pool access to 400M+ profiles, helping you deliver on your promise of finding the perfect match for your clients' strategic and operational objectives across Europe
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <h3>
+     The companies are prioritized based on:
+    </h3>
+    <ol>
+     <li>
+      EMEA geography matching prospect's presence in France, Germany and UK
+     </li>
+     <li>
+      Business services industry alignment (though in different verticals)
+     </li>
+     <li>
+      Mix of company sizes to show platform scalability
+     </li>
+    </ol>
+    <h4>
+     1. Deposit Solutions (Similar geography - EMEA presence)
+    </h4>
+    <ul>
+     <li>
+      European fintech company with offices across Europe and expansion into US
+     </li>
+     <li>
+      Used Workable to manage global hiring strategy and improve executive-level reporting
+     </li>
+    </ul>
+    <h4>
+     2. Cytora (Similar geography - UK/EMEA)
+    </h4>
+    <ul>
+     <li>
+      London-based insurance startup with 60 employees
+     </li>
+     <li>
+      Used Workable to optimize hiring processes and collaborate effectively across teams while scaling rapidly
+     </li>
+    </ul>
+    <h4>
+     3. GCC Services (Similar geography - EMEA presence)
+    </h4>
+    <ul>
+     <li>
+      Integrated services provider operating across EMEA with 3,000 employees
+     </li>
+     <li>
+      Used Workable to maintain consistent hiring processes across multiple global locations and improve screening efficiency
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the context and the prospect's profile as a small recruitment/executive search firm, here are the 5 most relevant qualification questions to ask:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       "How do you currently manage your candidate database and recruitment workflow across your three office locations (Paris, Frankfurt, London)?"
+      </p>
+      <p>
+       - This helps understand their current process and potential pain points in managing candidates across multiple locations
+      </p>
+     </li>
+     <li>
+      <p>
+       "What tools are you using to source and track candidates for your executive search assignments?"
+      </p>
+      <p>
+       - This reveals if they have any existing ATS/recruitment software and identifies gaps Workable could fill
+      </p>
+     </li>
+     <li>
+      <p>
+       "How many active searches/placements does your team handle simultaneously, and what are your growth plans for the next 12-24 months?"
+      </p>
+      <p>
+       - This helps understand their volume and if Workable's scalability would benefit them
+      </p>
+     </li>
+     <li>
+      <p>
+       "What are your biggest challenges in managing the end-to-end recruitment process from sourcing to placement?"
+      </p>
+      <p>
+       - This uncovers specific pain points that Workable's features could address
+      </p>
+     </li>
+     <li>
+      <p>
+       "How do you currently collaborate and share candidate information between your team members across different locations?"
+      </p>
+      <p>
+       - This highlights potential needs for Workable's collaboration features and centralized database capabilities
+      </p>
+     </li>
+    </ol>
+    <p>
+     These questions focus on understanding their current recruitment process, challenges, and needs while highlighting how Workable's all-in-one HR platform could help streamline their operations across multiple locations.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Based on the prospect's profile as a small recruitment/executive search firm, here are the top 5 most relevant product features from Workable:
+    </h3>
+    <ol>
+     <li>
+      AI-powered candidate sourcing with access to 400M+ searchable profiles and automated matching capabilities
+     </li>
+     <li>
+      Collaborative hiring tools with structured interview templates, feedback collection, and team evaluation features
+     </li>
+     <li>
+      Multi-language support for job postings and career pages across EMEA markets (supports 6 languages)
+     </li>
+     <li>
+      Automated recruitment workflows for managing candidate communications, scheduling, and pipeline stages
+     </li>
+     <li>
+      Advanced analytics and reporting tools to track recruitment metrics and hiring performance
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and my expertise as a sales researcher, here are the most effective arguments to overcome these objections:
+    </h3>
+    <h4>
+     1. Cost/Budget concerns:
+    </h4>
+    <ul>
+     <li>
+      Emphasize cost savings through automation and efficiency gains - the context mentions it costs small businesses 8x more to hire compared to large companies
+     </li>
+     <li>
+      Highlight the free 15-day trial with no credit card required to test the full platform
+     </li>
+     <li>
+      Focus on ROI: One customer (Alexander Dennis) saved over $300k in agency fees in first year
+     </li>
+     <li>
+      Position it as an investment that grows with them ("buy what you need and workable can grow with you")
+     </li>
+    </ul>
+    <h4>
+     2. Current manual process works fine:
+    </h4>
+    <ul>
+     <li>
+      Share specific metrics showing impact (e.g., Lethbridge School District reduced time-to-hire by 50%)
+     </li>
+     <li>
+      Highlight how automation frees up time from administrative tasks to focus on quality candidate interactions
+     </li>
+     <li>
+      Point out that in today's competitive market, moving quickly on good candidates is critical (per customer quote: "we put such importance on moving quickly because we know how competitive it is out there")
+     </li>
+     <li>
+      Emphasize ease of use with "straightforward, easy-to-use system" that requires minimal training to adopt
+     </li>
+    </ul>
+    <p>
+     The key is focusing on tangible business outcomes and ROI rather than just features, while making the transition seem low-risk through the free trial option.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <h3>
+     AI
+    </h3>
+    <h3>
+     Gmail
+    </h3>
+    <h3>
+     Google Apps
+    </h3>
+    <h3>
+     Google translate API
+    </h3>
+    <h3>
+     Google translate widget
+    </h3>
+    <h3>
+     Mobile Friendly
+    </h3>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
