@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   evangelos.vasdekis@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   karyn.louis@bhomes.com
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-02-28T10:30:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summary of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      BetterHomes is a real estate company with 7+ UAE offices
+     </li>
+     <li>
+      Over 400 certified consultants
+     </li>
+     <li>
+      Recent leadership change: Louis Harding appointed as CEO
+     </li>
+     <li>
+      Strong growth: 56% increase in buyer leads, 171% increase in unit completions expected
+     </li>
+    </ul>
+    <h4>
+     Recent News &amp; Updates:
+    </h4>
+    <ul>
+     <li>
+      Awarded Best Real Estate Agency 2-4 Offices in Arabia
+     </li>
+     <li>
+      13,019 sales transactions achieved
+     </li>
+     <li>
+      Managing 42,076 leasing transactions
+     </li>
+     <li>
+      Exclusive partnership for $272M 'One Central' project
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ol>
+     <li>
+      Complex workforce management across multiple locations
+     </li>
+     <li>
+      High-volume recruitment and onboarding needs
+     </li>
+     <li>
+      Time tracking and performance monitoring challenges
+     </li>
+     <li>
+      Complex payroll management
+     </li>
+     <li>
+      Training and development tracking difficulties
+     </li>
+    </ol>
+    <h4>
+     Sales Approach:
+    </h4>
+    <h5>
+     1. Qualification Questions:
+    </h5>
+    <ul>
+     <li>
+      Focus on current recruitment process
+     </li>
+     <li>
+      Hiring volume and challenges
+     </li>
+     <li>
+      Employee data management
+     </li>
+     <li>
+      HR technology priorities
+     </li>
+     <li>
+      Decision-making stakeholders
+     </li>
+    </ul>
+    <h5>
+     2. Value Proposition:
+    </h5>
+    <ul>
+     <li>
+      Streamlined multi-location hiring
+     </li>
+     <li>
+      AI-powered recruitment platform
+     </li>
+     <li>
+      Simplified onboarding and HR management
+     </li>
+    </ul>
+    <h5>
+     3. Product Features to Highlight:
+    </h5>
+    <ul>
+     <li>
+      Branded career pages
+     </li>
+     <li>
+      AI-powered candidate sourcing
+     </li>
+     <li>
+      Collaborative hiring tools
+     </li>
+     <li>
+      Automated workflows
+     </li>
+     <li>
+      Analytics &amp; compliance features
+     </li>
+    </ul>
+    <h4>
+     Conversation Starters:
+    </h4>
+    <ol>
+     <li>
+      Recent office expansion
+     </li>
+     <li>
+      Team growth
+     </li>
+     <li>
+      Upcoming events and property developments
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <p>
+      "I noticed Betterhomes recently expanded with new offices in Business Bay and Al Raha Beach - which location has seen the most exciting growth?"
+     </p>
+     <p>
+      "I saw you've grown to over 400 certified consultants - how has your team's expansion been going this year?"
+     </p>
+     <p>
+      "I noticed you're hosting an exclusive Emaar open house event on February 27th - are you seeing increased interest in Dubai Hills properties?"
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Based on the context, here are the top 5 pain points:
+    </h3>
+    <ol>
+     <p>
+      <li>
+       Complex workforce management across multiple locations (7+ offices) and large staff (400+ consultants) requiring streamlined coordination
+      </li>
+     </p>
+     <p>
+      <li>
+       High-volume recruitment and onboarding needs due to rapid business expansion (56% increase in leads, 171% increase in unit completions)
+      </li>
+     </p>
+     <p>
+      <li>
+       Time tracking and performance monitoring challenges for large mobile workforce (300+ agents working across different locations)
+      </li>
+     </p>
+     <p>
+      <li>
+       Complex payroll management for diverse workforce (mix of certified consultants, staff, and agents with different compensation structures)
+      </li>
+     </p>
+     <p>
+      <li>
+       Training and development tracking difficulties for large number of agents requiring certifications and continuous professional development
+      </li>
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <h3>
+     Here are the 3 latest LinkedIn posts from BetterHomes with their timing and summary:
+    </h3>
+    <ol>
+     <p>
+      (20h ago) Behind-the-scenes look at BetterHomes' process of turning property visions into reality.
+     </p>
+     <p>
+      (1d ago) Announcement of an open house event for Emaar luxury properties on February 27th with beachfront hotel stay opportunity.
+     </p>
+     <p>
+      (1d ago) Promotion of City Walk Phase 3 apartments highlighting location advantages and investment potential.
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h3>
+     Here's the sorted unique news about Betterhomes:
+    </h3>
+    <h4>
+     February 2025:
+    </h4>
+    <ul>
+     <li>
+      Awarded Best Real Estate Agency 2-4 Offices in Arabia, with over 300 agents
+     </li>
+     <li>
+      Achieved 13,019 sales transactions and 56% increase in buyer leads
+     </li>
+     <li>
+      Expected to handle 72,365 new unit completions in 2025 (171% increase from 2024)
+     </li>
+    </ul>
+    <h4>
+     January 2025:
+    </h4>
+    <ul>
+     <li>
+      Leadership transition: Louis Harding appointed as new CEO, replacing Richard Waind
+     </li>
+     <li>
+      Company profile: 250+ agents across UAE, 30,000 homes sold in 40-year history
+     </li>
+    </ul>
+    <h4>
+     November 2024:
+    </h4>
+    <ul>
+     <li>
+      Managed 42,076 leasing transactions with 61% year-over-year increase in tenant leads
+     </li>
+     <li>
+      Secured exclusive partnership for $272M 'One Central' project in Ras Al Khaimah
+     </li>
+    </ul>
+    <h4>
+     Key Insights:
+    </h4>
+    <ul>
+     <li>
+      Growing workforce (300+ agents)
+     </li>
+     <li>
+      Recent leadership changes
+     </li>
+     <li>
+      Significant business expansion
+     </li>
+     <li>
+      Multiple office locations
+     </li>
+     <li>
+      Strong market performance
+     </li>
+     <li>
+      Exclusive partnerships
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <h3>
+     Based on the prospect's profile and recent news, here is a customized value proposition for Workable targeting Betterhomes:
+    </h3>
+    <ul>
+     <li>
+      Streamline hiring across 7+ UAE offices with an AI-powered recruitment platform that can handle high-volume hiring needs for 400+ consultants and staff, while maintaining consistent hiring standards and processes
+     </li>
+     <li>
+      Accelerate agent recruitment with automated job posting to 200+ job boards and AI sourcing to support Betterhomes' 56% increase in buyer leads and expected 171% growth in property transactions for 2025
+     </li>
+     <li>
+      Simplify onboarding and HR management for a distributed workforce with built-in onboarding workflows, document management, and time tracking tools designed for real estate companies managing multiple office locations
+     </li>
+    </ul>
+    <p>
+     The value proposition focuses on:
+    </p>
+    <ol>
+     <li>
+      Multi-location hiring needs given their 7+ UAE offices
+     </li>
+     <li>
+      High-volume recruitment requirements based on their growth metrics
+     </li>
+     <li>
+      Real estate industry-specific features for managing a distributed agent workforce
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <p>
+      <strong>
+       Zinger Property
+      </strong>
+      - Real estate company managing 16 buildings and 4,000 apartment units across US Midwest. Used video interviews to cut admin time by 50% and enhance inclusive hiring process.
+     </p>
+     <p>
+      <strong>
+       GCC Services
+      </strong>
+      - Dubai-headquartered facilities management company operating across 9 regions with 3,000 employees. Successfully implemented video interviews to maintain hiring across global locations while improving screening efficiency.
+     </p>
+     <p>
+      <strong>
+       Joey Restaurants
+      </strong>
+      - Restaurant chain with 39 locations across Canada and US, managing 5,000+ employees. Reduced time to interview by 60% and improved candidate experience through streamlined hiring process.
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the company profile and the HR software business context, here are the 5 most relevant qualification questions to ask the prospect:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       What is your current recruitment process and what tools/systems are you using to manage hiring across your multiple offices in Dubai and Abu Dhabi?
+      </p>
+      <p>
+       - This helps understand their existing setup and pain points
+      </p>
+     </li>
+     <li>
+      <p>
+       With 400+ consultants and staff, approximately how many new hires do you make annually across all locations, and what are your key hiring challenges?
+      </p>
+      <p>
+       - This establishes volume and urgency of need
+      </p>
+     </li>
+     <li>
+      <p>
+       How do you currently handle employee data management, time tracking and payroll for your 1,000+ employees across different locations?
+      </p>
+      <p>
+       - This explores needs beyond just recruitment
+      </p>
+     </li>
+     <li>
+      <p>
+       What are your main priorities in terms of HR technology - is it improving recruitment efficiency, better employee management, or streamlining payroll processes?
+      </p>
+      <p>
+       - This helps identify which product features would be most valuable
+      </p>
+     </li>
+     <li>
+      <p>
+       Who are the key stakeholders involved in evaluating and deciding on HR technology solutions in your organization?
+      </p>
+      <p>
+       - This identifies decision makers and helps map the sales process
+      </p>
+     </li>
+    </ol>
+    <p>
+     These questions help qualify:
+    </p>
+    <ul>
+     <li>
+      Scale and scope of their HR needs
+     </li>
+     <li>
+      Current pain points and priorities
+     </li>
+     <li>
+      Decision making process
+     </li>
+     <li>
+      Potential value of the solution
+     </li>
+     <li>
+      Readiness to evaluate new HR technology
+     </li>
+    </ul>
+    <p>
+     The questions are tailored to their size, multi-location setup, and industry context while exploring needs across recruitment, employee management and payroll - the key offerings of the HR software platform.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Here are the top 5 relevant product/service features to offer the real estate company:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        Branded Career Pages &amp; Job Postings
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Customizable career site with company branding
+       </li>
+       <li>
+        Multi-language job postings (supports 6 languages)
+       </li>
+       <li>
+        Mobile-friendly design and application forms
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        AI-Powered Candidate Sourcing
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Access to 400M+ searchable candidate profiles
+       </li>
+       <li>
+        AI matching and recommendations
+       </li>
+       <li>
+        Automated social media job promotion
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        Collaborative Hiring Tools
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Multi-office hiring coordination
+       </li>
+       <li>
+        Team feedback and evaluation tools
+       </li>
+       <li>
+        Mobile app for on-the-go hiring management
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        Automated Recruitment Workflows
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Customizable hiring pipelines by department
+       </li>
+       <li>
+        Automated scheduling and communications
+       </li>
+       <li>
+        Approval workflows for offers and requisitions
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        Analytics &amp; Compliance
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Real-time hiring metrics and reports
+       </li>
+       <li>
+        GDPR, CCPA compliance tools
+       </li>
+       <li>
+        Multi-location recruitment tracking
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and putting myself in the seller's shoes, here's how I would handle these objections:
+    </h3>
+    <h4>
+     1. Cost/Budget concerns ($129/job per month is too expensive):
+    </h4>
+    <ul>
+     <li>
+      Highlight ROI: "The platform automates many manual tasks, saving significant staff time and reducing cost-per-hire"
+     </li>
+     <li>
+      Break down daily cost: "At just over $4 per day, you get access to 200+ job boards, automated screening, and advanced recruiting tools"
+     </li>
+     <li>
+      Emphasize value: "Unlike basic job posting sites, you get a complete ATS with candidate sourcing, interview scheduling, and evaluation tools all in one platform"
+     </li>
+    </ul>
+    <h4>
+     2. Current System/Process objection:
+    </h4>
+    <ul>
+     <li>
+      Acknowledge and probe: "I understand your current process works. What specific challenges or pain points do you face with it?"
+     </li>
+     <li>
+      Highlight automation benefits: "Workable automates approval workflows, reporting, and compliance tasks - reducing administrative burden"
+     </li>
+     <li>
+      Emphasize scalability: "Over 30,000 companies use our platform because it grows with their needs and integrates with existing tools"
+     </li>
+     <li>
+      Offer trial: "We offer a 15-day free trial so you can experience firsthand how our features complement and improve your current process"
+     </li>
+    </ul>
+    <p>
+     The key is to focus on value proposition and let them experience the platform's benefits through the free trial rather than just pushing features.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <h3>
+     No relevant techstack
+    </h3>
+    <p>
+     Note: The provided context appears to be about Workable's product features and pricing, but does not contain an actual techstack listing. The question references a techstack with "``````" but no actual technologies were listed in that format.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
