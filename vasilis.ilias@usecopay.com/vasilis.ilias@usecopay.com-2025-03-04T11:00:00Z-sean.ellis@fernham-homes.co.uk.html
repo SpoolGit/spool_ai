@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   vasilis.ilias@usecopay.com
+  </p>
+  <p id="header" name="prospect_email">
+   sean.ellis@fernham-homes.co.uk
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-03-04T11:00:00Z
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summary of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      Fernham Homes is a luxury home builder operating in Kent, Sussex, London &amp; Surrey
+     </li>
+     <li>
+      25 years in business
+     </li>
+     <li>
+      Growth target: 150-200 new homes annually
+     </li>
+     <li>
+      Multiple ongoing developments including a £40M project
+     </li>
+    </ul>
+    <h4>
+     Recent News and Updates:
+    </h4>
+    <ul>
+     <li>
+      Named 'Kent's most exciting new development' by Country &amp; Town House magazine
+     </li>
+     <li>
+      Active charity partnership with Spadework
+     </li>
+     <li>
+      Recently launched 16-home development in Fawkham
+     </li>
+     <li>
+      New showhome opening in Sissinghurst
+     </li>
+     <li>
+      Managing Director appeared on BBC Radio 4
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ul>
+     <li>
+      Complex payment management across multiple projects
+     </li>
+     <li>
+      Cashflow challenges due to infrastructure contributions
+     </li>
+     <li>
+      Payment coordination with extensive contractor networks
+     </li>
+     <li>
+      Risk of project delays due to payment issues
+     </li>
+     <li>
+      Working capital pressure
+     </li>
+    </ul>
+    <h4>
+     Sales Approach:
+    </h4>
+    <h5>
+     Value Proposition:
+    </h5>
+    <ul>
+     <li>
+      Support growth plans through early payment options
+     </li>
+     <li>
+      Generate supply chain savings
+     </li>
+     <li>
+      Provide real-time payment visibility and control
+     </li>
+    </ul>
+    <h5>
+     Qualification Questions:
+    </h5>
+    <ul>
+     <li>
+      Current payment management process
+     </li>
+     <li>
+      Cashflow challenges
+     </li>
+     <li>
+      Payment terms structure
+     </li>
+     <li>
+      Number of subcontractors
+     </li>
+     <li>
+      Experience with digital payment solutions
+     </li>
+    </ul>
+    <h5>
+     Conversation Starters:
+    </h5>
+    <ol>
+     <li>
+      Recent recognition as 'Kent's most exciting new development'
+     </li>
+     <li>
+      Spadework charity partnership
+     </li>
+     <li>
+      New Fawkham development launch
+     </li>
+    </ol>
+    <h5>
+     Objection Handling:
+    </h5>
+    <ul>
+     <li>
+      Focus on flexibility compared to traditional financing
+     </li>
+     <li>
+      Emphasize win-win situation with suppliers
+     </li>
+     <li>
+      Highlight system integration capabilities
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <p>
+      "I noticed you were recently named 'Kent's most exciting new development' by Country &amp; Town House - what's been the most exciting part about this recognition?"
+     </p>
+     <p>
+      "I saw you hosted a fundraising quiz night at Spadework charity café - how did your team's partnership with them come about?"
+     </p>
+     <p>
+      "I noticed you just launched a new development in Fawkham with 16 homes - what made you choose that particular location near the North Downs?"
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Based on the context, here are the top 5 likely pain points for Fernham Homes:
+    </h3>
+    <ol>
+     <li>
+      Complex payment management across multiple concurrent large-scale projects (managing payments for 188 properties across two developments plus upcoming £40M project)
+     </li>
+     <li>
+      Cashflow challenges due to significant upfront infrastructure contributions (e.g., £1.5M+ for Blean project) while managing regular contractor payments
+     </li>
+     <li>
+      Payment coordination challenges with extensive contractor networks across multiple development sites in different locations (Kent, Sussex, London &amp; Surrey)
+     </li>
+     <li>
+      Risk of project delays due to payment-related issues with subcontractors, especially with ambitious growth targets of 150-200 new homes annually
+     </li>
+     <li>
+      Working capital pressure from managing multiple development phases simultaneously while maintaining timely payments to local workforce and suppliers
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <h3>
+     Here are the 3 latest LinkedIn posts with summaries:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       (2w) Fernham Homes at West Malling was named 'Kent's most exciting new development' by Country &amp; Town House magazine, highlighting its luxury features and prime location.
+      </p>
+     </li>
+     <li>
+      <p>
+       (3w) Spadework hosted a fundraising quiz night for Fernham Homes team, strengthening their charity partnership.
+      </p>
+     </li>
+     <li>
+      <p>
+       (2mo) Fernham Homes team members visited Spadework to witness their charitable impact, marking a year of partnership including various fundraising events.
+      </p>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h3>
+     Here are the unique and verified news about Fernham Homes, sorted by date from most recent:
+    </h3>
+    <ol>
+     <li>
+      (2 weeks ago) - Fernham Homes at West Malling named 'Kent's most exciting new development' by Country &amp; Town House magazine
+     </li>
+     <li>
+      (3 weeks ago) - Hosted a fundraising quiz night at Spadework charity café
+     </li>
+     <li>
+      (2 months ago) - Team visited Spadework to see the impact of their support
+     </li>
+     <li>
+      (3 months ago) - Announcement about available homes at Rainham and Sissinghurst developments
+     </li>
+     <li>
+      (4 months ago) - Managing Director Sean Ellis appeared on BBC Radio 4's You &amp; Yours discussing Section 106 agreements
+     </li>
+     <li>
+      (4 months ago) - Launch of Fernham Homes at Fawkham development with 16 three and four bedroom homes
+     </li>
+     <li>
+      (7 months ago) - Opening of new showhome and marketing suite in Sissinghurst, Kent, featuring 19 new homes and a new village hall
+     </li>
+    </ol>
+    <h4>
+     Insights:
+    </h4>
+    <ul>
+     <li>
+      The company is actively involved in community engagement and charity work
+     </li>
+     <li>
+      Continues to expand with multiple new developments across Kent
+     </li>
+     <li>
+      Maintains media presence through leadership engagement
+     </li>
+     <li>
+      Focus on mid-size developments (16-19 homes) in recent launches
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <p>
+     Based on the prospect's profile as a luxury home builder and recent activities, here's a customized value proposition:
+    </p>
+    <ul>
+     <li>
+      Support your ambitious growth plans (150-200 homes annually) by providing your subcontractors early payment options across multiple concurrent large-scale projects (£40M Blean, Faversham, Longfield developments)
+     </li>
+     <li>
+      Generate savings across your supply chain while strengthening relationships with local Kent &amp; Sussex contractors through flexible payment terms and improved cash flow management
+     </li>
+     <li>
+      Real-time visibility and control over payments for all your developments (ranging from 9 to 200 units) through a dedicated portal that integrates with your existing systems
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <li>
+      Barratt Homes - UK-based residential home builder, similar vertical and geography. (No specific value mentioned in context)
+     </li>
+     <li>
+      Vistry - UK residential construction company, similar vertical and geography. (No specific value mentioned in context)
+     </li>
+     <li>
+      Wates - UK construction company operating in similar geography. (No specific value mentioned in context)
+     </li>
+    </ol>
+    <p>
+     Note: While these companies are mentioned in the context as customers, there are no specific details about the value they received from the seller. They are listed as options for contractors to work with in the payment acceleration system.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the prospect's profile and the seller's business offering, here are the 5 most relevant qualification questions to ask Fernham Homes:
+    </h3>
+    <ol>
+     <li>
+      "How do you currently manage payments to your subcontractors across your various development projects in Kent, Sussex, London &amp; Surrey? We'd like to understand your current payment processes."
+     </li>
+     <li>
+      "With 25 years in business and multiple ongoing developments, what are your main challenges when it comes to managing cashflow and payments across your supply chain?"
+     </li>
+     <li>
+      "What is the typical payment terms structure you have with your subcontractors, and would you be interested in solutions that could help generate savings through early payments?"
+     </li>
+     <li>
+      "Approximately how many subcontractors do you work with across your various development sites, and what is your typical monthly payment volume to these suppliers?"
+     </li>
+     <li>
+      "Have you considered implementing any digital payment or supply chain finance solutions to improve your payment processes and supplier relationships? If so, what has been your experience?"
+     </li>
+    </ol>
+    <p>
+     These questions are strategically chosen to:
+    </p>
+    <ul>
+     <li>
+      Understand their current payment processes and pain points
+     </li>
+     <li>
+      Assess the scale of their subcontractor relationships
+     </li>
+     <li>
+      Identify potential savings opportunities
+     </li>
+     <li>
+      Evaluate their openness to new payment solutions
+     </li>
+     <li>
+      Gauge the potential fit for Copay's services
+     </li>
+    </ul>
+    <p>
+     The questions align with Copay's value proposition of helping main contractors save money while supporting their supply chain through early payments.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <ol>
+     <li>
+      Construction subcontractor cash flow solutions
+     </li>
+     <li>
+      Multi-contractor payment management
+     </li>
+     <li>
+      Supply chain payment management system
+     </li>
+     <li>
+      Project linking capabilities
+     </li>
+     <li>
+      Integration with COINS platform
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and taking the role of a seller, here are concise responses to overcome these objections:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        For "We already have existing financing/factoring arrangements in place":
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Unlike traditional factoring, Copay offers a debt-free solution directly through your clients
+       </li>
+       <li>
+        The context shows factoring companies are "expensive and hard to stop using" while Copay provides more flexibility
+       </li>
+       <li>
+        You can use Copay selectively when needed, without long-term commitments
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        For "Our current payment terms with suppliers work fine":
+       </strong>
+      </p>
+      <ul>
+       <li>
+        Copay creates a win-win situation by incentivizing early payments
+       </li>
+       <li>
+        You can generate high-yield returns on cash by paying vendors early
+       </li>
+       <li>
+        It helps improve supply chain resilience by reducing financial stress on suppliers
+       </li>
+       <li>
+        The system integrates with existing systems (like COINS) making it easy to implement without disrupting current processes
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     The key is emphasizing that Copay offers more flexibility, better returns, and strengthens supplier relationships compared to traditional arrangements, while being easy to implement alongside existing processes.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <h3>
+     No relevant techstack
+    </h3>
+    <p>
+     The provided context does not contain any technical stack information. The context appears to be website content about Copay, a construction industry payment solution, but does not list any technology stack details.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
