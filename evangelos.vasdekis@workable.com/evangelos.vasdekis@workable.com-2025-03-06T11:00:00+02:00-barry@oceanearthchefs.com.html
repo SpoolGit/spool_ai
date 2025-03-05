@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Discovery Cheat Sheet
+  </h1>
+  <p id="header" name="seller_email">
+   evangelos.vasdekis@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   barry@oceanearthchefs.com
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-03-06T11:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h3>
+     Here's a summary of the cheatsheet:
+    </h3>
+    <h4>
+     Key Company Information:
+    </h4>
+    <ul>
+     <li>
+      Small hospitality recruitment company specializing in private chef placements
+     </li>
+     <li>
+      2-person team operating internationally
+     </li>
+     <li>
+      Focus on luxury yacht, villa, and estate placements
+     </li>
+    </ul>
+    <h4>
+     Key Pain Points:
+    </h4>
+    <ul>
+     <li>
+      Manual applicant tracking across multiple locations
+     </li>
+     <li>
+      Time-consuming chef-client matching process
+     </li>
+     <li>
+      International payroll and time tracking challenges
+     </li>
+     <li>
+      Limited talent sourcing capabilities
+     </li>
+     <li>
+      Inefficient data management for international placements
+     </li>
+    </ul>
+    <h4>
+     Sales Approach:
+    </h4>
+    <h5>
+     1. Value Proposition:
+    </h5>
+    <ul>
+     <li>
+      AI-powered platform for chef recruitment
+     </li>
+     <li>
+      Automated screening and hiring tools
+     </li>
+     <li>
+      Access to 400M+ searchable candidates
+     </li>
+    </ul>
+    <h5>
+     2. Relevant Experience:
+    </h5>
+    <ul>
+     <li>
+      OneInAMil (similar size recruitment company)
+     </li>
+     <li>
+      Joey Restaurants (hospitality industry)
+     </li>
+     <li>
+      Access Services (distributed workforce model)
+     </li>
+    </ul>
+    <h5>
+     3. Qualification Questions Focus:
+    </h5>
+    <ul>
+     <li>
+      Current recruitment processes
+     </li>
+     <li>
+      Monthly placement volume
+     </li>
+     <li>
+      International recruitment challenges
+     </li>
+     <li>
+      Payroll/time tracking needs
+     </li>
+     <li>
+      Growth plans
+     </li>
+    </ul>
+    <h5>
+     4. Recommended Products:
+    </h5>
+    <ul>
+     <li>
+      Candidate Sourcing Suite
+     </li>
+     <li>
+      Mobile-optimized application forms
+     </li>
+     <li>
+      Talent CRM Database
+     </li>
+     <li>
+      Automated social media promotion
+     </li>
+     <li>
+      Custom careers page builder
+     </li>
+    </ul>
+    <h4>
+     Conversation Starters (Icebreakers):
+    </h4>
+    <ul>
+     <li>
+      Questions about worldwide chef placement destinations
+     </li>
+     <li>
+      Luxury yacht/villa market trends
+     </li>
+     <li>
+      High-end culinary trends
+     </li>
+    </ul>
+    <h4>
+     Objection Handling:
+    </h4>
+    <ul>
+     <li>
+      Focus on ROI and efficiency gains for price objections
+     </li>
+     <li>
+      Emphasize scalability for "current process works fine" objections
+     </li>
+     <li>
+      Offer free trial period
+     </li>
+    </ul>
+    <h4>
+     Tech Stack Integration:
+    </h4>
+    <ul>
+     <li>
+      Google Tag Manager
+     </li>
+     <li>
+      MouseFlow
+     </li>
+     <li>
+      WordPress.org
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <li>
+      "I noticed you're expanding your private chef placements worldwide - what exciting destinations are you seeing the most demand from lately?"
+     </li>
+     <li>
+      "How has the luxury yacht and villa chef market been evolving this season in Mallorca?"
+     </li>
+     <li>
+      "I saw you're a leader in private chef recruitment - what interesting culinary trends are you seeing among your high-end clientele?"
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <ol>
+     <li>
+      Manual applicant tracking and candidate management for multiple chef placements across different locations and property types
+     </li>
+     <li>
+      Time-consuming process of matching qualified chefs with specific client requirements (yachts, villas, chalets)
+     </li>
+     <li>
+      Difficulty managing payroll reporting and time tracking for placed chefs across international locations
+     </li>
+     <li>
+      Limited talent sourcing capabilities as a small company trying to find specialized private chefs globally
+     </li>
+     <li>
+      Inefficient employee data management and documentation handling for international chef placements
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <p>
+     I don't see any LinkedIn posts with timestamps in the provided context. The context appears to be just a company profile description for Ocean Earth Chefs, without any actual posts or timeline information. Therefore, I cannot provide the 3 latest posts and their summaries as requested.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <p>
+     No news found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <p>
+     Based on the prospect's profile as a small hospitality recruitment company specializing in private chef placement, here is a customized value proposition:
+    </p>
+    <ul>
+     <li>
+      Streamline your chef recruitment process with our AI-powered platform that helps match the perfect private chef candidates to your luxury yacht, villa and estate openings across Spain and worldwide
+     </li>
+     <li>
+      Scale your 2-person team's capabilities with automated candidate screening, scheduling and collaborative hiring tools designed specifically for boutique hospitality recruiters
+     </li>
+     <li>
+      Expand your chef talent pool instantly with access to over 400M searchable candidate profiles and AI-powered sourcing that finds qualified private chefs matching your exact requirements
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <h3>
+     Based on the prospect's profile and the provided context, here are the 3 most relevant customer examples:
+    </h3>
+    <ol>
+     <li>
+      <h4>
+       OneInAMil
+      </h4>
+      <p>
+       <strong>
+        Similarity:
+       </strong>
+       Same industry (Recruitment/Staffing) and similar company size (small team)
+      </p>
+      <p>
+       <strong>
+        Value:
+       </strong>
+       Workable helped them deliver bespoke, culture-driven hiring services more efficiently, which led to 15 of their clients also switching to Workable.
+      </p>
+     </li>
+     <li>
+      <h4>
+       Joey Restaurants
+      </h4>
+      <p>
+       <strong>
+        Similarity:
+       </strong>
+       Same industry (Hospitality) and also operates internationally
+      </p>
+      <p>
+       <strong>
+        Value:
+       </strong>
+       Reduced time to interview by 60%, implemented efficient screening process, increased candidate volume, introduced group interviews, and reduced agency use.
+      </p>
+     </li>
+     <li>
+      <h4>
+       Access Services
+      </h4>
+      <p>
+       <strong>
+        Similarity:
+       </strong>
+       Similar distributed workforce model (multiple locations) and service-focused business
+      </p>
+      <p>
+       <strong>
+        Value:
+       </strong>
+       Made 230 hires in 9 months, saved 160 hours of work per week, implemented system in just 6 weeks, and lowered cost per hire through better source tracking.
+      </p>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the company description and the seller's HR software business, here are the 5 most relevant qualification questions to ask the prospect:
+    </h3>
+    <ol>
+     <li>
+      "What is your current recruitment process for placing private chefs, and what tools/systems are you using to manage candidate applications and placements?"
+      <ul>
+       <li>
+        This helps understand their existing workflow and pain points
+       </li>
+      </ul>
+     </li>
+     <li>
+      "How many chef placements do you typically handle per month, and how do you track and manage the recruitment pipeline from application to placement?"
+      <ul>
+       <li>
+        This reveals volume of hiring and need for applicant tracking capabilities
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What are your biggest challenges in managing candidate data, documentation, and communication across yacht, villa and estate placements globally?"
+      <ul>
+       <li>
+        This uncovers specific pain points around international recruitment and compliance needs
+       </li>
+      </ul>
+     </li>
+     <li>
+      "How do you currently handle payroll reporting and time tracking for placed chefs across different locations and employers?"
+      <ul>
+       <li>
+        This explores their need for the payroll/time tracking features
+       </li>
+      </ul>
+     </li>
+     <li>
+      "What are your goals for growing your chef placement business in the next 1-2 years, and what recruitment capabilities would you need to support that growth?"
+      <ul>
+       <li>
+        This helps understand if they need a scalable solution and identifies growth opportunities
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <p>
+     These questions focus on:
+    </p>
+    <ul>
+     <li>
+      Current recruitment processes and pain points
+     </li>
+     <li>
+      Volume and complexity of placements
+     </li>
+     <li>
+      International recruitment challenges
+     </li>
+     <li>
+      Payroll/time tracking needs
+     </li>
+     <li>
+      Growth plans requiring better systems
+     </li>
+    </ul>
+    <p>
+     The answers will help determine if the prospect is a good fit for the HR software platform's capabilities around applicant tracking, employee management, and payroll features.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Based on the prospect's profile as a small recruitment company in hospitality/private chef placement, here are the top 5 relevant product features:
+    </h3>
+    <ol>
+     <li>
+      Candidate Sourcing Suite with 400M+ searchable profiles
+     </li>
+     <li>
+      Mobile-optimized application forms
+     </li>
+     <li>
+      Talent CRM Database for candidate management
+     </li>
+     <li>
+      Automated social media promotion for job postings
+     </li>
+     <li>
+      Custom careers page builder with multi-language support
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Based on the context and putting myself in the seller's shoes, here's how I would handle these objections:
+    </h3>
+    <h4>
+     For Price/Cost Objection:
+    </h4>
+    <ol>
+     <li>
+      Emphasize ROI and efficiency gains:
+     </li>
+     <ul>
+      <li>
+       Highlight how the software can save significant time by automating manual tasks
+      </li>
+      <li>
+       Point out that for a small team of 2, every hour saved on administrative work means more time for revenue-generating activities
+      </li>
+      <li>
+       Offer a 15-day free trial to demonstrate value without upfront commitment
+      </li>
+     </ul>
+    </ol>
+    <h4>
+     For "Current Process Works Fine" Objection:
+    </h4>
+    <ol>
+     <li>
+      Focus on growth and scalability:
+     </li>
+     <ul>
+      <li>
+       Acknowledge their current process while highlighting limitations as they grow
+      </li>
+      <li>
+       Explain how the software can help them handle increased volume of candidates without adding headcount
+      </li>
+      <li>
+       Emphasize that implementing now will prevent growing pains later when they're busier
+      </li>
+     </ul>
+    </ol>
+    <h4>
+     Additional tips for both objections:
+    </h4>
+    <ul>
+     <li>
+      Keep the focus on their specific industry needs (hospitality/recruitment staffing)
+     </li>
+     <li>
+      Start with basic features they need most rather than overwhelming with full functionality
+     </li>
+     <li>
+      Position it as an investment in their business's future rather than just an expense
+     </li>
+     <li>
+      Highlight the mobile-friendly features that allow them to manage hiring on-the-go
+     </li>
+    </ul>
+    <p>
+     The key is to demonstrate clear value and ROI while acknowledging their current size and specific industry needs.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <h3>
+     Based on the provided techstack and context about Workable's offerings as a recruitment/HR software platform, here are the most relevant items from the prospect's techstack:
+    </h3>
+    <ol>
+     <li>
+      Google Tag Manager
+     </li>
+     <li>
+      MouseFlow
+     </li>
+     <li>
+      WordPress.org
+     </li>
+    </ol>
+    <p>
+     These items are relevant as they relate to website tracking, analytics, and content management which could indicate the prospect's potential needs around recruitment software and candidate tracking capabilities.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
