@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Meeting Cheat Sheet
+  </h1>
+  <p id="header" name="call_type">
+   Most probably first call - 0 notes found in CRM
+  </p>
+  <p id="header" name="seller_email">
+   vaios@theupsetpartners.com
+  </p>
+  <p id="header" name="prospect_email">
+   dean@telestar.vn
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-03-18T15:30:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h1>
+     Telestar LLC Cheatsheet Summary
+    </h1>
+    <h2>
+     Key Company Information
+    </h2>
+    <ul>
+     <li>
+      Based in Ho Chi Minh City, Vietnam
+     </li>
+     <li>
+      Approximately 148 employees
+     </li>
+     <li>
+      Provides online marketing and telesales services
+     </li>
+     <li>
+      Currently expanding into Thai-speaking markets
+     </li>
+     <li>
+      Actively hiring multiple Business Development Representatives
+     </li>
+    </ul>
+    <h2>
+     Recent News and Updates
+    </h2>
+    <ul>
+     <li>
+      Significant hiring push for Business Development Representatives in HCMC
+     </li>
+     <li>
+      "New Year, New Career" campaign launched after Tết holiday
+     </li>
+     <li>
+      Expanding into Thai-speaking markets
+     </li>
+     <li>
+      Multiple job openings across sales and business development roles
+     </li>
+     <li>
+      In a substantial growth phase, particularly focused on sales capabilities
+     </li>
+    </ul>
+    <h2>
+     Key Pain Points
+    </h2>
+    <ol>
+     <li>
+      Scaling sales operations efficiently during rapid recruitment
+     </li>
+     <li>
+      Developing effective go-to-market strategies for diverse service offerings
+     </li>
+     <li>
+      Establishing consistent lead generation processes
+     </li>
+     <li>
+      Optimizing international team structure and communication workflows
+     </li>
+     <li>
+      Creating repeatable onboarding and training systems for growing sales team
+     </li>
+    </ol>
+    <h2>
+     Sales Approach
+    </h2>
+    <ul>
+     <li>
+      <strong>
+       Value Proposition
+      </strong>
+      : 4S framework (Search, Service, Sales, Scale) to systematically expand markets
+     </li>
+     <li>
+      <strong>
+       Recommended Products
+      </strong>
+      : AI-powered tools, multi-channel outreach, sales enablement, lead generation, sales playbook creation
+     </li>
+     <li>
+      <strong>
+       Qualification Focus
+      </strong>
+      : Current acquisition strategies, expansion plans, sales team structure, target clients, technology utilization
+     </li>
+     <li>
+      <strong>
+       Objection Handling
+      </strong>
+      : Emphasize value-based approach, scalability, opportunity cost, concrete outcomes, and success stories
+     </li>
+    </ul>
+    <h2>
+     Conversation Starters
+    </h2>
+    <ol>
+     <li>
+      "I noticed Telestar has been actively hiring for several Business Development roles recently - how has your team's growth been impacting your operations?"
+     </li>
+     <li>
+      "I saw that Telestar launched a 'New Year, New Career' campaign after Tết - did you participate in any special celebrations for the holiday this year?"
+     </li>
+     <li>
+      "With your expansion into Thai-speaking markets, what other international growth opportunities is Telestar most excited about right now?"
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <p>
+     1. I noticed Telestar has been actively hiring for several Business Development roles recently - how has your team's growth been impacting your operations?
+    </p>
+    <p>
+     2. I saw that Telestar launched a "New Year, New Career" campaign after Tết - did you participate in any special celebrations for the holiday this year?
+    </p>
+    <p>
+     3. With your expansion into Thai-speaking markets, what other international growth opportunities is Telestar most excited about right now?
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h1>
+     Top 5 Pain Points for the Prospect
+    </h1>
+    <ol>
+     <li>
+      Scaling sales operations efficiently while maintaining quality during active recruitment periods
+     </li>
+     <li>
+      Developing effective go-to-market strategies for their diverse service offerings
+     </li>
+     <li>
+      Establishing consistent lead generation processes for their business development representatives
+     </li>
+     <li>
+      Optimizing their international team structure and communication workflows
+     </li>
+     <li>
+      Creating repeatable onboarding and training systems for their rapidly growing sales team
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <ol>
+     <li>
+      Telestar is hiring a Business Development Representative (entry level) in Ho Chi Minh City, posted 4 days ago.
+     </li>
+     <li>
+      Telestar is hiring a Business Development Representative (entry level) in Ho Chi Minh City, posted 3 weeks ago.
+     </li>
+     <li>
+      Telestar is hiring an (entry level) Business Development Representative in Ho Chi Minh City, posted 3 weeks ago.
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h1>
+     Latest News for Telestar LLC (from most recent)
+    </h1>
+    <ol>
+     <li>
+      <strong>
+       4 days ago
+      </strong>
+      : Hiring a Business Development Representative (entry level) in Ho Chi Minh City.
+     </li>
+     <li>
+      <strong>
+       3 weeks ago
+      </strong>
+      : Two separate job postings for Business Development Representatives (entry level) in Ho Chi Minh City.
+     </li>
+     <li>
+      <strong>
+       4 weeks ago
+      </strong>
+      : Post-Tết recruitment announcement - "New year, new career!" - seeking candidates in HCMC to join their international team, with contact email cv@telestar.vn.
+     </li>
+     <li>
+      <strong>
+       1 month ago
+      </strong>
+      : Two job openings:
+      <ul>
+       <li>
+        Virtual Executive Assistant in Ho Chi Minh City
+       </li>
+       <li>
+        Business Development Representative - Thai speaking in Ho Chi Minh City
+       </li>
+      </ul>
+     </li>
+     <li>
+      <strong>
+       2 months ago
+      </strong>
+      : Multiple job postings including:
+      <ul>
+       <li>
+        Entry level/Fresher Business Development Representative
+       </li>
+       <li>
+        Sales Manager
+       </li>
+      </ul>
+     </li>
+     <li>
+      <strong>
+       3 months ago
+      </strong>
+      : Hiring a Business Development Executive in Ho Chi Minh City.
+     </li>
+    </ol>
+    <p>
+     Insights: The company appears to be in a significant growth phase with consistent hiring efforts in Ho Chi Minh City, Vietnam, particularly focused on business development and sales roles.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <ul>
+     <li>
+      Our 4S framework (Search, Service, Sales, Scale) can help your online marketing and telesales business systematically expand into new markets and win high-value customers in Vietnam and beyond.
+     </li>
+     <li>
+      With our AI-powered tools and hands-on support from B2B experts, we can transform your sales operations into a predictable growth engine - perfect for your 148-employee company looking to scale its business development capabilities.
+     </li>
+     <li>
+      We provide the expertise of an experienced commercial co-founder as a service, helping you optimize your outbound processes and build a repeatable sales system tailored to your telesales and marketing services.
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <h3>
+     1. Palowise
+    </h3>
+    <p>
+     Similar in company size (22 employees vs. 148 employees) and both provide marketing services. Palowise built sales infrastructure from scratch, generated 3 new opportunities/week at 30k annual contract value, and added new 300k pipeline within the first month.
+    </p>
+    <h3>
+     2. Qureos
+    </h3>
+    <p>
+     Similar in company size (92 employees vs. 148 employees) and both operate in Asia (UAE vs. Vietnam). Qureos defined new ideal customer profile and value proposition, adding 5 new paying customers/week at 5k in annual contract value, and closed new financing round from top VCs.
+    </p>
+    <h3>
+     3. Cyclopt
+    </h3>
+    <p>
+     Both provide IT services (IT management vs. software quality solutions). Cyclopt crafted the go-to-market plan from scratch, built sales infrastructure from scratch, and added new $250k pipeline from new European markets.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h1>
+     5 Most Relevant Qualification Questions for the Vietnamese Online Marketing Company
+    </h1>
+    <p>
+     Based on the context provided about the seller's business (B2B go-to-market services for startups) and the prospect's company (online marketing and telesales services in Vietnam), here are the 5 most important qualification questions to ask:
+    </p>
+    <ol>
+     <li>
+      <strong>
+       What are your current customer acquisition strategies for your marketing and telesales services, and what challenges are you facing with scaling these efforts?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       Are you looking to expand your services beyond Vietnam into new markets, and if so, what regions are you targeting and what barriers have you encountered?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       How do you currently structure your sales team and processes, and what metrics do you use to measure their effectiveness?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       What types of B2B clients are you currently serving, and are there specific industries or company sizes you're looking to target more effectively?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       How are you currently leveraging technology and AI in your sales and marketing processes, and what improvements are you seeking in this area?
+      </strong>
+     </li>
+    </ol>
+    <p>
+     These questions will help determine if there's alignment between The Upset Partners' B2B go-to-market services and the prospect's needs as a business solutions provider looking to potentially scale their operations or enter new markets.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Top 5 product/service features for the prospect:
+    </h3>
+    <ol>
+     <li>
+      AI-powered tools and integration
+     </li>
+     <li>
+      Multi-channel outreach (LinkedIn, email, phone)
+     </li>
+     <li>
+      Sales enablement
+     </li>
+     <li>
+      Lead generation
+     </li>
+     <li>
+      Sales playbook creation
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Overcoming Budget Constraints and ROI Objections
+    </h3>
+    <h4>
+     For Budget Constraints/High Cost Concerns:
+    </h4>
+    <ol>
+     <li>
+      <strong>
+       Value-based approach
+      </strong>
+      : "Our framework delivers end-to-end GTM execution, not just advice. This hands-on implementation means you're investing in actual results, not theoretical strategies."
+     </li>
+     <li>
+      <strong>
+       Scalability argument
+      </strong>
+      : "Our solution is designed to create a predictable growth engine. While there's an upfront investment, the framework establishes repeatable sales processes that generate consistent revenue streams."
+     </li>
+     <li>
+      <strong>
+       Opportunity cost perspective
+      </strong>
+      : "Consider the cost of slow, unpredictable growth from relying solely on word-of-mouth. Our approach accelerates market entry and customer acquisition."
+     </li>
+    </ol>
+    <h4>
+     For Lack of Clear ROI/Value Demonstration:
+    </h4>
+    <ol>
+     <li>
+      <strong>
+       Concrete outcomes
+      </strong>
+      : "Our clients experience faster market entry, more qualified leads, and a scalable process for winning customers. These translate directly to revenue growth."
+     </li>
+     <li>
+      <strong>
+       AI-powered efficiency
+      </strong>
+      : "We integrate cutting-edge AI tools with proven sales methodologies, maximizing your team's effectiveness while reducing resource waste."
+     </li>
+     <li>
+      <strong>
+       Success stories reference
+      </strong>
+      : "Companies like Zywa and Genify have seen tangible results through our pragmatic approach to go-to-market strategies, as their founders can attest."
+     </li>
+     <li>
+      <strong>
+       Data-driven decisions
+      </strong>
+      : "We focus on measurable KPIs throughout the revenue engine, from website visits to customer renewals, ensuring every marketing dollar is accountable."
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
