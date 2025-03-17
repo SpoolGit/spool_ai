@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Meeting Cheat Sheet
+  </h1>
+  <p id="header" name="call_type">
+   Most probably first call - 0 notes found in CRM
+  </p>
+  <p id="header" name="seller_email">
+   lydia@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   sleau@excelya.com
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-03-17T14:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h1>
+     Excelya Cheatsheet Summary
+    </h1>
+    <h2>
+     Key Company Information
+    </h2>
+    <ul>
+     <li>
+      Global clinical research organization operating in 28 countries across Europe, USA, and India
+     </li>
+     <li>
+      900+ employees, with significant growth through acquisitions
+     </li>
+     <li>
+      Strong focus on gender equality (97/100 Gender Equality Index score)
+     </li>
+     <li>
+      Recent company events include "Back to the 80's - Mardi Gras Edition" celebration and participation in ACDM Data Management Conference
+     </li>
+    </ul>
+    <h2>
+     Key Pain Points
+    </h2>
+    <ol>
+     <li>
+      Managing rapidly growing workforce across multiple countries post-acquisitions
+     </li>
+     <li>
+      Recruiting specialized pharmaceutical/clinical research talent in competitive market
+     </li>
+     <li>
+      Complex time tracking and payroll across different international jurisdictions
+     </li>
+     <li>
+      Maintaining consistent employee management with varying regulatory environments
+     </li>
+     <li>
+      Efficiently onboarding employees from acquisitions while preserving culture
+     </li>
+    </ol>
+    <h2>
+     Sales Approach
+    </h2>
+    <ul>
+     <li>
+      Emphasize AI-powered recruitment platform specifically for clinical research organizations
+     </li>
+     <li>
+      Highlight multilingual hiring tools for global expansion
+     </li>
+     <li>
+      Focus on security compliance (ISO-certified, GDPR-compliant) for sensitive data
+     </li>
+     <li>
+      Reference relevant experience with similar healthcare organizations (Karo Healthcare, Houston Behavioral Healthcare, Innowell)
+     </li>
+     <li>
+      Recommend clinical trial management features with specialized modules and compliance tools
+     </li>
+    </ul>
+    <h2>
+     Conversation Starters
+    </h2>
+    <ol>
+     <li>
+      Discuss their "Back to the 80's - Mardi Gras Edition" event and other team-building activities
+     </li>
+     <li>
+      Congratulate on Gender Equality Index score and discuss impact on company culture
+     </li>
+     <li>
+      Inquire about their global expansion experiences across 28 countries
+     </li>
+    </ol>
+    <h2>
+     Handling Objections
+    </h2>
+    <ul>
+     <li>
+      Cost concerns: Emphasize ROI, flexible pricing, and efficiency savings
+     </li>
+     <li>
+      Integration challenges: Highlight extensive integration ecosystem, API access, and implementation support
+     </li>
+    </ul>
+    <h2>
+     Tech Stack
+    </h2>
+    <p>
+     AI, Google Analytics, Google Tag Manager, Microsoft Office 365, Outlook, Remote, Salesforce
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <h3>
+     1. I noticed Excelya recently celebrated a "Back to the 80's - Mardi Gras Edition" - what other team-building activities have you found most effective for your global team?
+    </h3>
+    <h3>
+     2. Congratulations on your impressive Gender Equality Index score of 97/100! How has this commitment to equality influenced your company culture?
+    </h3>
+    <h3>
+     3. I see Excelya has expanded to operate in 28 countries across Europe, USA and India - what's been the most exciting aspect of your recent global growth?
+    </h3>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h1>
+     Top 5 Pain Points for Excelya
+    </h1>
+    <ol>
+     <li>
+      Managing a rapidly growing workforce across 28 countries with 900+ employees, especially after multiple acquisitions requiring integration of different HR systems and processes
+     </li>
+     <li>
+      Recruiting specialized pharmaceutical and clinical research talent in a competitive industry, particularly for their expanding operations in Europe, USA, and India
+     </li>
+     <li>
+      Tracking time and managing payroll complexities across multiple international jurisdictions with different labor laws and compliance requirements
+     </li>
+     <li>
+      Maintaining consistent employee management practices while operating in diverse global locations with varying regulatory environments
+     </li>
+     <li>
+      Efficiently onboarding new employees from acquisitions (like Zeincro, The Clinical Company, and Koehler eClinical) while preserving company culture and ensuring compliance
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <h3>
+     Based on the context, here are the 3 latest and most important LinkedIn posts from Excelya:
+    </h3>
+    <ol>
+     <li>
+      <p>
+       Excelya's Gender Equality Index post celebrating their 97/100 score for 2025, marking three consecutive years of improvement in their commitment to fairness and inclusion (posted 4d ago).
+      </p>
+     </li>
+     <li>
+      <p>
+       "Back to the 80's - Mardi Gras Edition" post showcasing their office celebration with team members embracing 80s fashion and spirit (posted 4d ago).
+      </p>
+     </li>
+     <li>
+      <p>
+       Recap of Excelya's participation in the ACDM Data Management Conference in Prague, highlighting industry discussions on clinical data management trends and innovations (posted 6d ago).
+      </p>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h1>
+     Excelya News Summary
+    </h1>
+    <h2>
+     Latest News (from most recent)
+    </h2>
+    <ol>
+     <li>
+      <strong>
+       Gender Equality Index Achievement (4 days ago)
+      </strong>
+      : Excelya announced their 2025 French professional gender equality index score of 97/100, marking the third consecutive year of improvement from 93/100 in 2024.
+     </li>
+     <li>
+      <strong>
+       Mardi Gras 80's Celebration (4 days ago)
+      </strong>
+      : The company hosted a "Back to the 80's – Mardi Gras Edition" celebration in their offices with employees dressing in 80's-themed outfits.
+     </li>
+     <li>
+      <strong>
+       ACDM Data Management Conference in Prague (6 days ago)
+      </strong>
+      : Excelya participated in the ACDM 2025 conference in Prague, with experts Laurence Maunier and Edouard Levasseur representing the company.
+     </li>
+     <li>
+      <strong>
+       International Women's Day Celebration (6 days ago)
+      </strong>
+      : The company celebrated International Women's Day with inspiring messages left on mirrors to remind employees of their strength and values.
+     </li>
+     <li>
+      <strong>
+       International Women's Day Recognition (1 week ago)
+      </strong>
+      : Excelya published a post celebrating all women around the world and expressing gratitude to women in their team.
+     </li>
+     <li>
+      <strong>
+       Employee Spotlight: Laura Kalwoda (1 week ago)
+      </strong>
+      : Featured a video of Laura Kalwoda, Clinical Project Manager, sharing her journey at Excelya and work-life balance.
+     </li>
+     <li>
+      <strong>
+       CyberVadis Gold Medal Award (1 week ago)
+      </strong>
+      : Excelya announced receiving a gold medal from CyberVadis for their cybersecurity excellence.
+     </li>
+     <li>
+      <strong>
+       Webinar Announcement (2 weeks ago)
+      </strong>
+      : Promotion of an upcoming webinar featuring experts from Excelya, Atorus, Eclevar, and Oracle discussing integrated clinical trial platforms.
+     </li>
+     <li>
+      <strong>
+       Veeva Vault EDC Implementation (November 2022)
+      </strong>
+      : Implemented Veeva Vault EDC for electronic data capture in clinical trials, improving database build cycles and eliminating downtime for mid-study amendments.
+     </li>
+     <li>
+      <strong>
+       European Expansion (July 2020)
+      </strong>
+      : Acquired three CROs (Zeincro, The Clinical Company, and Koehler eClinical), creating a unified group with 800 employees across 24 European countries and projected combined revenues of €70 million for 2020.
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <ul>
+     <li>
+      Streamline your clinical trial operations with our AI-powered recruitment platform, designed specifically for CROs like Excelya to efficiently manage the hiring of specialized talent across your 28 countries of operation.
+     </li>
+     <li>
+      Enhance your global expansion capabilities with our multilingual hiring tools that support seamless recruitment across Europe, USA, and India, helping you integrate employees from acquired companies while maintaining your high standards of excellence.
+     </li>
+     <li>
+      Protect sensitive pharmaceutical data with our ISO-certified, GDPR-compliant platform featuring robust security measures, ensuring your recruitment processes meet the strict compliance requirements of the pharmaceutical and clinical research industries.
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <h3>
+     1. Karo Healthcare
+    </h3>
+    <p>
+     Similar to Excelya in pharmaceutical/healthcare industry and European presence. Karo Healthcare is a Swedish healthcare company with operations across Europe, similar to Excelya's presence in 28 countries across Europe. Workable helped them save €800,000 in agency costs through fast implementation, automation, and structured hiring processes.
+    </p>
+    <h3>
+     2. Houston Behavioral Healthcare Hospital
+    </h3>
+    <p>
+     Similar to Excelya in healthcare industry. While Excelya focuses on clinical trials and research, both operate in the broader healthcare sector. Workable helped the hospital automate hiring, build a qualified clinician pool, achieve faster time to hire, and improve communication between hiring managers.
+    </p>
+    <h3>
+     3. Innowell
+    </h3>
+    <p>
+     Similar to Excelya in healthcare technology sector and global presence (Australia and Canada). Both companies operate in specialized healthcare niches. Workable helped Innowell reduce time to hire by 15% through streamlined workflow with agency recruiters, better organization, and improved interview scheduling.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h3>
+     Based on the context provided, here are the 5 most relevant and important qualification questions to ask Excelya as a prospect for your HR software platform:
+    </h3>
+    <ol>
+     <li>
+      How are you currently managing your recruitment and applicant tracking processes across your 28 countries of operation? What challenges are you facing with your current system?
+     </li>
+     <li>
+      With 900+ global experts and operations across Europe, USA, and India, how do you currently handle employee data management and ensure compliance with different regional regulations?
+     </li>
+     <li>
+      As a clinical research organization that has grown significantly since 2014, what are your key priorities for streamlining HR processes and improving efficiency in talent acquisition?
+     </li>
+     <li>
+      How do you currently manage time tracking and attendance for your 700+ employees across multiple time zones and countries?
+     </li>
+     <li>
+      What payroll challenges do you face with your multinational workforce, and how are you currently handling multi-currency and multi-jurisdiction payroll processing?
+     </li>
+    </ol>
+    <p>
+     These questions focus on understanding Excelya's current HR infrastructure, pain points, and needs that align with your HR software platform's core offerings of applicant tracking, employee management, time tracking, and payroll solutions.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h1>
+     Top 5 Product/Service Features for Excelya
+    </h1>
+    <ol>
+     <li>
+      Clinical Trial Management System with specialized modules for Oncology, Rare Disease, and other therapeutic areas
+     </li>
+     <li>
+      Multi-language hiring options to support global recruitment across 28 countries
+     </li>
+     <li>
+      Candidate sourcing suite with AI-powered recommendations for clinical research professionals
+     </li>
+     <li>
+      Compliance tools for pharmaceutical regulations (GDPR, CCPA)
+     </li>
+     <li>
+      Customizable onboarding workflows for different departments and locations
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h1>
+     Overcoming Cost Concerns:
+    </h1>
+    <ol>
+     <li>
+      <strong>
+       ROI-focused approach
+      </strong>
+      : Emphasize that Workable offers a 15-day free trial with no credit card required, allowing pharmaceutical companies to test the complete feature set before committing financially.
+     </li>
+     <li>
+      <strong>
+       Flexible pricing model
+      </strong>
+      : Highlight that Workable's "buy what you need" approach means companies can start with essential features and scale up as their needs grow, making it budget-friendly.
+     </li>
+     <li>
+      <strong>
+       Efficiency savings
+      </strong>
+      : Demonstrate how automating recruitment processes reduces time-to-hire and administrative costs, creating measurable ROI that offsets the initial investment.
+     </li>
+    </ol>
+    <h1>
+     Overcoming Integration Challenges:
+    </h1>
+    <ol>
+     <li>
+      <strong>
+       Extensive integration ecosystem
+      </strong>
+      : Emphasize that Workable connects with 70+ recruiting and HR tools, making it highly compatible with existing pharmaceutical systems.
+     </li>
+     <li>
+      <strong>
+       Developer API access
+      </strong>
+      : Point out that Workable provides API access for custom integrations with specialized pharmaceutical/clinical trial systems.
+     </li>
+     <li>
+      <strong>
+       Implementation support
+      </strong>
+      : Highlight the rapid system setup, existing data migration capabilities, and dedicated account managers who can assist with integration challenges specific to pharmaceutical environments.
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     AI, Google Analytics, Google Tag Manager, Microsoft Office 365, Outlook, Remote, Salesforce
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
