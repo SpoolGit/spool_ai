@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Meeting Cheat Sheet
+  </h1>
+  <p id="header" name="call_type">
+   Most probably first call - 0 notes found in CRM
+  </p>
+  <p id="header" name="seller_email">
+   vaios@theupsetpartners.com
+  </p>
+  <p id="header" name="prospect_email">
+   orestis@intale.com
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-03-19T14:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h1>
+     Intale Cheatsheet Summary
+    </h1>
+    <h2>
+     Key Company Information
+    </h2>
+    <ul>
+     <li>
+      Greek retail management platform founded in 2010, inspired by an observation at a kiosk
+     </li>
+     <li>
+      Currently serves 700+ stores with plans for international expansion to USA, Germany, UK
+     </li>
+     <li>
+      Product suite includes Intale Point, Insights, Connect, and Media
+     </li>
+     <li>
+      33 employees, headquartered in Athens, Greece
+     </li>
+    </ul>
+    <h2>
+     Recent News and Updates
+    </h2>
+    <ul>
+     <li>
+      Recently launched Intale Insights for real-time data analytics to help retailers understand customer preferences
+     </li>
+     <li>
+      Introduced Convenience Panorama for tracking product category growth and distribution analysis
+     </li>
+     <li>
+      Launched Intale Media for point-of-purchase advertising connecting brands with consumers
+     </li>
+     <li>
+      Expanded Intale Point with additional retail management capabilities
+     </li>
+    </ul>
+    <h2>
+     Key Pain Points
+    </h2>
+    <ol>
+     <li>
+      Scaling international market entry strategy beyond Greece
+     </li>
+     <li>
+      Building effective B2B sales processes for enterprise clients
+     </li>
+     <li>
+      Developing targeted messaging for different product lines
+     </li>
+     <li>
+      Creating structured lead generation for enterprise offerings
+     </li>
+     <li>
+      Establishing thought leadership in the competitive retail technology space
+     </li>
+    </ol>
+    <h2>
+     Sales Approach
+    </h2>
+    <ul>
+     <li>
+      Value proposition should focus on transforming real-time retail data into actionable growth strategies
+     </li>
+     <li>
+      Highlight experience with similar Greek tech companies (Palowise, Indeex, Cyclopt) that successfully expanded to European markets
+     </li>
+     <li>
+      Recommend AI-powered tools, tailor-made GTM strategy, and sales enablement for FMCG retail solutions
+     </li>
+     <li>
+      Address budget concerns by focusing on ROI metrics and flexible pricing options
+     </li>
+     <li>
+      Create urgency by highlighting competitive disadvantages of not adopting retail analytics
+     </li>
+    </ul>
+    <h2>
+     Conversation Starters
+    </h2>
+    <ol>
+     <li>
+      "I noticed Intale started from an observation at a kiosk in 2010 - what inspired that initial 'aha moment'?"
+     </li>
+     <li>
+      "How are retailers using your real-time data insights to adapt to changing consumer behaviors?"
+     </li>
+     <li>
+      "With your recent focus on Intale Insights, what surprising trends are you seeing in the convenience retail market?"
+     </li>
+     <li>
+      "What are your current growth challenges in expanding beyond the Greek market?"
+     </li>
+     <li>
+      "How is your sales team currently structured to support your international expansion plans?"
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <li>
+      I noticed Intale started from an observation at a kiosk in 2010 - what inspired that initial "aha moment" for your company?
+     </li>
+     <li>
+      How are retailers using your real-time data insights to adapt to changing consumer behaviors?
+     </li>
+     <li>
+      With your recent focus on Intale Insights, what surprising trends are you seeing in the convenience retail market?
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h3>
+     Top 5 Pain Points for Intale Relevant to B2B Go-to-Market Services
+    </h3>
+    <ol>
+     <li>
+      Scaling international market entry strategy as they expand to USA, Germany, UK, and other markets
+     </li>
+     <li>
+      Building effective B2B sales processes for enterprise clients as they grow beyond their current base of 700 stores
+     </li>
+     <li>
+      Developing targeted messaging and positioning for different product lines (Intale Point, Insights, Connect, Media) to reach appropriate decision-makers
+     </li>
+     <li>
+      Creating a structured lead generation approach for their enterprise offerings (indicated by their consistent call-to-action to contact enterprise@intale.com)
+     </li>
+     <li>
+      Establishing thought leadership and market authority in the competitive retail technology space as they move beyond their Greek market origins
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <p>
+     1. Intale's LinkedIn post from 1 week ago highlights Intale Insights, which empowers retailers to understand customer preferences, identify trends, and optimize strategies for sustainable growth through real-time data. (1 sem.)
+    </p>
+    <p>
+     2. Intale's LinkedIn post from 2 weeks ago promotes Convenience Panorama, a tool that helps track product category growth, analyze distribution dynamics, and spot growth opportunities through detailed turnover and trend analysis. (2 sem.)
+    </p>
+    <p>
+     3. Intale's LinkedIn post from 2 weeks ago showcases Intale Media, which connects brands with consumers at the point of purchase through dynamic tablet displays that drive impulse buying and create memorable brand impressions. (2 sem.)
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <h1>
+     Intale: Greek Retail Management Platform News
+    </h1>
+    <h2>
+     Latest News (from most recent)
+    </h2>
+    <ol>
+     <li>
+      <strong>
+       1 week ago
+      </strong>
+      : Intale Insights launched to help retailers leverage real-time data for understanding customer preferences, identifying trends, and optimizing growth strategies.
+     </li>
+     <li>
+      <strong>
+       2 weeks ago
+      </strong>
+      :
+      <ul>
+       <li>
+        Convenience Panorama introduced for tracking product category growth and distribution analysis
+       </li>
+       <li>
+        Intale Media launched as an advertising solution connecting brands with consumers at point of purchase
+       </li>
+       <li>
+        Intale Insights promoted as a tool to transform data into competitive advantage
+       </li>
+      </ul>
+     </li>
+     <li>
+      <strong>
+       3 weeks ago
+      </strong>
+      :
+      <ul>
+       <li>
+        Real-time insights feature released to optimize business strategy with metrics on market share, sales per store, distribution, and prices
+       </li>
+       <li>
+        Intale Connect introduced as a solution for brands to reach retailers directly with promotions and offers
+       </li>
+       <li>
+        Intale Insights highlighted as a tool for answering key business questions about product performance and customer demand
+       </li>
+      </ul>
+     </li>
+     <li>
+      <strong>
+       1 month ago
+      </strong>
+      :
+      <ul>
+       <li>
+        Intale Point expanded with additional retail management capabilities
+       </li>
+       <li>
+        Real-time transaction insights for FMCG brands introduced
+       </li>
+       <li>
+        Company shared its journey from founding in 2010 to present
+       </li>
+       <li>
+        Various Intale solutions for retail businesses promoted
+       </li>
+      </ul>
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <ul>
+     <li>
+      Leverage our 4S framework to transform Intale's real-time retail data into actionable growth strategies for your convenience store network across Greece and planned expansion markets.
+     </li>
+     <li>
+      Combine our AI-powered tools with hands-on B2B sales expertise to help Intale optimize its retail technology solutions and accelerate customer acquisition during your international expansion phase.
+     </li>
+     <li>
+      Benefit from our experience working with 100+ B2B tech companies to establish a repeatable sales engine that can scale your retail analytics platform beyond Greece into new European markets.
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <ol>
+     <h3>
+      Palowise
+     </h3>
+     <p>
+      Similar in geography (both headquartered in Athens, Greece) and similar company size (22 employees vs. 33 employees). Palowise built sales infrastructure from scratch, generating 3 new opportunities per week at 30k annual contract value, and added 300k pipeline within the first month.
+     </p>
+     <h3>
+      Indeex
+     </h3>
+     <p>
+      Similar in geography (both based in Greece) and industry adjacency (both in technology with data analytics components). Indeex crafted a go-to-market plan from scratch, generated 4 new opportunities from 4 new European markets, and added 120k pipeline within two months.
+     </p>
+     <h3>
+      Cyclopt
+     </h3>
+     <p>
+      Similar in geography (both based in Greece) and technology sector focus. Cyclopt crafted a go-to-market plan from scratch, built sales infrastructure, and added $250k pipeline from new European markets.
+     </p>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h1>
+     5 Key Qualification Questions for Intale
+    </h1>
+    <p>
+     Based on the context provided, here are the 5 most relevant qualification questions to ask Intale, a retail technology company, to determine if they're a good fit for B2B go-to-market services:
+    </p>
+    <ol>
+     <li>
+      <strong>
+       What are your current growth challenges in expanding beyond the Greek market, and which new markets are you prioritizing for your retail technology solutions?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       How are you currently acquiring customers for your retail technology platform (Intale Point, Insights, Connect, and Media), and what aspects of your sales process need improvement?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       What is your timeline for scaling your customer acquisition efforts, and do you have specific revenue growth targets for the next 6-12 months?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       Who are the key decision-makers involved in your go-to-market strategy, and how is your sales team currently structured with 33 employees?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       What previous attempts have you made to systematize your outbound sales process, and what specific challenges did you encounter with those approaches?
+      </strong>
+     </li>
+    </ol>
+    <p>
+     These questions will help determine if Intale is a good fit for the B2B go-to-market services offered by The Upset Partners, focusing on their readiness for expansion, current sales challenges, and alignment with the service offerings.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h1>
+     Top 5 Product/Service Features for Intale
+    </h1>
+    <ol>
+     <li>
+      AI-powered tools and integration for retail analytics
+     </li>
+     <li>
+      Tailor-made GTM strategy for retail technology
+     </li>
+     <li>
+      Sales enablement for FMCG retail solutions
+     </li>
+     <li>
+      Tech stack integration with existing retail point-of-sale systems
+     </li>
+     <li>
+      Pipeline management for retail software sales
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Overcoming Budget Constraints/ROI Concerns:
+    </h3>
+    <ol>
+     <li>
+      <strong>
+       Focus on ROI metrics
+      </strong>
+      : Demonstrate concrete examples of how your B2B SaaS solution delivers measurable returns, using case studies from similar companies.
+     </li>
+     <li>
+      <strong>
+       Flexible pricing options
+      </strong>
+      : Offer tiered pricing, pay-as-you-go models, or implementation phases that allow clients to start small and scale as they see value.
+     </li>
+     <li>
+      <strong>
+       Total cost of ownership
+      </strong>
+      : Show how your solution reduces costs in other areas (labor, operational inefficiencies, error reduction) for a net positive financial impact.
+     </li>
+    </ol>
+    <h3>
+     Addressing Lack of Perceived Need/Urgency:
+    </h3>
+    <ol>
+     <li>
+      <strong>
+       Personalized pain point analysis
+      </strong>
+      : Identify specific challenges in their current processes that your solution directly addresses, quantifying the cost of inaction.
+     </li>
+     <li>
+      <strong>
+       Competitive disadvantage
+      </strong>
+      : Highlight how competitors using similar solutions are gaining market advantages, creating FOMO (fear of missing out).
+     </li>
+     <li>
+      <strong>
+       Limited-time incentives
+      </strong>
+      : Create urgency through time-bound implementation support, pricing discounts, or exclusive features available only for early adopters.
+     </li>
+     <li>
+      <strong>
+       Future-proofing argument
+      </strong>
+      : Position your solution as essential preparation for upcoming industry changes or regulations they'll eventually need to address.
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
