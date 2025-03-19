@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Meeting Cheat Sheet
+  </h1>
+  <p id="header" name="call_type">
+   Most probably first call - 0 notes found in CRM
+  </p>
+  <p id="header" name="seller_email">
+   lydia@workable.com
+  </p>
+  <p id="header" name="prospect_email">
+   justina@trytalenthackers.com
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-03-20T17:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h1>
+     Sales Call Cheatsheet Summary
+    </h1>
+    <h2>
+     Icebreakers
+    </h2>
+    <ul>
+     <li>
+      Three professional icebreakers focused on company expansions, acquisitions, and industry events
+     </li>
+    </ul>
+    <h2>
+     Pain Points
+    </h2>
+    <ul>
+     <li>
+      Top HR challenges include time-consuming manual processes, applicant tracking inefficiencies, fragmented data management, inefficient time tracking, and payroll compliance issues
+     </li>
+    </ul>
+    <h2>
+     Value Proposition for Lattice (HR Software)
+    </h2>
+    <ul>
+     <li>
+      AI-powered tools to reduce manual tasks by 30-40%
+     </li>
+     <li>
+      Customizable application forms and self-scheduling to enhance candidate experience
+     </li>
+     <li>
+      Seamless integration with existing HR tech stack through 270+ integration partners
+     </li>
+    </ul>
+    <h2>
+     Relevant Experience
+    </h2>
+    <ul>
+     <li>
+      Joey Restaurants: Reduced interview time by 60%, improved screening efficiency
+     </li>
+     <li>
+      Trade Association Forum: Launched branded job board for member associations
+     </li>
+     <li>
+      Access Services: Transformed recruitment from manual to automated, saving 160 hours weekly
+     </li>
+    </ul>
+    <h2>
+     Qualification Questions
+    </h2>
+    <ul>
+     <li>
+      Current recruitment process and challenges
+     </li>
+     <li>
+      Company size and growth plans
+     </li>
+     <li>
+      Existing HR systems and integration status
+     </li>
+     <li>
+      Biggest HR workflow pain points
+     </li>
+     <li>
+      Implementation timeline and decision-makers
+     </li>
+    </ul>
+    <h2>
+     Recommended Product Features
+    </h2>
+    <ul>
+     <li>
+      AI-powered candidate sourcing
+     </li>
+     <li>
+      Automated recruitment workflows
+     </li>
+     <li>
+      Mobile-optimized application forms
+     </li>
+     <li>
+      Comprehensive interview coordination
+     </li>
+     <li>
+      Centralized onboarding portal
+     </li>
+    </ul>
+    <h2>
+     Handling Objections
+    </h2>
+    <ul>
+     <li>
+      Price concerns: Offer free trial, transparent pricing, ROI emphasis
+     </li>
+     <li>
+      Value understanding: Personalized demos, feature demonstrations, highlight AI capabilities and mobile functionality
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    No content
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <p>
+     1. I noticed your company recently expanded into the European market - how has that transition been going?
+    </p>
+    <p>
+     2. Congratulations on your recent acquisition of Tech Solutions Inc. - what aspects of their technology are you most excited to integrate?
+    </p>
+    <p>
+     3. I saw your company is hosting the industry conference next month - what are you looking forward to most about the event?
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <h1>
+     Top 5 Pain Points for LinkedIn
+    </h1>
+    <ol>
+     <li>
+      Manual HR processes consuming excessive time that could be spent on strategic initiatives
+     </li>
+     <li>
+      Difficulty tracking applicants efficiently through the hiring pipeline
+     </li>
+     <li>
+      Challenges with employee data management across multiple systems
+     </li>
+     <li>
+      Inefficient time tracking and attendance management processes
+     </li>
+     <li>
+      Payroll complexity and compliance issues requiring specialized solutions
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <p>
+     I don't see any LinkedIn posts or context information provided in your query. To find the 3 latest and most important LinkedIn posts, I would need access to LinkedIn data or specific posts that you want me to analyze. Please provide the relevant context information so I can summarize the posts as requested.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <p>
+     No news found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <h1>
+     Value Proposition for Lattice (HR Software Platform)
+    </h1>
+    <ul>
+     <li>
+      <strong>
+       Streamline HR workflows with AI-powered tools
+      </strong>
+      that reduce manual tasks by up to 30-40%, allowing your HR team to focus on strategic initiatives like performance management and culture development - perfectly aligned with Lattice's mission of enhancing HR efficiency.
+     </li>
+     <li>
+      <strong>
+       Enhance candidate experience with customizable application forms and self-scheduling features
+      </strong>
+      , supporting your rapid customer growth (250% since Lattice HRIS launch) with a seamless hiring process that reflects your innovative brand.
+     </li>
+     <li>
+      <strong>
+       Integrate seamlessly with your existing HR tech stack
+      </strong>
+      through our 270+ integration partners, complementing your all-in-one people platform with robust recruiting capabilities that will help companies like Figma and Red Door Interactive attract top talent.
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <h3>
+     1. Joey Restaurants
+    </h3>
+    <p>
+     Similar to the prospect in the hospitality/restaurant industry. Workable helped them reduce time to interview by 60%, implement efficient screening, increase candidate volume, and create a data-driven hiring strategy.
+    </p>
+    <h3>
+     2. Trade Association Forum (TAF)
+    </h3>
+    <p>
+     Similar to the prospect as a non-profit organization in the UK. Workable partnered with TAF to launch a branded job board that helps member associations attract quality applicants for hard-to-fill roles.
+    </p>
+    <h3>
+     3. Access Services
+    </h3>
+    <p>
+     Similar to the prospect as a non-profit organization providing social services. Workable helped them transform their recruitment process from manual to automated, resulting in 230 hires in 9 months and saving 160 hours of work per week.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h1>
+     5 Most Important Qualification Questions for HR Software Platform Prospect
+    </h1>
+    <p>
+     Based on the context about Workable (an HR software platform offering applicant tracking, employee management, time tracking, and payroll solutions), here are the 5 most relevant qualification questions to ask the prospect:
+    </p>
+    <ol>
+     <li>
+      <strong>
+       What is your current process for managing recruitment and applicant tracking, and what challenges are you experiencing with it?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       How many employees does your company have, and how quickly are you planning to grow your team in the next 12-24 months?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       What HR systems are you currently using for employee management, time tracking, and payroll, and how well are they integrated with each other?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       What are your biggest pain points in your current HR workflow that you're looking to solve with a new solution?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       What's your timeline for implementing a new HR software platform, and who would be involved in the decision-making process?
+      </strong>
+     </li>
+    </ol>
+    <p>
+     These questions will help determine if the prospect is a good fit for Workable's HR software platform by uncovering their current challenges, company size, existing systems, specific needs, and buying timeline.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Top 5 Product/Service Features
+    </h3>
+    <ol>
+     <li>
+      AI-powered candidate sourcing and recommendations
+     </li>
+     <li>
+      Automated recruitment workflows and task automation
+     </li>
+     <li>
+      Mobile-optimized application forms and candidate self-scheduling
+     </li>
+     <li>
+      Comprehensive interview coordination with video conferencing integrations
+     </li>
+     <li>
+      Centralized onboarding portal with e-signature capabilities
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h3>
+     Overcoming Objections
+    </h3>
+    <h4>
+     1. Price concerns or budget constraints
+    </h4>
+    <ul>
+     <li>
+      Offer a 15-day free trial with no credit card required to demonstrate value before purchase
+     </li>
+     <li>
+      Highlight transparent pricing with different plans that can grow with the customer's business
+     </li>
+     <li>
+      Emphasize ROI by showing how Workable's features save time and resources in the hiring process
+     </li>
+     <li>
+      Point out that over 30,000 companies have successfully used Workable, validating its cost-effectiveness
+     </li>
+    </ul>
+    <h4>
+     2. Lack of understanding about product's value or features
+    </h4>
+    <ul>
+     <li>
+      Demonstrate the comprehensive feature set available in all plans (ATS, sourcing tools, HR features)
+     </li>
+     <li>
+      Offer a personalized demo to show exactly how the platform addresses their specific needs
+     </li>
+     <li>
+      Highlight the AI technology that streamlines processes like interview question generation
+     </li>
+     <li>
+      Emphasize the all-in-one nature of the platform: "post jobs, hire faster, and manage your people effortlessly"
+     </li>
+     <li>
+      Show how the mobile app, integrations, and automation features create a seamless workflow
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
