@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sales Rep Cheat Sheet
+  </title>
+  <style>
+   body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.6;
+        	margin: 20px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 20px;
+        	padding: 15px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 10px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 10px;
+		}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Meeting Cheat Sheet
+  </h1>
+  <p id="header" name="call_type">
+   Not First Call - 1 notes found in CRM
+  </p>
+  <p id="header" name="seller_email">
+   vaios@theupsetpartners.com
+  </p>
+  <p id="header" name="prospect_email">
+   alex@bluerocket.gr
+  </p>
+  <p id="header" name="meeting_datetime">
+   2025-03-21T16:00:00+02:00
+  </p>
+  <!-- Sections -->
+  <div class="section collapsible" id="Summary">
+   <h2>
+    Summary
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="summary">
+    <h1>
+     Blue Rocket Advertising Services Summary
+    </h1>
+    <h2>
+     Current Status &amp; Key Information
+    </h2>
+    <ul>
+     <li>
+      <strong>
+       Status
+      </strong>
+      : Prospect interested in starting services in Q4 2024
+     </li>
+     <li>
+      <strong>
+       Last Contact
+      </strong>
+      : No communication in over 8 months
+     </li>
+     <li>
+      <strong>
+       Action Needed
+      </strong>
+      : Follow-up recommended due to extended silence
+     </li>
+     <li>
+      <strong>
+       Company Size
+      </strong>
+      : Small content agency with 11 employees based in Athens, Greece
+     </li>
+    </ul>
+    <h2>
+     Key Pain Points
+    </h2>
+    <ol>
+     <li>
+      Limited expertise in scaling B2B go-to-market strategies for startup clients
+     </li>
+     <li>
+      Difficulty establishing effective sales processes for tech startups
+     </li>
+     <li>
+      Challenges creating targeted lead generation campaigns
+     </li>
+     <li>
+      Lack of resources for comprehensive market entry support
+     </li>
+     <li>
+      Inefficient client acquisition methods for their own agency growth
+     </li>
+    </ol>
+    <h2>
+     Sales Approach
+    </h2>
+    <ul>
+     <li>
+      <strong>
+       Value Proposition
+      </strong>
+      : AI-powered growth solutions tailored for small content agencies, 4S Framework implementation (Search, Service, Sales, Scale), proven outbound strategies
+     </li>
+     <li>
+      <strong>
+       Relevant Experience
+      </strong>
+      : Success with similar Greek companies (Palowise, Cyclopt, Indeex) of comparable size
+     </li>
+     <li>
+      <strong>
+       Recommended Services
+      </strong>
+      : Content-focused sales enablement, AI tools for content optimization, multi-channel outreach, case studies creation, tailor-made GTM strategy
+     </li>
+    </ul>
+    <h2>
+     Conversation Starters
+    </h2>
+    <ul>
+     <li>
+      "I noticed your team has several Forbes 30 Under 30 honorees - what impact has that recognition had on your content strategy?"
+     </li>
+     <li>
+      "How has Blue Rocket's approach to 'content that drives business results' evolved since founding?"
+     </li>
+     <li>
+      "What's been your most successful client transformation story?"
+     </li>
+    </ul>
+    <h2>
+     Qualification Questions
+    </h2>
+    <p>
+     Focus on growth objectives, current client acquisition methods, resource allocation, target client profiles, and performance metrics.
+    </p>
+    <h2>
+     Objection Handling
+    </h2>
+    <p>
+     Address budget constraints with ROI focus, flexible pricing, and opportunity cost arguments. For value perception concerns, emphasize scalability benefits, share case studies, and offer trial programs.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-Summary">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Summary" onchange="updateFeedback('Summary', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Notes">
+   <h2>
+    CRM Notes
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="notes">
+    <h1>
+     Blue Rocket Advertising Services - Summary
+    </h1>
+    <p>
+     <strong>
+      Current Status:
+     </strong>
+     Prospect
+     <br/>
+     <strong>
+      Last Updated:
+     </strong>
+     July 3, 2024
+    </p>
+    <h2>
+     Key Points:
+    </h2>
+    <ul>
+     <li>
+      Prospect expressed interest in starting services in Q4 2024
+     </li>
+     <li>
+      A discounted offer was sent to encourage earlier start date
+     </li>
+     <li>
+      Awaiting response from Alex (contact person)
+     </li>
+     <li>
+      No communication received in over 8 months
+     </li>
+    </ul>
+    <p>
+     <strong>
+      Action Needed:
+     </strong>
+     Follow-up recommended as significant time (8+ months) has passed since last contact.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-Notes">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Notes" onchange="updateFeedback('Notes', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="Icebreakers">
+   <h2>
+    Icebreakers
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="icebreakers">
+    <ol>
+     <li>
+      I noticed your team has several Forbes 30 Under 30 honorees - what impact has that recognition had on your content strategy?
+     </li>
+     <li>
+      How has Blue Rocket's approach to "content that drives business results" evolved since you founded the company?
+     </li>
+     <li>
+      With your focus on organic business growth through impactful content, what's been your most successful client transformation story?
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-Icebreakers">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-Icebreakers" onchange="updateFeedback('Icebreakers', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="PainPoints">
+   <h2>
+    Pain Points
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="pain_points">
+    <ol>
+     <li>
+      Limited expertise in scaling B2B go-to-market strategies for their startup clients
+     </li>
+     <li>
+      Difficulty establishing effective sales processes for tech startups
+     </li>
+     <li>
+      Challenges in creating targeted lead generation campaigns for B2B clients
+     </li>
+     <li>
+      Lack of resources to provide comprehensive market entry support for their clients
+     </li>
+     <li>
+      Inefficient client acquisition methods for their own content agency growth
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('PainPoints', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="CompanyResearch">
+   <h2>
+    Company Research
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="linkedin_prospect_research">
+    <p>
+     I don't see any LinkedIn posts with timestamps in the provided context. The information only contains company profile details, employee information, similar pages, and job listings, but no actual posts with dates that could be summarized.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('CompanyResearch', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="News">
+   <h2>
+    News
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="news_summary">
+    <p>
+     No news found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('News', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ValueProposition">
+   <h2>
+    Customized Value Proposition
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="customized_value_proposition">
+    <ul>
+     <li>
+      Tailored AI-powered growth solutions for your small content agency, combining cutting-edge tools with expert go-to-market strategies to help you win more clients in Athens and across Greece.
+     </li>
+     <li>
+      Our 4S Framework (Search, Service, Sales, Scale) will help your 11-person team identify ideal customers, build value-driven solutions, and establish a repeatable sales engine without relying solely on your founders' network.
+     </li>
+     <li>
+      Benefit from our hands-on approach as we work alongside your team to implement proven outbound strategies that have helped 100+ B2B companies like yours transform from word-of-mouth growth to predictable customer acquisition.
+     </li>
+    </ul>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ValueProposition', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantExperience">
+   <h2>
+    Relevant Experience
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_experience">
+    <h3>
+     1. Palowise
+    </h3>
+    <p>
+     Located in Athens, Greece (same city and country as prospect). Small company with 22 employees (similar size to prospect's 11 employees). Value: Built sales infrastructure from scratch, generated 3 new opportunities/week at 30k annual contract value, added new 300k pipeline within the first month.
+    </p>
+    <h3>
+     2. Cyclopt
+    </h3>
+    <p>
+     Located in Greece (same country as prospect). Small company with 10 employees (very similar to prospect's 11 employees). Value: Crafted go-to-market plan from scratch, built sales infrastructure from scratch, added new $250k pipeline from new European markets.
+    </p>
+    <h3>
+     3. Indeex
+    </h3>
+    <p>
+     Located in Greece (same country as prospect). Small company with 7 employees (similar to prospect's 11 employees). Value: Crafted go-to-market plan from scratch, generated 4 new opportunities from 4 new European markets, added new 120k pipeline within two months.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantExperience', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="QualificationQuestions">
+   <h2>
+    Qualification Questions
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="qualification_questions">
+    <h1>
+     5 Most Relevant Qualification Questions for the Content Agency Prospect
+    </h1>
+    <p>
+     Based on the context provided about the seller's business (B2B go-to-market services for startups) and the prospect (a small content agency in Athens, Greece), here are the 5 most important qualification questions to ask:
+    </p>
+    <ol>
+     <li>
+      <strong>
+       What are your current growth objectives, and are you looking to expand your content services into new markets beyond Greece?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       How are you currently acquiring new B2B clients, and what challenges are you facing with your current go-to-market approach?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       As a small team of 11 employees, how do you currently allocate resources between content creation and business development activities?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       What types of B2B clients do you typically work with, and are you looking to target specific industries or company sizes?
+      </strong>
+     </li>
+     <li>
+      <strong>
+       How do you currently measure the success of your content marketing efforts for clients, and what metrics would you like to improve?
+      </strong>
+     </li>
+    </ol>
+    <p>
+     These questions will help determine if the prospect is a good fit for the seller's B2B go-to-market services by uncovering their growth ambitions, current challenges, resource constraints, target market focus, and performance measurement approach.
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('QualificationQuestions', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RecommendedProducts">
+   <h2>
+    Recommended Products
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="recommended_product">
+    <h3>
+     Top 5 Product/Service Features for the Prospect
+    </h3>
+    <ol>
+     <li>
+      Content-focused sales enablement
+     </li>
+     <li>
+      AI-powered tools for content optimization
+     </li>
+     <li>
+      Multi-channel outreach (LinkedIn, email, phone)
+     </li>
+     <li>
+      Case studies creation
+     </li>
+     <li>
+      Tailor-made GTM strategy for content marketing
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RecommendedProducts', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="ObjectionHandling">
+   <h2>
+    Objection Handling
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="handling_objection">
+    <h1>
+     Overcoming Budget Constraints and Value Perception Objections
+    </h1>
+    <h2>
+     For Budget Constraints/Pricing Concerns:
+    </h2>
+    <ol>
+     <li>
+      <strong>
+       ROI-focused approach
+      </strong>
+      : Demonstrate how your solution pays for itself through increased efficiency or revenue. Show concrete examples of how similar small agencies achieved positive ROI within months.
+     </li>
+     <li>
+      <strong>
+       Flexible pricing options
+      </strong>
+      : Offer tiered pricing, pay-as-you-grow models, or quarterly payment plans to reduce upfront financial burden.
+     </li>
+     <li>
+      <strong>
+       Opportunity cost argument
+      </strong>
+      : Highlight the cost of not investing - lost clients, inefficient processes, or falling behind competitors who are leveraging similar tools.
+     </li>
+    </ol>
+    <h2>
+     For Lack of Perceived Value/ROI for Small Agencies:
+    </h2>
+    <ol>
+     <li>
+      <strong>
+       Scalability benefits
+      </strong>
+      : Emphasize how your solution allows small agencies to compete with larger ones by automating processes and enhancing capabilities without adding headcount.
+     </li>
+     <li>
+      <strong>
+       Case studies
+      </strong>
+      : Share specific success stories of small agencies that achieved significant growth using your solution.
+     </li>
+     <li>
+      <strong>
+       Customized value proposition
+      </strong>
+      : Focus on the specific pain points of small agencies (limited resources, need for efficiency, competitive differentiation) and how your solution directly addresses these challenges.
+     </li>
+     <li>
+      <strong>
+       Free trial or pilot program
+      </strong>
+      : Offer a low-risk way to experience the value before full commitment, demonstrating confidence in your solution's effectiveness.
+     </li>
+    </ol>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('ObjectionHandling', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="RelevantTechStack">
+   <h2>
+    Relevant Tech Stack
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="relevant_techstack">
+    <p>
+     No relevant techstack
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('RelevantTechStack', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div class="section collapsible" id="FundingRound">
+   <h2>
+    Funding Round
+    <span class="expand-indicator">
+     +
+    </span>
+   </h2>
+   <div class="content" name="fundings">
+    <p>
+     No funding events found
+    </p>
+    <div class="feedback-container">
+     <label for="feedback-PainPoints">
+      Feedback:
+     </label>
+     <select class="feedback-dropdown" id="feedback-PainPoints" onchange="updateFeedback('FundingRound', this.value)">
+      <option value="">
+       Not selected
+      </option>
+      <option value="Misleading content">
+       Misleading content
+      </option>
+      <option value="Not valuable">
+       Not valuable
+      </option>
+      <option value="Slightly valuable">
+       Slightly valuable
+      </option>
+      <option value="Great content">
+       Great content
+      </option>
+      <option value="You have nailed it">
+       You have nailed it
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+   // Object to store feedback selections
+		let feedbackSelections = {};
+		const currentUrl = window.location.href;
+		const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+		
+		function sendPageLoadData() {
+			// Get the values of seller_email and prospect_email from the HTML elements
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Prepare the data to be sent
+			const dataToSend = {
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+				// Do not include feedbackSelections here
+			};
+
+			// Send the data to the backend (Google Apps Script)
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Data sent successfully:", data))
+			.catch(error => console.error("Error sending data:", error));
+		}
+
+		function sendFeedbackToGoogleSheet() {
+			// Get seller_email and prospect_email values from the HTML page
+			const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+			const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+			// Add seller_email and prospect_email to the feedbackSelections object
+			const feedbackSelectionsWithEmails = {
+				...feedbackSelections,  // Existing feedback selections
+				seller_email: sellerEmail,
+				prospect_email: prospectEmail,
+				docURL: currentUrl
+			};
+
+			fetch(url, {
+				method: "POST",
+				mode: "no-cors",  // Enable CORS mode
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+			})
+			.then(response => response.text())
+			.then(data => console.log("Feedback stored:", data))
+			.catch(error => console.error("Errorsss saving feedback:", error));
+		}	
+
+		// Function to update feedback for each section and log all selections
+		function updateFeedback(sectionId, selectedValue) {
+			feedbackSelections[sectionId] = selectedValue;
+			
+			// Log all selections in the console
+			console.clear(); // Clears previous logs for better visibility
+			console.log("Updated Feedback Selections:");
+			console.table(feedbackSelections); // Display in table format for readability
+			sendFeedbackToGoogleSheet();
+		}
+
+		// Function to get all feedback selections
+		function getAllFeedback() {
+			console.log("All Feedback Selections:", feedbackSelections);
+			return feedbackSelections;
+		}
+
+		// Ensure collapsible behavior is working
+		document.querySelectorAll('.collapsible').forEach(section => {
+			section.querySelector('h2').addEventListener('click', function () {
+				section.classList.toggle('open');
+				const indicator = section.querySelector('.expand-indicator');
+				if (indicator) {
+					indicator.textContent = section.classList.contains('open') ? '-' : '+';
+				}
+			});
+		});
+		window.onload = sendPageLoadData;
+  </script>
+ </body>
+</html>
