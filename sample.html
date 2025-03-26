@@ -93,6 +93,23 @@
 	      </tr>
 	  </table>
 	<!-- Sections -->
+	<div class="section collapsible" id="Description">
+    	<h2>Prospect Description <span class="expand-indicator">+</span></h2>
+    	<div class="content" name="prospect_description">
+			<div class="feedback-container">
+				<label for="feedback-Description">Feedback: </label>
+				<select id="feedback-Description" class="feedback-dropdown" onchange="updateFeedback('Description', this.value)">
+					<option value="">Not selected</option>
+					<option value="Misleading content">Misleading content</option>
+					<option value="Not valuable">Not valuable</option>
+					<option value="Slightly valuable">Slightly valuable</option>
+					<option value="Great content">Great content</option>
+					<option value="You have nailed it">You have nailed it</option>
+				</select>
+			</div>
+    	</div>
+	</div>
+
 	<div class="section collapsible" id="Summary">
     	<h2>Summary <span class="expand-indicator">+</span></h2>
     	<div class="content" name="summary">
