@@ -19,8 +19,16 @@
         	text-align: center;
     	}
 
+    	.sections-container {
+        	display: grid;
+        	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        	gap: 10px;
+        	margin: 0 auto;
+        	max-width: 1200px;
+    	}
+
     	.section {
-        	margin-bottom: 10px;
+        	margin-bottom: 0;
         	padding: 8px;
         	border: 1px solid #EAECEE;
         	border-radius: 8px;
@@ -76,7 +84,7 @@
 </head>
 <body>
     <h1>Meeting Cheat Sheet</h1>
-    <p id="header" name="call_type">Most probably first call - 0 notes found in CRM</p>
+    <p id="header" name="call_type"></p>
     <table>
         <tr>
             <td><p id="header" name="seller_email" style="margin-right: 20px;">vaios@theupsetpartners.com</p></td>
@@ -85,67 +93,68 @@
         </tr>
     </table>
     
-    
-    <div class="section collapsible" id="notes">
-        <h2>CRM Notes <span class="expand-indicator">+</span></h2>
-        <div class="content" name="notes">
-			No content
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+    <div class="sections-container">
+        
+        <div class="section collapsible" id="notes">
+            <h2>CRM Notes <span class="expand-indicator">+</span></h2>
+            <div class="content" name="notes">
+                No content
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="icebreakers">
-        <h2>Icebreakers <span class="expand-indicator">+</span></h2>
-        <div class="content" name="icebreakers">
-			
+        
+        <div class="section collapsible" id="icebreakers">
+            <h2>Icebreakers <span class="expand-indicator">+</span></h2>
+            <div class="content" name="icebreakers">
+                
 <p>1. I noticed Metavallon VC is currently investing out of Fund II with €50M AUM - how has your recent expansion into seed+ stage investments been progressing?</p>
 
 <p>2. I saw your portfolio companies have over 40 job openings across various departments - which growth areas are you most excited about in your portfolio this spring?</p>
 
 <p>3. Your recent event in Chania about innovation trends in Crete looked fascinating - what were some key takeaways from the "Research and AI" panel your partner moderated?</p>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="pain_points">
-        <h2>Pain Points <span class="expand-indicator">+</span></h2>
-        <div class="content" name="pain_points">
-			
+        
+        <div class="section collapsible" id="pain_points">
+            <h2>Pain Points <span class="expand-indicator">+</span></h2>
+            <div class="content" name="pain_points">
+                
 <h5>1. Portfolio company growth challenges</h5>
 <p>Their startups need effective go-to-market strategies to scale successfully</p>
 
@@ -161,31 +170,31 @@
 <h5>5. Inconsistent sales performance across portfolio</h5>
 <p>Their diverse investments (from AI to biotech) require tailored go-to-market approaches rather than one-size-fits-all solutions</p>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="linkedin_prospect_research">
-        <h2>LinkedIn Prospect Research <span class="expand-indicator">+</span></h2>
-        <div class="content" name="linkedin_prospect_research">
-			
+        
+        <div class="section collapsible" id="linkedin_prospect_research">
+            <h2>LinkedIn Prospect Research <span class="expand-indicator">+</span></h2>
+            <div class="content" name="linkedin_prospect_research">
+                
 <h5>Based on the LinkedIn posts from Metavallon VC:</h5>
 <ol>
     <li><p><strong>(1d ago)</strong> Kick off spring with new career opportunities - promoting 40+ job openings across sales, finance, engineering from their portfolio companies.</p></li>
@@ -193,31 +202,31 @@
     <li><p><strong>(1w ago)</strong> Announcement about their partner George Karantonis moderating the "Research and AI" panel at an innovation event in Chania, Crete.</p></li>
 </ol>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="news_summary">
-        <h2>News Summary <span class="expand-indicator">+</span></h2>
-        <div class="content" name="news_summary">
-			` tags:
+        
+        <div class="section collapsible" id="news_summary">
+            <h2>News Summary <span class="expand-indicator">+</span></h2>
+            <div class="content" name="news_summary">
+                ` tags:
 
 <code>
 <h5>Latest News for Metavallon VC</h5>
@@ -244,62 +253,62 @@
   <li><strong>1 month ago</strong>: Announced Smartify being shortlisted for the Scottish Knowledge Exchange Awards 2025 for their WebXR museum technology.</li>
 </ol>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="customized_value_proposition">
-        <h2>Customized Value Proposition <span class="expand-indicator">+</span></h2>
-        <div class="content" name="customized_value_proposition">
-			
+        
+        <div class="section collapsible" id="customized_value_proposition">
+            <h2>Customized Value Proposition <span class="expand-indicator">+</span></h2>
+            <div class="content" name="customized_value_proposition">
+                
 <ul>
   <li>Specialized B2B growth expertise for your portfolio companies with our 4S framework (Search, Service, Sales, Scale) to help early-stage startups systematically acquire customers and enter new markets.</li>
   <li>Hands-on implementation from experienced operators who work alongside founding teams, providing the expertise of a commercial co-founder with a complete team of GTM specialists - ideal for your €0.5m-€1.5m seed investments.</li>
   <li>Proven track record helping 100+ B2B companies break through growth barriers, with particular success in Greece and across Europe - perfectly aligned with your Athens-based VC focus on B2B models and deep technology.</li>
 </ul>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="relevant_experience">
-        <h2>Relevant Experience <span class="expand-indicator">+</span></h2>
-        <div class="content" name="relevant_experience">
-			
+        
+        <div class="section collapsible" id="relevant_experience">
+            <h2>Relevant Experience <span class="expand-indicator">+</span></h2>
+            <div class="content" name="relevant_experience">
+                
 <h5>1. Palowise</h5>
 <p>Based in Athens, Greece, similar to Metavallon VC's Athens location. Palowise built their sales infrastructure from scratch, generating 3 new opportunities per week at 30k annual contract value and added 300k pipeline within the first month.</p>
 
@@ -309,31 +318,31 @@
 <h5>3. Cyclopt</h5>
 <p>Greek company (based in Pylaia, Central Macedonia) with similar small company size (10 employees vs. Metavallon's 8 employees). Cyclopt crafted their go-to-market plan from scratch, built sales infrastructure, and added $250k pipeline from new European markets.</p>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="qualification_questions">
-        <h2>Qualification Questions <span class="expand-indicator">+</span></h2>
-        <div class="content" name="qualification_questions">
-			
+        
+        <div class="section collapsible" id="qualification_questions">
+            <h2>Qualification Questions <span class="expand-indicator">+</span></h2>
+            <div class="content" name="qualification_questions">
+                
 <h3>5 Most Relevant Questions for Metavallon VC</h3>
 
 <p>Based on the context about The Upset Partners (a B2B go-to-market services provider for startups) and the prospect (Metavallon VC, a venture capital firm focused on seed-stage B2B startups in Greece), here are the 5 most important qualification questions to ask:</p>
@@ -352,31 +361,31 @@
 
 <p>These questions help qualify if Metavallon VC could be both a direct client and a channel partner to reach multiple B2B startups in their portfolio, while addressing their specific needs as a VC firm investing in early-stage B2B companies.</p>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="recommended_product">
-        <h2>Recommended Product <span class="expand-indicator">+</span></h2>
-        <div class="content" name="recommended_product">
-			
+        
+        <div class="section collapsible" id="recommended_product">
+            <h2>Recommended Product <span class="expand-indicator">+</span></h2>
+            <div class="content" name="recommended_product">
+                
 <h5>Top 5 Product/Service Features for Metavallon VC</h5>
 <ol>
     <li>B2B-focused services</li>
@@ -386,31 +395,31 @@
     <li>Hands-on operational support for seed-stage investments</li>
 </ol>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="handling_objection">
-        <h2>Handling Objection <span class="expand-indicator">+</span></h2>
-        <div class="content" name="handling_objection">
-			
+        
+        <div class="section collapsible" id="handling_objection">
+            <h2>Handling Objection <span class="expand-indicator">+</span></h2>
+            <div class="content" name="handling_objection">
+                
 <h5>Overcoming Budget Constraints/ROI Concerns</h5>
 
 <ol>
@@ -431,85 +440,85 @@
 <li><strong>Founder Mindset</strong>: As noted in testimonials, they bring "a pragmatic approach" and "builder mindset," with experience as former founders themselves who understand the unique challenges of scaling B2B companies.</li>
 </ol>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="relevant_techstack">
-        <h2>Relevant Techstack <span class="expand-indicator">+</span></h2>
-        <div class="content" name="relevant_techstack">
-			
+        
+        <div class="section collapsible" id="relevant_techstack">
+            <h2>Relevant Techstack <span class="expand-indicator">+</span></h2>
+            <div class="content" name="relevant_techstack">
+                
 <p>No relevant techstack</p>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="fundings">
-        <h2>Fundings <span class="expand-indicator">+</span></h2>
-        <div class="content" name="fundings">
-			
+        
+        <div class="section collapsible" id="fundings">
+            <h2>Fundings <span class="expand-indicator">+</span></h2>
+            <div class="content" name="fundings">
+                
 <p>No funding events found</p>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="summary">
-        <h2>Summary <span class="expand-indicator">+</span></h2>
-        <div class="content" name="summary">
-			
+        
+        <div class="section collapsible" id="summary">
+            <h2>Summary <span class="expand-indicator">+</span></h2>
+            <div class="content" name="summary">
+                
 <h3>Metavallon VC Cheatsheet Summary</h3>
 
 <h4>Key Company Information</h4>
@@ -555,31 +564,31 @@
   <li>"Would you be interested in a partnership model offering specialized go-to-market services to your portfolio companies?"</li>
 </ul>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="section collapsible" id="prospect_description">
-        <h2>Prospect Description <span class="expand-indicator">+</span></h2>
-        <div class="content" name="prospect_description">
-			
+        
+        <div class="section collapsible" id="prospect_description">
+            <h2>Prospect Description <span class="expand-indicator">+</span></h2>
+            <div class="content" name="prospect_description">
+                
 <h5>Company Information</h5>
 
 <p>Based on the provided context, here are the details about Metavallon VC:</p>
@@ -613,27 +622,28 @@
 
 <p>Short Description:</p>
 
-            <div class="feedback-container">
-                <label for="feedback-">Feedback: </label>
-                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                    
-                    <option value="Not selected">Not selected</option>
-                    
-                    <option value="Misleading content">Misleading content</option>
-                    
-                    <option value="Not valuable">Not valuable</option>
-                    
-                    <option value="Slightly valuable">Slightly valuable</option>
-                    
-                    <option value="Great content">Great content</option>
-                    
-                    <option value="You have nailed it">You have nailed it</option>
-                    
-                </select>
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
             </div>
         </div>
+        
     </div>
-    
 <!-- JavaScript -->
 <script>
 	// Object to store feedback selections
