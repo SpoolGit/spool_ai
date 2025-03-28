@@ -18,14 +18,50 @@
     	h1 {
         	text-align: center;
     	}
+        
+        /* Center the header info */
+        .header-container {
+            text-align: center;
+            margin: 0 auto 20px auto;
+            max-width: 800px;
+        }
+        
+        .header-table {
+            margin: 0 auto;
+            width: auto;
+        }
+        
+        .header-table td {
+            padding: 0 10px;
+        }
 
     	.sections-container {
-        	display: grid;
-        	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        	gap: 10px;
+        	display: flex;
+        	flex-direction: column;
+        	flex-wrap: wrap;
+        	gap: 15px;
         	margin: 0 auto;
         	max-width: 1200px;
+        	height: calc(100% - 100px); /* Adjust based on your header height */
+        	max-height: 2000px; /* Set a reasonable max height that will accommodate all sections */
     	}
+        
+        /* Responsive grid - single column on small screens */
+        @media (max-width: 768px) {
+            .sections-container {
+                flex-direction: row;
+                height: auto;
+            }
+            
+            .section {
+                width: 100%;
+            }
+            
+            .header-table td {
+                display: block;
+                text-align: center;
+            }
+        }
 
     	.section {
         	margin-bottom: 0;
@@ -33,6 +69,7 @@
         	border: 1px solid #EAECEE;
         	border-radius: 8px;
         	background: #F9FBFC;
+        	width: calc(50% - 15px); /* Take up half the container width minus gap */
     	}
 
     	.section.collapsible {
@@ -84,16 +121,77 @@
 </head>
 <body>
     <h1>Meeting Cheat Sheet</h1>
-    <p id="header" name="call_type"></p>
-    <table>
-        <tr>
-            <td><p id="header" name="seller_email" style="margin-right: 20px;">vaios@theupsetpartners.com</p></td>
-            <td><p id="header" name="prospect_email" style="margin-right: 20px;">yiorgos@metavallon.vc</p></td>
-            <td><p id="header" name="meeting_datetime" style="margin-right: 20px;">2025-03-31T18:30:00+03:00</p></td>
-        </tr>
-    </table>
+    
+    <div class="header-container">
+        <p id="header" name="call_type">Most probably first call - 0 notes found in CRM</p>
+        <table class="header-table">
+            <tr>
+                <td><p id="header" name="seller_email">vaios@theupsetpartners.com</p></td>
+                <td><p id="header" name="prospect_email">yiorgos@metavallon.vc</p></td>
+                <td><p id="header" name="meeting_datetime">2025-03-31T18:30:00+03:00</p></td>
+            </tr>
+        </table>
+    </div>
     
     <div class="sections-container">
+        
+        <div class="section collapsible" id="prospect_description">
+            <h2>Prospect Description <span class="expand-indicator">+</span></h2>
+            <div class="content" name="prospect_description">
+                
+<h5>Company Information</h5>
+
+<p>Based on the provided context, here are the details about Metavallon VC:</p>
+
+<p><strong>Vertical/Industry:</strong></p>
+<ul>
+<li>Venture Capital and Private Equity</li>
+</ul>
+
+<p><strong>Company Size:</strong></p>
+<ul>
+<li>8 employees (as mentioned in "view all 8 employees")</li>
+<li>Assets Under Management (AUM): &gt;€50 million</li>
+</ul>
+
+<p><strong>Location:</strong></p>
+<ul>
+<li>Primary location: 249 Mesogeion, Neo Psychiko, Attiki 154 51, Greece</li>
+<li>Based in Athens, Greece</li>
+</ul>
+
+<p><strong>Additional Information:</strong></p>
+<ul>
+<li>Founded in 2018</li>
+<li>Currently investing out of Fund II</li>
+<li>Focuses on seed and seed+ stage investments</li>
+<li>Deploys tickets of €0.5m - €1.5m</li>
+<li>Specializes in B2B models and deep technology</li>
+<li>Has strong ties with Greece</li>
+</ul>
+
+<p>Short Description:</p>
+
+                <div class="feedback-container">
+                    <label for="feedback-">Feedback: </label>
+                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                        
+                        <option value="Not selected">Not selected</option>
+                        
+                        <option value="Misleading content">Misleading content</option>
+                        
+                        <option value="Not valuable">Not valuable</option>
+                        
+                        <option value="Slightly valuable">Slightly valuable</option>
+                        
+                        <option value="Great content">Great content</option>
+                        
+                        <option value="You have nailed it">You have nailed it</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
         
         <div class="section collapsible" id="notes">
             <h2>CRM Notes <span class="expand-indicator">+</span></h2>
@@ -563,64 +661,6 @@
   <li>"How do you currently support portfolio companies with customer acquisition strategies?"</li>
   <li>"Would you be interested in a partnership model offering specialized go-to-market services to your portfolio companies?"</li>
 </ul>
-
-                <div class="feedback-container">
-                    <label for="feedback-">Feedback: </label>
-                    <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
-                        
-                        <option value="Not selected">Not selected</option>
-                        
-                        <option value="Misleading content">Misleading content</option>
-                        
-                        <option value="Not valuable">Not valuable</option>
-                        
-                        <option value="Slightly valuable">Slightly valuable</option>
-                        
-                        <option value="Great content">Great content</option>
-                        
-                        <option value="You have nailed it">You have nailed it</option>
-                        
-                    </select>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section collapsible" id="prospect_description">
-            <h2>Prospect Description <span class="expand-indicator">+</span></h2>
-            <div class="content" name="prospect_description">
-                
-<h5>Company Information</h5>
-
-<p>Based on the provided context, here are the details about Metavallon VC:</p>
-
-<p><strong>Vertical/Industry:</strong></p>
-<ul>
-<li>Venture Capital and Private Equity</li>
-</ul>
-
-<p><strong>Company Size:</strong></p>
-<ul>
-<li>8 employees (as mentioned in "view all 8 employees")</li>
-<li>Assets Under Management (AUM): &gt;€50 million</li>
-</ul>
-
-<p><strong>Location:</strong></p>
-<ul>
-<li>Primary location: 249 Mesogeion, Neo Psychiko, Attiki 154 51, Greece</li>
-<li>Based in Athens, Greece</li>
-</ul>
-
-<p><strong>Additional Information:</strong></p>
-<ul>
-<li>Founded in 2018</li>
-<li>Currently investing out of Fund II</li>
-<li>Focuses on seed and seed+ stage investments</li>
-<li>Deploys tickets of €0.5m - €1.5m</li>
-<li>Specializes in B2B models and deep technology</li>
-<li>Has strong ties with Greece</li>
-</ul>
-
-<p>Short Description:</p>
 
                 <div class="feedback-container">
                     <label for="feedback-">Feedback: </label>
