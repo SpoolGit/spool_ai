@@ -89,6 +89,7 @@
     <div class="section collapsible" id="{{ section.name }}">
         <h2>{{ section.title }} <span class="expand-indicator">+</span></h2>
         <div class="content" name="{{ section.name }}">
+			{{ section.content }}
             <div class="feedback-container">
                 <label for="feedback-{{ section.id }}">Feedback: </label>
                 <select id="feedback-{{ section.id }}" class="feedback-dropdown" onchange="updateFeedback('{{ section.id }}', this.value)">
