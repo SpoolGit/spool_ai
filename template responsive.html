@@ -36,25 +36,18 @@
         }
 
     	.sections-container {
-        	display: flex;
-        	flex-direction: column;
-        	flex-wrap: wrap;
+        	display: grid;
+        	grid-template-columns: repeat(2, 1fr);
         	gap: 15px;
         	margin: 0 auto;
         	max-width: 1200px;
-        	height: calc(100% - 100px); /* Adjust based on your header height */
-        	max-height: 2000px; /* Set a reasonable max height that will accommodate all sections */
+        	grid-auto-flow: row;
     	}
         
         /* Responsive grid - single column on small screens */
         @media (max-width: 768px) {
             .sections-container {
-                flex-direction: row;
-                height: auto;
-            }
-            
-            .section {
-                width: 100%;
+                grid-template-columns: 1fr;
             }
             
             .header-table td {
@@ -69,7 +62,9 @@
         	border: 1px solid #EAECEE;
         	border-radius: 8px;
         	background: #F9FBFC;
-        	width: calc(50% - 15px); /* Take up half the container width minus gap */
+        	height: auto;
+        	display: flex;
+        	flex-direction: column;
     	}
 
     	.section.collapsible {
