@@ -100,5 +100,92 @@
         </div>
     </div>
     {% endfor %}
+<!-- JavaScript -->
+<script>
+	// Object to store feedback selections
+	let feedbackSelections = {};
+	const currentUrl = window.location.href;
+	const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+	
+	function sendPageLoadData() {
+		// Get the values of seller_email and prospect_email from the HTML elements
+		const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+		const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+		// Prepare the data to be sent
+		const dataToSend = {
+			seller_email: sellerEmail,
+			prospect_email: prospectEmail,
+			docURL: currentUrl
+			// Do not include feedbackSelections here
+		};
+
+		// Send the data to the backend (Google Apps Script)
+		fetch(url, {
+			method: "POST",
+			mode: "no-cors",  // Enable CORS mode
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+		})
+		.then(response => response.text())
+		.then(data => console.log("Data sent successfully:", data))
+		.catch(error => console.error("Error sending data:", error));
+	}
+
+	function sendFeedbackToGoogleSheet() {
+		// Get seller_email and prospect_email values from the HTML page
+		const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+		const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+		// Add seller_email and prospect_email to the feedbackSelections object
+		const feedbackSelectionsWithEmails = {
+			...feedbackSelections,  // Existing feedback selections
+			seller_email: sellerEmail,
+			prospect_email: prospectEmail,
+			docURL: currentUrl
+		};
+
+		fetch(url, {
+			method: "POST",
+			mode: "no-cors",  // Enable CORS mode
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+		})
+		.then(response => response.text())
+		.then(data => console.log("Feedback stored:", data))
+		.catch(error => console.error("Errorsss saving feedback:", error));
+	}	
+
+	// Function to update feedback for each section and log all selections
+	function updateFeedback(sectionId, selectedValue) {
+		feedbackSelections[sectionId] = selectedValue;
+		
+		// Log all selections in the console
+		console.clear(); // Clears previous logs for better visibility
+		console.log("Updated Feedback Selections:");
+		console.table(feedbackSelections); // Display in table format for readability
+		sendFeedbackToGoogleSheet();
+	}
+
+	// Function to get all feedback selections
+	function getAllFeedback() {
+		console.log("All Feedback Selections:", feedbackSelections);
+		return feedbackSelections;
+	}
+
+	// Ensure collapsible behavior is working
+	document.querySelectorAll('.collapsible').forEach(section => {
+		section.querySelector('h2').addEventListener('click', function () {
+			section.classList.toggle('open');
+			const indicator = section.querySelector('.expand-indicator');
+			if (indicator) {
+				indicator.textContent = section.classList.contains('open') ? '-' : '+';
+			}
+		});
+	});
+	window.onload = sendPageLoadData; 
+</script>
 </body>
 </html>
