@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title|default('Meeting Cheat Sheet') }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Tab styling */
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 15px;
+        }
+        
+        .nav-tabs .nav-link {
+            margin-bottom: -1px;
+            border: 1px solid transparent;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            color: #495057;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #0d6efd;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+            font-weight: 500;
+        }
+        
+        .tab-content > .tab-pane {
+            display: none;
+        }
+        
+        .tab-content > .active {
+            display: block;
+        }
+        
+        .tab-content {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-top: none;
+            border-radius: 0 0 0.25rem 0.25rem;
+        }
+        
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+            
+            /* Responsive tabs */
+            .nav-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .nav-tabs .nav-item {
+                float: none;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">{{ title|default('Meeting Cheat Sheet') }}</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        {% for section in sections %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if loop.first %}active{% endif %}" href="#" data-target="section{{ loop.index }}">
+                                {{ section.title }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">{{ seller_email }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">{{ prospect_email }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">{{ meeting_datetime }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">{{ call_type|default('First Call') }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    {% for section in sections %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {% if loop.first %}active{% endif %}" 
+                                id="tab{{ loop.index }}" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section{{ loop.index }}" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section{{ loop.index }}" 
+                                aria-selected="{% if loop.first %}true{% else %}false{% endif %}">
+                            {{ section.title }}
+                        </button>
+                    </li>
+                    {% endfor %}
+                </ul>
+                
+                <!-- Tab Content -->
+                <div class="tab-content" id="myTabContent">
+                    {% for section in sections %}
+                    <div class="tab-pane fade {% if loop.first %}show active{% endif %}" 
+                         id="section{{ loop.index }}" 
+                         role="tabpanel" 
+                         aria-labelledby="tab{{ loop.index }}">
+                        <div name="{{ section.name }}">
+                            {{ section.content|safe }}
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-{{ section.name }}">Feedback: </label>
+                                <select id="feedback-{{ section.name }}" class="feedback-dropdown" onchange="updateFeedback('{{ section.name }}', this.value)">
+                                    <option value="">Not selected</option>
+                                    {% for option in feedback_options %}
+                                    <option value="{{ option }}">{{ option }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store feedback selections
+        let feedbackSelections = {};
+        const currentUrl = window.location.href;
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        function sendPageLoadData() {
+            // Get the values of seller_email and prospect_email from the HTML elements
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare the data to be sent
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+                // Do not include feedbackSelections here
+            };
+
+            // Send the data to the backend (Google Apps Script)
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        function sendFeedbackToGoogleSheet() {
+            // Get seller_email and prospect_email values from the HTML page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Add seller_email and prospect_email to the feedbackSelections object
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,  // Existing feedback selections
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update feedback for each section and log all selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log all selections in the console
+            console.clear(); // Clears previous logs for better visibility
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections); // Display in table format for readability
+            sendFeedbackToGoogleSheet();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle sidebar link clicks
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking on backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Sync sidebar with tabs
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section
+                    const targetId = this.getAttribute('data-target');
+                    const targetTab = document.querySelector(`button[data-bs-target="#${targetId}"]`);
+                    
+                    if (targetTab) {
+                        // Activate the tab
+                        targetTab.click();
+                        
+                        // Update sidebar active state
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // On mobile, close the sidebar after clicking a link
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Sync tabs with sidebar
+            const tabButtons = document.querySelectorAll('.nav-tabs .nav-link');
+            tabButtons.forEach(tab => {
+                tab.addEventListener('shown.bs.tab', function(e) {
+                    const targetId = this.getAttribute('data-bs-target').substring(1); // Remove the # character
+                    const sidebarLink = document.querySelector(`#sidebar .nav-link[data-target="${targetId}"]`);
+                    
+                    if (sidebarLink) {
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        sidebarLink.classList.add('active');
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 

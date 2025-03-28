@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Layout with Sidebar and Accordions</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        .accordion-item {
+            margin-bottom: 10px;
+        }
+        
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Company Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section2">
+                                Market Analysis
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section3">
+                                Financial Performance
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section4">
+                                Product Roadmap
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section5">
+                                Customer Insights
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section6">
+                                Competitive Analysis
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section7">
+                                Team Structure
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section8">
+                                Growth Strategy
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section9">
+                                Risk Assessment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="section10">
+                                Future Outlook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email">seller@company.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email">prospect@company.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime">March 15, 2023 - 10:30 AM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type">First Call</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- First Column -->
+                    <div class="col-md-6">
+                        <div class="accordion" id="accordionColumn1">
+                            <div class="accordion-item" id="section1">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        Company Overview
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionColumn1">
+                                    <div class="accordion-body">
+                                        <p>Founded in 2010, our company has grown from a small startup to a leading industry player. We specialize in innovative software solutions that help businesses streamline their operations and improve efficiency.</p>
+                                        <p>With offices in 5 countries and over 500 employees worldwide, we continue to expand our global footprint while maintaining our commitment to excellence and customer satisfaction.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        Market Analysis
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionColumn1">
+                                    <div class="accordion-body">
+                                        <p>The global market for our solutions is expected to grow at a CAGR of 15% over the next five years. Key drivers include digital transformation initiatives, increasing demand for cloud-based solutions, and the need for enhanced data security.</p>
+                                        <p>Regional analysis shows particularly strong growth in Asia-Pacific markets, with North America remaining our largest revenue source.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        Financial Performance
+                                    </button>
+                                </h2>
+                                <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionColumn1">
+                                    <div class="accordion-body">
+                                        <p>Our company has demonstrated strong financial performance over the past fiscal year:</p>
+                                        <ul>
+                                            <li>Revenue: $125M (↑18% YoY)</li>
+                                            <li>EBITDA: $42M (↑22% YoY)</li>
+                                            <li>Profit Margin: 28% (↑3% YoY)</li>
+                                            <li>Cash Reserves: $78M</li>
+                                        </ul>
+                                        <p>Recurring revenue now accounts for 75% of our total revenue, providing stability and predictability to our business model.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section4">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        Product Roadmap
+                                    </button>
+                                </h2>
+                                <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionColumn1">
+                                    <div class="accordion-body">
+                                        <p>Our product development strategy focuses on three key areas:</p>
+                                        <ol>
+                                            <li><strong>AI Integration</strong> - Enhancing our core products with machine learning capabilities</li>
+                                            <li><strong>Mobile Experience</strong> - Redesigning our mobile applications for improved usability</li>
+                                            <li><strong>API Ecosystem</strong> - Expanding our API offerings to facilitate better integrations</li>
+                                        </ol>
+                                        <p>Major releases are scheduled quarterly, with continuous improvements deployed bi-weekly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section5">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        Customer Insights
+                                    </button>
+                                </h2>
+                                <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionColumn1">
+                                    <div class="accordion-body">
+                                        <p>Recent customer satisfaction surveys indicate:</p>
+                                        <ul>
+                                            <li>Net Promoter Score (NPS): 72 (Industry average: 45)</li>
+                                            <li>Customer Satisfaction (CSAT): 92%</li>
+                                            <li>Customer Retention Rate: 94%</li>
+                                        </ul>
+                                        <p>Key areas for improvement identified by customers include enhanced reporting capabilities and more comprehensive onboarding resources.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Second Column -->
+                    <div class="col-md-6">
+                        <div class="accordion" id="accordionColumn2">
+                            <div class="accordion-item" id="section6">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                        Competitive Analysis
+                                    </button>
+                                </h2>
+                                <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionColumn2">
+                                    <div class="accordion-body">
+                                        <p>Our competitive landscape includes both established players and emerging startups:</p>
+                                        <ul>
+                                            <li><strong>Market Leaders:</strong> CompetitorX (35% market share), CompetitorY (28%)</li>
+                                            <li><strong>Our Position:</strong> 22% market share (↑4% from previous year)</li>
+                                            <li><strong>Emerging Threats:</strong> Three venture-backed startups with disruptive technologies</li>
+                                        </ul>
+                                        <p>Our key differentiators remain our customer service excellence, integration capabilities, and industry-specific expertise.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section7">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                        Team Structure
+                                    </button>
+                                </h2>
+                                <div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#accordionColumn2">
+                                    <div class="accordion-body">
+                                        <p>Our organization is structured around cross-functional teams aligned with key product areas:</p>
+                                        <ul>
+                                            <li>8 Product Development Teams</li>
+                                            <li>3 Customer Success Teams</li>
+                                            <li>2 Research & Innovation Labs</li>
+                                            <li>Global Sales and Marketing Teams</li>
+                                        </ul>
+                                        <p>Employee engagement scores have increased by 12% following our recent organizational restructuring and enhanced remote work policies.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section8">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                        Growth Strategy
+                                    </button>
+                                </h2>
+                                <div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#accordionColumn2">
+                                    <div class="accordion-body">
+                                        <p>Our three-year growth strategy focuses on:</p>
+                                        <ol>
+                                            <li><strong>Geographic Expansion</strong> - Establishing presence in emerging markets</li>
+                                            <li><strong>Product Diversification</strong> - Launching two new product lines</li>
+                                            <li><strong>Strategic Acquisitions</strong> - Targeting companies with complementary technologies</li>
+                                        </ol>
+                                        <p>We aim to achieve 25% year-over-year growth while maintaining our current profit margins and customer satisfaction levels.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section9">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                        Risk Assessment
+                                    </button>
+                                </h2>
+                                <div id="collapse9" class="accordion-collapse collapse" data-bs-parent="#accordionColumn2">
+                                    <div class="accordion-body">
+                                        <p>Key risks identified in our annual assessment include:</p>
+                                        <ul>
+                                            <li><strong>Cybersecurity Threats</strong> - Ongoing investment in security infrastructure</li>
+                                            <li><strong>Talent Acquisition</strong> - Enhanced recruitment strategies for specialized roles</li>
+                                            <li><strong>Regulatory Changes</strong> - Dedicated compliance team monitoring global regulations</li>
+                                            <li><strong>Supply Chain Disruptions</strong> - Diversified supplier network established</li>
+                                        </ul>
+                                        <p>Our risk mitigation strategies are reviewed quarterly by the executive team and board of directors.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="section10">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                        Future Outlook
+                                    </button>
+                                </h2>
+                                <div id="collapse10" class="accordion-collapse collapse" data-bs-parent="#accordionColumn2">
+                                    <div class="accordion-body">
+                                        <p>Looking ahead, we are positioning ourselves to capitalize on several emerging trends:</p>
+                                        <ul>
+                                            <li>Increased adoption of remote work solutions</li>
+                                            <li>Growing demand for data privacy and security</li>
+                                            <li>Integration of AI/ML in business processes</li>
+                                            <li>Shift toward subscription-based business models</li>
+                                        </ul>
+                                        <p>We are confident in our ability to achieve our five-year vision of becoming the industry leader in our space while maintaining our commitment to innovation and customer success.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle sidebar link clicks
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking on backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Get the target section
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Find the accordion button in the target section
+                        const accordionButton = targetSection.querySelector('.accordion-button');
+                        
+                        // If the accordion is not already expanded, click it to expand
+                        if (accordionButton.classList.contains('collapsed')) {
+                            accordionButton.click();
+                        }
+                        
+                        // Scroll to the section
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // On mobile, close the sidebar after clicking a link
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

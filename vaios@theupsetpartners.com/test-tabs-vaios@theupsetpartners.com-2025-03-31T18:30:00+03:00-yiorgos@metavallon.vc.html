@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Tab styling */
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 15px;
+        }
+        
+        .nav-tabs .nav-link {
+            margin-bottom: -1px;
+            border: 1px solid transparent;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            color: #495057;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #0d6efd;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+            font-weight: 500;
+        }
+        
+        .tab-content > .tab-pane {
+            display: none;
+        }
+        
+        .tab-content > .active {
+            display: block;
+        }
+        
+        .tab-content {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-top: none;
+            border-radius: 0 0 0.25rem 0.25rem;
+        }
+        
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+            
+            /* Responsive tabs */
+            .nav-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .nav-tabs .nav-item {
+                float: none;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vaios@theupsetpartners.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">yiorgos@metavallon.vc</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-03-31T18:30:00+03:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" 
+                                id="tab1" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section1" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section1" 
+                                aria-selected="true">
+                            Prospect Description
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab2" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section2" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section2" 
+                                aria-selected="false">
+                            Summary
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab3" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section3" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section3" 
+                                aria-selected="false">
+                            CRM Notes
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab4" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section4" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section4" 
+                                aria-selected="false">
+                            Icebreakers
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab5" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section5" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section5" 
+                                aria-selected="false">
+                            Pain Points
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab6" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section6" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section6" 
+                                aria-selected="false">
+                            LinkedIn Prospect Research
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab7" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section7" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section7" 
+                                aria-selected="false">
+                            News Summary
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab8" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section8" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section8" 
+                                aria-selected="false">
+                            Customized Value Proposition
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab9" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section9" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section9" 
+                                aria-selected="false">
+                            Relevant Experience
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab10" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section10" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section10" 
+                                aria-selected="false">
+                            Qualification Questions
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab11" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section11" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section11" 
+                                aria-selected="false">
+                            Recommended Product
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab12" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section12" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section12" 
+                                aria-selected="false">
+                            Handling Objection
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab13" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section13" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section13" 
+                                aria-selected="false">
+                            Relevant Techstack
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " 
+                                id="tab14" 
+                                data-bs-toggle="tab" 
+                                data-bs-target="#section14" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="section14" 
+                                aria-selected="false">
+                            Fundings
+                        </button>
+                    </li>
+                    
+                </ul>
+                
+                <!-- Tab Content -->
+                <div class="tab-content" id="myTabContent">
+                    
+                    <div class="tab-pane fade show active" 
+                         id="section1" 
+                         role="tabpanel" 
+                         aria-labelledby="tab1">
+                        <div name="prospect_description">
+                            
+<h6>Company Information</h6>
+
+<p>Based on the provided context, here are the details about Metavallon VC:</p>
+
+<p><strong>Vertical/Industry:</strong></p>
+<ul>
+<li>Venture Capital and Private Equity</li>
+</ul>
+
+<p><strong>Company Size:</strong></p>
+<ul>
+<li>8 employees (as mentioned in "view all 8 employees")</li>
+<li>Assets Under Management (AUM): &gt;€50 million</li>
+</ul>
+
+<p><strong>Location:</strong></p>
+<ul>
+<li>Primary location: 249 Mesogeion, Neo Psychiko, Attiki 154 51, Greece</li>
+<li>Based in Athens, Greece</li>
+</ul>
+
+<p><strong>Additional Information:</strong></p>
+<ul>
+<li>Founded in 2018</li>
+<li>Currently investing out of Fund II</li>
+<li>Focuses on seed and seed+ stage investments</li>
+<li>Deploys tickets of €0.5m - €1.5m</li>
+<li>Specializes in B2B models and deep technology</li>
+<li>Has strong ties with Greece</li>
+</ul>
+
+<p>Short Description:</p>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-prospect_description">Feedback: </label>
+                                <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section2" 
+                         role="tabpanel" 
+                         aria-labelledby="tab2">
+                        <div name="summary">
+                            
+<h4>Metavallon VC Cheatsheet Summary</h4>
+
+<h5>Key Company Information</h5>
+<ul>
+  <li>Athens-based VC firm investing in seed-stage B2B startups</li>
+  <li>Currently investing from Fund II with €50M AUM</li>
+  <li>Expanding into seed+ stage investments</li>
+  <li>Small team of 8 employees managing numerous portfolio investments</li>
+  <li>Portfolio companies have 40+ job openings across various departments</li>
+</ul>
+
+<h5>Recent News and Updates</h5>
+<ul>
+  <li>Promoting 40+ job openings across their portfolio companies (1 day ago)</li>
+  <li>Portfolio company RG Sciences launched Tariff Intelligence Tool (4 days ago)</li>
+  <li>Partner George Karantonis moderated "Research and AI" panel in Chania (1 week ago)</li>
+  <li>Recent portfolio activities include Krotos Studio Music launch, BioEmTech attending industry conference, and Feel Therapeutics' AI study in Nature Digital Medicine</li>
+</ul>
+
+<h5>Key Pain Points</h5>
+<ul>
+  <li>Portfolio companies struggle with effective go-to-market strategies</li>
+  <li>Limited B2B sales expertise to support portfolio companies</li>
+  <li>Resource constraints (8 employees) for providing hands-on GTM guidance</li>
+  <li>International market expansion challenges for Greece-based startups</li>
+  <li>Inconsistent sales performance across diverse portfolio investments</li>
+</ul>
+
+<h5>Sales Approach</h5>
+<ul>
+  <li>Value proposition: Specialized B2B growth expertise with 4S framework, hands-on implementation from experienced operators, proven track record with 100+ B2B companies</li>
+  <li>Relevant experience with Greek companies (Palowise, Indeex, Cyclopt)</li>
+  <li>Recommended product features: B2B-focused services, tailor-made GTM strategies, sales infrastructure setup, market expansion support, hands-on operational support</li>
+  <li>Objection handling: Demonstrate ROI framework, emphasize hands-on execution vs. passive advising, highlight industry experience with VC-backed startups</li>
+</ul>
+
+<h5>Conversation Starters</h5>
+<ul>
+  <li>"I noticed you're investing from Fund II with €50M AUM - how has your expansion into seed+ investments been progressing?"</li>
+  <li>"I saw your portfolio has 40+ job openings - which growth areas are you most excited about this spring?"</li>
+  <li>"What are your portfolio companies' biggest go-to-market challenges when expanding beyond Greece?"</li>
+  <li>"How do you currently support portfolio companies with customer acquisition strategies?"</li>
+  <li>"Would you be interested in a partnership model offering specialized go-to-market services to your portfolio companies?"</li>
+</ul>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-summary">Feedback: </label>
+                                <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section3" 
+                         role="tabpanel" 
+                         aria-labelledby="tab3">
+                        <div name="notes">
+                            No content
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-notes">Feedback: </label>
+                                <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section4" 
+                         role="tabpanel" 
+                         aria-labelledby="tab4">
+                        <div name="icebreakers">
+                            
+<p>1. I noticed Metavallon VC is currently investing out of Fund II with €50M AUM - how has your recent expansion into seed+ stage investments been progressing?</p>
+
+<p>2. I saw your portfolio companies have over 40 job openings across various departments - which growth areas are you most excited about in your portfolio this spring?</p>
+
+<p>3. Your recent event in Chania about innovation trends in Crete looked fascinating - what were some key takeaways from the "Research and AI" panel your partner moderated?</p>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-icebreakers">Feedback: </label>
+                                <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section5" 
+                         role="tabpanel" 
+                         aria-labelledby="tab5">
+                        <div name="pain_points">
+                            
+<h6>1. Portfolio company growth challenges</h6>
+<p>Their startups need effective go-to-market strategies to scale successfully</p>
+
+<h6>2. Limited expertise in B2B sales methodologies</h6>
+<p>They invest in B2B models but may lack specialized GTM knowledge to support portfolio companies</p>
+
+<h6>3. Resource constraints for portfolio support</h6>
+<p>With only 8 employees managing numerous investments, they likely struggle to provide hands-on GTM guidance</p>
+
+<h6>4. International market expansion difficulties</h6>
+<p>Their Greece-based startups likely need help entering larger markets beyond their local region</p>
+
+<h6>5. Inconsistent sales performance across portfolio</h6>
+<p>Their diverse investments (from AI to biotech) require tailored go-to-market approaches rather than one-size-fits-all solutions</p>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-pain_points">Feedback: </label>
+                                <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section6" 
+                         role="tabpanel" 
+                         aria-labelledby="tab6">
+                        <div name="linkedin_prospect_research">
+                            
+<h6>Based on the LinkedIn posts from Metavallon VC:</h6>
+<ol>
+    <li><p><strong>(1d ago)</strong> Kick off spring with new career opportunities - promoting 40+ job openings across sales, finance, engineering from their portfolio companies.</p></li>
+    <li><p><strong>(4d ago)</strong> RG Sciences launching their Tariff Intelligence Tool, a real-time resource for tracking tariff changes and their business impact.</p></li>
+    <li><p><strong>(1w ago)</strong> Announcement about their partner George Karantonis moderating the "Research and AI" panel at an innovation event in Chania, Crete.</p></li>
+</ol>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section7" 
+                         role="tabpanel" 
+                         aria-labelledby="tab7">
+                        <div name="news_summary">
+                            
+<h6>Latest News for Metavallon VC</h6>
+
+<ol>
+  <li><strong>1 day ago</strong>: Shared job opportunities across their portfolio companies with 40+ openings in sales, finance, engineering, and more.</li>
+
+  <li><strong>4 days ago</strong>: Announced RG Sciences (RGS) launching their Tariff Intelligence Tool for tracking tariff changes and business impact in real-time.</li>
+
+  <li><strong>1 week ago</strong>: Partner George Karantonis moderated the "Research and AI" panel at an innovation event in Chania, Crete.</li>
+
+  <li><strong>2 weeks ago</strong>: Announced Krotos Studio Music launch, offering customizable royalty-free music presets.</li>
+
+  <li><strong>2 weeks ago</strong>: Shared that portfolio company BioEmTech attended the European Molecular Imaging Meeting 2025 in Bilbao.</li>
+
+  <li><strong>3 weeks ago</strong>: Highlighted Feel Therapeutics' AI study published in Nature Digital Medicine about mental health interventions.</li>
+
+  <li><strong>3 weeks ago</strong>: Promoted a "Start Your Night Up" networking event with various partners in the startup ecosystem.</li>
+
+  <li><strong>4 weeks ago</strong>: Shared that WorkOrb AI attended the SMPS Pacific Regional Conference in Palm Springs.</li>
+
+  <li><strong>1 month ago</strong>: Shared Useberry's blog post about the importance of user testing for SaaS businesses.</li>
+
+  <li><strong>1 month ago</strong>: Announced Smartify being shortlisted for the Scottish Knowledge Exchange Awards 2025 for their WebXR museum technology.</li>
+</ol>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-news_summary">Feedback: </label>
+                                <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section8" 
+                         role="tabpanel" 
+                         aria-labelledby="tab8">
+                        <div name="customized_value_proposition">
+                            
+<ul>
+  <li>Specialized B2B growth expertise for your portfolio companies with our 4S framework (Search, Service, Sales, Scale) to help early-stage startups systematically acquire customers and enter new markets.</li>
+  <li>Hands-on implementation from experienced operators who work alongside founding teams, providing the expertise of a commercial co-founder with a complete team of GTM specialists - ideal for your €0.5m-€1.5m seed investments.</li>
+  <li>Proven track record helping 100+ B2B companies break through growth barriers, with particular success in Greece and across Europe - perfectly aligned with your Athens-based VC focus on B2B models and deep technology.</li>
+</ul>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-customized_value_proposition">Feedback: </label>
+                                <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section9" 
+                         role="tabpanel" 
+                         aria-labelledby="tab9">
+                        <div name="relevant_experience">
+                            
+<h6>1. Palowise</h6>
+<p>Based in Athens, Greece, similar to Metavallon VC's Athens location. Palowise built their sales infrastructure from scratch, generating 3 new opportunities per week at 30k annual contract value and added 300k pipeline within the first month.</p>
+
+<h6>2. Indeex</h6>
+<p>Greek company (based in Volos) with similar small company size (7 employees vs. Metavallon's 8 employees). Indeex crafted their go-to-market plan from scratch, generated 4 new opportunities from 4 new European markets, and added 120k pipeline within two months.</p>
+
+<h6>3. Cyclopt</h6>
+<p>Greek company (based in Pylaia, Central Macedonia) with similar small company size (10 employees vs. Metavallon's 8 employees). Cyclopt crafted their go-to-market plan from scratch, built sales infrastructure, and added $250k pipeline from new European markets.</p>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-relevant_experience">Feedback: </label>
+                                <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section10" 
+                         role="tabpanel" 
+                         aria-labelledby="tab10">
+                        <div name="qualification_questions">
+                            
+<h4>5 Most Relevant Questions for Metavallon VC</h4>
+
+<p>Based on the context about The Upset Partners (a B2B go-to-market services provider for startups) and the prospect (Metavallon VC, a venture capital firm focused on seed-stage B2B startups in Greece), here are the 5 most important qualification questions to ask:</p>
+
+<ol>
+  <li><strong>What are your portfolio companies' biggest go-to-market challenges when expanding beyond the Greek market?</strong></li>
+  
+  <li><strong>How do you currently support your portfolio companies with their customer acquisition and market expansion strategies?</strong></li>
+
+  <li><strong>What percentage of your portfolio consists of B2B startups that could benefit from structured go-to-market services?</strong></li>
+
+  <li><strong>For your seed and seed+ stage investments, at what point do you typically encourage founders to invest in professional go-to-market strategies?</strong></li>
+
+  <li><strong>Would you be interested in a partnership model where we could offer specialized go-to-market services to your portfolio companies at preferential rates?</strong></li>
+</ol>
+
+<p>These questions help qualify if Metavallon VC could be both a direct client and a channel partner to reach multiple B2B startups in their portfolio, while addressing their specific needs as a VC firm investing in early-stage B2B companies.</p>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-qualification_questions">Feedback: </label>
+                                <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section11" 
+                         role="tabpanel" 
+                         aria-labelledby="tab11">
+                        <div name="recommended_product">
+                            
+<h6>Top 5 Product/Service Features for Metavallon VC</h6>
+<ol>
+    <li>B2B-focused services</li>
+    <li>Tailor-made GTM strategy for portfolio companies</li>
+    <li>Sales infrastructure setup and playbook creation</li>
+    <li>Market entry and expansion support</li>
+    <li>Hands-on operational support for seed-stage investments</li>
+</ol>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-recommended_product">Feedback: </label>
+                                <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section12" 
+                         role="tabpanel" 
+                         aria-labelledby="tab12">
+                        <div name="handling_objection">
+                            
+<h6>Overcoming Budget Constraints/ROI Concerns</h6>
+
+<ol>
+<li><strong>Proven ROI Framework</strong>: The Upset Partners' 4S framework (Search, Service, Sales, Scale) delivers measurable results - faster market entry, more qualified leads, and a scalable process for winning customers.</li>
+
+<li><strong>Hands-on Execution</strong>: Unlike passive advisors, they work alongside your team as operators, providing end-to-end GTM execution that maximizes your investment.</li>
+
+<li><strong>Cost-Efficient Growth</strong>: They help founders "get customers, partners and capital in the most time & cost efficient way" - making your budget work harder.</li>
+</ol>
+
+<h6>Addressing Trust in Understanding VC Industry Needs</h6>
+
+<ol>
+<li><strong>Industry Experience</strong>: They've worked with 100+ world-class businesses, including startups with VC backing (as evidenced by testimonials from YC founders).</li>
+
+<li><strong>Tailored Approach</strong>: They provide "tailor-made GTM strategy: custom-built to meet your goals" rather than one-size-fits-all solutions.</li>
+
+<li><strong>Founder Mindset</strong>: As noted in testimonials, they bring "a pragmatic approach" and "builder mindset," with experience as former founders themselves who understand the unique challenges of scaling B2B companies.</li>
+</ol>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-handling_objection">Feedback: </label>
+                                <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section13" 
+                         role="tabpanel" 
+                         aria-labelledby="tab13">
+                        <div name="relevant_techstack">
+                            
+<p>No relevant techstack</p>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-relevant_techstack">Feedback: </label>
+                                <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade " 
+                         id="section14" 
+                         role="tabpanel" 
+                         aria-labelledby="tab14">
+                        <div name="fundings">
+                            
+<p>No funding events found</p>
+
+                            
+                            <div class="feedback-container">
+                                <label for="feedback-fundings">Feedback: </label>
+                                <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                    <option value="">Not selected</option>
+                                    
+                                    <option value="Not selected">Not selected</option>
+                                    
+                                    <option value="Misleading content">Misleading content</option>
+                                    
+                                    <option value="Not valuable">Not valuable</option>
+                                    
+                                    <option value="Slightly valuable">Slightly valuable</option>
+                                    
+                                    <option value="Great content">Great content</option>
+                                    
+                                    <option value="You have nailed it">You have nailed it</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store feedback selections
+        let feedbackSelections = {};
+        const currentUrl = window.location.href;
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        function sendPageLoadData() {
+            // Get the values of seller_email and prospect_email from the HTML elements
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare the data to be sent
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+                // Do not include feedbackSelections here
+            };
+
+            // Send the data to the backend (Google Apps Script)
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        function sendFeedbackToGoogleSheet() {
+            // Get seller_email and prospect_email values from the HTML page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Add seller_email and prospect_email to the feedbackSelections object
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,  // Existing feedback selections
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update feedback for each section and log all selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log all selections in the console
+            console.clear(); // Clears previous logs for better visibility
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections); // Display in table format for readability
+            sendFeedbackToGoogleSheet();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle sidebar link clicks
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking on backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Sync sidebar with tabs
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section
+                    const targetId = this.getAttribute('data-target');
+                    const targetTab = document.querySelector(`button[data-bs-target="#${targetId}"]`);
+                    
+                    if (targetTab) {
+                        // Activate the tab
+                        targetTab.click();
+                        
+                        // Update sidebar active state
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // On mobile, close the sidebar after clicking a link
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Sync tabs with sidebar
+            const tabButtons = document.querySelectorAll('.nav-tabs .nav-link');
+            tabButtons.forEach(tab => {
+                tab.addEventListener('shown.bs.tab', function(e) {
+                    const targetId = this.getAttribute('data-bs-target').substring(1); // Remove the # character
+                    const sidebarLink = document.querySelector(`#sidebar .nav-link[data-target="${targetId}"]`);
+                    
+                    if (sidebarLink) {
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        sidebarLink.classList.add('active');
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
