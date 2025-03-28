@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sales Rep Cheat Sheet</title>
+	<style>
+    	body {
+        	font-family: Arial, sans-serif;
+        	line-height: 1.4;
+        	margin: 10px;
+    	}
+
+    	h1, h2 {
+        	color: #2C3E50;
+    	}
+
+    	h1 {
+        	text-align: center;
+    	}
+
+    	.section {
+        	margin-bottom: 10px;
+        	padding: 8px;
+        	border: 1px solid #EAECEE;
+        	border-radius: 8px;
+        	background: #F9FBFC;
+    	}
+
+    	.section.collapsible {
+        	cursor: pointer;
+    	}
+
+    	.section .content {
+        	display: none;
+        	margin-top: 5px;
+    	}
+
+    	.section.open .content {
+        	display: block;
+    	}
+
+    	.expand-indicator {
+        	float: right;
+        	font-size: 1.2em;
+        	color: #888;
+        	cursor: pointer;
+    	}
+
+    	.expand-indicator.open {
+        	color: #3498DB;
+        	font-weight: bold;
+    	}
+
+    	.feedback-dropdown {
+        	display: block;
+        	width: 100%;
+        	padding: 8px;
+        	margin-top: 8px;
+        	border: 1px solid #CCC;
+        	border-radius: 5px;
+        	background-color: #FFF;
+        	font-size: 1em;
+        	color: #333;
+    	}
+
+    	.feedback-dropdown:focus {
+        	border-color: #3498DB;
+        	outline: none;
+    	}
+
+		.feedback-container {
+			margin-top: 5px;
+		}
+	</style>
+</head>
+<body>
+    <h1>Meeting Cheat Sheet</h1>
+    <p id="header" name="call_type"></p>
+    <table>
+        <tr>
+            <td><p id="header" name="seller_email" style="margin-right: 20px;">lydia@workable.com</p></td>
+            <td><p id="header" name="prospect_email" style="margin-right: 20px;">malgorzata.lozinski@lonza.com</p></td>
+            <td><p id="header" name="meeting_datetime" style="margin-right: 20px;">2025-03-31T15:00:00+03:00</p></td>
+        </tr>
+    </table>
+    
+    
+    <div class="section collapsible" id="notes">
+        <h2>CRM Notes <span class="expand-indicator">+</span></h2>
+        <div class="content" name="notes">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="icebreakers">
+        <h2>Icebreakers <span class="expand-indicator">+</span></h2>
+        <div class="content" name="icebreakers">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="pain_points">
+        <h2>Pain Points <span class="expand-indicator">+</span></h2>
+        <div class="content" name="pain_points">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="linkedin_prospect_research">
+        <h2>LinkedIn Prospect Research <span class="expand-indicator">+</span></h2>
+        <div class="content" name="linkedin_prospect_research">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="news_summary">
+        <h2>News Summary <span class="expand-indicator">+</span></h2>
+        <div class="content" name="news_summary">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="customized_value_proposition">
+        <h2>Customized Value Proposition <span class="expand-indicator">+</span></h2>
+        <div class="content" name="customized_value_proposition">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="relevant_experience">
+        <h2>Relevant Experience <span class="expand-indicator">+</span></h2>
+        <div class="content" name="relevant_experience">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="qualification_questions">
+        <h2>Qualification Questions <span class="expand-indicator">+</span></h2>
+        <div class="content" name="qualification_questions">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="recommended_product">
+        <h2>Recommended Product <span class="expand-indicator">+</span></h2>
+        <div class="content" name="recommended_product">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="handling_objection">
+        <h2>Handling Objection <span class="expand-indicator">+</span></h2>
+        <div class="content" name="handling_objection">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="relevant_techstack">
+        <h2>Relevant Techstack <span class="expand-indicator">+</span></h2>
+        <div class="content" name="relevant_techstack">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="fundings">
+        <h2>Fundings <span class="expand-indicator">+</span></h2>
+        <div class="content" name="fundings">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="summary">
+        <h2>Summary <span class="expand-indicator">+</span></h2>
+        <div class="content" name="summary">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section collapsible" id="prospect_description">
+        <h2>Prospect Description <span class="expand-indicator">+</span></h2>
+        <div class="content" name="prospect_description">
+            <div class="feedback-container">
+                <label for="feedback-">Feedback: </label>
+                <select id="feedback-" class="feedback-dropdown" onchange="updateFeedback('', this.value)">
+                    
+                    <option value="Not selected">Not selected</option>
+                    
+                    <option value="Misleading content">Misleading content</option>
+                    
+                    <option value="Not valuable">Not valuable</option>
+                    
+                    <option value="Slightly valuable">Slightly valuable</option>
+                    
+                    <option value="Great content">Great content</option>
+                    
+                    <option value="You have nailed it">You have nailed it</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
