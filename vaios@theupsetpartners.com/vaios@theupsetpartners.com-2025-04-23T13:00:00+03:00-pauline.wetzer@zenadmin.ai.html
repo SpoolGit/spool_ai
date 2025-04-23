@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vaios@theupsetpartners.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">pauline.wetzer@zenadmin.ai</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-04-23T13:00:00+03:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- First Column -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h6>Company Information for ZenAdmin</h6>
+
+<p><strong>Vertical/Industry:</strong></p>
+<ul>
+<li>IT Management/Software Development</li>
+<li>Specifically, they provide an all-in-one IT platform and services for global teams</li>
+</ul>
+
+<p><strong>Company Size:</strong></p>
+<ul>
+<li>60 employees (as indicated in the LinkedIn profile)</li>
+<li>13,517 followers on LinkedIn</li>
+</ul>
+
+<p><strong>Location:</strong></p>
+<ul>
+<li>Headquarters: Singapore, Singapore (068914)</li>
+<li>They operate globally, serving customers in 150+ countries</li>
+</ul>
+
+<p><strong>Additional Information:</strong></p>
+<ul>
+<li>They received a Pre-Seed funding round of US$3.2 million on July 1, 2023</li>
+<li>Their services include global hardware procurement, device lifecycle management, IT helpdesk, SaaS management, workflow automation, and mobile device management</li>
+<li>They recently launched a product called ZenCare for extended warranty and device protection</li>
+</ul>
+
+<p><strong>Short Description:</strong> ZenAdmin | First All-in-one IT platform for global teams</p>
+
+<p>From startups to Enterprise, ZenAdmin helps you Manage your people, devices, and apps in one place. From procurement to IT support and device retrieval, we automate everything so you can scale efficiently and securely worldwide.</p>
+<p>Our services:</p>
+<ul>
+<li>Global Hardware and Software procurement</li>
+<li>Device Lifecycle services</li>
+<li>Mobile Device Management software & services</li>
+<li>IT Automation for On/Offboarding</li>
+<li>Identity & Access Management software</li>
+<li>IT support 24/7 services</li>
+<li>SaaS management software and optimisation services</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                No content
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<h6>Based on the prospect's business and recent activities, here are the top 5 pain points that the seller's B2B go-to-market services could help with:</h6>
+
+<ol>
+  <p>1. Scaling customer acquisition efficiently across 150+ countries while maintaining a focused GTM strategy for their all-in-one IT platform</p>
+
+  <p>2. Converting early market traction into sustainable growth following their recent $3.2M pre-seed funding</p>
+
+  <p>3. Developing effective messaging and positioning that clearly differentiates their comprehensive IT solution from point solutions in the crowded IT management space</p>
+
+  <p>4. Creating targeted marketing campaigns for their newly launched ZenCare product to drive adoption and revenue</p>
+
+  <p>5. Building a repeatable sales process that can effectively communicate their value proposition to both startups and enterprise customers with different IT management needs</p>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h4>Latest News for ZenAdmin (Ordered from Most Recent)</h4>
+
+<ol>
+<li><strong>18 hours ago</strong>: Yoan Kamalski (Co-founder & Co-CEO) shared a post about sustainable IT, highlighting how ZenAdmin helps companies recover, recycle, repair, and manage devices more efficiently to reduce environmental impact.</li>
+
+<li><strong>2 days ago</strong>: ZenAdmin shared a case study about their partnership with Agriportance GmbH, which resulted in 90% reduction in onboarding time, 55% team growth, MDM & endpoint protection implementation, and ISO 27001:2022 certification.</li>
+
+<li><strong>6 days ago</strong>: ZenAdmin posted about IT asset visibility and tracking for departing employees, promoting their solution for complete control over IT assets.</li>
+
+<li><strong>1 week ago</strong>: Multiple updates including:
+   <ul>
+   <li>Launch of ZenCare, an extended warranty and accidental damage protection plan offering 3-year extended warranty, unlimited accident repairs, free pick-up & delivery in 100+ countries, and loaner laptops</li>
+   <li>Poll about IT asset preferences (lease vs. own)</li>
+   <li>Announcement about a session with Yoan Kamalski (CEO) and SpringVerify about IT onboarding</li>
+   <li>Blog post discussing the IT equipment dilemma: buy or lease</li>
+   <li>Case study about a health & wellness tech platform that deployed 1000+ devices, saved 500+ IT hours, and achieved 50% faster onboarding with ZenAdmin</li>
+   </ul>
+</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<h6>1. Cyclopt (Greece)</h6>
+<p>Similar industry: Software Development and IT services. Both provide software/IT solutions for businesses. Cyclopt helped the seller build sales infrastructure from scratch and added $250k pipeline from new European markets.</p>
+
+<h6>2. Maekersuite (UK)</h6>
+<p>Similar company size: Small startup with focus on software/SaaS solutions. Both are technology companies with global ambitions. Maekersuite worked with the seller to build go-to-market motion from scratch, define new ideal customer profile, and acquire 3 paying customers within first 2 months.</p>
+
+<h6>3. Phazero (Oman)</h6>
+<p>Similar industry and company size: IT Services and Consulting with 33 employees (compared to ZenAdmin's 60). Both focus on technology solutions. Phazero entered 2 new markets within 4 months, increased sales velocity by 40%, and added $300k USD pipeline within 5 months.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<h4>Top 5 Product/Service Features for ZenAdmin</h4>
+
+<ol>
+    <li>AI-powered tools and integration</li>
+    <li>Hands-on operational support</li>
+    <li>Sales infrastructure setup</li>
+    <li>Tech stack integration</li>
+    <li>Dedicated account management</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<p>Hubspot, Google Tag Manager, Hotjar, Linkedin Marketing Solutions</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Second Column -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h4>ZenAdmin Sales Cheatsheet</h4>
+
+<h5>Key Company Information</h5>
+<ul>
+<li>All-in-one IT platform serving 150+ countries</li>
+<li>Recently raised $3.2M pre-seed funding (May 2023)</li>
+<li>Co-founder & Co-CEO: Yoan Kamalski</li>
+<li>Recently launched ZenCare: extended warranty and accidental damage protection plan</li>
+<li>Helped Agriportance GmbH achieve 90% reduction in onboarding time</li>
+<li>Company size: ~60 employees</li>
+<li>Singapore-based with global operations</li>
+</ul>
+
+<h5>Recent News and Updates</h5>
+<ul>
+<li><strong>New Product Launch</strong>: ZenCare offering 3-year warranty, unlimited repairs, service in 100+ countries</li>
+<li><strong>Case Study</strong>: Partnership with Agriportance GmbH (90% onboarding time reduction, 55% team growth)</li>
+<li><strong>Sustainability Focus</strong>: Recent posts about environmental impact of tech and sustainable IT management</li>
+<li><strong>IT Asset Management</strong>: Promoting solutions for tracking company assets from departing employees</li>
+<li><strong>Growth</strong>: Expanding services globally while maintaining ISO 27001:2022 certification</li>
+</ul>
+
+<h5>Key Pain Points</h5>
+<ol>
+<li>Scaling customer acquisition efficiently across 150+ countries</li>
+<li>Converting early funding into sustainable growth</li>
+<li>Differentiating from competitors in crowded IT management space</li>
+<li>Marketing their new ZenCare product effectively</li>
+<li>Building repeatable sales processes for different customer segments</li>
+</ol>
+
+<h5>Sales Approach</h5>
+<ul>
+<li><strong>Value Proposition</strong>: AI-powered framework to streamline global IT operations, reduce onboarding time by 90%</li>
+<li><strong>Recommended Solutions</strong>: AI tools, hands-on operational support, sales infrastructure setup, tech stack integration</li>
+<li><strong>Relevant Tech Stack</strong>: Hubspot, Google Tag Manager, Hotjar, LinkedIn Marketing Solutions</li>
+<li><strong>Qualification Focus</strong>: Post-funding growth strategy, current acquisition methods, sales process challenges</li>
+<li><strong>Handle Objections</strong>: Emphasize ROI over cost, offer phased implementation, showcase integration success stories</li>
+</ul>
+
+<h5>Conversation Starters</h5>
+<ol>
+<li>"I noticed you recently launched ZenCare - how has the response been to your extended warranty protection plan?"</li>
+<li>"Your company has grown to serve 150+ countries - what's been the most exciting global expansion challenge?"</li>
+<li>"I saw your case study with Agriportance GmbH - what's the most dramatic IT transformation you've seen with a client?"</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<h6>1. I noticed you recently launched ZenCare - how has the response been to your extended warranty and accidental damage protection plan?</h6>
+
+<h6>2. Your company has grown to serve 150+ countries - what's been the most exciting global expansion challenge you've overcome?</h6>
+
+<h6>3. I saw you helped Agriportance GmbH achieve a 90% reduction in onboarding time - what's the most dramatic IT transformation you've seen with one of your clients?</h6>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<h6>Here are the 3 latest and most important LinkedIn posts from ZenAdmin:</h6>
+
+<ol>
+  <p>Yoan Kamalski, co-founder & co-CEO of ZenAdmin, shared a post about the environmental impact of frequent tech upgrades and how ZenAdmin helps companies manage devices more sustainably, posted 18 hours ago.</p>
+
+  <p>ZenAdmin announced their partnership with Agriportance GmbH, highlighting achievements including 90% reduction in onboarding time and ISO 27001:2022 certification, posted 2 days ago.</p>
+
+  <p>ZenAdmin shared a post about the challenges IT teams face tracking down company assets from ex-employees and how their platform provides complete visibility of IT assets, posted 6 days ago.</p>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<ul>
+  <li>Streamline your global IT operations with our AI-powered framework that helps rapidly scale your team's efficiency, reducing onboarding time by up to 90% while maintaining security compliance.</li>
+  <li>Leverage our expertise to optimize your device lifecycle management across 150+ countries, enabling your Singapore-based team to focus on growth while we handle procurement, support, and asset recovery.</li>
+  <li>Implement our proven B2B sales acceleration system that has helped 100+ companies like yours establish predictable revenue streams, perfect for scaling your IT management platform during your post-seed funding phase.</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h4>5 Most Relevant Qualification Questions for ZenAdmin</h4>
+
+<p>Based on ZenAdmin's profile and The Upset Partners' B2B go-to-market services for startups, here are the five most important qualification questions to ask:</p>
+
+<ol>
+  <li><strong>What are your current challenges in managing IT operations across the 150+ countries you serve, and how are these challenges impacting your business growth?</strong></li>
+
+  <li><strong>Following your recent $3.2M pre-seed funding, what are your primary go-to-market priorities for the next 6-12 months?</strong></li>
+
+  <li><strong>How are you currently acquiring customers for your all-in-one IT platform, and what markets or segments are you looking to expand into?</strong></li>
+
+  <li><strong>What is your current sales process like, and what specific aspects of your go-to-market strategy do you feel need improvement?</strong></li>
+
+  <li><strong>With your recent launch of ZenCare, how are you approaching the sales and marketing strategy for this new product line, and how does it fit into your overall growth plans?</strong></li>
+</ol>
+
+<p>These questions will help determine if ZenAdmin is a good fit for The Upset Partners' B2B go-to-market services, focusing on their expansion needs, sales challenges, and growth priorities following their recent funding.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h4>Overcoming Objections</h4>
+
+<h5>1. Cost concerns - small company with limited budget for IT services</h5>
+
+<p><strong>Arguments:</strong></p>
+<ul>
+<li>Focus on ROI rather than cost: Demonstrate how your solution will save them money in the long run through increased efficiency and productivity</li>
+<li>Offer flexible pricing options: Consider a tiered approach or scaled-down version that fits their budget constraints</li>
+<li>Emphasize cost of inaction: Highlight the potential costs of not implementing your solution (missed opportunities, inefficiencies, competitive disadvantage)</li>
+<li>Suggest phased implementation: Start with core features and expand as they grow and see value</li>
+</ul>
+
+<h5>2. Integration complexity with existing systems and workflows</h5>
+
+<p><strong>Arguments:</strong></p>
+<ul>
+<li>Highlight your hands-on implementation support: Position yourself as a partner who works alongside their team, not just a vendor</li>
+<li>Showcase successful integration case studies with similar companies</li>
+<li>Offer a proof of concept or pilot program to demonstrate seamless integration</li>
+<li>Emphasize your solution's adaptability and customization options to fit their specific workflows</li>
+<li>Provide clear implementation timeline with minimal disruption to their operations</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>id: 65f2704469c59b0007b2ca0f</p>
+<p>date: 2023-05-01T00:00:00.000+00:00</p>
+<p>news_url: None</p>
+<p>type: Other</p>
+<p>investors: Global Founders Capital, MS&AD, 468 Capital, 1982 Ventures</p>
+<p>amount: 3.2M</p>
+<p>currency: $</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store feedback selections
+        let feedbackSelections = {};
+        const currentUrl = window.location.href;
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // If the card is already expanded, collapse it
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                // Otherwise, expand it
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update sidebar active state
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        function sendPageLoadData() {
+            // Get the values of seller_email and prospect_email from the HTML elements
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare the data to be sent
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+                // Do not include feedbackSelections here
+            };
+
+            // Send the data to the backend (Google Apps Script)
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        function sendFeedbackToGoogleSheet() {
+            // Get seller_email and prospect_email values from the HTML page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Add seller_email and prospect_email to the feedbackSelections object
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,  // Existing feedback selections
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update feedback for each section and log all selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log all selections in the console
+            console.clear(); // Clears previous logs for better visibility
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections); // Display in table format for readability
+            sendFeedbackToGoogleSheet();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle sidebar link clicks
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking on backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Toggle the card
+                        toggleCard(targetId);
+                        
+                        // Scroll to the section
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // On mobile, close the sidebar after clicking a link
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
