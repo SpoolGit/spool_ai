@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vasilis.ilias@usecopay.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">russell.davies@allison-group.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-04-28T15:00:00+01:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Not First Call - 1 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- First Column -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h4>Allison Homes Company Profile</h4>
+
+<p><strong>Vertical/Industry:</strong> Construction, specifically home building/residential property development</p>
+
+<p><strong>Company Size:</strong></p>
+<ul>
+<li>196 employees (as mentioned in the LinkedIn profile)</li>
+<li>21,699 followers on LinkedIn</li>
+</ul>
+
+<p><strong>Location:</strong></p>
+<ul>
+<li>Headquartered in Peterborough, England</li>
+<li>Multiple offices across England:
+<ul>
+<li>Primary: Cygnet Road, Fleet House, Peterborough, England PE7 8FD</li>
+<li>Falcon Way, Bourne, Lincolnshire PE10 0FF</li>
+<li>Suites 3 & 9, Swallow Court, Devonshire Gate, Tiverton, Devon EX16 7EJ</li>
+<li>Unit 10, Norwich Business Park, Whiting Road, Norwich NR4 6DJ</li>
+<li>Regional presence in East Midlands, East of England, and South West</li>
+</ul>
+</li>
+</ul>
+
+<p>The company focuses on creating homes and communities across these regions, with an emphasis on customer service, sustainability, and biodiversity.</p>
+
+<p>Short Description:</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                
+<h4>Allison Homes Summary (as of April 25, 2025)</h4>
+
+<p><strong>Last Contact</strong>: March 31, 2025 (25 days ago)</p>
+
+<p><strong>Key Points</strong>:</p>
+<ul>
+  <li>Initial meeting held with CEO and CFO</li>
+  <li>Current financial situation:
+    <ul>
+      <li>Earning 4% on deposits</li>
+      <li>Paying 8-10% on RCF facility</li>
+      <li>Cash balances fluctuate between $0-20 million throughout month</li>
+      <li>Typically maintain around $1 million in deposits</li>
+      <li>Strategy is to minimize deposit holdings</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Interest Level</strong>: High</p>
+<ul>
+  <li>Both CEO and CFO expressed enthusiasm about trial</li>
+  <li>CEO indicated support based on CFO's (Ian's) interest</li>
+</ul>
+
+<p><strong>Next Steps</strong>:</p>
+<ul>
+  <li>Second meeting scheduled for demo at their offices</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<h6>Top 5 Pain Points for Allison Homes</h6>
+
+<ol>
+    <li>Cash flow challenges due to recent pre-tax losses (£3.43m) despite steady turnover, indicating potential payment timing issues in their construction pipeline</li>
+
+    <li>Project financing strain across multiple simultaneous developments (including new sites in Cotgrave, South Wootton, and Landkey) requiring efficient capital management</li>
+
+    <li>Payment delays with subcontractors due to complex multi-site operations across different regions of England</li>
+
+    <li>Working capital pressure from partnerships business nearly doubling while overall completions decreased, creating potential payment timing mismatches</li>
+
+    <li>Financial management complexity across diverse development projects with varying timelines and significant community infrastructure payments (over £650,000 in section 106 payments for just one project)</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h4>Allison Homes News Summary</h4>
+
+<h5>Financial &amp; Growth</h5>
+<ul>
+  <li><strong>April 2025</strong>: Maintained steady turnover at £97.67m despite recording a pre-tax loss of £3.43m. Their partnerships business nearly doubled to £43.26m, though completions decreased from 432 to 397 units.</li>
+</ul>
+
+<h5>Leadership &amp; Strategy</h5>
+<ul>
+  <li><strong>March 20, 2025</strong>: Appointed Adam Knight as managing director for Eastern region, bringing 22+ years of housing sector experience to help achieve their goal of doubling company size within three years.</li>
+</ul>
+
+<h5>Development Projects</h5>
+<ul>
+  <li><strong>April 14, 2025</strong>: Hosted groundbreaking ceremony for Beaufort Gardens development in Market Deeping, which will include 114 new homes.</li>
+  <li><strong>March 31, 2025</strong>: Granted planning permission to build 50 new homes in Stanton-under-Bardon.</li>
+  <li><strong>February 2025</strong>: Acquired a 3.8-acre site in Cotgrave, Nottinghamshire for 45 energy-efficient homes with construction expected later in 2025.</li>
+  <li><strong>January 8, 2025</strong>: Opened two show homes at Wootton Grange development in South Wootton, featuring 450 energy-efficient homes with EPC-A ratings.</li>
+  <li><strong>January 6, 2025</strong>: Planning to begin construction on Cherry Grove development in Landkey, North Devon in spring 2025, featuring 150 homes including 30% affordable housing.</li>
+  <li><strong>October 2024</strong>: Received permissions to build 175 homes in Whittlesey and 340 homes in Sawtry. Also acquired land for 114 new homes in Market Deeping.</li>
+</ul>
+
+<h5>Marketing &amp; Sales</h5>
+<ul>
+  <li><strong>March 8-9, 2025</strong>: Hosting open day events at The Oaks in Norwich and Wootton Grange in South Wootton, offering part exchange and assisted move schemes.</li>
+</ul>
+
+<h5>Community Engagement</h5>
+<ul>
+  <li><strong>March 6, 2025</strong>: Donated £1,000 to Keep Thorney Beating charity for village defibrillator maintenance.</li>
+  <li><strong>April 18, 2024</strong>: Invited the Lighthouse Charity to Abbey Park development for mental wellbeing talks during Stress Awareness Month.</li>
+  <li><strong>April 16, 2024</strong>: Employees donated over 200 chocolate eggs to local foodbanks for Easter.</li>
+  <li><strong>April 15, 2024</strong>: Donated £1,000 to Evergreen Care Trust in Stamford for their 20th anniversary charity ball.</li>
+  <li><strong>April 5, 2024</strong>: Sponsored Hampton United FC, providing new kits for the reserves team.</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<h6>1. Vistry</h6>
+<p>Similar in vertical/industry (home building/residential property development) and geography (UK-based construction company). They gained accelerated payments and improved cash flow through Copay's early payment system.</p>
+
+<h6>2. Barratt Homes</h6>
+<p>Similar in vertical/industry (home building/residential property development) and geography (UK-based construction company). They benefited from Copay's supply chain financing solutions to optimize payments with subcontractors.</p>
+
+<h6>3. Morgan Sindall</h6>
+<p>Similar in industry (construction) and geography (UK-based). They utilized Copay to find savings across their supply chain through early payments and improved supply chain resilience.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<h6>1. Construction subcontractor cash flow solutions</h6>
+<h6>2. Supply chain payment management system</h6>
+<h6>3. Project linking capabilities</h6>
+<h6>4. Integration with COINS platform</h6>
+<h6>5. Supply chain resilience tools</h6>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<p>No relevant techstack</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Second Column -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h4>Allison Homes Cheatsheet Summary</h4>
+
+<h5>Key Company Information</h5>
+<ul>
+<li>Last contact: March 31, 2025 (25 days ago)</li>
+<li>Financial situation: Earning 4% on deposits, paying 8-10% on RCF facility</li>
+<li>Cash management: Balances fluctuate between $0-20M monthly, typically maintain ~$1M in deposits</li>
+<li>Interest level: High (both CEO and CFO expressed enthusiasm about trial)</li>
+<li>Next step: Second meeting scheduled for demo at their offices</li>
+</ul>
+
+<h5>Recent News and Updates</h5>
+<ul>
+<li>Maintained £97.67M turnover despite £3.43M pre-tax loss</li>
+<li>Appointed Adam Knight as Eastern region managing director (March 2025)</li>
+<li>Multiple active development projects including Beaufort Gardens (114 homes), Stanton-under-Bardon (50 homes), and others</li>
+<li>Growth strategy aims to double company size within three years</li>
+<li>Active in community engagement through various charitable initiatives</li>
+</ul>
+
+<h5>Key Pain Points</h5>
+<ol>
+<li>Cash flow challenges despite steady turnover</li>
+<li>Project financing strain across multiple simultaneous developments</li>
+<li>Payment delays with subcontractors due to complex multi-site operations</li>
+<li>Working capital pressure from partnerships business nearly doubling</li>
+<li>Financial management complexity across diverse development projects</li>
+</ol>
+
+<h5>Sales Approach</h5>
+<ul>
+<li>Value proposition: Focus on accelerating cash flow, supporting growth strategy, and enhancing multi-regional projects</li>
+<li>Relevant experience: Similar implementations with Vistry, Barratt Homes, and Morgan Sindall</li>
+<li>Recommended product: Construction subcontractor cash flow solutions with project linking and COINS integration</li>
+<li>Handling objections: Emphasize simple implementation, dedicated support, and proven ROI</li>
+</ul>
+
+<h5>Conversation Starters</h5>
+<ul>
+<li>Discuss their recent Lighthouse charity mental wellbeing initiative</li>
+<li>Congratulate on breaking ground at Beaufort Gardens</li>
+<li>Ask about their use of locally sourced carstone at Wootton Grange development</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<h6>1. I noticed your team recently invited the Lighthouse charity for a mental wellbeing talk - how has that initiative been received by your construction teams?</h6>
+
+<h6>2. Congratulations on breaking ground at Beaufort Gardens! What excites you most about returning to Market Deeping after your previous successful development there?</h6>
+
+<h6>3. I saw your Wootton Grange development uses locally sourced carstone that requires meticulous craftsmanship - how does this attention to detail reflect your company's overall approach to homebuilding?</h6>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<h6>1. Allison Homes invited the Lighthouse Charity to their Abbey Park development to provide a talk on mental wellbeing for their construction team as part of Stress Awareness Month (posted 18 minutes ago).</h6>
+
+<h6>2. At Wootton Grange development, Allison Homes is using locally sourced natural carstone for their distinctive Willow and Oak style homes, with only 1m² of stone laid per day demonstrating their craftsmanship (posted 22 hours ago).</h6>
+
+<h6>3. Allison Homes employees donated over 200 chocolate eggs to local foodbanks near their building sites in Peterborough, Tiverton, and Castle Donington to help families in need during Easter (posted 1 day ago).</h6>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<ul>
+  <li>Accelerate cash flow across your 397 home completions and £97.67m turnover operations with our construction-specific payment solution that reduces financial stress on your supply chain.</li>
+  <li>Support your ambitious growth strategy to double company size within three years by improving supply chain resilience and reducing vendor failures due to financial distress.</li>
+  <li>Enhance your multi-regional development projects across East Midlands, East of England, and South West with a payment system that generates zero-risk returns while providing your subcontractors with flexible access to early payments.</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h4>5 Key Qualification Questions for Allison Homes</h4>
+
+<p>Based on Allison Homes' profile as a residential property developer with 196 employees across multiple locations in England, and considering your construction payment acceleration services, here are the 5 most relevant qualification questions:</p>
+
+<ol>
+    <li><strong>What is your current payment process for subcontractors, and what are the typical payment terms you offer across your various development projects?</strong></li>
+
+    <li><strong>Do you experience any challenges with supply chain management or subcontractor retention due to payment timing issues?</strong></li>
+
+    <li><strong>How do you currently manage cash flow across your multiple regional operations (East Midlands, East of England, and South West), and are there any inefficiencies you're looking to address?</strong></li>
+
+    <li><strong>Are you currently using any financial tools or platforms (like COINS) to manage payments to your construction supply chain?</strong></li>
+
+    <li><strong>What would be most valuable to your business: generating cost savings through early payment discounts, improving supply chain resilience, or providing your subcontractors with more flexible payment options?</strong></li>
+</ol>
+
+<p>These questions will help determine if Allison Homes is a good fit for your payment acceleration services by uncovering their current payment processes, pain points, and potential value drivers.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h4>Overcoming Implementation and ROI Objections</h4>
+
+<h5>For implementation complexity concerns:</h5>
+<ul>
+<li>"Our system offers a simple process with fast, easy sign-up to request early payments"</li>
+<li>"We provide dedicated support to assist you through every step of implementation"</li>
+<li>"The platform is fully integrated with COINS, making it compatible with existing construction industry systems"</li>
+<li>"Sign-up takes seconds, and connecting your contracts is straightforward"</li>
+</ul>
+
+<h5>For skepticism about savings/returns:</h5>
+<ul>
+<li>"Our dynamic discounting tool has helped main contractors generate millions in cost savings"</li>
+<li>"We offer zero-risk, high-yield returns on cash by paying vendors early"</li>
+<li>"Unlike factoring companies that are 'expensive and hard to stop using,' Copay creates a win-win situation with no external financing needed"</li>
+<li>"Customers report that Copay is 'a game-changer for cashflow in construction' with real business impact"</li>
+<li>"The platform provides real-time tracking dashboards to verify and monitor your actual savings"</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>No funding events found</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store feedback selections
+        let feedbackSelections = {};
+        const currentUrl = window.location.href;
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // If the card is already expanded, collapse it
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                // Otherwise, expand it
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update sidebar active state
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        function sendPageLoadData() {
+            // Get the values of seller_email and prospect_email from the HTML elements
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare the data to be sent
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+                // Do not include feedbackSelections here
+            };
+
+            // Send the data to the backend (Google Apps Script)
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        function sendFeedbackToGoogleSheet() {
+            // Get seller_email and prospect_email values from the HTML page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Add seller_email and prospect_email to the feedbackSelections object
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,  // Existing feedback selections
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update feedback for each section and log all selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log all selections in the console
+            console.clear(); // Clears previous logs for better visibility
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections); // Display in table format for readability
+            sendFeedbackToGoogleSheet();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle sidebar link clicks
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking on backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Toggle the card
+                        toggleCard(targetId);
+                        
+                        // Scroll to the section
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // On mobile, close the sidebar after clicking a link
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
