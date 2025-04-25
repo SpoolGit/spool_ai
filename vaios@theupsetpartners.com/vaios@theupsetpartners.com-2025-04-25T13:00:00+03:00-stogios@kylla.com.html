@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vaios@theupsetpartners.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">stogios@kylla.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-04-25T13:00:00+03:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- First Column -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h6>Kylla Corporate Transactions Company Information</h6>
+
+<h4>Vertical/Industry</h4>
+<ul>
+  <li>Corporate transactions firm</li>
+  <li>Venture capital and private equity</li>
+  <li>Focus areas:
+    <ul>
+      <li>Technology sector</li>
+      <li>Sustainable energy & environmental issues</li>
+      <li>Cross-border activities</li>
+      <li>Investment in fintech, agtech, AI, drones, robotics</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Company Size</h4>
+<ul>
+  <li>47 employees</li>
+  <li>1,273 LinkedIn followers</li>
+</ul>
+
+<h4>Location</h4>
+<h5>Headquarters</h5>
+<p>Amsterdam, North Holland (Primary location: Bachstraat 15, Amsterdam, North Holland 1077 GE, NL)</p>
+
+<h5>Additional Offices</h5>
+<ol>
+  <li>'s-Hertogenbosch, North Brabant, Netherlands</li>
+  <li>Düsseldorf, North Rhine-Westphalia, Germany</li>
+  <li>London, England, UK</li>
+  <li>Istanbul, Turkey</li>
+  <li>New Delhi, India</li>
+  <li>Miami, Florida, USA</li>
+  <li>Bangkok, Thailand</li>
+</ol>
+
+<p>The company provides capital for expansion, acquisitions, recapitalizations, and management buyouts, matching growth-focused companies with their worldwide network of professional investors and business partners.</p>
+
+<p><strong>Short Description:</strong> Kylla is a passionate corporate transactions firm that matches growth-focused companies with a worldwide network of professional investors and business partners to get you where you want to be. We provide capital for expansion, acquisitions, recapitalisations and management buyouts. We love business and we love finance, and we mix these up to create the most effective investment, structuring and financing solutions out there.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                No content
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<h6>Top 5 pain points for Kylla Corporate Transactions that the B2B go-to-market services seller can help with:</h6>
+
+<ol>
+    <li>Difficulty scaling their startup matching services across multiple international markets (7 offices globally)</li>
+    <li>Challenges in effectively marketing their services to growth-focused tech companies in emerging sectors (fintech, agtech, AI, robotics)</li>
+    <li>Need for improved lead generation and qualification processes to identify suitable startups for their investor network</li>
+    <li>Inefficient go-to-market strategy for their cross-border transaction services</li>
+    <li>Lack of structured approach to convert their industry expertise (in technology and sustainable energy) into compelling value propositions for potential clients</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h4>Latest News for Kylla Corporate Transactions</h4>
+
+<ol>
+  <li><strong>April 13, 2025</strong>: Kylla Investment Partner is seeking an Investment Partner to support its growth phase. The company connects early-stage ventures with investors worldwide, facilitating financial transactions including capital securing, expansions, acquisitions, and management buyouts.</li>
+
+  <li><strong>1 month ago</strong>: Post about being "proud to be part of our great team at Kylla Corporate Transactions"</li>
+
+  <li><strong>1 month ago</strong>: Post about their "Capital Connect" event held in Amsterdam at the Royal Industrieele Groote Club, featuring meetings with scale-up portfolio companies and investment partners from North America, Europe, and South East Asia.</li>
+
+  <li><strong>6 months ago</strong>: Post about focusing on international cross-border activities in the technology sector and sustainable energy &amp; environmental issues. Mentioned a meeting between Anton van der Graaf &amp; Johannes Hammerstein with a CEO regarding hyperbaric oxygen therapy and an investor from Indonesia.</li>
+
+  <li><strong>6 months ago</strong>: Post by Johannes Hammerstein about the importance of teamwork, sharing an HBR article titled "New Rules for Teamwork."</li>
+
+  <li><strong>9 months ago</strong>: Post about financial technology integration, discussing how AI, robotics, and fintech are evolving the financial landscape.</li>
+
+  <li><strong>10 months ago</strong>: Post about hybrid work becoming the new normal, discussing benefits like flexibility, productivity, and cost savings.</li>
+
+  <li><strong>11 months ago</strong>: Post by Johannes Hammerstein about robotic startups and their role in driving innovation across various industries.</li>
+
+  <li><strong>11 months ago</strong>: Post about AI opportunities and how AI is creating chances across various domains.</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<h6>1. Maekersuite (London, UK)</h6>
+<p>Similar geography with offices in both London and Amsterdam. Both are small companies (Maekersuite with 3 employees vs. Kylla with 47). Maekersuite received pre-seed funding, aligning with Kylla's venture capital focus. Value: Built go-to-market motion from scratch, defined new ideal customer profile &amp; new pricing model, acquired 3 logo paying customers within the first 2 months.</p>
+
+<h6>2. Qureos (Dubai, UAE)</h6>
+<p>Similar company size (92 employees vs. Kylla's 47) and both operate across multiple international locations. Both companies connect businesses with networks (Qureos connects talent with mentors/jobs, Kylla connects companies with investors). Value: Defined new ideal customer profile and value proposition, adding 5 new paying customers/week at 5k in annual contract value, closing new financing round from top VCs.</p>
+
+<h6>3. Indeex (Greece)</h6>
+<p>Both companies operate across European markets and focus on growth. Indeex's expansion into multiple European markets mirrors Kylla's cross-border activities focus. Value: Crafted the go-to-market plan from scratch, 4 new opportunities from 4 new European markets, added new 120k pipeline within two months.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<h6>Top 5 Product/Service Features for Kylla Corporate Transactions</h6>
+<ol>
+    <li>AI-powered tools and integration</li>
+    <li>Market entry and expansion support</li>
+    <li>Tailor-made GTM strategy</li>
+    <li>Multi-channel outreach (LinkedIn, email, phone)</li>
+    <li>End-to-end GTM execution</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<p>AI, Remote, WordPress.org</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Second Column -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h6>Kylla Corporate Transactions Cheatsheet Summary</h6>
+
+<h4>Key Company Information</h4>
+<ul>
+<li>Global presence with 7 offices worldwide</li>
+<li>47 employees</li>
+<li>Focus on technology sector investments and sustainable energy</li>
+<li>Connects early-stage ventures with investors globally</li>
+<li>Facilitates financial transactions including capital securing, expansions, acquisitions</li>
+</ul>
+
+<h4>Recent Activities</h4>
+<ul>
+<li>Hosted "Capital Connect" event in Amsterdam with international partners</li>
+<li>Seeking Investment Partner to support growth phase</li>
+<li>Active in cross-border activities in technology and sustainable energy sectors</li>
+<li>Interest in emerging technologies (AI, robotics, fintech)</li>
+<li>Shifting toward hybrid work models</li>
+</ul>
+
+<h4>Key Pain Points</h4>
+<ol>
+<li>Scaling startup matching services across international markets</li>
+<li>Marketing challenges to growth-focused tech companies</li>
+<li>Need for improved lead generation and qualification</li>
+<li>Inefficient go-to-market strategy for cross-border services</li>
+<li>Difficulty converting industry expertise into compelling value propositions</li>
+</ol>
+
+<h4>Sales Approach</h4>
+<ul>
+<li>Value Proposition: AI-powered framework to streamline cross-border investments, B2B growth expertise for tech sector, proven track record in market expansion</li>
+<li>Relevant Experience: Success with similar companies (Maekersuite, Qureos, Indeex)</li>
+<li>Recommended Products: AI-powered tools, market entry support, tailor-made GTM strategy, multi-channel outreach</li>
+<li>Objection Handling: Focus on measurable outcomes, hands-on execution, specialized expertise</li>
+</ul>
+
+<h4>Conversation Starters</h4>
+<ul>
+<li>Discuss their recent "Capital Connect" event and international connections</li>
+<li>Explore emerging tech trends they're excited about</li>
+<li>Ask about their approach to teamwork in hybrid work environments</li>
+<li>Use qualification questions to uncover specific go-to-market challenges</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<ol>
+  <li>I noticed you recently hosted a "Capital Connect" event in Amsterdam. How did the international connections from North America, Europe, and Southeast Asia enhance those meetings?</li>
+  <li>Your company seems focused on technology and sustainability investments. What emerging tech trends are you most excited about right now?</li>
+  <li>How has your approach to teamwork evolved with the shift toward hybrid work models in your organization?</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<p>1. Kylla Corporate Transactions hosted a "Capital Connect" event with scale-up portfolio companies and investment partners from North America, Europe, and South East Asia at the Royal Industrieele Groote Club in Amsterdam, posted 1 month ago.</p>
+
+<p>2. Kylla Corporate Transactions expressed pride in being part of their great team, posted 1 month ago.</p>
+
+<p>3. Kylla Corporate Transactions focused on international cross-border activities in the technology sector and sustainable energy & environmental issues, including a meeting between Anton van der Graaf & Johannes Hammerstein with a CEO of hyperbaric oxygen therapy and an Indonesian investor, posted 6 months ago.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<ul>
+  <li>Leverage our AI-powered 4S framework to streamline your cross-border investment activities across your global office network, connecting growth-focused companies with investors more efficiently.</li>
+  <li>Our hands-on B2B growth expertise can enhance your technology sector investments, particularly in fintech, AI, and sustainable energy - key focus areas aligned with your portfolio priorities.</li>
+  <li>Benefit from our proven track record of helping 100+ B2B companies systematically expand into new markets, providing you with a scalable solution to identify and nurture high-potential investment opportunities.</li>
+</ul>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<p>Based on the prospect's LinkedIn profile and the seller's business (B2B go-to-market services for startups), here are the 5 most relevant qualification questions to ask Kylla Corporate Transactions:</p>
+
+<ol>
+  <li>Given your focus on investing in technology sectors like fintech, AI, and robotics, what are your current challenges in helping your portfolio companies establish effective go-to-market strategies across your international offices?</li>
+
+  <li>With your global presence across 7 countries, how do you currently support the startups and growth companies in your network with their customer acquisition and market expansion efforts?</li>
+
+  <li>What criteria do you use when evaluating the go-to-market readiness of companies seeking capital for expansion or acquisitions through your firm?</li>
+
+  <li>How do you currently measure the effectiveness of your portfolio companies' sales and marketing efforts, particularly when they're entering new markets?</li>
+
+  <li>As you match growth-focused companies with investors and business partners, what gaps have you identified in their go-to-market capabilities that might be limiting their growth potential?</li>
+</ol>
+
+<p>These questions will help determine if Kylla has needs that align with the seller's B2B go-to-market services for startups, while exploring their current processes, challenges, and potential opportunities for collaboration.</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h4>Overcoming Objections for VC/PE Clients</h4>
+
+<h5>For ROI and Measurable Impact Concerns:</h5>
+<ol>
+    <li>The Upset Partners' 4S framework delivers predictable, scalable customer acquisition with measurable outcomes - not theoretical advice.</li>
+    <li>As experienced operators who work alongside your team, we provide end-to-end GTM execution with tangible results: faster market entry, more qualified leads, and scalable customer acquisition.</li>
+    <li>Our approach combines AI-powered tools with deep industry expertise, creating a systematic growth engine specifically designed for complex B2B environments.</li>
+    <li>We've helped 100+ world-class businesses systematically expand into new markets and achieve sustainable growth - with measurable ROI.</li>
+</ol>
+
+<h5>For Skepticism About External Partnership:</h5>
+<ol>
+    <li>We specialize in complex B2B environments - our framework is specifically designed to handle sophisticated cross-border activities and specialized industry requirements.</li>
+    <li>We're not passive advisors but hands-on operators who function as "co-founder as a service" with your team, bringing specialized GTM expertise.</li>
+    <li>Our experience spans diverse industries and markets, as evidenced by our work with companies like Chili Piper and fintech solutions in emerging markets.</li>
+    <li>We tailor our approach to your specific needs rather than applying a one-size-fits-all solution, ensuring alignment with your specialized focus.</li>
+</ol>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>No funding events found</p>
+
+                                
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store feedback selections
+        let feedbackSelections = {};
+        const currentUrl = window.location.href;
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // If the card is already expanded, collapse it
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                // Otherwise, expand it
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update sidebar active state
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        function sendPageLoadData() {
+            // Get the values of seller_email and prospect_email from the HTML elements
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare the data to be sent
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+                // Do not include feedbackSelections here
+            };
+
+            // Send the data to the backend (Google Apps Script)
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        function sendFeedbackToGoogleSheet() {
+            // Get seller_email and prospect_email values from the HTML page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Add seller_email and prospect_email to the feedbackSelections object
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,  // Existing feedback selections
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",  // Enable CORS mode
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update feedback for each section and log all selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log all selections in the console
+            console.clear(); // Clears previous logs for better visibility
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections); // Display in table format for readability
+            sendFeedbackToGoogleSheet();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle sidebar link clicks
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking on backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Toggle the card
+                        toggleCard(targetId);
+                        
+                        // Scroll to the section
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // On mobile, close the sidebar after clicking a link
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
