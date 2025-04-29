@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title|default('Meeting Cheat Sheet') }}</title>
-    <!-- Bootstrap CSS -->
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
+    <!-- Bootstrap Icons for UI elements -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Custom CSS -->
+    
+    <!-- Custom CSS Styles -->
     <style>
+        /* Base body styles to prevent horizontal scrolling */
         body {
             overflow-x: hidden;
         }
         
+        /* Sidebar styles for navigation */
         #sidebar {
             min-height: calc(100vh - 56px);
             background-color: #f8f9fa;
@@ -21,16 +27,19 @@
             transition: margin-left 0.3s ease-in-out;
         }
         
+        /* Collapsed sidebar state */
         #sidebar.collapsed {
             margin-left: -100%;
         }
         
+        /* Navigation link styles */
         #sidebar .nav-link {
             color: #333;
             border-radius: 0;
             padding: 10px 20px;
         }
         
+        /* Hover and active states for navigation links */
         #sidebar .nav-link:hover {
             background-color: #e9ecef;
         }
@@ -40,12 +49,14 @@
             color: white;
         }
         
+        /* Header styles */
         .header {
             background-color: #343a40;
             color: white;
             padding: 15px 0;
         }
         
+        /* Main content area styles */
         .content {
             padding: 20px;
             transition: margin-left 0.3s ease-in-out;
@@ -55,6 +66,7 @@
             margin-left: 0;
         }
         
+        /* Card component styles */
         .card {
             margin-bottom: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -65,6 +77,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
+        /* Card header styles with flex layout */
         .card-header {
             cursor: pointer;
             padding: 12px 15px;
@@ -80,6 +93,7 @@
             font-weight: 500;
         }
         
+        /* Card body styles with expand/collapse functionality */
         .card-body {
             display: none;
             padding: 15px;
@@ -94,6 +108,7 @@
             color: #0d6efd;
         }
         
+        /* Expand/collapse icon styles */
         .card.expanded .expand-icon::after {
             content: "-";
         }
@@ -104,11 +119,13 @@
             font-weight: bold;
         }
         
+        /* Sidebar toggle button styles */
         #sidebarToggle {
             cursor: pointer;
             margin-right: 15px;
         }
         
+        /* Feedback dropdown styles */
         .feedback-dropdown {
             display: block;
             width: 100%;
@@ -130,6 +147,7 @@
             margin-top: 15px;
         }
         
+        /* Responsive styles for mobile devices */
         @media (max-width: 767.98px) {
             #sidebar {
                 margin-left: -100%;
@@ -162,7 +180,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header Section with Toggle Button -->
     <header class="header">
         <div class="container-fluid">
             <div class="row">
@@ -176,11 +194,13 @@
         </div>
     </header>
 
+    <!-- Mobile Sidebar Backdrop -->
     <div class="sidebar-backdrop"></div>
 
+    <!-- Main Container -->
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
+            <!-- Sidebar Navigation -->
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
                 <div class="position-sticky">
                     <ul class="nav flex-column">
@@ -195,14 +215,15 @@
                 </div>
             </nav>
 
-            <!-- Main Content -->
+            <!-- Main Content Area -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
-                <!-- Meeting Information Section -->
+                <!-- Meeting Information Card -->
                 <div class="row mb-4">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body" style="display: block;">
                                 <div class="row">
+                                    <!-- Seller Email Information -->
                                     <div class="col-md-3 mb-2 mb-md-0">
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-person-fill me-2"></i>
@@ -212,6 +233,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Prospect Email Information -->
                                     <div class="col-md-3 mb-2 mb-md-0">
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-person me-2"></i>
@@ -221,6 +243,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Meeting Date & Time Information -->
                                     <div class="col-md-3 mb-2 mb-md-0">
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-calendar-event me-2"></i>
@@ -230,6 +253,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Call Type Information -->
                                     <div class="col-md-3">
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-telephone-fill me-2"></i>
@@ -245,8 +269,9 @@
                     </div>
                 </div>
 
+                <!-- Two-Column Layout for Sections -->
                 <div class="row">
-                    <!-- First Column -->
+                    <!-- Left Column (Even-numbered sections) -->
                     <div class="col-md-6">
                         {% for section in sections %}
                         {% if loop.index0 % 2 == 0 %}
@@ -258,6 +283,7 @@
                             <div class="card-body" name="{{ section.name }}">
                                 {{ section.content|safe }}
                                 
+                                <!-- Feedback Selection for Section -->
                                 <div class="feedback-container">
                                     <label for="feedback-{{ section.name }}">Feedback: </label>
                                     <select id="feedback-{{ section.name }}" class="feedback-dropdown" onchange="updateFeedback('{{ section.name }}', this.value)">
@@ -273,7 +299,7 @@
                         {% endfor %}
                     </div>
                     
-                    <!-- Second Column -->
+                    <!-- Right Column (Odd-numbered sections) -->
                     <div class="col-md-6">
                         {% for section in sections %}
                         {% if loop.index0 % 2 == 1 %}
@@ -285,6 +311,7 @@
                             <div class="card-body" name="{{ section.name }}">
                                 {{ section.content|safe }}
                                 
+                                <!-- Feedback Selection for Section -->
                                 <div class="feedback-container">
                                     <label for="feedback-{{ section.name }}">Feedback: </label>
                                     <select id="feedback-{{ section.name }}" class="feedback-dropdown" onchange="updateFeedback('{{ section.name }}', this.value)">
@@ -304,25 +331,27 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JavaScript -->
     <script>
-        // Object to store feedback selections
+        // Object to store user feedback selections
         let feedbackSelections = {};
+        // Current page URL for tracking
         const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
         const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
         
-        // Function to toggle card expansion
+        // Function to toggle card expansion/collapse
         function toggleCard(cardId) {
             const card = document.getElementById(cardId);
             
-            // If the card is already expanded, collapse it
+            // Toggle expanded state
             if (card.classList.contains('expanded')) {
                 card.classList.remove('expanded');
             } else {
-                // Otherwise, expand it
                 card.classList.add('expanded');
             }
             
@@ -330,7 +359,7 @@
             updateSidebarActiveState(cardId);
         }
         
-        // Function to update sidebar active state
+        // Function to update active state in sidebar navigation
         function updateSidebarActiveState(cardId) {
             const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
             
@@ -343,104 +372,104 @@
             });
         }
         
+        // Function to send initial page load data
         function sendPageLoadData() {
-            // Get the values of seller_email and prospect_email from the HTML elements
+            // Get email values from the page
             const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
             const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
 
-            // Prepare the data to be sent
+            // Prepare data for submission
             const dataToSend = {
                 seller_email: sellerEmail,
                 prospect_email: prospectEmail,
                 docURL: currentUrl
-                // Do not include feedbackSelections here
             };
 
-            // Send the data to the backend (Google Apps Script)
+            // Send data to Google Apps Script
             fetch(url, {
                 method: "POST",
-                mode: "no-cors",  // Enable CORS mode
+                mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(dataToSend) // Send the seller_email and prospect_email data
+                body: JSON.stringify(dataToSend)
             })
             .then(response => response.text())
             .then(data => console.log("Data sent successfully:", data))
             .catch(error => console.error("Error sending data:", error));
         }
 
+        // Function to send feedback data to Google Sheet
         function sendFeedbackToGoogleSheet() {
-            // Get seller_email and prospect_email values from the HTML page
+            // Get email values
             const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
             const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
 
-            // Add seller_email and prospect_email to the feedbackSelections object
+            // Combine feedback with email data
             const feedbackSelectionsWithEmails = {
-                ...feedbackSelections,  // Existing feedback selections
+                ...feedbackSelections,
                 seller_email: sellerEmail,
                 prospect_email: prospectEmail,
                 docURL: currentUrl
             };
 
+            // Send feedback data to Google Apps Script
             fetch(url, {
                 method: "POST",
-                mode: "no-cors",  // Enable CORS mode
+                mode: "no-cors",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(feedbackSelectionsWithEmails), // Send updated data
+                body: JSON.stringify(feedbackSelectionsWithEmails),
             })
             .then(response => response.text())
             .then(data => console.log("Feedback stored:", data))
             .catch(error => console.error("Error saving feedback:", error));
         }    
 
-        // Function to update feedback for each section and log all selections
+        // Function to update and store feedback selections
         function updateFeedback(sectionId, selectedValue) {
             feedbackSelections[sectionId] = selectedValue;
             
-            // Log all selections in the console
-            console.clear(); // Clears previous logs for better visibility
+            // Log selections for debugging
+            console.clear();
             console.log("Updated Feedback Selections:");
-            console.table(feedbackSelections); // Display in table format for readability
+            console.table(feedbackSelections);
             sendFeedbackToGoogleSheet();
         }
 
+        // Initialize page functionality when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle sidebar link clicks
+            // Get DOM elements
             const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
             const sidebar = document.getElementById('sidebar');
             const sidebarToggle = document.getElementById('sidebarToggle');
             const mainContent = document.querySelector('.content');
             const backdrop = document.querySelector('.sidebar-backdrop');
             
-            // Toggle sidebar
+            // Toggle sidebar on button click
             sidebarToggle.addEventListener('click', function() {
                 sidebar.classList.toggle('show');
                 backdrop.classList.toggle('show');
             });
             
-            // Close sidebar when clicking on backdrop (mobile)
+            // Close sidebar when clicking backdrop (mobile)
             backdrop.addEventListener('click', function() {
                 sidebar.classList.remove('show');
                 backdrop.classList.remove('show');
             });
             
+            // Handle sidebar link clicks
             sidebarLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Get the target section
                     const targetId = this.getAttribute('data-target');
                     const targetSection = document.getElementById(targetId);
                     
                     if (targetSection) {
-                        // Toggle the card
                         toggleCard(targetId);
-                        
-                        // Scroll to the section
                         targetSection.scrollIntoView({ behavior: 'smooth' });
                         
-                        // On mobile, close the sidebar after clicking a link
+                        // Close sidebar on mobile after selection
                         if (window.innerWidth < 768) {
                             sidebar.classList.remove('show');
                             backdrop.classList.remove('show');
@@ -449,7 +478,7 @@
                 });
             });
             
-            // Handle window resize
+            // Handle window resize events
             window.addEventListener('resize', function() {
                 if (window.innerWidth >= 768) {
                     sidebar.classList.remove('show');
@@ -457,7 +486,7 @@
                 }
             });
             
-            // Send page load data
+            // Send initial page load data
             sendPageLoadData();
         });
     </script>
