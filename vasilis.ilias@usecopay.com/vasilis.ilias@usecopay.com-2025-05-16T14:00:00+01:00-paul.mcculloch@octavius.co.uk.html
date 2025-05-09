@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vasilis.ilias@usecopay.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">paul.mcculloch@octavius.co.uk</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-05-16T14:00:00+01:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Not First Call - 2 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h6>Linkedin: Based on the provided context, here are the key details about Octavius Infrastructure:</h6>
+
+<h4>Vertical/Industry:</h4>
+<ul>
+<li>Civil Engineering</li>
+<li>Infrastructure and Transport Solutions Provider</li>
+<li>Specializes in railway, highways, and transport infrastructure construction and maintenance</li>
+</ul>
+
+<h4>Company Size:</h4>
+<ul>
+<li>553 employees</li>
+</ul>
+
+<h4>Location:</h4>
+<ul>
+<li>Primary location: Reigate, GB (Great Britain)</li>
+</ul>
+
+<h4>Additional relevant information:</h4>
+<ul>
+<li>Previously known as Osborne Infrastructure</li>
+<li>They provide sustainable and efficient transport infrastructure solutions</li>
+<li>The company works on major infrastructure projects including railway stations, public realm improvements, and civil engineering works</li>
+<li>They acquired Navitas Engineering Ltd in 2023, which specializes in railway electrification design</li>
+</ul>
+
+<p><strong>Short Description:</strong> Octavius Infrastructure is a UK-based company specializing in transport infrastructure and civil engineering. Formerly known as Osborne Infrastructure, it rebranded after being acquired by Sullivan Street. The company is registered as a private limited entity and is located in Reigate, Surrey.</p>
+
+<p>The company focuses on highways and railways, offering services related to the construction and maintenance of these systems. Octavius Infrastructure is a Tier 1 supplier to major public bodies, including Network Rail, National Highways, and Transport for London. Since its incorporation in 2017, Octavius has aimed to foster collaboration and innovation in the transport infrastructure sector, emphasizing sustainable leadership in its projects.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                
+<h6>Here's a summary of the Octavius Infrastructure prospect notes:</h6>
+
+<h4>Key Contact: Paul (Head of Supply Chain)</h4>
+<ul>
+  <li>Former colleague of CEO</li>
+  <li>Recently joined Octavius</li>
+</ul>
+
+<h4>Meeting Timeline:</h4>
+<ul>
+  <li>Three initial meetings (Nov-Jan)</li>
+  <li>Continued discussions (Jan-Mar 2025)</li>
+</ul>
+
+<h4>Progress:</h4>
+<ul>
+  <li>Shared supply chain spend data</li>
+  <li>Business case presented in January</li>
+  <li>Copay included in their 2025 business plan</li>
+  <li>CFO approval obtained</li>
+  <li>Switched from integration to integration-free approach due to resource constraints</li>
+</ul>
+
+<h4>Current Status (as of Mar 2025):</h4>
+<ul>
+  <li>Paul is working to get Head of Finance's approval for a trial</li>
+  <li>Need to engage additional finance stakeholders (Head of Finance or CFO) to maintain momentum</li>
+</ul>
+
+<h4>Strategic Goals:</h4>
+<ul>
+  <li>Octavius aims to differentiate from Tier 1s</li>
+  <li>Focus on attracting best subcontractors</li>
+  <li>Improve supply chain cashflow</li>
+</ul>
+
+<h4>Next Steps:</h4>
+<ul>
+  <li>Engage with additional finance stakeholders</li>
+  <li>Secure approval for trial implementation</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<h6>Based on the provided context, here are the top 5 pain points for Octavius Infrastructure that are relevant to construction payment and cashflow management services:</h6>
+
+<ol>
+<li>Complex payment management across multiple large-scale projects (£800m Eastern Highways Alliance, £99.9m A1331 link road, etc.) requiring efficient cash flow coordination</li>
+
+<li>Managing payments to numerous subcontractors and suppliers across 43+ concurrent construction sites and infrastructure works</li>
+
+<li>Cash flow pressure from rapid business growth (28% turnover increase) and multiple simultaneous project executions</li>
+
+<li>Working capital strain from managing a £1bn+ order book with £425m secured backlog requiring upfront costs and materials</li>
+
+<li>Payment complexity from managing multiple framework agreements with different public bodies (Network Rail, National Highways, Transport for London) each with their own payment terms and schedules</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h6>Here are the unique news about Octavius Infrastructure, sorted by date from most recent to oldest:</h6>
+
+<h4>May 2025:</h4>
+<ul>
+  <li>Meet the Buyer event in King's Lynn scheduled for May 13th</li>
+  <li>Bank holiday weekend infrastructure works across 43 sites, including drainage replacement and DC switchgear module installation</li>
+  <li>Ryde Pier refurbishment completed ahead of schedule</li>
+  <li>Navitas Engineering Ltd (subsidiary) brand refresh, aligning with Octavius Infrastructure</li>
+</ul>
+
+<h4>March 2025:</h4>
+<ul>
+  <li>Long Stratton Bypass construction progress reported</li>
+  <li>March Town Public Realm project shortlisted for CIHT award</li>
+</ul>
+
+<h4>February 2025:</h4>
+<ul>
+  <li>Secured positions on £800m Eastern Highways Alliance framework</li>
+</ul>
+
+<h4>October 2024:</h4>
+<ul>
+  <li>Financial results: turnover up 28% to £276.7m and pre-tax profit up 20% to £4.7m</li>
+</ul>
+
+<h4>August 2024:</h4>
+<ul>
+  <li>Secured £99.9m A1331 link road project in Colchester</li>
+  <li>Order book exceeded £1bn, including £425m secured backlog</li>
+</ul>
+
+<h4>May 2024:</h4>
+<ul>
+  <li>Selected for Network Rail's £3.5bn Eastern Routes Partnership</li>
+</ul>
+
+<h4>April 2024:</h4>
+<ul>
+  <li>Appointed to Network Rail's £490m North West & Central Region framework</li>
+</ul>
+
+<h4>Insights:</h4>
+<ul>
+  <li>Strong financial performance and growth through organic expansion and acquisitions</li>
+  <li>Consistent success in securing major infrastructure projects</li>
+  <li>Focus on integration of acquired companies (Navitas Engineering)</li>
+  <li>Demonstrated ability to complete projects ahead of schedule (Ryde Pier)</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<h6>1. Morgan Sindall</h6>
+<p><strong>Similarity:</strong> UK-based construction and infrastructure company operating in similar sectors (civil engineering, infrastructure) and geography (UK) as Octavius Infrastructure</p>
+<p><strong>Value:</strong> Access to early payments system for their supply chain, helping improve cash flow management</p>
+
+<h6>2. Balfour Beatty</h6>
+<p><strong>Similarity:</strong> Large UK-based infrastructure group working in same sector (transport infrastructure, civil engineering) and geography (UK) as Octavius Infrastructure</p>
+<p><strong>Value:</strong> Generated savings through supply chain early payment program</p>
+
+<h6>3. Kier</h6>
+<p><strong>Similarity:</strong> UK-based construction and infrastructure services company operating in similar sectors (transport, infrastructure) and geography (UK) as Octavius Infrastructure</p>
+<p><strong>Value:</strong> Improved supply chain resilience through accelerated payment solutions</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<ol>
+  <li>Construction subcontractor cash flow solutions</li>
+  <li>Supply chain payment management system</li>
+  <li>Multi-contractor payment management</li>
+  <li>Project linking capabilities</li>
+  <li>Supply chain resilience tools</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<p>No relevant techstack</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h6>Here's a summary of the cheatsheet:</h6>
+
+<h4>COMPANY OVERVIEW</h4>
+<ul>
+<li>Octavius Infrastructure is a UK-based construction and infrastructure company</li>
+<li>Recently experiencing strong growth (28% turnover increase)</li>
+<li>Managing £1bn+ order book with £425m secured backlog</li>
+<li>Operating across 43+ construction sites</li>
+</ul>
+
+<h4>KEY PAIN POINTS</h4>
+<ol>
+<li>Complex payment management across multiple large projects</li>
+<li>Managing numerous subcontractor payments</li>
+<li>Cash flow pressure from rapid growth</li>
+<li>Working capital strain</li>
+<li>Complex payment terms with different public bodies</li>
+</ol>
+
+<h4>SALES APPROACH</h4>
+<p><strong>Value Proposition:</strong></p>
+<ul>
+<li>Save millions through early payment discounts</li>
+<li>Strengthen supply chain relationships</li>
+<li>Real-time payment tracking integration</li>
+</ul>
+
+<p><strong>Qualification Questions:</strong></p>
+<ul>
+<li>Current payment processes</li>
+<li>Annual payment values</li>
+<li>Cashflow management challenges</li>
+<li>Supplier retention issues</li>
+<li>Interest in cost savings</li>
+</ul>
+
+<h4>CONVERSATION STARTERS</h4>
+<ol>
+<li>Meet the Buyer event in King's Lynn</li>
+<li>Island Line reopening success</li>
+<li>Navitas Engineering brand refresh</li>
+</ol>
+
+<h4>HANDLING OBJECTIONS</h4>
+<p><strong>Main counters:</strong></p>
+<ul>
+<li>No external funding needed</li>
+<li>Flexible implementation</li>
+<li>Free until used</li>
+<li>Additional benefits beyond payments</li>
+</ul>
+
+<h4>RECENT DEVELOPMENTS</h4>
+<ul>
+<li>Multiple framework agreements secured</li>
+<li>Strong financial performance</li>
+<li>Successful project completions</li>
+<li>Continued expansion and acquisitions</li>
+</ul>
+
+<h4>RELEVANT EXPERIENCE</h4>
+<p>Similar successful implementations with:</p>
+<ul>
+<li>Morgan Sindall</li>
+<li>Balfour Beatty</li>
+<li>Kier</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<p>1. "I noticed you have an upcoming Meet the Buyer event in King's Lynn - what types of suppliers are you most excited to connect with?"</p>
+
+<p>2. "Congratulations on completing the Island Line reopening at Ryde Pier ahead of schedule! What was the most rewarding part of that project?"</p>
+
+<p>3. "I saw Navitas Engineering recently refreshed their brand after being acquired - how has the integration process been going?"</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<h6>Here are the 3 latest LinkedIn posts with summaries:</h6>
+
+<ol>
+    <li><p><strong>(1d)</strong> Announcement of upcoming meet the buyer event in King's Lynn on May 13th, inviting supply chain partners to register.</p></li>
+
+    <li><p><strong>(1d)</strong> Update on bank holiday weekend infrastructure works across 43 sites, including drainage replacement, platform demolition, and DC switchgear installations.</p></li>
+
+    <li><p><strong>(3d)</strong> Article shared about making transport more accessible through small changes and acts of kindness, beyond just physical infrastructure improvements.</p></li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<h6>Based on the context, here's a customized value proposition for Octavius Infrastructure:</h6>
+
+<ul>
+  <li>Save millions across your £1bn+ order book through early payment discounts to suppliers, particularly valuable for managing cashflow across your 43+ active construction sites and major frameworks like the £800m Eastern Highways Alliance</li>
+  <li>Strengthen relationships with your supply chain partners across rail and highway projects by offering them flexible early payment options, reducing financial stress during your rapid growth phase (28% turnover increase)</li>
+  <li>Fully integrated with industry-standard construction software, providing real-time payment tracking across all your UK infrastructure projects, from small £5m works to large £99.9m developments like the A1331 link road</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h6>Based on the prospect's profile and the seller's business offering, here are the 5 most relevant qualification questions:</h6>
+
+<ol>
+    <li><p><strong>"What is your current payment process with your subcontractors, and what are the typical payment terms you offer them?"</strong></p>
+    <p>- This helps understand their existing payment infrastructure and identify potential areas for improvement</p></li>
+
+    <li><p><strong>"What is the approximate annual value of payments you make to your supply chain across your railway and infrastructure projects?"</strong></p>
+    <p>- This helps quantify the potential opportunity and savings through early payment solutions</p></li>
+
+    <li><p><strong>"How do you currently manage cashflow challenges within your supply chain, particularly for major infrastructure projects with Network Rail and Transport for London?"</strong></p>
+    <p>- This reveals pain points and current solutions they might be using</p></li>
+
+    <li><p><strong>"Are you experiencing any challenges with supplier retention or financial stability in your supply chain?"</strong></p>
+    <p>- This addresses their potential need for supply chain resilience, which is a key benefit of the solution</p></li>
+
+    <li><p><strong>"Would you be interested in exploring ways to generate cost savings while supporting your supply chain with earlier payments?"</strong></p>
+    <p>- This directly ties to the value proposition of finding millions in savings through early payments while supporting suppliers</p></li>
+</ol>
+
+<p>These questions help qualify if Octavius Infrastructure would be a good fit for the payment and cashflow management service by understanding their payment volumes, current challenges, and interest in the solution's core benefits.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h6>Based on the context and putting myself in the seller's shoes, here are the most relevant counter-arguments for each objection:</h6>
+
+<h4>For Objection 1 - "We already have existing solutions":</h4>
+<ul>
+<li>Unlike factoring, Copay doesn't involve external funding or debt - it works directly with your existing clients</li>
+<li>The solution is more flexible and easier to stop using compared to factoring (as mentioned by one MD testimonial)</li>
+<li>It creates a win-win situation by incentivizing early payments from clients rather than aggressive collection</li>
+<li>Can be used alongside existing solutions as a complementary tool to optimize cash flow</li>
+</ul>
+
+<h4>For Objection 2 - "Not enough payment delays to justify":</h4>
+<ul>
+<li>The system is free to implement and only costs when actually used - so there's no downside to having it available</li>
+<li>It provides value beyond just payment acceleration:
+<ul>
+<li>Real-time tracking dashboard for financials</li>
+<li>24/7 access to payment and invoice data</li>
+<li>Improved relationship with clients through incentivized early payments</li>
+</ul>
+</li>
+<li>Can be used flexibly only when needed, unlike more rigid financing solutions</li>
+<li>Helps build financial resilience for unexpected future delays or cash flow issues</li>
+</ul>
+
+<p>The key is emphasizing flexibility, ease of implementation, and additional benefits beyond just payment acceleration.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>No funding events found</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
