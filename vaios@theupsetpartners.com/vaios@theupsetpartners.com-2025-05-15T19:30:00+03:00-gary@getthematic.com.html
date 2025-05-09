@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vaios@theupsetpartners.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">gary@getthematic.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-05-15T19:30:00+03:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Not First Call - 37 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h6>Linkedin: Based on the provided context, here are the company details for Thematic:</h6>
+
+<p><strong>Vertical/Industry:</strong> Software Development, specifically AI-powered text analytics and customer feedback analysis software</p>
+
+<p><strong>Company Size:</strong></p>
+<ul>
+  <li>44 employees (according to LinkedIn)</li>
+  <li>Small/startup company that has raised funding (including a $1.2M seed round in 2017)</li>
+</ul>
+
+<p><strong>Location:</strong></p>
+<ul>
+  <li>Primary location: San Francisco, CA 94117, US</li>
+</ul>
+
+<p>The company provides customer experience management software that uses AI to analyze unstructured feedback data and transform it into actionable insights for businesses. Their platform helps companies understand customer feedback, identify trends, and make data-driven decisions to improve products, services, and customer experience.</p>
+
+<h4>Short Description:</h4>
+<p>Thematic is an AI-powered analytics platform based in California that specializes in transforming unstructured text feedback into actionable insights. The company employs a team of 11-50 people and focuses on enhancing customer experience, product development, and operational efficiency through advanced text analytics.</p>
+
+<p>Thematic offers a range of services, including AI-powered text analytics that analyzes open-ended feedback from surveys, reviews, and support tickets to identify themes and trends. Their customer experience optimization includes voice of customer analysis to understand satisfaction drivers and automated workflows that integrate with ticketing systems. For product development, Thematic monitors user feedback on new features and helps prioritize product roadmaps based on customer demands. Additionally, their marketing services include audience segmentation and risk mitigation to address complaints and brand risks.</p>
+
+<p>Clients benefit from Thematic's ability to process large volumes of feedback efficiently, providing actionable insights that support various teams across an organization. The platform is designed to deliver measurable improvements, such as increased customer satisfaction scores, by addressing key issues identified through data analysis.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                
+<h6>Here's a chronological summary of the prospect's interactions:</h6>
+
+<h4>April 9-10, 2025:</h4>
+<ul>
+  <li>Initial LinkedIn invite sent (FACILITATORS campaign)</li>
+  <li>Multiple email opens from BTLS campaign</li>
+  <li>LinkedIn message bounced due to pending invitation</li>
+</ul>
+
+<h4>April 14-15, 2025:</h4>
+<ul>
+  <li>Multiple LinkedIn invites sent (FACILITATORS &amp; BTLS campaigns)</li>
+  <li>FACILITATORS LinkedIn invite accepted</li>
+  <li>Email opens continue</li>
+  <li>LinkedIn messages continue to bounce for BTLS campaign</li>
+</ul>
+
+<h4>April 17-19, 2025:</h4>
+<ul>
+  <li>Multiple email opens from ATLS &amp; BTLS campaigns</li>
+</ul>
+
+<h4>April 21-22, 2025:</h4>
+<ul>
+  <li>New LinkedIn invites sent (ATLS &amp; BTLS campaigns)</li>
+  <li>ATLS LinkedIn invite accepted</li>
+  <li>BTLS LinkedIn messages continue to bounce</li>
+</ul>
+
+<h4>April 23-30, 2025:</h4>
+<ul>
+  <li>Continued email opens from BTLS &amp; FACILITATORS campaigns</li>
+  <li>LinkedIn message opened from ATLS campaign</li>
+</ul>
+
+<h4>May 2, 2025:</h4>
+<ul>
+  <li>Manually unsubscribed from ATLS campaigns (both email and LinkedIn)</li>
+  <li>Final email open from BTLS campaign</li>
+</ul>
+
+<h4>Key Points:</h4>
+<ul>
+  <li>Engaged with multiple campaigns (FACILITATORS, BTLS, ATLS)</li>
+  <li>Accepted LinkedIn invites from FACILITATORS and ATLS</li>
+  <li>Showed consistent email engagement</li>
+  <li>Eventually unsubscribed from ATLS campaigns</li>
+  <li>Last activity: Email open from BTLS campaign on May 2, 2025</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<h6>Based on the context, here are the top 5 relevant pain points for Thematic that the seller's B2B go-to-market and sales consulting services could help with:</h6>
+
+<ol>
+    <li>Market expansion challenges - needing expert guidance to enter new markets effectively</li>
+    
+    <li>Customer acquisition bottlenecks - difficulty in scaling their customer base despite having an innovative AI product</li>
+    
+    <li>Sales process optimization - need for better strategies to convert enterprise clients in the competitive analytics software space</li>
+    
+    <li>Go-to-market strategy gaps - requiring assistance in positioning their AI analytics solution effectively against competitors</li>
+    
+    <li>Growth scaling challenges - needing help to scale from small startup to larger enterprise while maintaining momentum</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h6>Here are the unique news items about Thematic, sorted by date from most recent to oldest:</h6>
+
+<h4>2 days ago:</h4>
+<ul>
+  <li>Post about traditional metrics (NPS, CSAT, CES) and introducing synthetic scores as alternative solution</li>
+</ul>
+
+<h4>3 days ago:</h4>
+<ul>
+  <li>AWS Dev Day featuring CTO Nathan Holmberg discussing LLMs implementation</li>
+  <li>Post about unified data analytics and lessons from Netscape's downfall</li>
+</ul>
+
+<h4>1 week ago:</h4>
+<ul>
+  <li>Poll about customer feedback analysis preferences</li>
+  <li>Discussion about text analytics market growth with examples from LendingTree and Atlassian</li>
+  <li>CTO Nathan Holmberg to speak at AWS Startup Dev Day in Auckland</li>
+</ul>
+
+<h4>2 weeks ago:</h4>
+<ul>
+  <li>Article about gap between "good CX" and loyalty-driven growth</li>
+  <li>Post about AI-powered text analytics transforming product development</li>
+</ul>
+
+<h4>3 weeks ago:</h4>
+<ul>
+  <li>Results from Quirks Chicago conference survey about VOC challenges</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<h6>1. Maekersuite</h6>
+<p><strong>Similarity:</strong> Software development/SaaS company, similar small company size (3 employees vs 44 employees), both focused on AI-powered solutions</p>
+<p><strong>Value:</strong> Built go-to-market motion from scratch, defined new ideal customer profile & new pricing model, acquired 3 logo paying customers within first 2 months</p>
+
+<h6>2. Cyclopt</h6>
+<p><strong>Similarity:</strong> Software development company, similar small company size (10 employees vs 44 employees), both provide AI/analytics solutions</p>
+<p><strong>Value:</strong> Crafted go-to-market plan from scratch, built sales infrastructure, added new $250k pipeline from new European markets</p>
+
+<h6>3. Palowise</h6>
+<p><strong>Similarity:</strong> Both provide AI-powered analytics platforms, similar small company size (22 employees vs 44 employees), both focus on customer/market insights</p>
+<p><strong>Value:</strong> Built sales infrastructure from scratch, generated 3 new opportunities/week at 30k annual contract value, added new 300k pipeline within first month</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<ol>
+  <li>AI-powered tools and integration</li>
+  <li>Sales enablement and playbook creation</li>
+  <li>Multi-channel outreach (LinkedIn, email, phone)</li>
+  <li>Hyper-personalized messaging</li>
+  <li>Tech stack integration</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<h6>Based on the context provided about The Upset Partners (a B2B sales/growth consulting company), these techstack items are most relevant:</h6>
+
+<ul>
+  <li>AI</li>
+  <li>Data Analytics</li>
+  <li>Google Analytics</li>
+  <li>Google Tag Manager</li>
+  <li>Mixpanel</li>
+  <li>Segment.io</li>
+</ul>
+
+<p>These items are relevant because they relate to data analysis, tracking, and AI capabilities which align with The Upset Partners' focus on AI-powered tools for B2B growth and sales optimization.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<p>Here's a structured summary of the cheatsheet:</p>
+
+<h6>Notes:</h6>
+<ul>
+<li>Prospect engaged with multiple campaigns between April-May 2025</li>
+<li>Showed consistent email engagement</li>
+<li>Accepted LinkedIn invites from FACILITATORS and ATLS</li>
+<li>Eventually unsubscribed from ATLS campaigns</li>
+</ul>
+
+<h6>Key Company Information:</h6>
+<ul>
+<li>44-person team</li>
+<li>AI-powered text analytics platform</li>
+<li>Total funding: $1.32M (Seed round $1.2M from AirTree, $120K from Y Combinator)</li>
+<li>CTO: Nathan Holmberg</li>
+<li>Notable clients: LendingTree, Atlassian</li>
+</ul>
+
+<h6>Recent News and Updates:</h6>
+<ul>
+<li>Presented at AWS Dev Day about LLMs</li>
+<li>Released content about synthetic scores vs traditional metrics</li>
+<li>Discussions about unified data analytics</li>
+<li>Active in text analytics market growth conversations</li>
+</ul>
+
+<h6>Key Pain Points:</h6>
+<ol>
+<li>Market expansion challenges</li>
+<li>Customer acquisition bottlenecks</li>
+<li>Sales process optimization needs</li>
+<li>Go-to-market strategy gaps</li>
+<li>Growth scaling challenges</li>
+</ol>
+
+<h6>Sales Approach:</h6>
+<p>Recommended Products:</p>
+<ul>
+<li>AI-powered tools and integration</li>
+<li>Sales enablement</li>
+<li>Multi-channel outreach</li>
+<li>Personalized messaging</li>
+<li>Tech stack integration</li>
+</ul>
+
+<h6>Conversation Starters:</h6>
+<ol>
+<li>CTO's unique hobby (deck building/3D printing)</li>
+<li>Recent AWS Dev Day presentation</li>
+<li>LendingTree customer success story</li>
+</ol>
+
+<p>This summary provides a comprehensive overview of the prospect while maintaining the key information needed for effective engagement.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<ol>
+  <li>"I noticed your CTO Nathan has an interesting hobby building decks and 3D printing custom tools - what inspired that unique combination of skills?"</li>
+  <li>"I saw Thematic recently presented at AWS Dev Day about LLMs - what's been the most exciting development in your AI capabilities lately?"</li>
+  <li>"I noticed you've helped companies like LendingTree process over 20,000 customer comments - what surprising insights have you uncovered for other clients?"</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<h6>Here are the 3 latest LinkedIn posts with summaries:</h6>
+
+<ol>
+    <li><p><strong>(2d)</strong> Post about how synthetic scores can provide better metrics than traditional NPS/CSAT by calculating specific metrics directly from customer conversations and reviews.</p></li>
+
+    <li><p><strong>(3d)</strong> Recap of AWS Dev Day highlighting CTO Nathan Holmberg's insights on building valuable LLMs with rigour and observability.</p></li>
+
+    <li><p><strong>(3d)</strong> Post about the importance of unified data analytics (UDA) to avoid scattered, siloed data leading to blind decision-making, using Netscape as a cautionary tale.</p></li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<h6>Based on the prospect's profile and context, here are 3 customized value propositions for Thematic:</h6>
+
+<ul>
+  <li>Our AI-powered framework can help accelerate your customer feedback analysis capabilities by combining our proprietary outbound methodology with cutting-edge AI tools, enabling faster market validation and product-market fit for your text analytics platform</li>
+  
+  <li>As a California-based startup focused on customer experience, we understand your growth challenges and can help you systematically expand into new markets while optimizing your sales process through our proven 4S framework tailored for B2B SaaS companies</li>
+  
+  <li>With experience helping 100+ B2B software companies, we can support your 44-person team in building a predictable sales engine that moves beyond relying on word-of-mouth, allowing you to efficiently scale customer acquisition for your AI-powered analytics solution</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h6>Based on the prospect's profile and the seller's business (B2B go-to-market and sales consulting services), here are the 5 most relevant qualification questions:</h6>
+
+<ol>
+  <li><p><strong>"What is your current customer acquisition strategy and what challenges are you facing in scaling your customer base beyond your current 44 employees?"</strong></p>
+  <p>- This helps understand their current GTM challenges and if they need the seller's services</p></li>
+
+  <li><p><strong>"How are you currently analyzing and acting on the customer feedback data you collect to drive your sales and marketing efforts?"</strong></p>
+  <p>- This explores if they're effectively using their own customer insights for growth</p></li>
+
+  <li><p><strong>"What markets are you currently targeting and do you have plans to expand into new markets in the near future?"</strong></p>
+  <p>- This aligns with the seller's value proposition of helping companies enter new markets</p></li>
+
+  <li><p><strong>"What is your current sales process and team structure? How are you handling lead generation and qualification?"</strong></p>
+  <p>- This helps understand if they need help building/optimizing their sales infrastructure</p></li>
+
+  <li><p><strong>"What are your growth targets for the next 6-12 months and what do you see as the main barriers to achieving them?"</strong></p>
+  <p>- This helps qualify budget potential and urgency while identifying specific areas where the seller can add value</p></li>
+</ol>
+
+<p>These questions help determine if Thematic:</p>
+<ul>
+  <li>Needs help scaling their customer acquisition</li>
+  <li>Could benefit from the seller's AI-powered tools and expertise</li>
+  <li>Has expansion plans that align with the seller's services</li>
+  <li>Requires sales process optimization</li>
+  <li>Has the motivation and resources to engage the seller's services</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h6>Based on the context and my expertise as a sales researcher, here's how I would handle these objections:</h6>
+
+<ol>
+    <li><p><strong>Budget/Price concerns for small/startup companies:</strong></p>
+        <ul>
+            <li>Focus on ROI timeline - demonstrate how quickly they can recoup their investment</li>
+            <li>Offer flexible payment terms or tiered pricing models that can grow with their business</li>
+            <li>Emphasize cost of NOT implementing the solution (missed opportunities, inefficiencies)</li>
+            <li>Show how your solution can help them save costs in other areas or generate additional revenue</li>
+        </ul>
+    </li>
+
+    <li><p><strong>Need to prove ROI/value for AI/analytics software:</strong></p>
+        <ul>
+            <li>Offer a limited trial period or proof of concept to demonstrate concrete value</li>
+            <li>Share specific case studies and metrics from similar companies in their industry</li>
+            <li>Break down the ROI calculation into specific, measurable components</li>
+            <li>Focus on immediate wins and quick victories they can achieve in the first 30-90 days</li>
+            <li>Provide clear KPIs and measurement frameworks they can use to track success</li>
+        </ul>
+    </li>
+</ol>
+
+<p>The key is to position your solution as an investment rather than an expense, and make the value proposition as tangible and measurable as possible. For AI/analytics specifically, focus on quantifiable business outcomes rather than technical capabilities.</p>
+
+<p><em>Note: While the provided context discusses B2B sales complexity and frameworks, it doesn't directly address handling these specific objections, so I've provided practical approaches based on sales best practices.</em></p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>id: 5a1e4d26a6da98c502bcbedb<br>
+date: 2017-11-29T00:00:00.000+00:00<br>
+news_url: <a href="http://www.startupdaily.net/2017/11/auckland-based-startup-thematic-raises-us1-2-million-funding-led-by-airtree-ventures/?platform=hootsuite">http://www.startupdaily.net/2017/11/auckland-based-startup-thematic-raises-us1-2-million-funding-led-by-airtree-ventures/?platform=hootsuite</a><br>
+type: Seed<br>
+investors: AirTree Venture Capital<br>
+amount: 1.2M<br>
+currency: $</p>
+
+<p>id: 59e67816a6da986ed12ea82e<br>
+date: 2017-08-01T00:00:00.000+00:00<br>
+news_url: <a href="https://golden.com/wiki/Thematic-ZXERR3K">https://golden.com/wiki/Thematic-ZXERR3K</a><br>
+type: Other<br>
+investors: Y Combinator<br>
+amount: 120K<br>
+currency: $</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
