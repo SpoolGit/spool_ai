@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vaios@theupsetpartners.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">tbalasooriya@classter.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-08-05T15:00:00+03:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h6>Based on the context provided, here are the details for Classter:</h6>
+
+<p>Vertical/Industry: Education Technology (EdTech)<br>
+Specifically: School Management Software, Student Information System (SIS), Learning Management System (LMS)</p>
+
+<p>Company Size: 31 employees (according to the "View all 31 employees" section)</p>
+
+<p>Location:</p>
+<ul>
+<li>Primary Address: 10 Damianou</li>
+<li>City: Kaválla</li>
+<li>Region: Eastern Macedonia and Thrace</li>
+<li>Postal Code: 654 03</li>
+<li>Country: Greece (GR)</li>
+</ul>
+
+<p>Additional Context:</p>
+<ul>
+<li>The company provides an all-in-one platform for educational organizations to streamline administrative operations and digitalize academic processes</li>
+<li>They offer solutions for K-12 and higher education institutions</li>
+<li>The company was founded by Nikolaos Nikou, who is the current CEO</li>
+</ul>
+
+<p>Classter is a cloud-based platform designed for educational institutions, offering integrated management solutions. It provides an end-to-end student and learning management system built on Microsoft Azure, which modernizes educational administration by consolidating various institutional operations into a single platform.</p>
+
+<p>The platform includes five core solutions: a Student Information System (SIS) for managing student data, a School Management System (SMS) for administrative workflows, a Learning Management System (LMS) for course delivery, an Enterprise Resource Planning (ERP) system for financial management, and a Customer Relationship Management (CRM) tool for communication. Classter also offers implementation support, customization services, and ongoing technical support to enhance user experience.</p>
+
+<p>Classter serves a diverse range of educational organizations, including K-12 schools, higher education institutions, vocational training centers, and corporate learning programs. Its scalable solutions cater to both small academies and large multi-campus systems, providing a cost-effective way to digitize administrative processes while ensuring compliance with data protection standards.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<ol>
+    <li>I noticed Classter is helping educational organizations streamline their operations. What exciting digital transformation projects are you currently working on?</li>
+    <li>I saw your recent LinkedIn post about moving beyond spreadsheets and emails. How has your team been approaching workflow automation this year?</li>
+    <li>Your company seems focused on empowering student experiences through technology. What's the most innovative initiative you're most proud of right now?</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_research">
+                                
+<h6>Based on the context, here are the 3 latest posts:</h6>
+<ol>
+    <li>(2d ago) Classter highlights 5 signs that a college has outgrown its current School Management System, promoting their all-in-one platform as a solution for future-proofing campus operations.</li>
+    <li>(4d ago) Classter explains how a Smart Management System transforms student experience by simplifying course registration, providing automated reminders, and centralizing study materials.</li>
+    <li>(6d ago) Classter discusses moving beyond spreadsheets and emails to automate university workflows, emphasizing the benefits of smart EdTech in saving time and reducing errors.</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_research">Feedback: </label>
+                                    <select id="feedback-prospect_research" class="feedback-dropdown" onchange="updateFeedback('prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                <h6>Based on the context about Classter and its focus on education technology, here are three customized value proposition bullets:</h6>
+
+<ul>
+<li>Streamline Your Educational Institution's Operations: Leverage our all-in-one platform that consolidates student management, learning delivery, administrative workflows, and financial tracking into a single, cloud-based solution specifically designed for K-12 and higher education institutions in Greece.</li>
+
+<li>Modernize Academic Administration with Modular Flexibility: Our Microsoft Azure-powered platform offers customizable modules for Admissions, Academic Management, Financial & Billing, and Alumni Management, enabling educational organizations to digitalize processes while maintaining complete control over their institutional ecosystem.</li>
+
+<li>Reduce Administrative Complexity and Enhance Institutional Efficiency: Our scalable solution provides comprehensive support from implementation to ongoing technical assistance, ensuring seamless digital transformation for educational institutions of all sizes across Eastern Macedonia and Thrace region.</li>
+</ul>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h6>Based on the context of Classter being an EdTech company offering school management software and the seller's business being a Go-to-Market (GTM) Team as a Service, here are the 5 most relevant qualification questions to ask the prospect:</h6>
+
+<ol>
+    <li>What specific challenges are you currently facing in acquiring new educational institutions as customers?
+        <ul>
+            <li>This helps understand their current sales and market penetration difficulties</li>
+        </ul>
+    </li>
+
+    <li>How are you currently managing your sales and customer acquisition process for schools and educational institutions?
+        <ul>
+            <li>Reveals their existing GTM strategy and potential gaps where the seller's services could add value</li>
+        </ul>
+    </li>
+
+    <li>What is your target market segment within education (K-12, higher education, vocational training) and what are your growth objectives for the next 12-18 months?
+        <ul>
+            <li>Helps assess their market focus and growth ambitions to determine fit for the GTM services</li>
+        </ul>
+    </li>
+
+    <li>Are you looking to expand into new geographic markets or improve your customer acquisition process in existing markets?
+        <ul>
+            <li>Identifies if they need support with market expansion or sales process optimization</li>
+        </ul>
+    </li>
+
+    <li>What are your biggest obstacles in scaling your sales efforts and converting potential educational institution clients?
+        <ul>
+            <li>Uncovers specific pain points where the GTM Team as a Service can provide targeted solutions</li>
+        </ul>
+    </li>
+</ol>
+
+<p>These questions are designed to:</p>
+<ul>
+    <li>Understand their current sales challenges</li>
+    <li>Assess their growth potential</li>
+    <li>Identify specific areas where GTM services could provide strategic support</li>
+    <li>Determine if they are a good fit for the seller's Go-to-Market services</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objections">
+                                
+<h6>Based on the context provided about Classter and the sales research context, here are the most relevant arguments the seller can use to overcome the two main objections:</h6>
+
+<ol>
+    <li>Cost and Budget Concerns:
+        <ul>
+            <li>Highlight the long-term cost savings of a comprehensive platform compared to maintaining multiple disconnected systems</li>
+            <li>Demonstrate ROI through efficiency gains:
+                <ul>
+                    <li>Reduced administrative overhead</li>
+                    <li>Streamlined processes that save staff time</li>
+                    <li>Potential reduction in operational costs</li>
+                </ul>
+            </li>
+            <li>Offer flexible pricing options or phased implementation to mitigate upfront cost concerns</li>
+            <li>Provide case studies or testimonials showing cost benefits for similar educational institutions</li>
+        </ul>
+    </li>
+
+    <li>Integration and Change Management Challenges:
+        <ul>
+            <li>Emphasize Classter's robust integration capabilities:
+                <ul>
+                    <li>Showcase ease of data migration</li>
+                    <li>Highlight compatibility with existing systems</li>
+                    <li>Provide technical support during transition</li>
+                </ul>
+            </li>
+            <li>Address staff resistance through:
+                <ul>
+                    <li>Comprehensive training programs</li>
+                    <li>User-friendly interface</li>
+                    <li>Gradual rollout strategy</li>
+                    <li>Demonstrating how the new platform will make their work easier</li>
+                </ul>
+            </li>
+            <li>Offer a pilot program or trial period to build confidence</li>
+            <li>Provide dedicated onboarding and change management support</li>
+        </ul>
+    </li>
+</ol>
+
+<p>Key messaging: "We understand your concerns. Our platform is designed to make your transition smooth, cost-effective, and ultimately transformative for your institution."</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objections">Feedback: </label>
+                                    <select id="feedback-handling_objections" class="feedback-dropdown" onchange="updateFeedback('handling_objections', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="funding">
+                                
+<p>No funding events found</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-funding">Feedback: </label>
+                                    <select id="feedback-funding" class="feedback-dropdown" onchange="updateFeedback('funding', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h6>Here's a summary of the Classter prospect description:</h6>
+
+<h6>Notes:</h6>
+<ul>
+<li>EdTech company specializing in school management software</li>
+<li>Founded by Nikolaos Nikou</li>
+<li>Located in Greece with 31 employees</li>
+</ul>
+
+<h6>Key Company Information:</h6>
+<ul>
+<li>Provides all-in-one platform for educational institutions</li>
+<li>Core solutions: SIS, SMS, LMS, ERP, and CRM</li>
+<li>Serves K-12, higher education, and vocational training centers</li>
+<li>Cloud-based platform built on Microsoft Azure</li>
+</ul>
+
+<h6>Recent News and Updates:</h6>
+<ul>
+<li>Highlighted 5 signs of outgrowing current management systems</li>
+<li>Promoting smart management solutions for educational workflows</li>
+<li>Emphasizing digital transformation in education</li>
+</ul>
+
+<h6>Key Pain Points:</h6>
+<ul>
+<li>Inefficient market expansion</li>
+<li>Challenges in AI-driven business development</li>
+<li>Complex administrative system management</li>
+<li>Scaling go-to-market efforts</li>
+<li>Need for advanced technological customer relationship management</li>
+</ul>
+
+<h6>Sales Approach:</h6>
+<ul>
+<li>Highlight comprehensive, modular platform</li>
+<li>Emphasize cost-effectiveness and efficiency</li>
+<li>Showcase customization and implementation support</li>
+<li>Demonstrate value through digital transformation</li>
+</ul>
+
+<h6>Conversation Starters:</h6>
+<ol>
+<li>"What digital transformation projects are you currently working on?"</li>
+<li>"How are you approaching workflow automation this year?"</li>
+<li>"What's the most innovative initiative you're proud of right now?"</li>
+</ol>
+
+<h6>Recommended Approach:</h6>
+<ul>
+<li>Focus on streamlining operations</li>
+<li>Showcase flexibility and comprehensive solutions</li>
+<li>Address potential integration and cost concerns</li>
+<li>Provide clear value proposition for educational institutions</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<ol>
+    <li>Need for efficient market expansion and customer acquisition strategies in the EdTech sector</li>
+    <li>Challenges in leveraging AI tools to streamline business development processes</li>
+    <li>Complexity of managing multiple administrative systems across educational platforms</li>
+    <li>Difficulty in scaling go-to-market efforts for a growing EdTech company</li>
+    <li>Potential gaps in using advanced technological solutions for customer relationship management and market penetration</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<ol>
+    <li>July 31, 2025: Classter featured as a leading platform combining SIS, SMS, LMS, ERP, and CRM functions into a unified system for education organizations.</li>
+    <li>July 29, 2025: Classter highlighted its modular architecture allowing universities to customize management systems with specific modules like Admissions, Academic and LMS, Financial & Billing, Academic CRM, and Alumni Management.</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<h6>Based on the context provided about Classter and the list of customers, here are the most relevant customers:</h6>
+
+<ol>
+    <li>Palowise
+        <ul>
+            <li>Similarity: Both are based in Greece (same geography)</li>
+            <li>Industry: While Palowise is in MarTech and Classter is in EdTech, they are both B2B SaaS companies</li>
+            <li>Company Size: Palowise has 22 employees, close to Classter's 31 employees</li>
+            <li>Value Gained: Built sales infrastructure from scratch, generated 3 new opportunities per week at 30k annual contract value, added a 300k pipeline within the first month</li>
+        </ul>
+    </li>
+
+    <li>Indeex
+        <ul>
+            <li>Similarity: Based in Greece (same geography)</li>
+            <li>Industry: While Indeex is in industrial technology/manufacturing software and Classter is in EdTech, they are both B2B SaaS platforms</li>
+            <li>Company Size: Indeex has 7 employees, smaller but still in a similar range</li>
+            <li>Value Gained: Crafted go-to-market plan from scratch, generated 4 new opportunities from 4 European markets, added a 120k pipeline within two months</li>
+        </ul>
+    </li>
+
+    <li>Qureos
+        <ul>
+            <li>Similarity: Both are B2B SaaS platforms in technology sectors</li>
+            <li>Industry: Qureos is in talent/career platforms, while Classter is in education technology</li>
+            <li>Company Size: Qureos has 92 employees, larger than Classter but still in the B2B SaaS space</li>
+            <li>Value Gained: Defined new ideal customer profile, added 5 new paying customers per week at 5k annual contract value, closed a new financing round</li>
+        </ul>
+    </li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                <h6>Based on the context for Classter, here are the top 5 product/service features:</h6>
+<ol>
+    <li>Student Information System (SIS)</li>
+    <li>School Management System (SMS)</li>
+    <li>Learning Management System (LMS)</li>
+    <li>Enterprise Resource Planning (ERP) system</li>
+    <li>Customer Relationship Management (CRM) tool</li>
+</ol>
+<p>These features are directly derived from the context describing Classter's core solutions for educational institutions.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_tech_stack">
+                                
+<h6>Integrations</h6>
+<ul>
+<li>AI</li>
+<li>Active Campaign</li>
+<li>Basis</li>
+<li>Bing Ads</li>
+<li>Bootstrap Framework</li>
+<li>Circle</li>
+<li>CloudFlare Hosting</li>
+<li>Cloudflare DNS</li>
+<li>DoubleClick</li>
+<li>DoubleClick Conversion</li>
+<li>Freshdesk</li>
+<li>Gmail</li>
+<li>Google Apps</li>
+<li>Google Dynamic Remarketing</li>
+<li>Google Font API</li>
+<li>Google Maps</li>
+<li>Google Maps (Non Paid Users)</li>
+<li>Google Play</li>
+<li>Google Tag Manager</li>
+<li>Hubspot</li>
+<li>Instantly</li>
+<li>Jumpcloud</li>
+<li>Linkedin Marketing Solutions</li>
+<li>Microsoft Office 365</li>
+<li>Mixpanel</li>
+<li>Mobile Friendly</li>
+<li>Outlook</li>
+<li>Rackspace MailGun</li>
+<li>Stripe</li>
+<li>Typekit</li>
+<li>WordPress.org</li>
+<li>YouTube</li>
+<li>reCAPTCHA</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_tech_stack">Feedback: </label>
+                                    <select id="feedback-relevant_tech_stack" class="feedback-dropdown" onchange="updateFeedback('relevant_tech_stack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
