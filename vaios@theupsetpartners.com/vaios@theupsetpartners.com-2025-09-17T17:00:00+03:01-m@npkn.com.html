@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vaios@theupsetpartners.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">m@npkn.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-09-17T17:00:00+03:01</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                <h6>Linkedin: Based on the provided context, here are the company details for Napkin Inc.:</h6>
+
+<h6>Vertical/Industry:</h6>
+<ul>
+<li>Venture Capital and Private Equity</li>
+<li>They acquire and grow cash-flowing companies</li>
+<li>Focus on IPO strategy and company acquisitions</li>
+</ul>
+
+<h6>Company Size:</h6>
+<ul>
+<li>29 employees mentioned</li>
+<li>Multiple advisors and deep bench of talent (exact number not specified)</li>
+</ul>
+
+<h6>Locations:</h6>
+<p>Multiple offices across several countries:</p>
+<ol>
+<li>Primary HQ: Miami, US</li>
+<li>Edmonton, Alberta, Canada</li>
+<li>Quito, Ecuador</li>
+<li>Guayaquil, Ecuador</li>
+<li>Kolkata, India</li>
+<li>Greensboro, North Carolina, US</li>
+<li>Abu Dhabi, UAE</li>
+</ol>
+
+<p>The company positions itself as a non-traditional PE fund that focuses on acquiring cash-flowing companies with the ultimate goal of achieving a billion-dollar IPO. They operate through what they call "napkin deals" and share equity with their staff and acquired founders.</p>
+
+<p>Short Description: We acquire elite digital companies.</p>
+
+<p>The Napkin portfolio consists of marketing, advertising, tech and financial services.</p>
+
+<p>Operating with headquarters in United States, Canada, Ecuador, Dubai, India (and growing). Staff across Europe, Asia, and MENA region.</p>
+
+<p>Napkin is positioned as a go-public roll-up strategy, with the continued focus of acquiring $200m+ of "digital disruptors" from around the globe. All acquisitions are comprised of elite, complimentary talent that help provide end-to-end solutions across tech markets. By encouraging collaboration and concentrating on strategies for growth, Napkin fosters an environment for business owners to scale effectively and establish themselves as market leaders in the global tech-scene.</p>
+
+<p>Napkin offers founders above-market purchase prices by facilitating a large portion of each transaction with "share-swaps". Every shared issued by Napkin is the same common stock, which allows founders the security of equal-opportunity at any liquidity event. As the collective grows and Napkin matures, founders will experience a further multiple on their "share swap" share price, potentially creating personal liquidity opportunities beyond what they would have otherwise been able to achieve on their own.</p>
+
+<p>As Napkin grows through each set of "batch acquisitions", investors are afforded the opportunity to buy shares back from founders, thereby providing founders with liquidity while providing investors with discounted pricing.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                No content
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<h6>Based on the prospect's profile, here are the 5 most relevant pain points that the seller's B2B go-to-market services could help with:</h6>
+<ol>
+<li>Need for efficient market entry strategies for their newly acquired portfolio companies across multiple international markets</li>
+<li>Challenge of scaling customer acquisition for diverse portfolio companies operating in different sectors (marketing, advertising, tech, financial services)</li>
+<li>Difficulty in coordinating outbound sales and marketing efforts across multiple global offices and regions (US, Canada, Ecuador, UAE, India)</li>
+<li>Need for standardized go-to-market approaches that can be replicated across newly acquired companies while maintaining their unique value propositions</li>
+<li>Challenge of identifying and targeting potential acquisition targets in new markets efficiently through outbound prospecting</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h6>Here are the unique news pieces about Napkin Inc., sorted by date from most recent:</h6>
+
+<p>June 18, 2024 - Upcoming "Napkin Deals" party at Collision Conference 2024 in Toronto</p>
+<ul>
+<li>Co-hosted with Canaccord Genuity Group Inc.</li>
+<li>350 guests expected</li>
+<li>Location: Canaccord Genuity, Toronto</li>
+<li>Will include filming of "Building a Billion Dollar Business" TV show</li>
+</ul>
+
+<p>June 1, 2023 - Completed Series A funding round (no details provided)</p>
+
+<h6>Insights:</h6>
+<ul>
+<li>Company has presence across US, UAE, Ecuador, and India</li>
+<li>Focuses on IPO strategy and acquiring cash-flowing companies</li>
+<li>Has 29 employees</li>
+<li>Pursuing billion-dollar business growth through acquisition strategy</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<ol>
+    <li>
+        <h6>Qureos (Venture Capital/Investment similarity)</h6>
+        <ul>
+            <li>Similarity: Also operates in the investment/funding space and works with startups/companies</li>
+            <li>Value: Defined new ICP & value proposition, achieved 3 new paying customers/week @5k ACV, closed new financing round from top VCs</li>
+        </ul>
+    </li>
+    <li>
+        <h6>Surprice (Geographic similarity - UAE/MENA presence)</h6>
+        <ul>
+            <li>Similarity: International presence including MENA region where prospect has Abu Dhabi office</li>
+            <li>Value: Crafted GTM plan, expanded to 4 new markets, added $600k pipeline from 3 different continents within 4 months</li>
+        </ul>
+    </li>
+    <li>
+        <h6>Indeex (Geographic similarity - Multi-region operations)</h6>
+        <ul>
+            <li>Similarity: Operations across multiple regions/markets like the prospect</li>
+            <li>Value: Crafted GTM plan, gained 4 new opportunities from 4 new European markets, added new 320k pipeline within 5 months</li>
+        </ul>
+    </li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<h6>Based on the prospect's profile as a PE firm focused on digital acquisitions and IPO strategy, here are 5 recommended product/service features:</h6>
+<ol>
+<li>Global transaction management platform</li>
+<li>Cross-border M&A deal flow analytics</li>
+<li>IPO readiness assessment tools</li>
+<li>Portfolio company performance tracking dashboard</li>
+<li>Multi-currency financial consolidation software</li>
+</ol>
+<p>Note: Since no specific seller context was provided, these recommendations are based on the prospect's apparent needs as a PE firm operating across multiple countries and focusing on acquisitions.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<h6>Instantly</h6>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h6>Key Company Information:</h6>
+<ul>
+<li>Company: Napkin Inc.</li>
+<li>Focus: PE firm acquiring digital companies</li>
+<li>Global presence: US, UAE, Ecuador, India</li>
+<li>Employees: 29</li>
+<li>Recent activity: "Napkin Deals" party at Collision 2024, Toronto</li>
+<li>Business model: IPO strategy and acquiring cash-flowing companies</li>
+</ul>
+
+<h6>Key Pain Points:</h6>
+<ol>
+<li>Market entry for portfolio companies</li>
+<li>Scaling customer acquisition across sectors</li>
+<li>Coordinating global sales/marketing efforts</li>
+<li>Standardizing go-to-market approaches</li>
+<li>Efficient target acquisition identification</li>
+</ol>
+
+<h6>Sales Approach:</h6>
+<h6>1. Value Propositions:</h6>
+<ul>
+<li>AI-powered outbound framework</li>
+<li>Global acquisition pipeline scaling</li>
+<li>GTM expertise in B2B tech markets</li>
+</ul>
+
+<h6>2. Qualification Questions Focus:</h6>
+<ul>
+<li>Current GTM strategies</li>
+<li>Sales/marketing alignment</li>
+<li>Revenue growth targets</li>
+<li>Outbound processes</li>
+<li>Acquisition criteria</li>
+</ul>
+
+<h6>3. Relevant Experience:</h6>
+<ul>
+<li>Qureos (VC/Investment)</li>
+<li>Surprice (UAE/MENA presence)</li>
+<li>Indeex (Multi-region operations)</li>
+</ul>
+
+<h6>Conversation Starters:</h6>
+<ol>
+<li>Napkin Deals party at Collision 2024</li>
+<li>TV show "Building a Billion Dollar Business"</li>
+<li>International expansion strategy</li>
+</ol>
+
+<h6>Objection Handling:</h6>
+<ul>
+<li>Budget: Focus on ROI and value metrics</li>
+<li>Existing Solutions: Highlight unique differentiators and complementary solutions</li>
+</ul>
+
+<h6>Recent Updates:</h6>
+<ul>
+<li>June 2024: Hosting Napkin Deals party</li>
+<li>June 2023: Completed Series A funding</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<ol>
+    <li>I noticed you're hosting a big 'Napkin Deals' party at Collision 2024 in Toronto - sounds exciting! What inspired this unique event format?</li>
+    <li>I see you're filming a TV show called 'Building a Billion Dollar Business' - how did that opportunity come about?</li>
+    <li>I noticed you've recently expanded with offices across multiple countries including UAE and Ecuador - what's driving your international growth strategy?</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<p>Based on the context provided, I can only find one LinkedIn post from approximately 1 year ago (1y), and there don't appear to be any more recent posts. Here it is:</p>
+
+<ol>
+    <li>1y ago: CEO announced a "Napkin Deals" party at Collision Conference 2024 in Toronto on June 18th, featuring networking with 350 guests including founders, investors, and live deal-making opportunities.</li>
+</ol>
+
+<p>Note: I cannot provide 3 posts as there is only one post visible in the provided context.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<h6>Based on the prospect's profile and the seller's context, here are 3 customized value propositions for Napkin Inc.:</h6>
+
+<ul>
+<li>Our AI-powered outbound framework can help identify and engage elite digital companies across your target markets (US, Canada, UAE, India), delivering 50% more qualified meetings for potential acquisitions while saving up to 60% in prospecting costs</li>
+
+<li>With offices matching your global footprint (including UAE and India), we can help scale your acquisition pipeline across multiple geographies through systematic outreach to cash-flowing digital companies, increasing deal flow by 40% within a year</li>
+
+<li>Our proven GTM expertise in B2B tech markets aligns perfectly with your portfolio companies in marketing, advertising and tech services - we can help optimize their growth strategies while you focus on IPO preparation and strategic acquisitions</li>
+</ul>
+
+<p>The value proposition focuses on:</p>
+<ul>
+<li>Global reach matching their locations</li>
+<li>Expertise in their target sectors (digital/tech companies)</li>
+<li>Efficiency gains in deal sourcing</li>
+<li>Support for portfolio company growth</li>
+<li>Alignment with their IPO and acquisition strategy</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h6>Based on the prospect's profile and the seller's business (B2B go-to-market services company), here are the 5 most relevant qualification questions to ask:</h6>
+
+<ol>
+<li>"I noticed you're actively acquiring digital companies - what are your current customer acquisition strategies for these newly acquired companies and what challenges are you facing in entering new markets?"
+<p>- This helps understand their current GTM approach and pain points</p>
+</li>
+
+<li>"With multiple portfolio companies across different regions (US, Canada, Ecuador, India, UAE), how do you currently handle sales and marketing alignment across these diverse markets?"
+<p>- This explores their need for unified GTM strategies across locations</p>
+</li>
+
+<li>"What are your revenue growth targets for the next 12-24 months as you work towards your IPO goal, and how are you planning to achieve them?"
+<p>- This helps quantify the opportunity and understand their growth objectives</p>
+</li>
+
+<li>"How do you currently handle outbound sales and marketing for your portfolio companies - do you have internal teams or do you work with external partners?"
+<p>- This reveals their current setup and potential gaps</p>
+</li>
+
+<li>"With your focus on acquiring digital disruptors ($200M+), what criteria do you use to evaluate the sales and marketing capabilities of potential acquisitions, and how do you optimize these post-acquisition?"
+<p>- This explores their approach to GTM due diligence and integration</p>
+</li>
+</ol>
+
+<p>These questions help qualify both the need (scaling acquired companies), urgency (IPO goals), and fit (multi-market B2B focus) while uncovering specific pain points the seller's services could address.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h6>Since the provided context doesn't directly address handling these specific objections, I'll provide practical responses for both objections from a seller's perspective:</h6>
+
+<h6>For Budget/Price concerns:</h6>
+<ol>
+<li>Focus on ROI and value metrics - Demonstrate clear financial benefits and expected return timeframes</li>
+<li>Offer a pilot program or phased implementation to reduce initial investment</li>
+<li>Present case studies showing cost savings achieved by similar PE firms</li>
+<li>Break down the cost-benefit analysis showing both short and long-term financial impact</li>
+</ol>
+
+<h6>For Existing Solutions/Partnerships:</h6>
+<ol>
+<li>Highlight unique differentiators and specific pain points your solution addresses that current vendors don't</li>
+<li>Propose a complementary solution that can work alongside existing systems</li>
+<li>Offer a competitive analysis showing advantages over current providers</li>
+<li>Suggest starting with one location/division as a proof of concept</li>
+<li>Focus on gaps or inefficiencies in their current setup that your solution specifically addresses</li>
+</ol>
+
+<p>The key is to position yourself as a strategic partner who understands PE firms' focus on value creation and operational efficiency, rather than just another vendor.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>No funding events found</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
