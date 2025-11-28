@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">mike.pasic@digip.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">anastasiia@wise.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-11-30T10:00:00+00:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h6>Vertical/Industry</h6>
+<p><strong>Financial Services / Fintech</strong></p>
+<ul>
+<li>Specifically: Cross-border payments, currency exchange, and global money transfer technology</li>
+</ul>
+
+<h6>Company Size</h6>
+<p><strong>Large Enterprise</strong></p>
+<ul>
+<li><strong>9,190 employees</strong> (as stated in the report)</li>
+<li>Serves 16 million people and businesses globally</li>
+<li>Processes £9 billion in cross-border transactions every month</li>
+</ul>
+
+<h6>Location</h6>
+<p><strong>Headquarters:</strong> London, United Kingdom</p>
+<ul>
+<li>Primary office: The Tea Building, 56 Shoreditch High Street, London, E1 6JJ, GB</li>
+</ul>
+
+<p><strong>Additional Global Offices:</strong></p>
+<ul>
+<li>New York City, US</li>
+<li>Budapest, Hungary</li>
+<li>Singapore</li>
+<li>Tallinn, Estonia</li>
+<li>Tampa, Florida, US</li>
+<li>Tokyo, Japan</li>
+<li>Sydney, Australia</li>
+<li>Austin, Texas, US</li>
+</ul>
+
+<h6>Additional Context</h6>
+<ul>
+<li>Listed on the London Stock Exchange (ticker: WISE)</li>
+<li>Founded in 2011 (originally as TransferWise)</li>
+<li>Operates in 160+ countries with 40+ currencies</li>
+<li>Described as a "global technology company" building cross-border payment infrastructure</li>
+</ul>
+
+<p>Wise, formerly known as TransferWise, is a British financial technology company based in London. Founded in January 2011 by Kristo Käärmann and Taavet Hinrikus, Wise specializes in international money transfers and cross-border financial services. The company aims to make sending, receiving, and managing money across currencies cheaper, faster, and more transparent.</p>
+
+<p>Wise offers a range of products, including the Wise Account, which is a multi-currency account that allows customers to hold, send, receive, and spend money internationally with real exchange rates and low fees. The Wise Business product is tailored for businesses, facilitating international payments in over 40 currencies. Additionally, the Wise Platform enables banks and other businesses to integrate Wise's technology into their services, enhancing their international money management solutions.</p>
+
+<p>With a mission to create "money without borders," Wise serves over 14.8 million customers globally, moving approximately $10 billion every month. The company operates as a Money Service Business (MSB) and is committed to regulatory compliance and security, ensuring customer funds are safeguarded.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                No content
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<ol>
+    <li><strong>Global Brand Protection Across 160+ Countries</strong>: Operating in 160+ countries with multiple international offices exposes Wise to trademark infringement risks, unauthorized use of their brand, and domain squatting across diverse jurisdictions requiring comprehensive monitoring and enforcement.</li>
+
+    <li><strong>Multi-Currency Brand Management</strong>: Managing trademark registrations and brand protection across 40+ currencies and numerous international markets creates complexity in maintaining consistent brand identity and legal protection in each jurisdiction.</li>
+
+    <li><strong>Domain Portfolio Management at Scale</strong>: As a global fintech platform serving 16 million customers, Wise needs to secure and manage extensive domain portfolios across multiple countries and languages to prevent phishing, fraud, and brand impersonation that could compromise customer trust.</li>
+
+    <li><strong>Rebranding Legacy Management</strong>: Having rebranded from TransferWise to Wise, the company faces ongoing challenges monitoring and enforcing rights against continued unauthorized use of the old brand name, potential confusion in the marketplace, and ensuring complete trademark transition globally.</li>
+
+    <li><strong>Fintech Brand Reputation Protection</strong>: As a regulated Money Service Business handling $10 billion monthly in customer funds, Wise requires vigilant trademark watch services to quickly identify and take down fraudulent websites, apps, or services using similar branding that could facilitate scams and damage customer trust.</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h6>Summary of News About Wise</h6>
+
+<h6>November 27, 2025</h6>
+<ul>
+<li><strong>Japan Zengin System Integration</strong>: Wise became the first non-bank to connect directly to Japan's Zengin payment system via API and settled payments directly with the Bank of Japan, enabling instant yen transfers.</li>
+</ul>
+
+<h6>November 25-26, 2025</h6>
+<ul>
+<li><strong>Black Friday Tips</strong>: Wise provided guidance for international sellers on managing FX conversion fees using Wise Business Account.</li>
+<li><strong>Benefit Prize Awards</strong>: Wise received recognition in Budapest for equal rights and opportunities, and placed in top 3 for most caring large company.</li>
+</ul>
+
+<h6>November 24, 2025</h6>
+<ul>
+<li><strong>Qonto Partnership</strong>: Qonto integrated Wise Platform to provide cross-border payments for their 600,000+ SME customers across 30+ currencies.</li>
+<li><strong>Currency Exchange Update</strong>: Published currency exchange rate updates for CNY, GBP and EUR in relation to USD over the last 30 days.</li>
+</ul>
+
+<h6>July 21-28, 2025</h6>
+<ul>
+<li><strong>Corporate Governance Changes</strong>: Shareholders approved Wise's plan to move its primary listing from London to New York and extend its dual-class share structure for 10 years. The proposal received support from over 90% of class A shareholders and 85% of class B shareholders, despite opposition from co-founder Taavet Hinrikus who criticized the bundling of the US listing with voting rights extension.</li>
+</ul>
+
+<h6>H1 2025</h6>
+<ul>
+<li><strong>Financial Results</strong>: Revenue increased 11% year-over-year to £658 million, though pre-tax profit declined 13% due to increased administrative expenses.</li>
+</ul>
+
+<h6>Q3 2025</h6>
+<ul>
+<li><strong>Mission Update</strong>: 74% of Wise transfers now arrive in 20 seconds or less, up from 33% five years ago.</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<p>No relevant experience</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<h6>Based on the prospect's profile as a large financial services/fintech company operating globally, here are the top 5 recommended product/service features:</h6>
+
+<ol>
+<li><strong>Global Trademark Monitoring</strong> - worldwide brand protection surveillance with real-time alerts</li>
+
+<li><strong>Trademark Surveillance and Monitoring</strong> - ongoing monitoring for unauthorized usage and potential infringements with weekly reports</li>
+
+<li><strong>Domain Management Platform</strong> - centralized system for managing domain portfolios with technical and legal support</li>
+
+<li><strong>ISO 27001, SOC 2, GDPR, and CCPA Compliance</strong> - enterprise-grade security and regulatory compliance standards</li>
+
+<li><strong>Global Legal Representation</strong> - international trademark and legal support services across 70+ jurisdictions</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<p>No relevant techstack</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h4>Wise - Sales Cheat Sheet</h4>
+
+<h5>KEY COMPANY INFORMATION</h5>
+<ul>
+<li><strong>Industry:</strong> Fintech/Cross-border payments</li>
+<li><strong>Scale:</strong> 9,190 employees | 16M customers | 160+ countries | 40+ currencies</li>
+<li><strong>Volume:</strong> $10B monthly in customer funds</li>
+<li><strong>Recent Milestone:</strong> First non-bank to join Japan's Zengin system (Nov 2025)</li>
+<li><strong>Corporate Change:</strong> Moving primary listing from London to New York</li>
+<li><strong>Legacy:</strong> Rebranded from TransferWise to Wise</li>
+</ul>
+
+<h5>RECENT NEWS & UPDATES (Nov 2025)</h5>
+<ul>
+<li><strong>Japan Expansion:</strong> Direct API integration with Zengin payment system</li>
+<li><strong>Partnership:</strong> Qonto integrated Wise Platform for 600K+ SME customers</li>
+<li><strong>Recognition:</strong> Benefit Prize Awards (Budapest) for equal rights/opportunities</li>
+<li><strong>Talent Development:</strong> WiseWomenCode program successfully graduating engineers</li>
+<li><strong>Financial:</strong> Revenue up 11% to £658M (H1 2025), though profit down 13%</li>
+</ul>
+
+<h5>KEY PAIN POINTS</h5>
+<ol>
+<li><strong>Global Brand Protection:</strong> 160+ countries = trademark infringement risks, domain squatting across diverse jurisdictions</li>
+<li><strong>Multi-Currency Complexity:</strong> 40+ currencies requiring consistent brand identity and legal protection</li>
+<li><strong>Domain Portfolio at Scale:</strong> 16M customers = extensive domain needs to prevent phishing/fraud</li>
+<li><strong>Rebranding Legacy:</strong> TransferWise → Wise transition requires ongoing monitoring of old brand misuse</li>
+<li><strong>Fintech Reputation Risk:</strong> $10B monthly volume demands vigilant trademark watch to prevent scams</li>
+</ol>
+
+<h5>CONVERSATION STARTERS</h5>
+<ol>
+<li><strong>Japan expansion:</strong> "Congratulations on becoming the first non-bank in Zengin! How is this shaping your Asia-Pacific brand protection strategy?"</li>
+<li><strong>Awards recognition:</strong> "Saw your Benefit Prize Award in Budapest - what equal opportunity initiatives are you most proud of?"</li>
+<li><strong>Talent program:</strong> "Eliise Karafin's journey from WiseWomenCode to graduate engineer is impressive - planning to expand this program?"</li>
+</ol>
+
+<h5>SALES APPROACH</h5>
+
+<h6>Value Propositions</h6>
+<ul>
+<li><strong>Global Protection:</strong> Comprehensive trademark coverage across 160+ countries and key markets (UK, US, Singapore, Japan, Australia, Estonia, Hungary)</li>
+<li><strong>Digital Security:</strong> Proactive domain management critical for dual-listing company with growing platform integrations</li>
+<li><strong>Enterprise Efficiency:</strong> Centralized IP management for 9K+ employees, multiple product lines, 40+ currencies</li>
+</ul>
+
+<h6>Qualification Questions</h6>
+<ol>
+<li>"How are you managing trademark protection across 160+ countries and 40+ currencies? Do you have a centralized system?"</li>
+<li>"Have you experienced trademark infringement, domain squatting, or brand misuse? How are you monitoring violations globally?"</li>
+<li>"How many external law firms manage your IP portfolio? How much time does coordination take?"</li>
+<li>"How are you managing domain portfolios across markets to prevent cybersquatting?"</li>
+<li>"What's your annual spend on trademark registration, monitoring, and enforcement? Who's involved in IP management decisions?"</li>
+</ol>
+
+<h6>Recommended Products</h6>
+<ol>
+<li>Global Trademark Monitoring (real-time alerts)</li>
+<li>Trademark Surveillance (weekly
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<ol>
+    <li>I saw Wise just became the first non-bank to join Japan's Zengin system after 4 years of work - congratulations! How is this integration into the world's 4th largest economy shaping your expansion strategy for Asia-Pacific?</li>
+
+    <li>Noticed you recently received recognition at the Benefit Prize Awards in Budapest for equal rights and opportunities - what initiatives are you most proud of that contributed to this achievement?</li>
+
+    <li>Saw that Eliise Karafin just transitioned from your WiseWomenCode program to a graduate engineer role - how has this program been performing, and are you planning to expand it to other markets?</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                <h6>Based on the context provided, here are the 3 most recent and important LinkedIn posts from Wise:</h6>
+
+<ol>
+    <li><strong>2h ago</strong>: Wise reminds businesses to check currency exchange rates for CNY, GBP, and EUR against USD over the last 30 days and use Wise Business to save time and money on FX.</li>
+
+    <li><strong>4h ago</strong>: Qonto partnered with Wise Platform to provide fast, secure, and transparent cross-border payments across 30+ currencies to their 600,000+ SME customers.</li>
+
+    <li><strong>6h ago</strong>: Eliise Karafin transitioned from the WiseWomenCode program participant with no IT experience to a graduate engineer who shipped a customer-facing feature.</li>
+</ol>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<p><strong>Protect your global fintech brand across 160+ countries</strong>: As Wise operates internationally with 9,190 employees serving 16 million customers across multiple jurisdictions, comprehensive trademark protection in key markets (UK, US, Singapore, Japan, Australia, Estonia, Hungary) is essential to safeguard your brand against infringement and cybersquatting as you expand your cross-border payment infrastructure.</p>
+
+<p><strong>Secure your digital presence and prevent domain confusion</strong>: With Wise's recent move to dual listing (London and New York) and growing platform integrations like Qonto, proactive domain management and trademark monitoring across all markets ensures customers can always find your official services—critical for maintaining trust in financial services where brand confusion could lead to fraud or security concerns.</p>
+
+<p><strong>Streamline IP management for your large enterprise portfolio</strong>: Managing trademarks for a 9,000+ employee fintech company with multiple product lines (Wise Account, Wise Business, Wise Platform) across 40+ currencies requires centralized, automated trademark portfolio management to reduce legal costs, ensure timely renewals, and free your legal team to focus on strategic growth initiatives rather than administrative tasks.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<p>Based on Wise's profile as a large fintech enterprise operating globally with 9,190 employees and cross-border payment services across 160+ countries, here are the <strong>5 most relevant and important qualification questions</strong> to ask:</p>
+
+<h6>1. <strong>Global Expansion and Market Protection</strong></h6>
+<p><em>"As you continue expanding into new markets and currencies (currently 40+ currencies across 160+ countries), how are you currently managing trademark protection across all these jurisdictions? Do you have a centralized system in place?"</em></p>
+
+<p><strong>Why this matters:</strong> Wise operates globally and likely faces trademark protection challenges across multiple jurisdictions. This reveals their current pain points and readiness for a centralized solution.</p>
+
+<h6>2. <strong>Brand Infringement Risk and Monitoring</strong></h6>
+<p><em>"Given your high brand visibility in the fintech space and the prevalence of financial scams, have you experienced any trademark infringement, domain squatting, or brand misuse issues? How are you currently monitoring for potential violations across your global markets?"</em></p>
+
+<p><strong>Why this matters:</strong> Financial services companies are prime targets for brand abuse. This uncovers whether they've experienced problems and how proactive their current monitoring is.</p>
+
+<h6>3. <strong>Current IP Management Complexity</strong></h6>
+<p><em>"With operations across multiple countries and a team of 9,190 employees, how many external law firms or IP counsel are you currently working with to manage your trademark portfolio? How much time does your legal team spend coordinating these relationships?"</em></p>
+
+<p><strong>Why this matters:</strong> Large enterprises often work with fragmented networks of external counsel. This reveals complexity, cost inefficiencies, and time drain—all pain points Digip solves.</p>
+
+<h6>4. <strong>Domain Portfolio Management</strong></h6>
+<p><em>"As a digital-first company with customers accessing your platform globally, how are you managing your domain portfolio across different markets? Do you have a strategy for protecting domain variations and preventing cybersquatting?"</em></p>
+
+<p><strong>Why this matters:</strong> Fintech companies rely heavily on digital presence. This assesses their domain management maturity and potential vulnerabilities.</p>
+
+<h6>5. <strong>Budget and Decision-Making Process</strong></h6>
+<p><em>"What does your current annual spend look like for trademark registration, monitoring, and enforcement globally? Who is involved in the decision-making process for IP management solutions?"</em></p>
+
+<p><strong>Why this matters:</strong> Establishes budget authority, identifies stakeholders, and quantifies potential cost savings (Digip offers 30-50% cost reduction). Critical for understanding buying process and timeline.</p>
+
+<p>These questions qualify Wise as a prospect by uncovering their specific pain points around global IP complexity, cost efficiency, and centralized management—all areas where Digip's platform provides clear value.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h4>Overcoming Key Objections</h4>
+
+<h5>Objection 1: "We already have robust internal legal/IP protection capabilities"</h5>
+
+<p><strong>Key Arguments:</strong></p>
+
+<ul>
+<li><strong>Gap in Protection</strong>: Internal capabilities typically handle existing trademarks but may miss critical threats. Without 24/7 automated monitoring across global databases, marketplaces, domains, and social media, infringements can go undetected until significant damage occurs.</li>
+
+<li><strong>Resource Efficiency</strong>: Your internal team's time is better spent on strategic legal matters rather than routine monitoring and administrative tasks. We reduce workload by up to 80% while providing comprehensive coverage.</li>
+
+<li><strong>Complement, Don't Replace</strong>: We enhance your existing capabilities with AI-powered risk analysis, automated alerts, and global coverage that would require significant internal resources to replicate.</li>
+
+<li><strong>Cost of Missed Infringements</strong>: Even major brands like Nike lose ~10% of revenue to counterfeits. Early detection through automated monitoring prevents costly legal battles and brand damage.</li>
+</ul>
+
+<h5>Objection 2: "Cost concerns - too expensive across multiple jurisdictions"</h5>
+
+<p><strong>Key Arguments:</strong></p>
+
+<ul>
+<li><strong>Proven Savings</strong>: Our clients save up to 40% compared to traditional law firm arrangements. Most see 20-70% cost reduction with payback periods of 1-4 months.</li>
+
+<li><strong>Predictable Pricing</strong>: No billable hours means no surprises. Fixed subscription model makes budgeting simple and eliminates hesitation to seek advice when needed.</li>
+
+<li><strong>Cost of NOT Protecting</strong>: Rebranding costs up to 5% of business turnover. Legal disputes and lost trademark rights are far more expensive than proactive protection.</li>
+
+<li><strong>Scalable Solutions</strong>: Start with what you need now (customized modules) and scale up as you grow. Pay only for what you use.</li>
+
+<li><strong>Hidden Costs of DIY</strong>: Manual monitoring is ineffective and time-consuming. Missing a single infringement can cost more than annual protection services.</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>No funding events found</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
