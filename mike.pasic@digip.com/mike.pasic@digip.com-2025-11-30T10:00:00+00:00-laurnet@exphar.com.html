@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">mike.pasic@digip.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">laurnet@exphar.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-11-30T10:00:00+00:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                
+<h6>Company Vertical/Industry:</h6>
+<p><strong>Pharmaceutical Manufacturing</strong> - Specifically specializing in the manufacturing and distribution of generic sterile and non-sterile medications</p>
+
+<h6>Company Size:</h6>
+<p><strong>301 employees</strong></p>
+
+<h6>Location:</h6>
+<p><strong>Primary Address:</strong> 105 Avenue Thomas Edison, Nivelles, 1402, Belgium (BE)</p>
+
+<h6>Additional Business Details:</h6>
+<ul>
+<li><strong>Market Focus:</strong> African markets primarily, with presence in 25 countries across Africa, Asia, and Central America</li>
+<li><strong>Product Range:</strong> 50 pharmaceutical products</li>
+<li><strong>Specialization:</strong> Generic medications (both sterile and non-sterile formulations)</li>
+<li><strong>Company Age:</strong> 40 years in operation</li>
+<li><strong>Mission:</strong> Developing accessible pharmaceutical specialties for the greatest number of people</li>
+</ul>
+
+<p>Exphar is a Belgian pharmaceutical company founded in 1981, specializing in the production, distribution, and development of pharmaceutical products. The company primarily serves French and English-speaking African countries, as well as parts of Asia and Central America. Headquartered in Nivelles, Belgium, Exphar has evolved from a broker for NGOs to a leading wholesaler and distributor, recognized as one of the top pharmaceutical laboratories in Sub-Saharan Africa.</p>
+
+<p>Exphar operates through three main divisions: Pharma Development, Pharmaceutical Distribution, and Pharmaceutical Engineering. The company offers a wide range of products, including vitamins, antibiotics, analgesics, and antimalarial treatments. Notable proprietary products include Maloxine® and Verzol®, along with the PROGEN range of Total Quality generics. Exphar emphasizes high production quality, holding EUGMP certification for its facilities, and manages a modern warehouse equipped with advanced systems to ensure efficient logistics and timely delivery of medications. The company focuses on making quality pharmaceuticals affordable and accessible, primarily serving large NGOs, European organizations, and healthcare providers in developing regions.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                No content
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<ol>
+<li><strong>Trademark Protection Across 25+ International Markets</strong> - Operating in 25 countries across Africa, Asia, and Central America creates significant challenges in monitoring and protecting proprietary product trademarks like Maloxine®, Verzol®, and the PROGEN range against infringement, counterfeiting, and unauthorized use across multiple jurisdictions with varying IP laws.</li>
+
+<li><strong>Brand Protection Against Pharmaceutical Counterfeiting</strong> - As a pharmaceutical company in markets prone to counterfeit medications, Exphar faces critical risks of trademark infringement and fake products damaging their brand reputation, particularly for their established product lines in African markets where counterfeit pharmaceuticals are a significant concern.</li>
+
+<li><strong>Domain Management and Online Brand Protection</strong> - With active digital presence and product promotion (as evidenced by recent LinkedIn activity), Exphar needs comprehensive domain portfolio management and monitoring to prevent cybersquatting, typosquatting, and unauthorized domain registrations that could mislead customers or damage brand integrity across their 25-country footprint.</li>
+
+<li><strong>Trademark Clearance for Product Expansion</strong> - With ongoing pharmaceutical product development through their Pharma Development division and expansion into new markets, Exphar requires thorough trademark search and clearance services to ensure new product names and brands don't infringe existing marks before market launch and regulatory approval processes.</li>
+
+<li><strong>Legal Enforcement Against Infringement</strong> - The existing legal dispute (Exphar S.A. vs. Essphar Pvt. Ltd.) demonstrates active trademark conflicts requiring ongoing legal representation and enforcement services to protect their brand identity, prevent consumer confusion, and defend against similar-name competitors in their operating markets.</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h6>Exphar Pharmaceutical Manufacturing - News Summary</h6>
+
+<h6>Recent (3 days ago)</h6>
+<ul>
+<li>Promoted Carbosol product for managing dry eye symptoms and ocular dryness</li>
+</ul>
+
+<h6>2 weeks ago</h6>
+<ul>
+<li>World Diabetes Day (November 14) awareness campaign highlighting diabetes progression in Africa</li>
+</ul>
+
+<h6>1 month ago</h6>
+<ul>
+<li>Promoted PREGABANEURINE for neuropathic pain management</li>
+<li>World Food Day (October 16) campaign addressing iron deficiency and anemia in Africa, promoting FERCEFOL product</li>
+<li>Announced webinar replay on pharmacy sales techniques (92% participant satisfaction reported)</li>
+</ul>
+
+<h6>2 months ago</h6>
+<ul>
+<li>Hosted medical webinar on Benign Prostatic Hyperplasia (BPH) with Dr. Cyril Kamadjou (October 1)</li>
+<li>World Heart Day (September 29) post about cardiovascular diseases in Africa</li>
+<li>Participated in scientific conference in Bamako, Mali on maternal, neonatal and infant health (September 17-20)</li>
+</ul>
+
+<h6>Insights:</h6>
+<ul>
+<li>Strong focus on health awareness campaigns tied to global health days</li>
+<li>Active product promotion for specific therapeutic areas (ophthalmology, pain management, anemia)</li>
+<li>Engagement in medical education through webinars</li>
+<li>Geographic focus on African healthcare challenges</li>
+<li>Participation in regional scientific conferences</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<p>No relevant experience</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<p>Based on Exphar's profile as a pharmaceutical manufacturer with proprietary products (Maloxine®, Verzol®, PROGEN range) operating across 25 countries in Africa, Asia, and Central America, here are the top 5 recommended product/service features:</p>
+
+<ol>
+<li><strong>Trademark Registration Services</strong></li>
+<li><strong>Global Trademark Monitoring</strong></li>
+<li><strong>Trademark Surveillance and Monitoring</strong></li>
+<li><strong>Madrid Protocol Support</strong></li>
+<li><strong>Counterfeit Product Detection</strong></li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<p>No relevant techstack</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h4>Exphar Pharmaceutical - Sales Cheat Sheet</h4>
+
+<h5>KEY COMPANY INFORMATION</h5>
+<ul>
+<li><strong>Industry</strong>: Pharmaceutical Manufacturing</li>
+<li><strong>Geographic Presence</strong>: 25 countries across Africa, Asia, and Central America</li>
+<li><strong>Product Portfolio</strong>: 50+ pharmaceutical products including proprietary brands (Maloxine®, Verzol®, PROGEN range)</li>
+<li><strong>Certifications</strong>: EUGMP-certified manufacturer</li>
+<li><strong>Company Age</strong>: 40 years in operation</li>
+<li><strong>Key Markets</strong>: Strong focus on African healthcare, partnerships with NGOs and European organizations</li>
+</ul>
+
+<h5>RECENT NEWS & UPDATES</h5>
+<p><strong>Last 3 Days</strong>: Promoted Carbosol for dry eye treatment</p>
+<p><strong>2 Weeks Ago</strong>: World Diabetes Day campaign highlighting diabetes in Africa</p>
+<p><strong>1 Month Ago</strong>:</p>
+<ul>
+<li>PREGABANEURINE launch for neuropathic pain</li>
+<li>Pharmacy sales webinar (92% satisfaction rate)</li>
+</ul>
+<p><strong>2 Months Ago</strong>:</p>
+<ul>
+<li>Scientific conference in Bamako, Mali (maternal/neonatal health) with SOMAGO and AMAPÉD</li>
+<li>Medical webinar on Benign Prostatic Hyperplasia</li>
+</ul>
+
+<h5>KEY PAIN POINTS</h5>
+<ol>
+<li><strong>Multi-Jurisdiction IP Protection</strong>: Managing trademarks across 25 countries with varying IP laws</li>
+<li><strong>Pharmaceutical Counterfeiting Risk</strong>: Brand protection in African markets prone to fake medications</li>
+<li><strong>Digital Brand Protection</strong>: Domain management and cybersquatting prevention across 25-country footprint</li>
+<li><strong>Product Expansion Clearance</strong>: Trademark searches needed for new pharmaceutical products</li>
+<li><strong>Active Legal Disputes</strong>: Ongoing trademark conflict (Exphar S.A. vs. Essphar Pvt. Ltd.)</li>
+</ol>
+
+<h5>SALES APPROACH</h5>
+
+<h6>Conversation Starters</h6>
+<ol>
+<li>"I noticed your recent Bamako conference with SOMAGO and AMAPÉD - how has this impacted your Mali market presence?"</li>
+<li>"Your pharmacy sales webinar achieved 92% satisfaction - are you expanding this training to other African markets?"</li>
+<li>"With operations in 25 countries, which markets are you prioritizing for 2024 expansion?"</li>
+</ol>
+
+<h6>Value Propositions</h6>
+<ul>
+<li><strong>Multi-Market Protection</strong>: Comprehensive trademark monitoring across 25+ jurisdictions to prevent counterfeiting of Maloxine®, Verzol®, and other proprietary products</li>
+<li><strong>Reputation Safeguarding</strong>: Protect 40 years of EUGMP-certified trust from brand misuse among NGOs and healthcare providers</li>
+<li><strong>Administrative Efficiency</strong>: Reduce IP management workload by 80% for 50+ products across multiple markets</li>
+</ul>
+
+<h6>Qualification Questions</h6>
+<ol>
+<li>"How many trademarks do you have registered across your 25 operating countries?"</li>
+<li>"Have you experienced counterfeiting or infringement, particularly in Sub-Saharan Africa?"</li>
+<li>"How do you currently manage trademark renewals - multiple local firms or centralized system?"</li>
+<li>"Are you planning geographic expansion or new product launches in the next 12-24 months?"</li>
+<li>"Do you manage domains for products like Maloxine® and Verzol® across all markets?"</li>
+</ol>
+
+<h6>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<ol>
+    <li>I noticed you recently participated in the scientific conference in Bamako with SOMAGO and AMAPÉD - how did that event impact your partnerships and market presence in Mali?</li>
+
+    <li>Your webinar series on pharmacy sales techniques had a 92% satisfaction rate - are you planning to expand this training initiative to other markets across Africa?</li>
+
+    <li>With your presence now in 25 countries across Africa, Asia, and Central America, which new markets are you prioritizing for expansion in 2024?</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<ol>
+    <li><strong>Ocular dryness awareness post</strong> - Exphar discusses dry eye syndrome and promotes their Carbosol treatment for managing ocular dryness - Posted 3 days ago (3d)</li>
+    <li><strong>World Diabetes Day post</strong> - Exphar highlights the alarming progression of diabetes in Africa on November 14th World Diabetes Day - Posted 2 weeks ago (2w)</li>
+    <li><strong>Neuropathic pain management post</strong> - Exphar presents their PREGABANEURINE treatment for managing neuropathic pain in patients - Posted 1 month ago (1mo)</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<h6>Protect your pharmaceutical brand across 25+ African markets</h6>
+<p>As Exphar operates in 25 countries across Africa, Asia, and Central America with proprietary products like Maloxine® and Verzol®, comprehensive trademark protection and monitoring across these diverse jurisdictions is essential to prevent counterfeiting and unauthorized use of your established brand names.</p>
+
+<h6>Safeguard your EUGMP-certified reputation from infringement</h6>
+<p>With 40 years of building trust as a quality pharmaceutical manufacturer, trademark surveillance services help you detect and address potential brand misuse that could damage your hard-earned reputation among NGOs, European organizations, and healthcare providers in developing regions.</p>
+
+<h6>Streamline IP management for your growing product portfolio</h6>
+<p>Managing trademark registrations, renewals, and monitoring for 50+ pharmaceutical products across multiple international markets requires significant administrative effort—automated trademark management solutions reduce this workload by up to 80% while ensuring no critical deadlines are missed.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h6>Top 5 Qualification Questions for Exphar (Pharmaceutical Manufacturing)</h6>
+
+<p>Based on Exphar's profile as a pharmaceutical manufacturer with 50 products across 25 countries in Africa, Asia, and Central America, here are the most relevant qualification questions:</p>
+
+<h6>1. <strong>Trademark Portfolio & Geographic Coverage</strong></h6>
+<p><em>"How many pharmaceutical product trademarks do you currently have registered across your 25 operating countries, and do you have consistent brand protection in all your African, Asian, and Central American markets?"</em></p>
+
+<p><strong>Why this matters:</strong> With 50 products across 25 countries, Exphar likely has significant trademark management complexity. This reveals gaps in their current IP protection and potential for portfolio consolidation.</p>
+
+<h6>2. <strong>Brand Infringement & Counterfeit Challenges</strong></h6>
+<p><em>"Have you experienced trademark infringement or counterfeit products in your markets, particularly in Sub-Saharan Africa where pharmaceutical counterfeiting is prevalent?"</em></p>
+
+<p><strong>Why this matters:</strong> Pharmaceutical companies in developing markets face high counterfeit risks. This question uncovers pain points around brand protection and enforcement needs, which Digip's monitoring services directly address.</p>
+
+<h6>3. <strong>Current IP Management Process</strong></h6>
+<p><em>"How do you currently manage trademark registrations, renewals, and monitoring across multiple jurisdictions - do you work with multiple local law firms or have a centralized system?"</em></p>
+
+<p><strong>Why this matters:</strong> Identifies inefficiencies in their current process. Exphar likely uses fragmented legal counsel across regions, creating the exact problem Digip solves (80% workload reduction, 30-50% cost savings).</p>
+
+<h6>4. <strong>Market Expansion Plans</strong></h6>
+<p><em>"Are you planning to expand into new geographic markets or launch new pharmaceutical products in the next 12-24 months?"</em></p>
+
+<p><strong>Why this matters:</strong> Reveals growth trajectory and immediate need for trademark clearance searches and new registrations. Exphar's 40-year history suggests continued expansion, creating urgency for proactive IP protection.</p>
+
+<h6>5. <strong>Domain & Digital Brand Protection</strong></h6>
+<p><em>"Do you manage domain names for your proprietary products like Maloxine® and Verzol® across all your markets, and have you experienced unauthorized use of your brand names online?"</em></p>
+
+<p><strong>Why this matters:</strong> Pharmaceutical brands are vulnerable to domain squatting and online infringement. This question introduces Digip's domain management services and reveals gaps in their digital brand protection strategy.</p>
+
+<p><strong>These questions qualify Exphar by:</strong></p>
+<ul>
+<li>Revealing scope of IP management needs (multi-country, multi-product complexity)</li>
+<li>Uncovering pain points (fragmented processes, potential infringement)</li>
+<li>Identifying budget authority (cost reduction opportunities)</li>
+<li>Establishing timeline (expansion plans = urgency)</li>
+<li>Confirming fit (pharmaceutical industry with global operations = ideal Digip customer profile)</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h4>Overcoming Trademark Objections for Exphar</h4>
+
+<h5>Objection 1: "We don't need trademark protection in markets outside Belgium/Africa"</h5>
+
+<p><strong>Key Arguments:</strong></p>
+
+<ol>
+    <li><strong>Future Expansion Protection</strong>: Even if you're not operating in certain markets today, registering trademarks now prevents competitors from blocking your future growth. Waiting until you expand makes it costlier and potentially impossible if someone else has already registered similar marks.</li>
+
+    <li><strong>Prevent Brand Hijacking</strong>: Without protection, competitors or cybersquatters can register YOUR brand in markets you plan to enter, then demand payment or block your entry entirely. This is especially common in pharmaceutical markets.</li>
+
+    <li><strong>Protect Your Reputation Globally</strong>: In today's digital world, your brand reputation crosses borders. Counterfeit medications using your brand name in unprotected markets can damage your reputation even in Belgium/Africa, especially with online sales.</li>
+
+    <li><strong>Cost of Rebranding</strong>: Studies show rebranding can cost up to 5% of business turnover. Registering trademarks proactively is far cheaper than being forced to rebrand later.</li>
+</ol>
+
+<h5>Objection 2: "Trademark registration is too expensive for our budget"</h5>
+
+<p><strong>Key Arguments:</strong></p>
+
+<ol>
+    <li><strong>Insurance Against Bigger Losses</strong>: Trademark registration is like insurance for your most valuable asset—your brand. The cost is minimal compared to potential losses from counterfeits, legal disputes, or forced rebranding.</li>
+
+    <li><strong>Affordable Multi-Market Protection</strong>: EU trademark registration covers 27 countries with a single application starting at €850—far more cost-effective than individual country registrations. Similar international systems exist for broader protection.</li>
+
+    <li><strong>Prevent Expensive Legal Battles</strong>: Without registration, you have limited legal standing. Trademark oppositions can cost significantly more and take 2+ years. Registration gives you clear legal rights and stronger enforcement power.</li>
+
+    <li><strong>Protect Revenue Streams</strong>: Even major brands like Nike lose 10% of revenue to counterfeits. For a pharmaceutical company, protecting affordable medications from dangerous counterfeits isn't just about profit—it's about patient safety and brand integrity.</li>
+
+    <li><strong>Predictable, Fixed Costs</strong>: Modern trademark services offer subscription-based, predictable pricing (eliminating hourly legal fees), making budgeting simple and removing cost uncertainty.</li>
+</ol>
+
+<p><strong>Bottom Line</strong>: The question isn't whether you can afford trademark protection—it's whether you can afford NOT to protect your brand as you grow.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>No funding events found</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
