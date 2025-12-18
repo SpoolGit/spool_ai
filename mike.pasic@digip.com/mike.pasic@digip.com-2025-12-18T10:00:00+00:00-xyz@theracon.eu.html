@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Prospect Description
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                CRM Notes
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Icebreakers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                LinkedIn Prospect Research
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                News Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Customized Value Proposition
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Relevant Experience
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section10">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section11">
+                                Recommended Product
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section12">
+                                Handling Objection
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section13">
+                                Relevant Techstack
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section14">
+                                Fundings
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">mike.pasic@digip.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">xyz@theracon.eu</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2025-12-18T10:00:00+00:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Prospect Description</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_description">
+                                <h6>Company Vertical/Industry:</h6>
+<p><strong>Wholesale/E-commerce and Distribution</strong> - Specifically focused on:</p>
+<ul>
+<li>Point of Sale (POS) systems</li>
+<li>Automatic Identification and Data Capture (AIDC)</li>
+<li>Mobile data collection equipment</li>
+<li>Scanner and POS mounts/holders</li>
+<li>Holsters and carrying cases</li>
+<li>Vehicle mounts</li>
+<li>Pick-by-voice headsets</li>
+<li>Linerless labels</li>
+</ul>
+
+<h6>Company Size:</h6>
+<p><strong>Small business</strong> - 3 employees (mentioned as "Discover all 3 employees")</p>
+
+<h6>Location:</h6>
+<p><strong>Primary Location:</strong></p>
+<ul>
+<li>Carlo-Schmid-Allee 3</li>
+<li>Dortmund, Deutschland (Germany)</li>
+<li>Postal Code: 44263</li>
+</ul>
+
+<h6>Additional Company Information:</h6>
+<ul>
+<li><strong>Founded:</strong> 2005 as a sole proprietorship by Ulrich Drunkemöller</li>
+<li><strong>Legal Structure:</strong> Operating as Theracon GmbH since 2012</li>
+<li><strong>LinkedIn Followers:</strong> 243 followers</li>
+<li><strong>Business Model:</strong> Online and mail-order trade (Online- und Versandhandel)</li>
+</ul>
+
+<p>The company specializes in providing customized mounting solutions and accessories for major brands including Zebra, Honeywell, Datalogic, Ingenico, and Verifone, serving industries such as logistics, warehousing, retail, and field services.</p>
+
+<p>Short Description: Theracon ist ein Online- und Versandhandel für Point of Sale, Automatische Identifikation und mobile Datenerfassung mit Firmensitz in Dortmund. Das Unternehmen wurde 2005 als Einzelunternehmen von Ulrich Drunkemöller gegründet und firmiert seit 2012 als Theracon GmbH.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_description">Feedback: </label>
+                                    <select id="feedback-prospect_description" class="feedback-dropdown" onchange="updateFeedback('prospect_description', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>CRM Notes</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="notes">
+                                No content
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-notes">Feedback: </label>
+                                    <select id="feedback-notes" class="feedback-dropdown" onchange="updateFeedback('notes', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pain_points">
+                                
+<ol>
+    <li><strong>Brand Protection and Trademark Infringement Risk</strong> - As a distributor of major brands (Zebra, Honeywell, Datalogic, Ingenico, Verifone), Theracon needs to ensure proper trademark usage and protect against counterfeit products or unauthorized sellers in their market segment.</li>
+
+    <li><strong>Domain Management Challenges</strong> - Operating as an online and mail-order business, Theracon requires comprehensive domain portfolio management to protect their brand across multiple markets and prevent cybersquatting or domain hijacking.</li>
+
+    <li><strong>Product Branding and IP Protection</strong> - With customized mounting solutions and company branding options, Theracon needs to protect their proprietary designs and ensure their custom products don't infringe on existing trademarks or patents.</li>
+
+    <li><strong>International Trademark Monitoring</strong> - As a distributor working with international brands and potentially expanding beyond Germany, Theracon needs trademark watch services to monitor unauthorized use of their brand or the brands they represent.</li>
+
+    <li><strong>E-commerce Brand Enforcement</strong> - Operating in online retail, Theracon faces risks from unauthorized sellers, counterfeit listings, and brand misuse on e-commerce platforms that could damage their reputation and require legal enforcement services.</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pain_points">Feedback: </label>
+                                    <select id="feedback-pain_points" class="feedback-dropdown" onchange="updateFeedback('pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>News Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="news_summary">
+                                
+<h6>Latest News for theracon GmbH</h6>
+
+<p>Based on the LinkedIn updates, here are the latest news ordered from most recent:</p>
+
+<ol>
+    <li><strong>2 months ago</strong> - Launch of customized scanner mounting solutions for various brands (Zebra, Honeywell, Datalogic, Ingenico, Verifone) with adjustable angles, multiple mounting options, and optional company branding.</li>
+
+    <li><strong>2 months ago</strong> - Introduction of individualized tablet holder solutions designed for industrial, logistics, and stationary processes, emphasizing custom-fit, robust construction, and ergonomic design.</li>
+
+    <li><strong>2 months ago</strong> - Announcement of custom holsters and carrying cases tailored to specific business needs, featuring additional compartments, company logo options, and adaptations for special processes.</li>
+
+    <li><strong>2 months ago</strong> - Promotion of Max Michel Scanner-Holster for Zebra TC20/TC25 with belt clip (19-081712-00), highlighting hands-free operation and quick access benefits.</li>
+
+    <li><strong>2 months ago</strong> - Introduction of Max Michel Scanner Holder (steel mounting bracket, 30-50011-00) for Zebra DS3578/DS3678/LI3678 models.</li>
+
+    <li><strong>3 months ago</strong> - Launch of Duratis Dura Pouch Holster (OEM-HOL-6242-B) for Sunmi L2H devices.</li>
+
+    <li><strong>3 months ago</strong> - Promotion of Max Michel EC-Holder for Verifone P200/P400 (square cover, pole 120 mm, 30-60040-12).</li>
+
+    <li><strong>3 months ago</strong> - Introduction of magnetic UltimaCase Scanner Holder for Zebra MC9300/MC9400 (AI3881DW).</li>
+
+    <li><strong>3 months ago</strong> - Launch of Max Michel Scanner-Holster for ALMEX TC601.</li>
+
+    <li><strong>3 months ago</strong> - Feature on Argox printers, highlighting models AS-8520, AS-8120, and AS-9300.</li>
+</ol>
+
+<p><strong>Insight</strong>: Theracon GmbH appears to be actively expanding its product portfolio in the industrial mobile computing accessories sector, with a strong focus on customized mounting and carrying solutions for scanning devices and tablets across multiple brand partnerships.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-news_summary">Feedback: </label>
+                                    <select id="feedback-news_summary" class="feedback-dropdown" onchange="updateFeedback('news_summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Relevant Experience</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_experience">
+                                
+<p>No relevant experience</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_experience">Feedback: </label>
+                                    <select id="feedback-relevant_experience" class="feedback-dropdown" onchange="updateFeedback('relevant_experience', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section11">
+                            <div class="card-header" onclick="toggleCard('section11')">
+                                <h5>Recommended Product</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="recommended_product">
+                                
+<p>Based on Theracon's business as a distributor of POS systems, AIDC equipment, and mobile data collection devices for brands like Zebra, Honeywell, and Datalogic, the top 5 relevant product/service features are:</p>
+
+<ol>
+<li><strong>Reverse Image Recognition Search Technology</strong></li>
+<li><strong>Trademark Search Capability</strong></li>
+<li><strong>Online Brand Protection Services</strong></li>
+<li><strong>Counterfeit Product Detection</strong></li>
+<li><strong>Trademark Surveillance and Monitoring</strong></li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-recommended_product">Feedback: </label>
+                                    <select id="feedback-recommended_product" class="feedback-dropdown" onchange="updateFeedback('recommended_product', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section13">
+                            <div class="card-header" onclick="toggleCard('section13')">
+                                <h5>Relevant Techstack</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="relevant_techstack">
+                                
+<p>No relevant techstack</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-relevant_techstack">Feedback: </label>
+                                    <select id="feedback-relevant_techstack" class="feedback-dropdown" onchange="updateFeedback('relevant_techstack', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<h4>Theracon GmbH - Sales Cheat Sheet</h4>
+
+<h5>Key Company Information</h5>
+<ul>
+    <li><strong>Industry</strong>: Wholesale distributor of POS systems, AIDC equipment, and mobile data collection devices</li>
+    <li><strong>Size</strong>: 3 employees (small business)</li>
+    <li><strong>Business Model</strong>: Online and mail-order trade (e-commerce B2B)</li>
+    <li><strong>Key Brands</strong>: Zebra, Honeywell, Datalogic, Ingenico, Verifone</li>
+    <li><strong>Location</strong>: Germany</li>
+    <li><strong>Specialization</strong>: Customized scanner mounts, tablet holders, holsters, and carrying cases</li>
+</ul>
+
+<h5>Recent News and Updates</h5>
+<ul>
+    <li><strong>Active Product Expansion</strong> (past 2-3 months):
+        <ul>
+            <li>Launched customized scanner mounting solutions with adjustable angles and company branding options</li>
+            <li>Introduced individualized tablet holders for industrial/logistics processes</li>
+            <li>Released custom holsters with additional compartments and logo options</li>
+            <li>Expanding product portfolio across multiple brand partnerships</li>
+        </ul>
+    </li>
+</ul>
+
+<h5>Key Pain Points</h5>
+<ol>
+    <li><strong>Brand Protection Risk</strong>: Needs trademark protection while distributing major brands</li>
+    <li><strong>Domain Management</strong>: Requires comprehensive domain portfolio protection for e-commerce operations</li>
+    <li><strong>IP Protection</strong>: Must protect proprietary custom designs and avoid infringement</li>
+    <li><strong>International Monitoring</strong>: Needs trademark watch services for potential expansion beyond Germany</li>
+    <li><strong>E-commerce Enforcement</strong>: Vulnerable to unauthorized sellers and counterfeit listings online</li>
+</ol>
+
+<h5>Sales Approach</h5>
+
+<h6>Conversation Starters</h6>
+<ol>
+    <li>Expansion angle: "Are you adding new device compatibility to meet growing customer demands?"</li>
+    <li>Team growth: "Have you brought on new team members to support custom development?"</li>
+    <li>Trade shows: "Planning to exhibit at logistics/retail technology shows?"</li>
+</ol>
+
+<h6>Value Propositions</h6>
+<ul>
+    <li><strong>Global scaling protection</strong>: Secure "Theracon" brand as you expand across European markets</li>
+    <li><strong>Small business efficiency</strong>: Flat-rate pricing and automated monitoring (no resource drain for 3-person team)</li>
+    <li><strong>E-commerce security</strong>: Comprehensive domain/trademark protection against cybersquatting</li>
+</ul>
+
+<h6>Qualification Questions</h6>
+<ol>
+    <li>Current trademark registration status and infringement experiences</li>
+    <li>International expansion plans (which European markets?)</li>
+    <li>Domain portfolio size and monitoring processes</li>
+    <li>Decision-maker and annual IP protection budget</li>
+    <li>Current IP attorney relationship and pain points</li>
+</ol>
+
+<h6>Recommended Products</h6>
+<ul>
+    <li>Reverse Image Recognition Search</li>
+    <li>Trademark Search & Registration</li>
+    <li>Online Brand Protection</li>
+    <li>Counterfeit Product Detection</li>
+    <li>Trademark Surveillance/Monitoring</li>
+</ul>
+
+<h6>Objection Handling</h6>
+<ul>
+    <li><strong>"We're already registered"</strong>: Company registration ≠ trademark protection; no federal protection or legal recourse</li>
+    <li><strong>"Too expensive"</strong>: Rebranding costs 5% of turnover vs. $275-325 one-time fee; losing brand equity is far costlier</li>
+</ul>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Icebreakers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="icebreakers">
+                                
+<ol>
+    <li>I noticed you're offering customized scanner mounts and holsters for brands like Zebra, Honeywell, and Datalogic - are you currently expanding your product line or adding new device compatibility to meet growing customer demands?</li>
+
+    <li>You've been actively showcasing individual solutions for various industries - have you recently brought on new team members to support your custom development and manufacturing capabilities?</li>
+
+    <li>I see you're emphasizing ergonomics and process optimization in your recent posts - are you planning to exhibit at any upcoming logistics or retail technology trade shows to demonstrate these solutions?</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-icebreakers">Feedback: </label>
+                                    <select id="feedback-icebreakers" class="feedback-dropdown" onchange="updateFeedback('icebreakers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>LinkedIn Prospect Research</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="linkedin_prospect_research">
+                                
+<h6>Based on the context provided, here are the 3 latest and most important LinkedIn posts from Theracon:</h6>
+
+<ol>
+    <li><strong>2 months ago</strong>: Theracon promotes customized scanner mounts for devices from Zebra, Honeywell, Datalogic, Ingenico, and Verifone, emphasizing robust, adjustable solutions with flexible mounting options and optional company branding.</li>
+
+    <li><strong>2 months ago</strong>: Theracon highlights individualized tablet holders designed for industrial, logistics, and stationary processes, offering precise fit, robustness, flexibility, and ergonomic optimization for B2B environments.</li>
+
+    <li><strong>2 months ago</strong>: Theracon introduces custom holsters and cases tailored to specific business needs for devices from Zebra, Honeywell, Datalogic, Ingenico, and Verifone, featuring additional compartments, company logo options, and process-specific adaptations.</li>
+</ol>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-linkedin_prospect_research">Feedback: </label>
+                                    <select id="feedback-linkedin_prospect_research" class="feedback-dropdown" onchange="updateFeedback('linkedin_prospect_research', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Customized Value Proposition</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="customized_value_proposition">
+                                
+<p><strong>Protect your brand identity as you scale globally</strong>: As a German wholesale distributor working with major brands like Zebra, Honeywell, and Datalogic, securing trademark protection for your "Theracon" brand and product lines ensures your mounting solutions remain distinctively yours as you expand across European markets.</p>
+
+<p><strong>Streamlined trademark management for small businesses</strong>: With only 3 employees, you need efficient IP protection without the overhead. Our flat-rate pricing and automated monitoring help small distributors like Theracon safeguard their brand and customized product offerings without diverting resources from core operations.</p>
+
+<p><strong>Secure your e-commerce presence across channels</strong>: Operating in online and mail-order trade requires comprehensive domain and trademark protection to prevent cybersquatting and marketplace infringement—especially critical for B2B distributors whose reputation depends on being the authentic source for specialized POS and AIDC accessories.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-customized_value_proposition">Feedback: </label>
+                                    <select id="feedback-customized_value_proposition" class="feedback-dropdown" onchange="updateFeedback('customized_value_proposition', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section10">
+                            <div class="card-header" onclick="toggleCard('section10')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h6>5 Most Relevant Qualification Questions for Theracon</h6>
+
+<p>Based on Theracon's profile as a small wholesale/e-commerce distributor of POS and AIDC equipment, here are the 5 most important questions to ask:</p>
+
+<h6>1. <strong>Brand Protection Current State</strong></h6>
+<p><em>"Do you currently have any registered trademarks for your company name 'Theracon' or any product lines, and have you experienced any issues with brand infringement or counterfeit products in your industry?"</em></p>
+
+<p><strong>Why this matters:</strong> As a distributor working with major brands (Zebra, Honeywell, Datalogic), understanding their current IP protection status reveals immediate needs and pain points.</p>
+
+<h6>2. <strong>International Expansion Plans</strong></h6>
+<p><em>"You're currently based in Germany - are you planning to expand your e-commerce operations into other European markets or internationally, and if so, which markets are priorities?"</em></p>
+
+<p><strong>Why this matters:</strong> Digip specializes in international trademark protection. With 243 LinkedIn followers and online/mail-order business model, expansion could create urgent trademark needs across multiple jurisdictions.</p>
+
+<h6>3. <strong>Domain Portfolio Management</strong></h6>
+<p><em>"How many domains do you currently manage for your e-commerce business, and do you have a process in place to monitor and protect domain names related to your brand across different markets?"</em></p>
+
+<p><strong>Why this matters:</strong> E-commerce businesses are particularly vulnerable to domain squatting and cybersquatting. Digip offers domain management services that could be highly relevant.</p>
+
+<h6>4. <strong>Budget and Decision-Making Process</strong></h6>
+<p><em>"As a 3-person team, who makes decisions about legal and IP protection services, and what budget range do you typically allocate for brand protection and legal services annually?"</em></p>
+
+<p><strong>Why this matters:</strong> Small team means streamlined decision-making. Digip's flat-rate pricing (starting at €40/month) and 80% cost reduction could be very attractive to a small business.</p>
+
+<h6>5. <strong>Current Pain Points with IP Management</strong></h6>
+<p><em>"Are you currently working with trademark attorneys or law firms for IP protection? If so, what challenges are you facing with the current process - whether it's cost, complexity, time, or managing multiple jurisdictions?"</em></p>
+
+<p><strong>Why this matters:</strong> This uncovers dissatisfaction with current solutions and opens the door to position Digip's streamlined, digital platform as the solution (similar to how they helped Gudrun Sjöden cut workload by 80%).</p>
+
+<p><strong>These questions follow a logical flow:</strong> assess current state → understand growth plans → identify specific needs → qualify budget/decision-maker → uncover pain points that Digip solves.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section12">
+                            <div class="card-header" onclick="toggleCard('section12')">
+                                <h5>Handling Objection</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="handling_objection">
+                                
+<h6>Overcoming Trademark Objections</h6>
+
+<h6>Objection 1: "We don't need trademark protection - we already have our company registered"</h6>
+
+<p><strong>Key Arguments:</strong></p>
+
+<ul>
+<li><strong>Company registration ≠ Trademark protection</strong>: Company registration only protects your business name locally/within your state, while trademark registration provides nationwide/international protection</li>
+<li><strong>Limited scope</strong>: Company registration doesn't protect your products, services, logos, or slogans - only trademark registration does</li>
+<li><strong>Risk of losing your name</strong>: Someone else can register YOUR company name as a trademark and legally force you to stop using it or rebrand entirely</li>
+<li><strong>No legal recourse</strong>: Without trademark registration, you cannot file federal lawsuits for infringement or stop competitors from using similar names</li>
+</ul>
+
+<h6>Objection 2: "Trademark registration is too expensive for a small business like ours"</h6>
+
+<p><strong>Key Arguments:</strong></p>
+
+<ul>
+<li><strong>Cost of NOT trademarking is higher</strong>: Rebranding can cost up to 5% of business turnover - far more expensive than registration fees ($275-325 USD for single class)</li>
+<li><strong>Avoid costly legal battles</strong>: Without trademark protection, defending your brand or resolving disputes costs significantly more in legal fees</li>
+<li><strong>Protect your most valuable asset</strong>: Your brand is often your company's most valuable asset - small investment now prevents massive losses later</li>
+<li><strong>One-time investment</strong>: Registration lasts 10+ years with renewal, providing long-term protection for a relatively small upfront cost</li>
+<li><strong>Risk of losing everything</strong>: If someone else trademarks your name first, you could lose all the brand equity and customer trust you've built</li>
+</ul>
+
+<p><strong>Bottom line</strong>: The cost of trademark registration is minimal compared to the cost of rebranding, legal disputes, or losing your business name entirely.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-handling_objection">Feedback: </label>
+                                    <select id="feedback-handling_objection" class="feedback-dropdown" onchange="updateFeedback('handling_objection', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section14">
+                            <div class="card-header" onclick="toggleCard('section14')">
+                                <h5>Fundings</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="fundings">
+                                
+<p>No funding events found</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-fundings">Feedback: </label>
+                                    <select id="feedback-fundings" class="feedback-dropdown" onchange="updateFeedback('fundings', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
