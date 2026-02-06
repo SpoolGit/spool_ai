@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Prospect Persona
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Value Propositions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pre-Call Hypotheses
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                Current Situation Analysis
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                Strategic Drivers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Identified Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Opening Scripts
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">ioanna@dextego.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">gatlinm@wpunj.edu</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2026-02-09T09:00:00-05:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                
+<p>Dextego targets leadership at WPUNJ’s Cotsakos College of Business to solve 'coaching bottlenecks' using AI-powered role-play and behavioral intelligence. By providing students with 24/7 personalized feedback and objective analytics (e.g., DISC/OCEAN), Dextego helps faculty scale high-frequency practice without increasing their workload. The core value proposition focuses on shortening graduate career ramp-up times by 50%, maintaining the program's top-tier ranking, and integrating AI-literacy into the sales curriculum to improve student employability.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                
+<h3>How do you currently scale personalized feedback for student role-plays across the Professional Sales program?</h3>
+<p>This question explores the current strategies employed to provide individualized feedback to students participating in role-playing exercises within the Professional Sales program. It aims to understand the scalability of these feedback mechanisms.</p>
+
+<h3>What methods are you using to measure 'soft skills' like empathy, adaptability, and influence in your students beyond subjective grading?</h3>
+<p>This question delves into the methods used to assess crucial soft skills, such as empathy, adaptability, and influence, in students, going beyond traditional subjective grading. It seeks to identify objective or data-driven approaches used for evaluation.</p>
+
+<h3>How is the Cotsakos College of Business currently integrating AI into the curriculum to prepare students for the 'Future of Sales'?</h3>
+<p>This question focuses on the integration of Artificial Intelligence (AI) within the Cotsakos College of Business curriculum, particularly in the context of preparing students for the evolving landscape of the sales profession. It aims to understand specific AI-related initiatives and their impact.</p>
+
+<h3>What is the current 'ramp-up' time for your graduates once they enter their first B2B sales roles, and how are you working to shorten it?</h3>
+<p>This question examines the time it takes for graduates to become fully productive in their initial B2B sales positions. It also explores strategies implemented to reduce this 'ramp-up' period and accelerate their professional development.</p>
+
+<h3>To what extent are you incorporating behavioral science (like DISC or OCEAN profiles) into practical sales exercises?</h3>
+<p>This question investigates the use of behavioral science principles, such as DISC or OCEAN profiles, within practical sales exercises. It aims to understand the degree to which these concepts are integrated into the curriculum and their effectiveness in enhancing sales skills.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pre-Call Hypotheses</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pre-call_hypotheses">
+                                
+<p>1. The Professional Sales program relies heavily on manual, peer-to-peer, or faculty-led role-plays, which limits the frequency of practice per student.</p>
+<p>2. There is a strategic push within the Cotsakos College of Business to adopt cutting-edge technology following their recent 'Bright Ideas Research Awards' recognition.</p>
+<p>3. Faculty members are overwhelmed by the 'physics problem' of being unable to provide real-time coaching at the moment a student needs it most (e.g., right before a competition or internship interview).</p>
+<p>4. Graduates face challenges in transitioning from 'scripted' sales training to the 'messy middle' of real-world stakeholder influence.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pre-call_hypotheses">Feedback: </label>
+                                    <select id="feedback-pre-call_hypotheses" class="feedback-dropdown" onchange="updateFeedback('pre-call_hypotheses', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>Strategic Drivers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="strategic_drivers">
+                                
+<p><strong>Academic Excellence &amp; Rankings:</strong> Maintaining their status as a top-tier school for professional sales and financial planning.</p>
+<p><strong>Student Employability:</strong> Increasing the 'win rate' of students securing high-quality placements at leading B2B organizations.</p>
+<p><strong>Innovation in Pedagogy:</strong> Integrating AI not just as a tool, but as a core component of the talent development lifecycle.</p>
+<p><strong>Operational Efficiency:</strong> Reducing the administrative and coaching burden on faculty while increasing the volume of student practice sessions.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-strategic_drivers">Feedback: </label>
+                                    <select id="feedback-strategic_drivers" class="feedback-dropdown" onchange="updateFeedback('strategic_drivers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Opening Scripts</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="opening_scripts">
+                                
+<p><strong>The Innovation Angle:</strong> 'I noticed WPUNJ faculty recently received the Bright Ideas Research Awards. At Dextego, we’re helping top sales programs transition from episodic training to a continuous, AI-powered system that focuses on the behavioral intelligence your research likely highlights as critical for business impact.'</p>
+<p><strong>The Career Readiness Angle:</strong> 'WPUNJ is known for producing top-tier sales talent. We’ve found that even the best students can shorten their professional ramp-up time by 50% when they have an AI coach like 'Tego' to help them master the 'power skills' of influence and adaptability before they even graduate.'</p>
+<p><strong>The Faculty Empowerment Angle:</strong> 'Dean [Name], most sales educators tell us their biggest challenge isn't teaching the material, it's the 'physics problem' of coaching every student individually. Dextego acts as an AI-teaching assistant that provides personalized, 24/7 role-play feedback, allowing your faculty to focus on high-level strategy and mentorship.'</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-opening_scripts">Feedback: </label>
+                                    <select id="feedback-opening_scripts" class="feedback-dropdown" onchange="updateFeedback('opening_scripts', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Prospect Persona</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_persona">
+                                
+<p>The ideal contact is likely the Director of the Russ Berrie Institute for Professional Sales or a Dean within the Cotsakos College of Business at WPUNJ. This individual is focused on student outcomes, career readiness, and maintaining the university's national reputation in professional sales education. They are strategic thinkers who value 'human-centered' innovation and are looking for ways to provide students with a competitive edge in an AI-driven job market. They likely struggle with the balance of providing personalized, high-frequency coaching to a large student body with limited faculty hours.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_persona">Feedback: </label>
+                                    <select id="feedback-prospect_persona" class="feedback-dropdown" onchange="updateFeedback('prospect_persona', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Value Propositions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="value_propositions">
+                                
+<p><strong>Scalable AI-Powered Role-Play:</strong> Dextego allows students to practice high-stakes conversations (cold calls, discovery, negotiation) in a safe, 24/7 environment, providing instant feedback that saves faculty hours.</p>
+<p><strong>Behavioral Intelligence Mastery:</strong> Equip students with the ability to identify buyer personality traits (DISC/OCEAN) and adapt their communication style in real-time—a core 'power skill' taught at top sales programs.</p>
+<p><strong>Objective Skill Analytics:</strong> Replace subjective feedback with proprietary scores (Coachability, Pitch Precision, Influence Score) to track student progression and provide data-backed career readiness reports.</p>
+<p><strong>Faster Career Ramp-up:</strong> Leverage Dextego’s proven result of 50% faster ramp times to market WPUNJ graduates as 'ready-to-perform' assets for corporate partners.</p>
+<p><strong>AI-Enabled Playbook Integration:</strong> Upload the university's specific sales methodology into the platform so students practice according to the WPUNJ 'way' daily.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-value_propositions">Feedback: </label>
+                                    <select id="feedback-value_propositions" class="feedback-dropdown" onchange="updateFeedback('value_propositions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>Current Situation Analysis</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="current_situation_analysis">
+                                
+<p>WPUNJ is a prominent public university with a high-performing Business College (Cotsakos) specifically recognized for 'Professional Sales.' They serve approximately 9,400 students and have a tech stack that includes Salesforce and Marketo, indicating a sophisticated understanding of CRM and marketing automation. The university emphasizes faculty mentorship and small class sizes, which Dextego can amplify rather than replace. They are deeply committed to diversity (Hispanic-Serving Institution) and community engagement, aligning with Dextego's 'Skills For All' values.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-current_situation_analysis">Feedback: </label>
+                                    <select id="feedback-current_situation_analysis" class="feedback-dropdown" onchange="updateFeedback('current_situation_analysis', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Identified Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="identified_pain_points">
+                                
+<p><strong>Coaching Bottlenecks:</strong> Faculty can't be everywhere at once; students only get 'episodic' coaching rather than continuous reinforcement.</p>
+<p><strong>Skill Decay:</strong> Students may learn frameworks in class but lose the 'muscle memory' of execution between semesters.</p>
+<p><strong>Subjectivity in Soft Skills:</strong> Difficulty in providing objective, data-driven feedback on 'human' traits like presence and trust.</p>
+<p><strong>Technological Gap:</strong> Ensuring the curriculum remains relevant as employers increasingly look for 'AI-literate' sales talent who understand behavioral intelligence.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-identified_pain_points">Feedback: </label>
+                                    <select id="feedback-identified_pain_points" class="feedback-dropdown" onchange="updateFeedback('identified_pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
