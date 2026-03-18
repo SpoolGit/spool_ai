@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Partner Persona & Influence
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                Synergy Discovery Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Mutual Value Proposition (MVP)
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Ecosystem Fit & Integration Hypotheses
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                Market Overlap Analysis
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                Strategic Alignment Drivers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Friction Points & Obstacles
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Partnership 'Crawl-Walk-Run' Roadmap
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">vaios@theupsetpartners.com</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">greg@gtmengine.ai</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2026-02-25T09:00:00+02:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                <p>This partnership merges Upset Partners&rsquo; 'Probound' AI engine and 'Co-founder as a Service' model with GTM Engine&rsquo;s AI-native RevOps infrastructure to create an end-to-end 'Predictable Revenue &amp; Clean Data' stack. Upset Partners generates high-intent pipeline 35-60 days ahead of the market, while GTM Engine automates data capture and normalization, eliminating the '70% Admin Tax' for B2B SaaS clients. Strategically, Upset Partners serves as an implementation and international expansion bridge for GTM Engine in EMEA/MENA, while GTM Engine provides the technical foundation for Upset's high-tier growth services. The collaboration scales from co-marketing on GTM philosophy to a fully integrated motion where predictive signals drive deal health scoring and standardized CRM automation.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>Synergy Discovery Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="synergy_discovery_questions">
+                                <ol>
+  <li>'Greg, knowing your focus on first-principles engineering and speed to production, how seamlessly can a service partner like us deploy GTM Engine for an early-stage client starting from scratch?'</li>
+  <li>'Robert, regarding your newly launched Partner Program, what does the ideal profile of a GTM consultancy look like for you, and where do you see them driving the most value for GTM Engine?'</li>
+  <li>'Our Probound engine identifies buyer intent 35-60 days before the competition. How can GTM Engine ingest these early pre-intent signals to initiate deal tracking before the first meeting even occurs?'</li>
+  <li>'Vaios and Upset Partners focus heavily on the 'Search' and 'Sales' phases of the 4S framework. How much of your current product roadmap is focused on top-of-funnel outbound data capture versus mid-funnel deal execution?'</li>
+  <li>'What are the most common friction points you see when an agency tries to implement GTM Engine into a client's existing 'Frankenstack'?'</li>
+</ol>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-synergy_discovery_questions">Feedback: </label>
+                                    <select id="feedback-synergy_discovery_questions" class="feedback-dropdown" onchange="updateFeedback('synergy_discovery_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Ecosystem Fit & Integration Hypotheses</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="ecosystem_fit_&_integration_hypotheses">
+                                <h3>Hypothesis 1: Toolchain Harmony</h3>
+<p>Upset Partners uses tools like Clay, Apollo, Lemlist, and Aircall for outbound activation. GTM Engine can act as the 'Nervous System' that automatically ingests unstructured data from these disparate tools and normalizes it into the client's Salesforce/HubSpot, eliminating manual RevOps work for Upset's team.</p>
+<h3>Hypothesis 2: 'Champion Language' Feedback Loop</h3>
+<p>GTM Engine excels at capturing the exact words and buying triggers used by champions. Upset Partners can use this structured conversational data to continuously refine the 'Service' (Product-Market Fit) and 'Search' phases of their 4S framework for mutual clients.</p>
+<h3>Hypothesis 3: Strategic Service Layer</h3>
+<p>Upset Partners can use GTM Engine as the foundational technical substrate for their 'Probound Full Engine' (€3.9k + 15% Rev Share) tier, adding massive perceived and actual value to their highest-tier offering.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-ecosystem_fit_&_integration_hypotheses">Feedback: </label>
+                                    <select id="feedback-ecosystem_fit_&_integration_hypotheses" class="feedback-dropdown" onchange="updateFeedback('ecosystem_fit_&_integration_hypotheses', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>Strategic Alignment Drivers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="strategic_alignment_drivers">
+                                <p>Both founders share a fundamental philosophy: traditional GTM is broken. Vaios (Upset) posts about how 'AI amplifies bad GTM systems' and 'AI SDRs won't save your pipeline'. GTM Engine posts that 'replacing your system of record to solve a data quality problem is like buying a new kitchen because your groceries kept going bad.' They both believe that execution is cheap, but timing, clean data, and correct system design are the real moats. GTM Engine's strategic goal is to embed their platform into as many revenue teams as possible to defend against 'rip-and-replace' AI CRMs. Upset Partners' goal is to deliver compounding, predictable growth for clients without being bogged down by operational friction. Partnering aligns these goals perfectly.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-strategic_alignment_drivers">Feedback: </label>
+                                    <select id="feedback-strategic_alignment_drivers" class="feedback-dropdown" onchange="updateFeedback('strategic_alignment_drivers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Partnership 'Crawl-Walk-Run' Roadmap</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="partnership_'crawl-walk-run'_roadmap">
+                                <h3>Crawl (Alignment &amp; Co-Marketing)</h3>
+<p>Upset Partners officially joins the GTM Engine Partner Program. The founders co-author a LinkedIn piece or host a joint webinar on 'Why AI Amplifies Bad Sales Data: Fixing the CRM Foundation Before Scaling Outbound,' leveraging their shared GTM philosophies.</p>
+<h3>Walk (Standardized Implementation)</h3>
+<p>Upset Partners standardizes GTM Engine as the recommended RevOps platform for clients entering the 'Scale' phase of their 4S framework. Upset acts as the certified implementation layer, onboarding 2-3 joint clients to prove the joint value proposition and speed-to-value.</p>
+<h3>Run (Integrated GTM Motion)</h3>
+<p>Deep product synergy. Upset's Probound predictive signals (35-60 day buying windows) are fed directly into GTM Engine's deal health scoring algorithm. Upset Partners becomes the premier implementation partner for GTM Engine in the EMEA/MENA regions, and GTM Engine actively refers early-stage clients who lack a dedicated GTM strategy to Upset Partners.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-partnership_'crawl-walk-run'_roadmap">Feedback: </label>
+                                    <select id="feedback-partnership_'crawl-walk-run'_roadmap" class="feedback-dropdown" onchange="updateFeedback('partnership_'crawl-walk-run'_roadmap', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Partner Persona & Influence</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="partner_persona_&_influence">
+                                <p>The primary contacts are Greg Lee (CTO/Co-Founder) and Robert Moseley IV (CEO). Greg's profile reveals a deep 'first-principles' builder mentality; he values precision, speed to production, and creating systems without structural bloat. He recently highlighted the importance of asking 'How fast can you go from feature request to production?' Robert drives the commercial vision and the newly launched Partner Program.</p>
+<p>In this ecosystem, Greg controls technical feasibility and integration depth, while Robert controls the Go-To-Market strategy for partnerships. Their personal KPIs likely revolve around accelerating platform adoption, establishing a robust network of GTM service providers (agencies/consultancies) who can implement their tool, and proving that their 'data layer' approach is superior to 'rip-and-replace' AI CRMs.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-partner_persona_&_influence">Feedback: </label>
+                                    <select id="feedback-partner_persona_&_influence" class="feedback-dropdown" onchange="updateFeedback('partner_persona_&_influence', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Mutual Value Proposition (MVP)</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="mutual_value_proposition_(mvp)">
+                                <h3>The ultimate 'Predictable Revenue & Clean Data' stack.</h3>
+<p>Upset Partners provides the 'Co-founder as a Service' hands-on execution and the Probound AI engine, which identifies high-value buyers 35-60 days before they convert. GTM Engine provides the AI-native RevOps infrastructure that instantly captures, cleans, and structures every interaction (calls, emails, meetings) generated by Upset Partners' outreach.</p>
+<p>Together, they offer early and growth-stage B2B SaaS companies a turn-key GTM motion: Upset generates the high-quality pipeline, and GTM Engine ensures 100% CRM data accuracy and visibility without the '70% Admin Tax'. This allows Upset Partners to guarantee a 'Clean CRM by Monday' for their clients, while GTM Engine gains a highly capable distribution and implementation partner.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-mutual_value_proposition_(mvp)">Feedback: </label>
+                                    <select id="feedback-mutual_value_proposition_(mvp)" class="feedback-dropdown" onchange="updateFeedback('mutual_value_proposition_(mvp)', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>Market Overlap Analysis</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="market_overlap_analysis">
+                                <p>Both companies target B2B software and SaaS organizations. Upset Partners heavily targets early-stage startups, scale-ups, and VC-backed teams (Antler, 500, Hub71) looking for rapid market entry and predictable growth. GTM Engine targets high-performing sales teams, RevOps leaders, and CROs, primarily in the mid-market space using Salesforce or HubSpot. The strategic overlap exists in the 'Scale-Up' phase: startups that have recently raised capital and need to professionalize their chaotic sales operations. Geographically, GTM Engine is US-based (San Francisco), while Upset Partners has a strong foothold in Europe (Greece) and MENA. Upset can act as an international expansion channel for GTM Engine, while GTM Engine provides US-enterprise-grade infrastructure to Upset's global clients.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-market_overlap_analysis">Feedback: </label>
+                                    <select id="feedback-market_overlap_analysis" class="feedback-dropdown" onchange="updateFeedback('market_overlap_analysis', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Friction Points & Obstacles</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="friction_points_&_obstacles">
+                                <h3>Friction 1: Client Stage Mismatch</h3>
+<p>Upset works with early-stage founders who may not yet have complex Salesforce/HubSpot instances, whereas GTM Engine thrives on optimizing existing CRMs.</p>
+<p>Strategy: Frame GTM Engine as 'preventative infrastructure' that helps startups build the right data foundation from Day 1, avoiding tech debt.</p>
+<h3>Friction 2: Potential Product Overlap</h3>
+<p>Vaios is also the founder of 'Spool-App' (pre-meeting intelligence).</p>
+<p>Strategy: Clearly delineate API and use-case boundaries. Position Spool as the pre-meeting prep tool and GTM Engine as the post-interaction capture and CRM sync tool. They are complementary, not competitive.</p>
+<h3>Friction 3: Implementation Bandwidth</h3>
+<p>GTM Engine relies on partners who can implement swiftly.</p>
+<p>Strategy: Upset Partners must demonstrate their deep technical competence in RevOps (specifically leveraging George Giatsidis's expertise in CRM automation and data orchestration) to prove they won't be a drain on GTM Engine's support team.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-friction_points_&_obstacles">Feedback: </label>
+                                    <select id="feedback-friction_points_&_obstacles" class="feedback-dropdown" onchange="updateFeedback('friction_points_&_obstacles', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
