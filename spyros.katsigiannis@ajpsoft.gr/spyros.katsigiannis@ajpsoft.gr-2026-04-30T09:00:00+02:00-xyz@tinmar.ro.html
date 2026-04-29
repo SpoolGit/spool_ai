@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cheat Sheet</title>
+    
+    <!-- External CSS Dependencies -->
+    <!-- Bootstrap CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Base body styles to prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles for navigation */
+        #sidebar {
+            min-height: calc(100vh - 56px);
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        /* Collapsed sidebar state */
+        #sidebar.collapsed {
+            margin-left: -100%;
+        }
+        
+        /* Navigation link styles */
+        #sidebar .nav-link {
+            color: #333;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        
+        /* Hover and active states for navigation links */
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        #sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        /* Main content area styles */
+        .content {
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .content.expanded {
+            margin-left: 0;
+        }
+        
+        /* Card component styles */
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card header styles with flex layout */
+        .card-header {
+            cursor: pointer;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h5 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Card body styles with expand/collapse functionality */
+        .card-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .card.expanded .card-body {
+            display: block;
+        }
+        
+        .card.expanded .card-header {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        /* Expand/collapse icon styles */
+        .card.expanded .expand-icon::after {
+            content: "-";
+        }
+        
+        .expand-icon::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Sidebar toggle button styles */
+        #sidebarToggle {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        
+        /* Feedback dropdown styles */
+        .feedback-dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .feedback-dropdown:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .feedback-container {
+            margin-top: 15px;
+        }
+        
+        /* Responsive styles for mobile devices */
+        @media (max-width: 767.98px) {
+            #sidebar {
+                margin-left: -100%;
+                position: fixed;
+                z-index: 1000;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+            }
+            
+            #sidebar.show {
+                margin-left: 0;
+            }
+            
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-backdrop.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Toggle Button -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <h1 class="text-center flex-grow-1">Meeting Cheat Sheet</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-target="section1">
+                                Summary
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section2">
+                                Prospect Persona
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section3">
+                                Qualification Questions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section4">
+                                Value Propositions
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section5">
+                                Pre-Call Hypotheses
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section6">
+                                Current Situation Analysis
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section7">
+                                Strategic Drivers
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section8">
+                                Identified Pain Points
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-target="section9">
+                                Opening Scripts
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                <!-- Meeting Information Card -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="display: block;">
+                                <div class="row">
+                                    <!-- Seller Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Seller Email</small>
+                                                <strong id="seller-email" name="seller_email">spyros.katsigiannis@ajpsoft.gr</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prospect Email Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Prospect Email</small>
+                                                <strong id="prospect-email" name="prospect_email">xyz@tinmar.ro</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Meeting Date & Time Information -->
+                                    <div class="col-md-3 mb-2 mb-md-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Meeting Date & Time</small>
+                                                <strong id="meeting-datetime" name="meeting_datetime">2026-04-30T09:00:00+02:00</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Call Type Information -->
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-telephone-fill me-2"></i>
+                                            <div>
+                                                <small class="text-muted d-block">Call Type</small>
+                                                <strong id="call-type" name="call_type">Most probably first call - 0 notes found in CRM</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Layout for Sections -->
+                <div class="row">
+                    <!-- Left Column (Even-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        <div class="card expanded" id="section1">
+                            <div class="card-header" onclick="toggleCard('section1')">
+                                <h5>Summary</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="summary">
+                                <h3>Sales Cheatsheet: Neacsu Valentin-Razvan (Tinmar Energy)</h3>
+<p>This sales cheatsheet targets Neacsu Valentin-Razvan, the technical-minded IT Director at Tinmar Energy, Romania’s largest private energy provider. Tinmar is currently scaling from a B2B focus to an ambitious 3-million B2C household goal across 21 countries, which is straining their legacy architecture.</p>
+<p>The strategy focuses on positioning AJPSoft’s IEBS 4, NGAS, and ETRM solutions as high-performance, API-first tools capable of handling:</p>
+<ul>
+  <li>Complex hybrid tariffs (energy + insurance)</li>
+  <li>Automated gas allocations</li>
+  <li>Centralized cross-border trading</li>
+</ul>
+<p>To resonate with Neacsu’s software engineering background, the pitch should emphasize 'tariffs as software,' architectural scalability for the 'MyTin' digital ecosystem, and the reduction of manual IT bottlenecks caused by regulatory changes and massive data volume.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-summary">Feedback: </label>
+                                    <select id="feedback-summary" class="feedback-dropdown" onchange="updateFeedback('summary', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section3">
+                            <div class="card-header" onclick="toggleCard('section3')">
+                                <h5>Qualification Questions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="qualification_questions">
+                                <h3>1. Architecture &amp; Scalability (B2C Expansion):</h3>
+<ul>
+  <li>'As you scale towards your ambitious goal of 3 million residential customers, where is your current billing architecture experiencing the most friction—calculation speed, or the validation and exception reviews?'</li>
+</ul>
+
+<h3>2. System Interconnection (APIs):</h3>
+<ul>
+  <li>'How seamlessly does your current core billing system feed data into customer-facing platforms like the MyTin app and MyAccount portal? Are there manual syncs or latency issues?'</li>
+</ul>
+
+<h3>3. Complex Tariff Management:</h3>
+<ul>
+  <li>'With the introduction of complex packages (Gold, Silver) that include non-energy services like appliance insurance, how much custom IT intervention is required to configure and bill these hybrid tariffs?'</li>
+</ul>
+
+<h3>4. Wholesale Market &amp; Risk (ETRM):</h3>
+<ul>
+  <li>'Tinmar is trading across 21 countries and multiple platforms (OPCOM, HUPX, EEX). How are you currently centralizing transaction management and hedging risk across these fragmented markets?'</li>
+</ul>
+
+<h3>5. Natural Gas Specifics (NGAS):</h3>
+<ul>
+  <li>'For your growing Tinmar Gas division, how automated is your consumption profiling and correction factor application (e.g., Higher Calorific Power)?'</li>
+</ul>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-qualification_questions">Feedback: </label>
+                                    <select id="feedback-qualification_questions" class="feedback-dropdown" onchange="updateFeedback('qualification_questions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section5">
+                            <div class="card-header" onclick="toggleCard('section5')">
+                                <h5>Pre-Call Hypotheses</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="pre-call_hypotheses">
+                                <h3>Hypothesis 1: The B2B to B2C Transition is Straining Legacy Systems:</h3>
+<p>Tinmar's systems were likely built for high-volume, low-count industrial clients (B2B). Expanding to 3 million B2C households is likely causing massive validation bottlenecks and exception handling for operations and IT.</p>
+
+<h3>Hypothesis 2: Siloed Data Across Divisions:</h3>
+<p>With aggressive growth across Tinmar Energy, Gas, and Oil, plus wholesale trading across 21 countries, it's highly probable that data is fragmented. The IT team is likely spending too much time building custom ETL pipelines rather than innovating.</p>
+
+<h3>Hypothesis 3: 'Tariffs as Software' Nightmare:</h3>
+<p>Managing customized bundles (insurance + energy) and handling smart home/BESS meter data is forcing Tinmar's IT team to hardcode billing logic, making the system rigid and difficult to update when Romanian or EU regulations change.</p>
+
+<h3>Hypothesis 4: Manual Interventions in Gas:</h3>
+<p>With Tinmar Gas growing rapidly from 70 to 1,000+ major clients, the allocation management and correction factor calculations are likely highly manual or managed in sophisticated but fragile spreadsheets.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-pre-call_hypotheses">Feedback: </label>
+                                    <select id="feedback-pre-call_hypotheses" class="feedback-dropdown" onchange="updateFeedback('pre-call_hypotheses', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section7">
+                            <div class="card-header" onclick="toggleCard('section7')">
+                                <h5>Strategic Drivers</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="strategic_drivers">
+                                
+<h3>1. Massive B2C Market Capture:</h3>
+<p>Achieving their goal of 3 million residential households requires extreme operational efficiency and automated, error-free billing at scale.</p>
+<h3>2. International Expansion:</h3>
+<p>Licensing and operating in new markets (Croatia, Poland, Slovenia) requires a core system that can quickly adapt to new regional grid operators and regulatory frameworks.</p>
+<h3>3. Digital-First Customer Experience:</h3>
+<p>Reducing churn and winning customers via seamless digital onboarding, smart home integration, and transparent billing visible on the MyTin app.</p>
+<h3>4. Asset Value Creation (Renewables):</h3>
+<p>Maximizing ROI on their 23+ photovoltaic parks and BESS (Battery Energy Storage Systems) by efficiently trading the generated power and managing green certificates.</p>
+
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-strategic_drivers">Feedback: </label>
+                                    <select id="feedback-strategic_drivers" class="feedback-dropdown" onchange="updateFeedback('strategic_drivers', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card " id="section9">
+                            <div class="card-header" onclick="toggleCard('section9')">
+                                <h5>Opening Scripts</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="opening_scripts">
+                                <h3>Angle 1: Architecture &amp; Scalability (Tailored for Neacsu's IT background)</h3>
+<p>'Hi Neacsu, considering your background in software engineering, I imagine you view the push towards 3 million B2C customers as an architectural challenge just as much as a business one. At AJPSoft, we treat billing and tariff logic like software to eliminate edge-case exceptions. I'd love to share how our IEBS 4 architecture handles massive residential scaling without creating validation bottlenecks for your IT team.'</p>
+
+<h3>Angle 2: Seamless Integration &amp; Digital Experience</h3>
+<p>'Hi Neacsu, I noticed Tinmar's heavy emphasis on the 'MyTin' app and providing a seamless 3-step online migration for customers. We've built an energy billing system specifically designed with native APIs to interconnect seamlessly with customer-facing mobile apps and ERPs, ensuring that billing transparency flows directly to the consumer without manual IT syncs. Is API friction something your team is currently battling?'</p>
+
+<h3>Angle 3: Managing Trading &amp; Gas Complexity</h3>
+<p>'Hi Neacsu, with Tinmar expanding into 21 countries and aggressively growing the Gas division, managing cross-border wholesale transactions and complex gas profiling must be a data integration headache. AJPSoft provides specialized ETRM and Gas allocation software specifically built to centralize multi-market data. Are you currently looking for ways to consolidate these operations under one unified IT architecture?'</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-opening_scripts">Feedback: </label>
+                                    <select id="feedback-opening_scripts" class="feedback-dropdown" onchange="updateFeedback('opening_scripts', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- Right Column (Odd-numbered sections) -->
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+                        <div class="card" id="section2">
+                            <div class="card-header" onclick="toggleCard('section2')">
+                                <h5>Prospect Persona</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="prospect_persona">
+                                <h3>Name: Neacsu Valentin-Razvan</h3>
+<p>Role: Director of IT at Tinmar Energy S.A. (Romania).</p>
+
+<h4>Background &amp; Mindset</h4>
+<p>Neacsu has a highly technical background, graduating with a CS degree in 2022 and quickly rising from Software Engineer to IT Director within Tinmar. As a former Java mentor and developer, he thinks in terms of system architecture, API integrations, and code maintainability. He will resonate strongly with AJPSoft's philosophy that 'tariffs are software' and that edge cases (like mid-cycle tariff changes) define system maturity.</p>
+
+<h4>Meeting Expectations</h4>
+<p>He will expect a technical, architecture-focused discussion rather than marketing fluff. He needs to know how AJPSoft's solutions (IEBS 4, NGAS, ETRM) can securely and seamlessly integrate with Tinmar's digital initiatives (like the MyTin mobile app and MyAccount portal), and how the software architecture can handle the massive data scaling required for their goal of acquiring 3 million household customers.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-prospect_persona">Feedback: </label>
+                                    <select id="feedback-prospect_persona" class="feedback-dropdown" onchange="updateFeedback('prospect_persona', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section4">
+                            <div class="card-header" onclick="toggleCard('section4')">
+                                <h5>Value Propositions</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="value_propositions">
+                                <h3>1. Architectural Adaptability for Regulatory Change:</h3>
+<p>Highlight that AJPSoft's IEBS 4 is built so that regulatory updates or mid-cycle tariff changes don't require months of IT overhaul, freeing up Neacsu's engineering team.</p>
+
+<h3>2. Seamless 360-Degree Interconnection:</h3>
+<p>IEBS 4 features native interconnection capabilities specifically designed to feed ERPs, call centers, and digital portals (like MyTin), enabling the '3-step online process' Tinmar wants for seamless customer onboarding.</p>
+
+<h3>3. Handling Real Billing Complexity natively:</h3>
+<p>AJPSoft treats tariffs like software logic. We can natively support Tinmar's diverse pricing models (Standard, Silver, Gold), including non-energy add-ons and automated Green Certificate billing for your extensive solar portfolio.</p>
+
+<h3>4. Unified Trading & Risk Management:</h3>
+<p>Our ETRM suite consolidates local and international wholesale electricity market data, giving your trading desks a centralized tool for transaction management and hedging strategies to mitigate volatility across the 21 countries you operate in.</p>
+
+<h3>5. Specialized Gas Tooling (NGAS):</h3>
+<p>Provide highly specialized billing that automates allocation management and complex consumption profiling specific to natural gas networks, solving the headache of seasonal gas storage allocation.</p>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-value_propositions">Feedback: </label>
+                                    <select id="feedback-value_propositions" class="feedback-dropdown" onchange="updateFeedback('value_propositions', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section6">
+                            <div class="card-header" onclick="toggleCard('section6')">
+                                <h5>Current Situation Analysis</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="current_situation_analysis">
+                                <ul>
+  <li><strong>Company Scale:</strong> Romania's largest private energy supplier, active in 21 countries, &gt;€2 Billion turnover, 12,016+ GWh trading volume.</li>
+  <li><strong>Core Divisions:</strong> Electricity (Tinmar Energy), Gas (Tinmar Gas), Oil (Tinmar Oil), and Renewables (massive solar PV investments, BESS storage).</li>
+  <li><strong>Customer Base:</strong> Historically strong in B2B (Automobile Dacia, Vodafone), currently executing a massive B2C land grab aiming for 3 million household clients (1/3 of the Romanian market).</li>
+  <li><strong>Digital Ecosystem:</strong> Pushing a self-service model via 'MyTin' app and 'MyAccount' web portal.</li>
+  <li><strong>Key Stakeholders:</strong> Neacsu Valentin-Razvan (IT Director - key for architecture/integration), Operations/Billing Managers (end-users of IEBS/NGAS), and Trading Desk Leads (end-users of ETRM).</li>
+</ul>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-current_situation_analysis">Feedback: </label>
+                                    <select id="feedback-current_situation_analysis" class="feedback-dropdown" onchange="updateFeedback('current_situation_analysis', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card" id="section8">
+                            <div class="card-header" onclick="toggleCard('section8')">
+                                <h5>Identified Pain Points</h5>
+                                <span class="expand-icon"></span>
+                            </div>
+                            <div class="card-body" name="identified_pain_points">
+                                <h3>High Relevance (Critical Needs):</h3>
+<ul>
+  <li>Complex Invoicing: Struggling to generate 'friendly and easy to understand' invoices that consolidate active energy, transport fees, excise duties, green certificates, and third-party services (insurance).</li>
+  <li>Volume Scalability: The IT infrastructure needs to support the leap from thousands of B2B points to millions of low-voltage B2C data points.</li>
+  <li>Wholesale Market Volatility: Managing financial risk and transaction tracking across platforms in 21 countries.</li>
+</ul>
+<h3>Secondary/Optional Concerns:</h3>
+<ul>
+  <li>Smart Home / BESS Integration: As they launch battery storage and smart home services, managing the bi-directional load declarations and complex profiling.</li>
+  <li>Gas Allocation: Handling seasonal storage vs. winter delivery allocations securely as the gas portfolio scales.</li>
+</ul>
+                                
+                                <!-- Feedback Selection for Section -->
+                                <div class="feedback-container">
+                                    <label for="feedback-identified_pain_points">Feedback: </label>
+                                    <select id="feedback-identified_pain_points" class="feedback-dropdown" onchange="updateFeedback('identified_pain_points', this.value)">
+                                        <option value="">Not selected</option>
+                                        
+                                        <option value="Not selected">Not selected</option>
+                                        
+                                        <option value="Misleading content">Misleading content</option>
+                                        
+                                        <option value="Not valuable">Not valuable</option>
+                                        
+                                        <option value="Slightly valuable">Slightly valuable</option>
+                                        
+                                        <option value="Great content">Great content</option>
+                                        
+                                        <option value="You have nailed it">You have nailed it</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- External JavaScript Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Object to store user feedback selections
+        let feedbackSelections = {};
+        // Current page URL for tracking
+        const currentUrl = window.location.href;
+        // Google Apps Script endpoint for data storage
+        const url = "https://script.google.com/macros/s/AKfycbxDiMlipL6p6Xqou6uKOEErASx51sPwyB1BZ_xQX5cbuqYKO5dgi6OZZ26RtTEIo38/exec";
+        
+        // Function to toggle card expansion/collapse
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            
+            // Toggle expanded state
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+            
+            // Update sidebar active state
+            updateSidebarActiveState(cardId);
+        }
+        
+        // Function to update active state in sidebar navigation
+        function updateSidebarActiveState(cardId) {
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('data-target') === cardId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to send initial page load data
+        function sendPageLoadData() {
+            // Get email values from the page
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Prepare data for submission
+            const dataToSend = {
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text())
+            .then(data => console.log("Data sent successfully:", data))
+            .catch(error => console.error("Error sending data:", error));
+        }
+
+        // Function to send feedback data to Google Sheet
+        function sendFeedbackToGoogleSheet() {
+            // Get email values
+            const sellerEmail = document.querySelector('[name="seller_email"]').innerText.trim();
+            const prospectEmail = document.querySelector('[name="prospect_email"]').innerText.trim();
+
+            // Combine feedback with email data
+            const feedbackSelectionsWithEmails = {
+                ...feedbackSelections,
+                seller_email: sellerEmail,
+                prospect_email: prospectEmail,
+                docURL: currentUrl
+            };
+
+            // Send feedback data to Google Apps Script
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(feedbackSelectionsWithEmails),
+            })
+            .then(response => response.text())
+            .then(data => console.log("Feedback stored:", data))
+            .catch(error => console.error("Error saving feedback:", error));
+        }    
+
+        // Function to update and store feedback selections
+        function updateFeedback(sectionId, selectedValue) {
+            feedbackSelections[sectionId] = selectedValue;
+            
+            // Log selections for debugging
+            console.clear();
+            console.log("Updated Feedback Selections:");
+            console.table(feedbackSelections);
+            sendFeedbackToGoogleSheet();
+        }
+
+        // Initialize page functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.content');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            
+            // Toggle sidebar on button click
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                backdrop.classList.toggle('show');
+            });
+            
+            // Close sidebar when clicking backdrop (mobile)
+            backdrop.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                backdrop.classList.remove('show');
+            });
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        toggleCard(targetId);
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close sidebar on mobile after selection
+                        if (window.innerWidth < 768) {
+                            sidebar.classList.remove('show');
+                            backdrop.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    backdrop.classList.remove('show');
+                }
+            });
+            
+            // Send initial page load data
+            sendPageLoadData();
+        });
+    </script>
+</body>
+</html> 
